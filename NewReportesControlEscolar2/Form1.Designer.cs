@@ -36,7 +36,7 @@ namespace NewReportesControlEscolar2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(364, 72);
+            this.button1.Location = new System.Drawing.Point(448, 145);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace NewReportesControlEscolar2
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(371, 222);
+            this.button3.Location = new System.Drawing.Point(465, 299);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
