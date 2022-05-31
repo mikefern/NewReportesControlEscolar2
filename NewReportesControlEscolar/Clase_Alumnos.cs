@@ -4877,4 +4877,662 @@ namespace ProyectoLoboSostenido
             return Text;
         }
     }
+    public class Clase_Personas : Clase_Conecta
+    {
+        #region Propiedades
+        public string Curp { set; get; }
+        public string Nombre { set; get; }
+        public string Paterno { set; get; }
+        public string Materno { set; get; }
+        public string Calle { set; get; }
+        public string Colonia { set; get; }
+        public string Cp { set; get; }
+        public string Lugarnacimiento { set; get; }
+        public string Nacionalidad { set; get; }
+        public string EdoCivil { set; get; }
+        public string Telefono { set; get; }
+        public string Celular { set; get; }
+        public string Correo { set; get; }
+        public string Rfc { set; get; }
+        public string FechaNacimiento { set; get; }
+        public string Sexo { set; get; }
+        public string Campus { set; get; }
+        #endregion
+        #region Cosntructores
+        public Clase_Personas(string curp, string nombre, string paterno, string materno, string calle, string colonia, string cp, string lugarnacimiento, string nacionalidad, string edoCivil, string telefono, string celular, string correo, string rfc, string fechaNacimiento, string sexo, string campus)
+        {
+            Curp = curp;
+            Nombre = nombre;
+            Paterno = paterno;
+            Materno = materno;
+            Calle = calle;
+            Colonia = colonia;
+            Cp = cp;
+            Lugarnacimiento = lugarnacimiento;
+            Nacionalidad = nacionalidad;
+            EdoCivil = edoCivil;
+            Telefono = telefono;
+            Celular = celular;
+            Correo = correo;
+            Rfc = rfc;
+            FechaNacimiento = fechaNacimiento;
+            Sexo = sexo;
+            Campus = campus;
+        }
+        public Clase_Personas(string curp, string nombre, string paterno, string materno, string calle, string colonia, string cp, string nacionalidad, string edoCivil, string telefono, string celular, string correo, string rfc, string fechaNacimiento, string sexo, string campus)
+        {
+            Curp = curp;
+            Nombre = nombre;
+            Paterno = paterno;
+            Materno = materno;
+            Calle = calle;
+            Colonia = colonia;
+            Cp = cp;
+            // Lugarnacimiento = lugarnacimiento;
+            Nacionalidad = nacionalidad;
+            EdoCivil = edoCivil;
+            Telefono = telefono;
+            Celular = celular;
+            Correo = correo;
+            Rfc = rfc;
+            FechaNacimiento = fechaNacimiento;
+            Sexo = sexo;
+            Campus = campus;
+        }
+        public Clase_Personas()
+        {
+
+        }
+        #endregion
+        #region Métodos
+        public bool Limpiar() { return false; }
+        public bool InsertarPersona()
+        {
+            string nomProce = "addPersonas";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("Curp", Curp),
+                new Clase_Parametros("Nombre", Nombre),
+                new Clase_Parametros("Paterno", Paterno),
+                new Clase_Parametros("Materno", Materno),
+                new Clase_Parametros("Calle", Calle),
+                new Clase_Parametros("Colonia", Colonia),
+                new Clase_Parametros("Cp", Cp),
+                new Clase_Parametros("LugarNacimiento", Lugarnacimiento),
+                new Clase_Parametros("Nacionalidad", Nacionalidad),
+                new Clase_Parametros("EdoCivil", EdoCivil),
+                new Clase_Parametros("Telefono", Telefono),
+                new Clase_Parametros("Celular", Celular),
+                new Clase_Parametros("Correo", Correo),
+                new Clase_Parametros("Rfc", Rfc),
+                new Clase_Parametros("FechaNacimiento", FechaNacimiento),
+                new Clase_Parametros("Sexo", Sexo),
+                new Clase_Parametros("Campus", Campus)
+            };
+
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool InsertarVacaciones(string idEmp, int DiasCorres, int DiasDisf, int DiasPendientes, int anioInicio, int anioFin, string fechaInicio, string fechaFin, string fechaReintegro, string Observaciones)
+        {
+            string nomProce = "VacacionesMovimientos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                /*
+               	@idEmp nvarchar(20),
+	            @DiasCorres int,
+	            @DiasDisf int,
+	            @DiasPendientes int,
+	            @anioInicio int,
+	            @anioFin int,
+	            @fechaInicio date,
+	            @fechaFin date,
+	            @fechaReintegro date,
+	            @Observaciones nvarchar(max),
+	            @tipo int,
+	            @id int = 0
+                 */
+                new Clase_Parametros("idEmp", idEmp),
+                new Clase_Parametros("DiasCorres", DiasCorres.ToString()),
+                new Clase_Parametros("DiasDisf", DiasDisf.ToString()),
+                new Clase_Parametros("DiasPendientes", DiasPendientes.ToString()),
+                new Clase_Parametros("anioInicio", anioInicio.ToString()),
+                new Clase_Parametros("anioFin", anioFin.ToString()),
+                new Clase_Parametros("fechaInicio", fechaInicio),
+                new Clase_Parametros("fechaFin", fechaFin),
+                new Clase_Parametros("fechaReintegro", fechaReintegro),
+                new Clase_Parametros("Observaciones", Observaciones),
+                new Clase_Parametros("tipo", "1"),
+
+            };
+
+            if (ConsultarParametros(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ModificarVacaciones(string idEmp, int DiasCorres, int DiasDisf, int DiasPendientes, int anioInicio, int anioFin, string fechaInicio, string fechaFin, string fechaReintegro, string Observaciones, int id)
+        {
+            string nomProce = "VacacionesMovimientos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                /*
+               	@idEmp nvarchar(20),
+	            @DiasCorres int,
+	            @DiasDisf int,
+	            @DiasPendientes int,
+	            @anioInicio int,
+	            @anioFin int,
+	            @fechaInicio date,
+	            @fechaFin date,
+	            @fechaReintegro date,
+	            @Observaciones nvarchar(max),
+	            @tipo int,
+	            @id int = 0
+                 */
+                new Clase_Parametros("idEmp", idEmp),
+                new Clase_Parametros("DiasCorres", DiasCorres.ToString()),
+                new Clase_Parametros("DiasDisf", DiasDisf.ToString()),
+                new Clase_Parametros("DiasPendientes", DiasPendientes.ToString()),
+                new Clase_Parametros("anioInicio", anioInicio.ToString()),
+                new Clase_Parametros("anioFin", anioFin.ToString()),
+                new Clase_Parametros("fechaInicio", fechaInicio),
+                new Clase_Parametros("fechaFin", fechaFin),
+                new Clase_Parametros("fechaReintegro", fechaReintegro),
+                new Clase_Parametros("Observaciones", Observaciones),
+                new Clase_Parametros("tipo", "2"),
+                new Clase_Parametros("id", id.ToString()),
+
+            };
+
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarPersona()
+        {
+            string nomProce = "upPersonas";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("Curp", Curp),
+                new Clase_Parametros("Nombre", Nombre),
+                new Clase_Parametros("Paterno", Paterno),
+                new Clase_Parametros("Materno", Materno),
+                new Clase_Parametros("Calle", Calle),
+                new Clase_Parametros("Colonia", Colonia),
+                new Clase_Parametros("Cp", Cp),
+                new Clase_Parametros("LugarNacimiento", Lugarnacimiento),
+                new Clase_Parametros("Nacionalidad", Nacionalidad),
+                new Clase_Parametros("EdoCivil", EdoCivil),
+                new Clase_Parametros("Telefono", Telefono),
+                new Clase_Parametros("Celular", Celular),
+                new Clase_Parametros("Correo", Correo),
+                new Clase_Parametros("Rfc", Rfc),
+                new Clase_Parametros("FechaNacimiento", FechaNacimiento),
+                new Clase_Parametros("Sexo", Sexo),
+                new Clase_Parametros("Campus", Campus)
+            };
+
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaPersonas(string valor1)
+        {
+            string nomStore = "consultaPersonas";
+            string opcion1 = valor1;
+            //string opcion2 = valor2;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("Curp", opcion1)
+            };
+            // par.Add(new Parametros("Rfc", opcion2));
+
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaAuto()
+        {
+            string nomStore = "consultaAutocompletado";
+
+            if (Consultar(nomStore))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaBuscaPersonas(string valor1)
+        {
+            string nomStore = "consultaBuscaPersonas";
+            string opcion1 = valor1;
+            //string opcion2 = valor2;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("Nombre", opcion1)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaDatosVacacionesID(string valor1)
+        {
+            string nomStore = "ConsultaVacasRPT";
+            string opcion1 = valor1;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+
+                new Clase_Parametros("id", opcion1)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaDatosVacaciones(string valor1)
+        {
+            string nomStore = "ConsultaVacas";
+            string opcion1 = valor1;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("idEmp", opcion1)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaDatosVacacionesAutorizacion(string campus)
+        {
+            string nomStore = "ConsultaVacasAutorizacion";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("ID_Campus", campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaVacasResta(string valor1, string d1, string d2)
+        {
+            string nomStore = "ConsultaVacasResta";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("id_Empleado", valor1),
+                new Clase_Parametros("fechaInicio", d1),
+                new Clase_Parametros("fechaTermino", d2)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaNomiProf(string valor1)
+        {
+            string nomStore = "ConsultaNomiProf";
+            string opcion1 = valor1;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("idEmp", opcion1)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetContratoVirtualInfo(string id, int tipo)
+        {
+            string nomStore = "getContratoInfo";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id", id),
+                new Clase_Parametros("tipo", tipo.ToString())
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool SetContratoVirtualInfo(string id, int tipo, string p1, string p2, string p3, string p4)
+        {
+            string nomStore = "setContratoInfo";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id", id),
+                new Clase_Parametros("tipo", tipo.ToString()),
+                new Clase_Parametros("p1", p1),
+                new Clase_Parametros("p2", p2),
+                new Clase_Parametros("p3", p3),
+                new Clase_Parametros("p4", p4)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaDetalleNDocente(string ID_Empleado, string ID_nomina)
+        {
+            string nomStore = "ConsultaDetalleNDocente";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("ID_Empleado", ID_Empleado),
+                new Clase_Parametros("ID_nomina", ID_nomina),
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ConsultaDetalleMateria(string ID_Empleado, string ID_nomina, string id_matGpo)
+        {
+            string nomStore = "ConsultaDetalleDocenteSoporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("idEmpleado", ID_Empleado),
+                new Clase_Parametros("ID_nomina", ID_nomina),
+                new Clase_Parametros("idMateriaG", id_matGpo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public bool RestaurarDocenteSoporte(string ID_Empleado, string ID_nomina, string id_matGpo, string tipo)
+        {
+
+            string nomStore = "RestaurarDocenteSoporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                //estamos poniendo el nombre del parametro en la tabla y el valor
+                new Clase_Parametros("idEmpleado", ID_Empleado),
+                new Clase_Parametros("ID_nomina", ID_nomina),
+                new Clase_Parametros("idMateriaG", id_matGpo),
+                new Clase_Parametros("tipo", tipo),
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
+        public bool ConsultaUtimaNomina(string empleado)
+        {
+            string nomStore = "consultaUltimaNomina";
+            //string opcion1 = valor1;
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Empleado", empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaFiniquito(string sidEmpleado)
+        {
+            string nomStore = "ConsultaFiniquito";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("idEmp", sidEmpleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ConsultaISRCuota(string monto, string tipo)
+        {
+            string nomStore = "ConsultaISRCuota";
+
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("monto", monto),
+                new Clase_Parametros("tipoLim", tipo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool BuscaCoincidencia(string correo, string telefono, string celular, string nombre, string paterno, string materno, string curp)
+        {
+            string nomProce = "BuscaCoincidenciaPersonas";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Correo", correo),
+                new Clase_Parametros("Telefono", telefono),
+                new Clase_Parametros("Celular", celular),
+                new Clase_Parametros("Nombre", nombre),
+                new Clase_Parametros("Paterno", paterno),
+                new Clase_Parametros("Materno", materno),
+                new Clase_Parametros("CURP", curp)
+            };
+
+            if (ConsultarParametros(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool SubirDocumentos(string ID_Persona, string Documento, string FechaRegistro, string RutaDocumento, string Observaciones, string Entregado)
+        {
+            string nomProce = "upPersonaDocumentos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Persona", ID_Persona),
+                new Clase_Parametros("Documento", Documento),
+                new Clase_Parametros("FechaEntrega", FechaRegistro),
+                new Clase_Parametros("Ruta", RutaDocumento),
+                new Clase_Parametros("Observaciones", Observaciones),
+                new Clase_Parametros("Entregado", Entregado)
+            };
+
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool SubirDocumentos(string ID_Persona, string Documento, string FechaRegistro, string RutaDocumento, string Observaciones,
+            string Entregado, string entregadoFisico, string fechaEF)
+        {
+            string nomProce = "upPersonaDocumentos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Persona", ID_Persona),
+                new Clase_Parametros("Documento", Documento),
+                new Clase_Parametros("FechaEntrega", FechaRegistro),
+                new Clase_Parametros("Ruta", RutaDocumento),
+                new Clase_Parametros("Observaciones", Observaciones),
+                new Clase_Parametros("Entregado", Entregado),
+                new Clase_Parametros("EntregadoFisico", entregadoFisico),
+                new Clase_Parametros("FechaEntregaFisica", fechaEF)
+            };
+
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool BuscaExpediente(string ID_Persona)
+        {
+            string nomProce = "BuscaExpediente";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Persona", ID_Persona)
+            };
+
+            if (ConsultarParametros(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool BuscaExpedienteViatico(string ID_Persona, string ID_Viatico)
+        {
+            string nomProce = "BuscaExpedienteViatico";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Persona", ID_Persona),
+                new Clase_Parametros("ID_Viatico", ID_Viatico)
+            };
+
+            if (ConsultarParametros(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+    }
 }

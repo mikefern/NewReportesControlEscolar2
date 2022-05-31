@@ -134,9 +134,11 @@
     </Reference>
     <Reference Include="HyperSoft.BarCodeLibrary">
       <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.BarCodeLibrary.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="HyperSoft.Base">
       <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Base.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.CfdiCatalogo">
       <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiCatalogo.dll</HintPath>
@@ -180,6 +182,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -201,6 +206,7 @@
     <Compile Include="Clase_Contabilidad.cs" />
     <Compile Include="Clase_Control_Escolar.cs" />
     <Compile Include="Clase_Facturando.cs" />
+    <Compile Include="Clase_InformacionMatricula.cs" />
     <Compile Include="Clase_ReportesCE.cs" />
     <Compile Include="Clase_Sesion.cs" />
     <Compile Include="Form1.cs">
@@ -209,11 +215,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarRestriccionesReportesRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarRestriccionesReportesRol.designer.cs">
+      <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusquedas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedas.designer.cs">
+      <DependentUpon>FrmBusquedas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFRVisor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFRVisor.designer.cs">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportesAsignarCampusNodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportesAsignarCampusNodos.designer.cs">
+      <DependentUpon>FrmReportesAsignarCampusNodos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReportesControlEscolar.cs">
       <SubType>Form</SubType>
@@ -221,16 +245,40 @@
     <Compile Include="FrmReportesControlEscolar.designer.cs">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportesLimitarNodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportesLimitarNodos.designer.cs">
+      <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRPTPermisosRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRPTPermisosRol.designer.cs">
+      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarRestriccionesReportesRol.resx">
+      <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFRVisor.resx">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportesAsignarCampusNodos.resx">
+      <DependentUpon>FrmReportesAsignarCampusNodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesControlEscolar.resx">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportesLimitarNodos.resx">
+      <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRPTPermisosRol.resx">
+      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
