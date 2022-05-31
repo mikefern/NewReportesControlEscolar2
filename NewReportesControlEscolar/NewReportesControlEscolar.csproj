@@ -133,45 +133,43 @@
       <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\FastReport.Web.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.BarCodeLibrary">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.BarCodeLibrary.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.BarCodeLibrary.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.Base">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Base.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Base.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.CfdiCatalogo">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiCatalogo.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiCatalogo.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.CfdiData">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiData.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiData.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.Download">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Download.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Download.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.Printer">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Printer.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Printer.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.Rename">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Rename.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Rename.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.Validator">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocument.Validator.Remote">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.Remote.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.Remote.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocumentLibrary">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.ElectronicDocumentLibrary.ECodex">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.ECodex.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.ECodex.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.Resource">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Resource.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Resource.dll</HintPath>
     </Reference>
     <Reference Include="HyperSoft.Shared">
-      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

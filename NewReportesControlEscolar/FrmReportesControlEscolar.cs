@@ -39118,7 +39118,7 @@ namespace ProyectoLoboSostenido
                 if (validar != null)
                 {
                     cu = new ControlUsuariosRepo();
-                    cu.GetRestriccionesUsuarioReportes(Clase_Sesion.IDUsuario);
+                    cu.GetRestriccionesUsuarioReportes(Clase_Sesion.IDEmpleado);
                     
                 CrearNodosDelPadre(0, null, treeView);
                 }

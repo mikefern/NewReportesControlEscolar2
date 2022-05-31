@@ -117,7 +117,7 @@ namespace ProyectoLoboSostenido
             string nomStore = "GetRestriccionesUsuarioReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("id_usuario",ID)
+                new Clase_Parametros("id_empleado",ID)
             };
 
             if (ConsultarParametros(nomStore, par))

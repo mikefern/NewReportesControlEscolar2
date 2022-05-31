@@ -46,7 +46,7 @@ namespace ProyectoLoboSostenido
             this.Campus_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.alumnos_ActasExamenTableAdapter1 = new ProyectoLoboSostenido.ServerLobosDataSetTableAdapters.Alumnos_ActasExamenTableAdapter();
+            //this.alumnos_ActasExamenTableAdapter1 = new ProyectoLoboSostenido.ne.Alumnos_ActasExamenTableAdapter();////FG Descomentar esto si se agrega al lobo one
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,7 +183,7 @@ namespace ProyectoLoboSostenido
             // 
             // alumnos_ActasExamenTableAdapter1
             // 
-            this.alumnos_ActasExamenTableAdapter1.ClearBeforeFill = true;
+            //this.alumnos_ActasExamenTableAdapter1.ClearBeforeFill = true;//FG Descomentar eso si se agrega al lobo one
             // 
             // FrmReportesAsignarCampusNodos
             // 
@@ -219,6 +219,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.ColumnHeader Campus_name;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private ServerLobosDataSetTableAdapters.Alumnos_ActasExamenTableAdapter alumnos_ActasExamenTableAdapter1;
+        //private ServerLobosDataSetTableAdapters.Alumnos_ActasExamenTableAdapter alumnos_ActasExamenTableAdapter1; //FG Descomentar esto si se agrega al lobo one
     }
 }
