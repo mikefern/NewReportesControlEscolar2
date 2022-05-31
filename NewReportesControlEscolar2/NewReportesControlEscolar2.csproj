@@ -6,4 +6,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

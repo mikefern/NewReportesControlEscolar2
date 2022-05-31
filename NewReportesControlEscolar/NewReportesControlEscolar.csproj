@@ -1,0 +1,1621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72698037-89F7-41E6-A39C-241423C6B35D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NewReportesControlEscolar</RootNamespace>
+    <AssemblyName>NewReportesControlEscolar</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.CrystalReports.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport, Version=2015.2.16.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2015.2.16.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=2015.2.16.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web, Version=2015.2.16.0, Culture=neutral, PublicKeyToken=417583d16d08abed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\FastReport.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.BarCodeLibrary">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.BarCodeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.Base">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.CfdiCatalogo">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiCatalogo.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.CfdiData">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.CfdiData.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.Download">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Download.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.Printer">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Printer.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.Rename">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Rename.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.Validator">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocument.Validator.Remote">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocument.Validator.Remote.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocumentLibrary">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.ElectronicDocumentLibrary.ECodex">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.ElectronicDocumentLibrary.ECodex.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.Resource">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperSoft.Shared">
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\HyperSoft.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\LoboOne\LoboONE\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clase_Alumnos.cs" />
+    <Compile Include="Clase_Caja.cs" />
+    <Compile Include="Clase_Campus.cs" />
+    <Compile Include="Clase_Conecta.cs" />
+    <Compile Include="Clase_Contabilidad.cs" />
+    <Compile Include="Clase_Control_Escolar.cs" />
+    <Compile Include="Clase_Facturando.cs" />
+    <Compile Include="Clase_ReportesCE.cs" />
+    <Compile Include="Clase_Sesion.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFRVisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFRVisor.designer.cs">
+      <DependentUpon>frmFRVisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportesControlEscolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportesControlEscolar.designer.cs">
+      <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFRVisor.resx">
+      <DependentUpon>frmFRVisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportesControlEscolar.resx">
+      <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\301-3016095_the-new-soluscope-sprint-is-faster-than-ever-easy-access-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\301-3016095_the-new-soluscope-sprint-is-faster-than-ever-easy-access-icon-png1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4791613-512 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23967698_288311894906704_4168595584191561728_n%281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27540701_395247847582068_7976660945443584153_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1633200110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActasAdmin_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActasAdmin_design_buscar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActasAdmin_design_EmitirActa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActasAdmin_design_RegistrarActa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizaProfGpoRota.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actualizar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add Coche.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add Coche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addcoche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addgasx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alumno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arenalobo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arenalobo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arenalobo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\At-Sign-Red_0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\autonoma.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ayuda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul_cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_coquetelaria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bandera-guinea-bissau-flagge-quadratisch-25x25.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banorte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banorte-logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baplie_Botones_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode-scanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode-scanner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode-scanner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bbva.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\best-15-the-business-report-icon-audit-and-analysis-vector-file-free.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\best-15-the-business-report-icon-audit-and-analysis-vector-file-free1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bitacora_vehiculo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bitacora_vehiculo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bitacora_vehiculo21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bitacora_vehiculo31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bitacoravehiculo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloquearHorario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloquearHorario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookSearch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookshelf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BorrarHorario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boton_Actualizar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boton_Actualizar1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton_guardar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-agregar_man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Firts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_busqueda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_cobrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_GenerarCargo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_refrescar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja_design_RegistrarCargos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\campus_design_actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\campus_design_subir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura1_design_boton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura3_design_BuscarArqueo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura3_design_GenerarArqueo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura3_design_VisualizarArqueo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_banamex1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_bancomer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_banorte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_hsbc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_santander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura4_bancos_scotia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura5_design_boton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura5_design_más.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura5_design_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura6_design_ciclo_boton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura8_design_BuscarCita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura8_design_MostrarTodas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura8_MostrarMis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura32_alumnos_design_BuscarAlumnos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura32_alumnos_design_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura32_alumnos_design_flechaDER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura32_alumnos_design_flechaIZQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura32_alumnos_design_GenerarCalificaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura33_calificaciones-design_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capturaEmpleado_design_busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capturaEmpleado_design_limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capturaEmpleado_design_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capturaEmpleado_design_Registrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capturaEmpleado_design_Registrar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-check %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-check %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carpeta.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-repair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos_design_AgregarAlumnos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos_design_Credencial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos5_design_AgregarAlumnos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos5_design_limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos6_design_Actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CatalogoAlumnos6_design_Actualizar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clientes min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clip20 - copia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clip20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboards1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboards2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboards3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboards4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras min 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras min 21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras min2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contaduria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contpaqi-contabilidad-licenciamiento-anual-e1512576429266.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ControlEscolar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\derarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\device_printer_93594.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar_Inventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar_Inventario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_design_adjuntar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_design_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_design_enviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empleados min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empleados.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encendido.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estacion-de-gasolina %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estacion-de-gasolina %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estacion-de-gasolina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estudiantes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expediente_design_cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expediente_design_seleccionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expediente_design_SubirTodo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facturacion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoBiblioteca1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoManuscrito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoManuscrito1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoPrestamoLibro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoPrestamos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoPrestamos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoPrestamos11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoTransparencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoTransparencia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoTransparencia2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoTransparencia3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameAlumnos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameAlumnos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameAyuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameBiblioteca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameBiblioteca2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameBiblioteca3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameCaja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameCaja2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameChecador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameChecador2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameConta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameConta2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameControlEscolar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameControlEscolar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameEmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameEmpleados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameEmpleados2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameEmpleados3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameFinanzas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameFinanzas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameHerramientas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameNomina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameNomina2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameProspectos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameProspectos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrameRecuadro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gas-station.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gas-station1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarHorario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_AlternarHorarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_Guardar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horariosclase_design_refresh1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_AgregarHrsEx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_BorrarHrsEx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_foto1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorasExtras_design_ModificarHrsEx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hsbc1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon cerrar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon maximizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon restaurar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_maximizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_reorganizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_General_-_Office_42_1471090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_user-admin_34293 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconFolder1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconFolderS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono fotos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes min2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono reportes5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono venta min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono venta min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono venta min2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono Venta mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono Venta mini1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono Venta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono_Inventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Catalogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Checador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Expediente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Justificante.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Maximizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Prestamos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Restaurar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2RevChecadas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmp2Vacaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmpleados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoEmpleadosBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoGuardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoHora2Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoHora2Limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoInventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoInventarioI.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-perfil-azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICONOS LOBONE TAMAÑO-07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICONOS LOBONE TAMAÑO-08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICONOS LOBONE TAMAÑO-071.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICONOS LOBONE TAMAÑO-081.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconView1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\izqarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_design_agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_design_filtrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_design_limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_design_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Justificantes_designjustificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\large_registro-de-mantenimiento-de-vehiculo-en-excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LibraryHomeColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\librodigital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Libros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Limpiar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListaAlumnos_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListaNuevoIngreso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lobo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_complete_gafette_incompleto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_boton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_boton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_moved_2_ingresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_moved_2_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_moved_2_salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.1_optional_gafette_moved_2_usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_botones_traseros copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_control_administrativa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cotrol_crearXML1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cotrol_desgloceD1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cotrol_desgloceP1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cotrol_exportarN1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cotrol_generarN1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_cuadro_fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_limpiar datos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5_nominas-back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.5corte_centro_reacomodo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6 actualizar inferior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6 agregar inferior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6 limpiar inferior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.2 buscar lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.2 buscar lupa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.-3 buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.-3 citas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.-3 generar cita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.-3 guardar cambios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.4 actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.4 agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.4 limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.5 actualizar info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.5 cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.5 foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3.6.5 generar nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3_1_optional_gafette_moved_2_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3_5_cotrol__close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_3_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_chekador_busqueda-x_foto %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_ejemplo-rediseño_centro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_ejemplo-rediseño_centro1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_fondo_nominas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_asignar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_descanso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_día.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_diagonal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_más.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_horarios_vacio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_menu_background %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_menu_background %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobo_one_opening.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lobo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lobo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loboBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loboone_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loboone-02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo lobo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo UAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo UAD5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_03-min.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_UAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoinst.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoinstitucional.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoinstitucional1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoSistemas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoSistemas3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoSistemas31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lt04035481_quantized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manuscritos.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marca de agua sin fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizereport.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizereport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mobile-Menu-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MostrarOtros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nomina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_MJustificantes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_MMontos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_MObservaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_MVisualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_Recalcular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nomina_total_percepciones_trasero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos min2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permisos_design_AgregarPermiso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permisos_design_AgregarRol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permisos_design_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixlr-bg-result %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixlr-bg-result %287%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_buscar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_buscar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_registrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestamos_design_solicitud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prodcutos min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prodcutos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prospecto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prospectos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quiosco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quiosco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recuadro_foto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reorganizarciclosvirtual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte-icon min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte-icon min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReportesCE_design_buscar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reports1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resize-expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resizer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\santander1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHorario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scotia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-to-trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SinImagen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sinimagen2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SISTEMAS.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\total_percepciones_botones_traseros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updateHorario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios_design_actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios_design_agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios_design_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\write %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xml min.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
