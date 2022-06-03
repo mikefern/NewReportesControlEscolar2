@@ -151,6 +151,7 @@ namespace NewReportesControlEscolar
             this.button4.TabIndex = 54;
             this.button4.Text = "Pantalla para el control de nodos";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 

@@ -219,6 +219,12 @@
     <Compile Include="FrmAgregarRestriccionesReportesRol.designer.cs">
       <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAniadirEspecifiacionesReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAniadirEspecifiacionesReporte.Designer.cs">
+      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBusquedas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarRestriccionesReportesRol.resx">
       <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAniadirEspecifiacionesReporte.resx">
+      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFRVisor.resx">
       <DependentUpon>frmFRVisor.cs</DependentUpon>

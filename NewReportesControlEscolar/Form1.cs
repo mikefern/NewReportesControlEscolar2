@@ -29,8 +29,8 @@ namespace NewReportesControlEscolar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
-            rl.Show();
+            FrmAniadirEspecifiacionesReporte fa = new FrmAniadirEspecifiacionesReporte();
+            fa.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -43,6 +43,12 @@ namespace NewReportesControlEscolar
         {
             FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
             ARR.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
+            rl.Show();
         }
     }
 }
