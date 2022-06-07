@@ -208,12 +208,6 @@
     <Compile Include="Clase_Reportes.cs" />
     <Compile Include="Clase_ReportesCE.cs" />
     <Compile Include="Clase_Sesion.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDatosReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,9 +288,6 @@
     <Compile Include="RelacionReportes.Designer.cs">
       <DependentUpon>RelacionReportes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosReportes.resx">
       <DependentUpon>FrmDatosReportes.cs</DependentUpon>
     </EmbeddedResource>

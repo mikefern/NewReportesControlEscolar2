@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoLoboSostenido;
-using NewReportesControlEscolar2;
+using ProyectoLoboSostenido; 
 using System.Runtime.InteropServices;
 
 namespace NewReportesControlEscolar
@@ -72,8 +71,8 @@ namespace NewReportesControlEscolar
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Form1 FrmNuevoUs = new Form1();
-            FrmNuevoUs.Show();
+           //Form1 FrmNuevoUs = new Form1();
+           // FrmNuevoUs.Show();
         }
 
         private void btnParametros_Click(object sender, EventArgs e)
