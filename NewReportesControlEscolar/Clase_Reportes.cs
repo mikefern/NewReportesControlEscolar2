@@ -1,0 +1,197 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProyectoLoboSostenido
+{
+    public class Clase_Reportes : Clase_Conecta
+    {
+        public bool DetalleArchivoReporte(string opt, string nombre, string ruta, string ultimamodificacion, string creacion, string ultimoacceso, string extension, string descripcionModificaciones, string id_Empleado, string id)
+        {
+
+            string nomStore = "RegistroReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("Opt", opt),
+                 new Clase_Parametros("NombreArchivo", nombre),
+                 new Clase_Parametros("Ruta",ruta),
+                 new Clase_Parametros("FechaUltimaModificacion",ultimamodificacion),
+                 new Clase_Parametros("FechaCreacion",creacion),
+                 new Clase_Parametros("FechaUltimoAcceso",ultimoacceso),
+                 new Clase_Parametros("Extension",extension),
+                 new Clase_Parametros("DescripcionModificaciones",descripcionModificaciones),
+                 new Clase_Parametros("ID_Empleado",id_Empleado),
+                 new Clase_Parametros("ID",id)
+
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetIDReporte(string nombre)
+        {
+            string nomStore = "GetIDReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NombreArchivo", nombre),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+        public bool GetIDReporteControl(string nombre)
+        {
+            string nomStore = "GetIDReporteControl";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NombreReporte", nombre),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+        public bool GetNombreReporte()
+        {
+            string nomProce = "GetNombreReporte";
+
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetRuta(string nombre)
+        {
+            string nomStore = "GetRuta";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NombreArchivo", nombre),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+        public bool GetNombreReporteControl()
+        {
+            string nomProce = "GetNombreReporteControl";
+
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool MostrarParametros()
+        {
+            string nomStore = "MostrarParametros";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IDRelacionado(string ID, string IDReporte)
+        {
+            string nomStore = "GetIDRepRel";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID", ID),
+                new Clase_Parametros("ID_Reporte",IDReporte)
+
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+        public bool AsignarParametros(string ID, string ID_Parametro)
+        {
+            string nomStore = "AsignarParametros";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID", ID),
+                new Clase_Parametros("ID_Parametro",ID_Parametro)
+
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+        public bool GetParametrosOK(string ID)
+        {
+            string nomStore = "GetParametrosOK";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID", ID),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+
+    }
+}

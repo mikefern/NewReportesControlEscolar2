@@ -52,7 +52,8 @@ namespace ProyectoLoboSostenido
                 }
                 MessageBox.Show("Se han agregado los permisos", "Confirmado", MessageBoxButtons.OK);
             }
-        }
+        } 
+
         private void cargarRoles()
         {
             pr = new PermisosReportes();
