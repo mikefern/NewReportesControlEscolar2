@@ -223,11 +223,17 @@
     <Compile Include="Nodos2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmDatosReportes.Designer.cs">
+      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nodos2.Designer.cs">
       <DependentUpon>Nodos2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDatosReportes.Designer.cs">
       <DependentUpon>FrmDatosReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodos2.Designer.cs">
+      <DependentUpon>Nodos2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAgregarRestriccionesReportesRol.cs">
       <SubType>Form</SubType>
@@ -279,6 +285,8 @@
     </Compile>
     <Compile Include="FrmRPTPermisosRol.cs">
       <SubType>Form</SubType>
+    <Compile Include="RelacionParametrosReporte.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="RelacionParametrosReporte.cs">
@@ -301,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDatosReportes.resx">
+      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodos2.resx">
+      <DependentUpon>Nodos2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarRestriccionesReportesRol.resx">
       <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>

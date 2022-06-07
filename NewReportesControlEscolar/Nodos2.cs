@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoLoboSostenido;
+using ProyectoLoboSostenido; 
 using System.Runtime.InteropServices;
 
 namespace NewReportesControlEscolar
