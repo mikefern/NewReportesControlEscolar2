@@ -41722,10 +41722,34 @@ namespace ProyectoLoboSostenido
                     ea.DatosAlumnoReporteSSPP(gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
                     string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
                     cd = new Clase_ReportesCE();
-                    if (cd.GetReporte(TreePrueba.SelectedNode.Name, rvoe_alumno))
+                    Clase_ReportesCE c = new Clase_ReportesCE();
+                    if (cd.GetReporte(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
                     {
-                        //MessageBox.Show(cd.Lector.Tables[0].Rows[0][0].ToString() + " " + cd.Lector.Tables[0].Rows[0][1].ToString() + cd.Lector.Tables[0].Rows[0][2].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
+                        DataView dt = new DataView(cd.Lector.Tables[0]);
+                        if (cd.Lector.Tables[0].Rows.Count > 1)
+                        {
+                            c.GetReporteRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus, rvoe_alumno);
+                            if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count>0)
+                            dt = new DataView(c.Lector.Tables[0]);
+                            else
+                            {
+                                c = new Clase_ReportesCE();
+                                c.GetReportesconRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus);
+                                for (int x=0; x < c.Lector.Tables[0].Rows.Count;x++)
+                                {
+                                    for(int i=0; i<dt.Table.Rows.Count; i++)
+                                    {
+                                        if (dt.Table.Rows[i][0].ToString() == c.Lector.Tables[0].Rows[x][0].ToString())
+                                        {
+                                            dt.Table.Rows.RemoveAt(i);
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        MessageBox.Show(dt.Table.Rows[0][1].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        /*string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
                         string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
                         string id = cd.Lector.Tables[0].Rows[0][0].ToString();
                         string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
@@ -41761,7 +41785,7 @@ namespace ProyectoLoboSostenido
                         catch (Exception ex)
                         {
                         MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-                        }
+                        }*/
                     }
                 }
                 catch

@@ -69,6 +69,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool GetParmetros_Reportes(string id)
         {
             string nomStore = "GetParmetros_Reportes";
@@ -86,13 +87,14 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool GetReporte(string nodo, string RVOE)
+
+        public bool GetReporte(string nodo, string campus)
         {
             string nomStore = "GetReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
-                new Clase_Parametros("RVOE",RVOE),
+                new Clase_Parametros("campus",campus),
 
 
             };
@@ -142,14 +144,14 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool DMLNodo(string tipo,string nodopadre,string texto)
+        public bool DMLNodo(string tipo, string nodopadre, string texto)
         {
             string nomProce = "Reports_DMLNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("Tipo", tipo),
                 new Clase_Parametros("Nodo", nodopadre),
-                new Clase_Parametros("Texto", texto) 
+                new Clase_Parametros("Texto", texto)
             };
             if (Ejecuta(nomProce, par))
             {
@@ -159,9 +161,47 @@ namespace ProyectoLoboSostenido
             {
                 return false;
             }
+        }
 
+        public bool GetReporteRVOE(string nodo, string campus,string rvoe)
+        {
+            string nomStore = "RPTGetReporteRVOE";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("campus",campus),
+                new Clase_Parametros("rvoe",rvoe)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetReportesconRVOE(string nodo, string campus)
+        {
+            string nomStore = "RptGetReportesconRVOE";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
+
     public class NodosReportesControlEscolar : Clase_Conecta
     {
         public bool GetNodosReportesControlEscolar(string ID_Campus)
@@ -182,6 +222,7 @@ namespace ProyectoLoboSostenido
             }
         }
     }
+
     public class ControlUsuariosRepo : Clase_Conecta
     {
         public bool GetRestriccionesUsuarioReportes(string ID)
@@ -203,6 +244,7 @@ namespace ProyectoLoboSostenido
         }
 
     }
+
     public class GetUsuariosRestricciones : Clase_Conecta
     {
         public bool GetUsuarios(string Campus_ID)
@@ -222,6 +264,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool GetCampus()
         {
             string nomStore = "GetCampus";
@@ -239,6 +282,7 @@ namespace ProyectoLoboSostenido
             }
         }
     }
+
     public class GetRoles : Clase_Conecta
     {
         public bool getRol(string id)
@@ -309,6 +353,203 @@ namespace ProyectoLoboSostenido
             };
 
             if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetReportesTodos()
+        {
+            string nomStore = "RptGetReportesTodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetCampusReportes(string idreporte)
+        {
+            string nomStore = "RptGetCampusReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("idreporte",idreporte)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool MostrarRVOESCampusReportes(string campus)
+        {
+            string nomStore = "RptMostrarRVOECampusReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("campus",campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool EliminarRelCampusReporte(string reporte,string campus)
+        {
+            string nomStore = "RptEliminarRelCampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool AgregarRelCampusReporte(string reporte, string campus)
+        {
+            string nomStore = "RptAgregarRelCampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MostrarRelRolesReportes(string reporte)
+        {
+            string nomStore = "RptMostrarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRelRolesReportes(string rol, string reporte)
+        {
+            string nomStore = "RptAgregarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("reporte", reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRelRolesReportes(string rol, string reporte)
+        {
+            string nomStore = "RptEliminarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("reporte", reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MostrarRVOECampusReporte(string reporte,string campus)
+        {
+            string nomStore = "RptMostrarRVOECampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRVOEReportes(string reporte, string RVOE)
+        {
+            string nomStore = "RptAgregarRVOEReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("RVOE", RVOE)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRVOEReportes(string reporte, string RVOE)
+        {
+            string nomStore = "RptEliminarRVOEReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("RVOE", RVOE)
+            };
+
+            if (Ejecuta(nomStore, par))
             {
                 return true;
             }
