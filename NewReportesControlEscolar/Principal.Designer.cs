@@ -97,7 +97,7 @@ namespace NewReportesControlEscolar
             // 
             // btnactualizar
             // 
-            this.btnactualizar.Location = new System.Drawing.Point(520, 293);
+            this.btnactualizar.Location = new System.Drawing.Point(403, 250);
             this.btnactualizar.Name = "btnactualizar";
             this.btnactualizar.Size = new System.Drawing.Size(75, 23);
             this.btnactualizar.TabIndex = 6;
@@ -165,7 +165,7 @@ namespace NewReportesControlEscolar
             this.button5.Text = "Pantalla para ver la informacion del archivo de reporte";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +183,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.Name = "Principal";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
