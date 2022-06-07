@@ -232,6 +232,12 @@
     <Compile Include="FrmAgregarRestriccionesReportesRol.designer.cs">
       <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAniadirEspecifiacionesReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAniadirEspecifiacionesReporte.Designer.cs">
+      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBusquedas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,12 @@
     </Compile>
     <Compile Include="frmFRVisor.designer.cs">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionNodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionNodos.Designer.cs">
+      <DependentUpon>FrmGestionNodos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReportesAsignarCampusNodos.cs">
       <SubType>Form</SubType>
@@ -294,8 +306,14 @@
     <EmbeddedResource Include="FrmAgregarRestriccionesReportesRol.resx">
       <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAniadirEspecifiacionesReporte.resx">
+      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFRVisor.resx">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionNodos.resx">
+      <DependentUpon>FrmGestionNodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesAsignarCampusNodos.resx">
       <DependentUpon>FrmReportesAsignarCampusNodos.cs</DependentUpon>

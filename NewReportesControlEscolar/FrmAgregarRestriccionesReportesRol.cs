@@ -64,7 +64,7 @@ namespace ProyectoLoboSostenido
                 gr.getRol(cBoxUsuarios.SelectedValue.ToString());
                 string rol = gr.Lector.Tables[0].Rows[0][0].ToString();
                 cd = new Clase_ReportesCE();
-                cd.OpcionesReporteControlEscolar(cbCampus.SelectedValue.ToString(), rol);
+                cd.LlenadoNodosReporteEscolar(cbCampus.SelectedValue.ToString(), rol);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
 
 

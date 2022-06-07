@@ -31,13 +31,40 @@ namespace NewReportesControlEscolar2
             InitializeComponent();
         }
 
-        
+        private void btnactualizar_Click(object sender, EventArgs e)
+        {
+            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.Campus = textBox2.Text;
+            Clase_Sesion.Rol = textBox3.Text;
+            FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
+            fr.Show();
+        }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmAniadirEspecifiacionesReporte fa = new FrmAniadirEspecifiacionesReporte();
+            fa.Show();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmRPTPermisosRol pr = new FrmRPTPermisosRol();
+            pr.Show();
+        }
+
+        private void btn_Restricciones_Click(object sender, EventArgs e)
+        {
+            FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
+            ARR.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.Campus = textBox2.Text;
+            Clase_Sesion.Rol = textBox3.Text;
+            FrmGestionNodos frmGestionNodos = new FrmGestionNodos();
+            frmGestionNodos.Show();
+        }
     }
 }
