@@ -8,12 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoLoboSostenido;
 
-namespace NewReportesControlEscolar
+namespace NewReportesControlEscolar2
 {
-    public partial class Principal : Form
-        
+    public partial class Form1 : Form
 
     {
         #region MoverFORM
@@ -22,15 +20,13 @@ namespace NewReportesControlEscolar
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void Principal_MouseDown(object sender, MouseEventArgs e)
+        private void Form1_MouseDown_1(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         #endregion
-
-        public Principal()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -44,7 +40,7 @@ namespace NewReportesControlEscolar
             fr.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
             FrmAniadirEspecifiacionesReporte fa = new FrmAniadirEspecifiacionesReporte();
             fa.Show();
@@ -69,29 +65,6 @@ namespace NewReportesControlEscolar
             Clase_Sesion.Rol = textBox3.Text;
             FrmGestionNodos frmGestionNodos = new FrmGestionNodos();
             frmGestionNodos.Show();
-        }
-
-        private void btnInformación(object sender, EventArgs e)
-        {
-            DatosReportes ARR = new DatosReportes();
-            ARR.Show();
-        }
-
-        private void btnAsignarParametros(object sender, EventArgs e)
-        {
-            RelacionParametrosReporte ARR = new RelacionParametrosReporte();
-            ARR.Show();
-        }
-
-        private void btnRelacionReportes(object sender, EventArgs e)
-        {
-            RelacionReportes ARR = new RelacionReportes();
-            ARR.Show();
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

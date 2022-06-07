@@ -205,13 +205,29 @@
     <Compile Include="Clase_Control_Escolar.cs" />
     <Compile Include="Clase_Facturando.cs" />
     <Compile Include="Clase_InformacionMatricula.cs" />
+    <Compile Include="Clase_Reportes.cs" />
     <Compile Include="Clase_ReportesCE.cs" />
     <Compile Include="Clase_Sesion.cs" />
+    <Compile Include="FrmRPTPermisosRol.designer.cs">
+      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDatosReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nodos2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nodos2.Designer.cs">
+      <DependentUpon>Nodos2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDatosReportes.Designer.cs">
+      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAgregarRestriccionesReportesRol.cs">
       <SubType>Form</SubType>
@@ -264,11 +280,25 @@
     <Compile Include="FrmRPTPermisosRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRPTPermisosRol.designer.cs">
-      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelacionParametrosReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelacionParametrosReporte.Designer.cs">
+      <DependentUpon>RelacionParametrosReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelacionReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelacionReportes.Designer.cs">
+      <DependentUpon>RelacionReportes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmDatosReportes.resx">
+      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodos2.resx">
+      <DependentUpon>Nodos2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +336,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RelacionParametrosReporte.resx">
+      <DependentUpon>RelacionParametrosReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelacionReportes.resx">
+      <DependentUpon>RelacionReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

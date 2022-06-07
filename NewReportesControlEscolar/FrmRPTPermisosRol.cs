@@ -119,5 +119,17 @@ namespace ProyectoLoboSostenido
                 }
             }
         }
+
+        //private void InitializeComponent()
+        //{
+        //    this.SuspendLayout();
+        //    // 
+        //    // FrmRPTPermisosRol
+        //    // 
+        //    this.ClientSize = new System.Drawing.Size(780, 440);
+        //    this.Name = "FrmRPTPermisosRol";
+        //    this.ResumeLayout(false);
+
+        //}
     }
 }

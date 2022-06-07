@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoLoboSostenido;
+using NewReportesControlEscolar;
 
 namespace NewReportesControlEscolar
 {
     public partial class RelacionReportes : Form
     {
-        
+
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -104,13 +105,13 @@ namespace NewReportesControlEscolar
 
         private void btnRelacionar_Click(object sender, EventArgs e)
         {
-            if (txtIDControl.Text == null || txtIDControl.Text== "" || txtIDDetalle.Text== null || txtIDDetalle.Text== "")
+            if (txtIDControl.Text == null || txtIDControl.Text == "" || txtIDDetalle.Text == null || txtIDDetalle.Text == "")
             {
                 MessageBox.Show("El campo ID no debe estar vacío");
                 txtIDDetalle.Text = string.Empty;
                 txtIDControl.Text = string.Empty;
             }
-                
+
             else
             {
                 RelacionarID();
@@ -120,14 +121,28 @@ namespace NewReportesControlEscolar
         {
             Clase_Reportes relaciona = new Clase_Reportes();
 
-            if (relaciona.IDRelacionado(txtIDDetalle.Text,txtIDControl.Text) == true)
+            if (relaciona.IDRelacionado("1",txtIDDetalle.Text, txtIDControl.Text) == true)//GetIDRepRel
             {
 
                 MessageBox.Show("Se ha guardado el ID", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No se puedo relacionar el ID", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo relacionar el ID", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void EliminarRelacion()
+        {
+            Clase_Reportes relaciona = new Clase_Reportes();
+
+            if (relaciona.IDRelacionado("2", txtIDDetalle.Text, txtIDControl.Text) == true)//GetIDRepRel
+            {
+
+                MessageBox.Show("Se ha eliminado la relación", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar la relación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,8 +155,37 @@ namespace NewReportesControlEscolar
         private void GridViewControl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtIDControl.Text = GridViewControl.CurrentRow.Cells[0].Value.ToString();
+            Clase_Reportes getID = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
+
+            if (getID.GetIDRelacionado(txtIDControl.Text))
+            {
+
+                if (getID.Lector.Tables.Count > 0)
+                {
+                    if (getID.Lector.Tables[0].Rows.Count > 0)
+                    {
+                        //MessageBox.Show("ID Reporte Encontrado");
+                        string idreporte = getID.Lector.Tables[0].Rows[0]["ID_RelArchivoReporte"].ToString();
+                        txtRelacionado.Text = idreporte;
+                        txtIDDetalle.Text = idreporte;
+                    }
+                }
+
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEliminarRelacion_Click(object sender, EventArgs e)
+        {
+            EliminarRelacion();
         }
     }
 }
+
+
 
 

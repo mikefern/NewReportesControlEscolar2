@@ -769,6 +769,7 @@ namespace ProyectoLoboSostenido
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DatosReportes";
             this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
             this.Load += new System.EventHandler(this.DatosReportes_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DatosReportes_MouseDown);

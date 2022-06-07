@@ -32,7 +32,7 @@ namespace ProyectoLoboSostenido
                 return true;
             }
             else
-            {
+            {   
                 return false;
             }
         }
@@ -55,28 +55,10 @@ namespace ProyectoLoboSostenido
 
             }
         }
-        public bool GetIDReporteControl(string nombre)
-        {
-            string nomStore = "GetIDReporteControl";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("NombreReporte", nombre),
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-
-            }
-            else
-            {
-                return false;
-
-            }
-        }
         public bool GetNombreReporte()
         {
             string nomProce = "GetNombreReporte";
-
+           
             if (Consultar(nomProce))
             {
                 return true;
@@ -105,6 +87,26 @@ namespace ProyectoLoboSostenido
 
             }
         }
+        public bool AsignarParametros(string ID, string ID_Parametro)
+        {
+            string nomStore = "AsignarParametros";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID",ID),
+                new Clase_Parametros("ID_Parametro",ID_Parametro)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
         public bool GetNombreReporteControl()
         {
             string nomProce = "GetNombreReporteControl";
@@ -118,68 +120,13 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool MostrarParametros()
-        {
-            string nomStore = "MostrarParametros";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool IDRelacionado(string ID, string IDReporte)
-        {
-            string nomStore = "GetIDRepRel";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("ID", ID),
-                new Clase_Parametros("ID_Reporte",IDReporte)
-
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-
-            }
-            else
-            {
-                return false;
-
-            }
-        }
-        public bool AsignarParametros(string ID, string ID_Parametro)
-        {
-            string nomStore = "AsignarParametros";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("ID", ID),
-                new Clase_Parametros("ID_Parametro",ID_Parametro)
-
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-
-            }
-            else
-            {
-                return false;
-
-            }
-        }
         public bool GetParametrosOK(string ID)
         {
             string nomStore = "GetParametrosOK";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("ID", ID),
+                new Clase_Parametros("ID",ID)
+                
             };
             if (ConsultarParametros(nomStore, par))
             {
@@ -189,6 +136,63 @@ namespace ProyectoLoboSostenido
             else
             {
                 return false;
+
+
+            }
+        }
+        public bool MostrarParametros()
+        {
+            string nomProce = "MostrarParametros";
+
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IDRelacionado (string ID, string ID_Reporte, string opt)
+        {
+            string nomStore = "GetIDRepRel";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            { 
+                new Clase_Parametros("Opt",opt),
+                new Clase_Parametros("ID",ID), 
+                new Clase_Parametros("ID_Reporte",ID_Reporte)
+               
+
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
+        public bool GetIDRelacionado(string ID)
+        {
+            string nomStore = "GetIDReporteRel";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID",ID)
+                
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
 
             }
         }

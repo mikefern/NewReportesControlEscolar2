@@ -90,7 +90,6 @@ namespace NewReportesControlEscolar
             this.txtNombreReporte.Size = new System.Drawing.Size(325, 38);
             this.txtNombreReporte.TabIndex = 22;
             this.txtNombreReporte.Text = "";
-           
             // 
             // btnGuardar
             // 
@@ -98,7 +97,8 @@ namespace NewReportesControlEscolar
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(247, 508);
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardar.Location = new System.Drawing.Point(457, 62);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 24;
@@ -130,11 +130,11 @@ namespace NewReportesControlEscolar
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridViewDetalles.DefaultCellStyle = dataGridViewCellStyle2;
             this.GridViewDetalles.GridColor = System.Drawing.Color.Black;
-            this.GridViewDetalles.Location = new System.Drawing.Point(31, 106);
+            this.GridViewDetalles.Location = new System.Drawing.Point(15, 118);
             this.GridViewDetalles.MultiSelect = false;
             this.GridViewDetalles.Name = "GridViewDetalles";
             this.GridViewDetalles.RowHeadersVisible = false;
-            this.GridViewDetalles.Size = new System.Drawing.Size(200, 379);
+            this.GridViewDetalles.Size = new System.Drawing.Size(234, 413);
             this.GridViewDetalles.TabIndex = 65;
             this.GridViewDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewDetalles_CellContentClick);
             // 
@@ -179,9 +179,9 @@ namespace NewReportesControlEscolar
             this.ID_Parametro,
             this.Nombre});
             this.listViewParametros.HideSelection = false;
-            this.listViewParametros.Location = new System.Drawing.Point(332, 106);
+            this.listViewParametros.Location = new System.Drawing.Point(314, 118);
             this.listViewParametros.Name = "listViewParametros";
-            this.listViewParametros.Size = new System.Drawing.Size(200, 379);
+            this.listViewParametros.Size = new System.Drawing.Size(218, 413);
             this.listViewParametros.TabIndex = 76;
             this.listViewParametros.UseCompatibleStateImageBehavior = false;
             this.listViewParametros.View = System.Windows.Forms.View.Details;
@@ -202,6 +202,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RelacionParametrosReporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                                      ";
             this.Load += new System.EventHandler(this.RelacionParametrosReporte_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RelacionParametrosReporte_MouseDown);
