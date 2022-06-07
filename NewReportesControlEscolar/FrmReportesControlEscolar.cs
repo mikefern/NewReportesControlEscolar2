@@ -39110,7 +39110,7 @@ namespace ProyectoLoboSostenido
             {
 
                 cd = new Clase_ReportesCE();
-                cd.OpcionesReporteControlEscolar(Clase_Sesion.Campus,Clase_Sesion.Rol);
+                cd.LlenadoNodosReporteEscolar(Clase_Sesion.Campus,Clase_Sesion.Rol);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
 
 

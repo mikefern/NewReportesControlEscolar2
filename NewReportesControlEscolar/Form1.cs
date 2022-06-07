@@ -44,5 +44,14 @@ namespace NewReportesControlEscolar
             FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
             ARR.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.Campus = textBox2.Text;
+            Clase_Sesion.Rol = textBox3.Text;
+            FrmGestionNodos frmGestionNodos = new FrmGestionNodos();
+            frmGestionNodos.Show();
+        }
     }
 }

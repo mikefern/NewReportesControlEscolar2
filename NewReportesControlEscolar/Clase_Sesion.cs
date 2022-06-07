@@ -453,7 +453,7 @@ namespace ProyectoLoboSostenido
         {
            
             string nomProce = "MarcoEjemplo";
-            string prueba = "todos";
+           // string prueba = "todos";
 
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {

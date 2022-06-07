@@ -50,6 +50,7 @@ namespace NewReportesControlEscolar
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(296, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "01040026";
             // 
             // textBox2
             // 
@@ -57,6 +58,7 @@ namespace NewReportesControlEscolar
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(296, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "01";
             // 
             // textBox3
             // 
@@ -64,6 +66,7 @@ namespace NewReportesControlEscolar
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(296, 20);
             this.textBox3.TabIndex = 2;
+            this.textBox3.Text = "14";
             // 
             // label1
             // 
@@ -151,12 +154,13 @@ namespace NewReportesControlEscolar
             this.button4.TabIndex = 54;
             this.button4.Text = "Pantalla para el control de nodos";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(24, 446);
+            this.button5.Location = new System.Drawing.Point(39, 293);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(192, 82);
+            this.button5.Size = new System.Drawing.Size(147, 82);
             this.button5.TabIndex = 55;
             this.button5.Text = "Pantalla para ver la informacion del archivo de reporte";
             this.button5.UseVisualStyleBackColor = true;
