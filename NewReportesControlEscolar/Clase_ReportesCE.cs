@@ -16,7 +16,12 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
-        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol)
+        public Clase_ReportesCE()
+        {
+
+        }
+
+        public bool LlenadoNodosReporteEscolar(string ID_Campus, string rol)
         {
             string nomStore = "RPTGetNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
@@ -35,7 +40,19 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
+        public bool LlenadoNodosReporteEscolar()
+        {
+            string nomStore = "Reports_GetNodos";
+             
+            if (Consultar(nomStore))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool RPTMostrarNodos()
         {
             string nomStore = "RPTMostrarNodos";
@@ -83,6 +100,60 @@ namespace ProyectoLoboSostenido
             };
 
             if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool updatepositionwhenInsert(string NodoPadre, string Nodo)
+        {
+            string nomProce = "Reports_OrdenamientoNodosW";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre", NodoPadre),
+                new Clase_Parametros("Nodo", Nodo)
+            };
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool UpdatePosicionesNodos(string NodoPadre, string Nodo, string posicionOld, string posicionnew)
+        {
+            string nomProce = "Reports_OrdenamientoNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre", NodoPadre),
+                new Clase_Parametros("Nodo", Nodo),
+                new Clase_Parametros("PosicionViejo", posicionOld),
+                new Clase_Parametros("PosicionNuevo", posicionnew),
+            };
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool DMLNodo(string tipo, string nodopadre, string texto)
+        {
+            string nomProce = "Reports_DMLNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Tipo", tipo),
+                new Clase_Parametros("Nodo", nodopadre),
+                new Clase_Parametros("Texto", texto)
+            };
+            if (Ejecuta(nomProce, par))
             {
                 return true;
             }
@@ -809,6 +880,44 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        public bool UpdatePosicionesNodos(string NodoPadre, string Nodo, string posicionOld, string posicionnew)
+        {
+            string nomProce = "Reports_OrdenamientoNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre", NodoPadre),
+                new Clase_Parametros("Nodo", Nodo),
+                new Clase_Parametros("PosicionViejo", posicionOld),
+                new Clase_Parametros("PosicionNuevo", posicionnew),
+            };
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool updatepositionwhenInsert(string NodoPadre, string Nodo)
+        {
+            string nomProce = "Reports_OrdenamientoNodosW";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre", NodoPadre),
+                new Clase_Parametros("Nodo", Nodo)
+            };
+            if (Ejecuta(nomProce, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 
 

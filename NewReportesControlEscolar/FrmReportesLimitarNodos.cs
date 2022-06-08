@@ -18,7 +18,7 @@ namespace ProyectoLoboSostenido
         }
 
         private Clase_ReportesCE cd;
-        private PermisosReportes pr;
+       // private PermisosReportes pr;
         private NodosPermisos n;
 
         private void FrmReportesLimitarNodos_Load(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace ProyectoLoboSostenido
             {
 
                 cd = new Clase_ReportesCE();
-                cd.OpcionesReporteControlEscolar(Clase_Sesion.Campus, Clase_Sesion.Rol);
+                cd.LlenadoNodosReporteEscolar(Clase_Sesion.Campus, Clase_Sesion.Rol);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
 
 
