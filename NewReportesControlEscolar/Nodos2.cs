@@ -36,8 +36,8 @@ namespace NewReportesControlEscolar
             Clase_Sesion.IDEmpleado = txtUsuario.Text;
             Clase_Sesion.Campus = txtCampus.Text;
             Clase_Sesion.Rol = txtRol.Text;
-            FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
-            fr.Show();
+           // FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
+           // fr.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,8 +54,8 @@ namespace NewReportesControlEscolar
 
         private void btn_Restricciones_Click(object sender, EventArgs e)
         {
-            FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
-            ARR.Show();
+           // FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
+            //ARR.Show();
         }
 
         private void button9_Click(object sender, EventArgs e)
