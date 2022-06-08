@@ -16,6 +16,26 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
+        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol)
+        {
+            string nomStore = "RPTGetNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Campus", ID_Campus),
+                new Clase_Parametros("Rol", rol)
+
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Clase_ReportesCE()
         {
 

@@ -63,7 +63,7 @@ namespace NewReportesControlEscolar
             listViewItem1});
             this.lvReportes.Location = new System.Drawing.Point(12, 30);
             this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(281, 477);
+            this.lvReportes.Size = new System.Drawing.Size(331, 477);
             this.lvReportes.TabIndex = 0;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
             this.lvReportes.View = System.Windows.Forms.View.Details;
@@ -76,7 +76,7 @@ namespace NewReportesControlEscolar
             // Reporte
             // 
             this.Reporte.Text = "Nombre";
-            this.Reporte.Width = 219;
+            this.Reporte.Width = 264;
             // 
             // lvCampus
             // 
@@ -85,7 +85,7 @@ namespace NewReportesControlEscolar
             this.ID_Campus,
             this.Campus});
             this.lvCampus.HideSelection = false;
-            this.lvCampus.Location = new System.Drawing.Point(299, 30);
+            this.lvCampus.Location = new System.Drawing.Point(362, 30);
             this.lvCampus.Name = "lvCampus";
             this.lvCampus.Size = new System.Drawing.Size(279, 477);
             this.lvCampus.TabIndex = 1;
@@ -156,7 +156,7 @@ namespace NewReportesControlEscolar
             this.ID_Rol,
             this.Rol});
             this.lvRoles.HideSelection = false;
-            this.lvRoles.Location = new System.Drawing.Point(622, 30);
+            this.lvRoles.Location = new System.Drawing.Point(647, 30);
             this.lvRoles.Name = "lvRoles";
             this.lvRoles.Size = new System.Drawing.Size(248, 477);
             this.lvRoles.TabIndex = 4;

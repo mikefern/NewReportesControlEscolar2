@@ -470,5 +470,11 @@ namespace NewReportesControlEscolar
             }
             else MessageBox.Show("ingresa un nombre en la caja de NUEVO NOMBRE NODO \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
+
+        private void btn_GestionarNodos_Click(object sender, EventArgs e)
+        {
+            FrmReportesAsignarCampusNodos rac = new FrmReportesAsignarCampusNodos();
+            rac.Show();
+        }
     }//fin de clase
 }

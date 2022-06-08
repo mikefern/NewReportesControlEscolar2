@@ -45,6 +45,7 @@ namespace NewReportesControlEscolar
             this.txt_NombreNodo = new System.Windows.Forms.TextBox();
             this.btn_AñadirNodoRaiz = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_GestionarNodos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TreeViewNodos
@@ -195,11 +196,22 @@ namespace NewReportesControlEscolar
             this.label1.TabIndex = 53;
             this.label1.Text = "label1";
             // 
+            // btn_GestionarNodos
+            // 
+            this.btn_GestionarNodos.Location = new System.Drawing.Point(913, 306);
+            this.btn_GestionarNodos.Name = "btn_GestionarNodos";
+            this.btn_GestionarNodos.Size = new System.Drawing.Size(165, 23);
+            this.btn_GestionarNodos.TabIndex = 54;
+            this.btn_GestionarNodos.Text = "Gestionar Permisos del Nodo";
+            this.btn_GestionarNodos.UseVisualStyleBackColor = true;
+            this.btn_GestionarNodos.Click += new System.EventHandler(this.btn_GestionarNodos_Click);
+            // 
             // FrmGestionNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 780);
+            this.Controls.Add(this.btn_GestionarNodos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_EliminarNodo);
             this.Controls.Add(this.btn_CambiarNombreNodo);
@@ -242,5 +254,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.TextBox txt_NombreNodo;
         private System.Windows.Forms.Button btn_AñadirNodoRaiz;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_GestionarNodos;
     }
 }

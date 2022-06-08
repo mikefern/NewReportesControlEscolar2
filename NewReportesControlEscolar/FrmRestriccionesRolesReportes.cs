@@ -136,6 +136,7 @@ namespace NewReportesControlEscolar
                         pr.EliminarRestriccionesReportesEmpleado(reporte, empleado);
                     }
                 }
+                MessageBox.Show("Se han guardado las restricciones al usuario ", "Completado", MessageBoxButtons.OK);
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
