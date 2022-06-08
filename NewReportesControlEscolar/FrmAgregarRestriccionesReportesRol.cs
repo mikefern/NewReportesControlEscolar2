@@ -28,7 +28,7 @@ namespace ProyectoLoboSostenido
                 ur.GetUsuarios(campus);
                 cBoxUsuarios.DataSource = ur.Lector.Tables[0];
                 cBoxUsuarios.DisplayMember = "Usuario";
-                cBoxUsuarios.ValueMember = "ID_Usuario";
+                cBoxUsuarios.ValueMember = "ID_Empleado";
                 cBoxUsuarios.SelectedItem = null;
             }
             catch(Exception ex)
@@ -106,7 +106,7 @@ namespace ProyectoLoboSostenido
             }
         }
         private void MarcarNodos(TreeNode nodo)
-            {
+        {
                  cu= new ControlUsuariosRepo();
                 cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
                 DataView nodos = new DataView(cu.Lector.Tables[0]);
@@ -117,7 +117,7 @@ namespace ProyectoLoboSostenido
                     nodo.Checked = true;
                     
                     
-            }
+                }
             
         }
         private void agregarRestriccion(string nodo)

@@ -31,6 +31,7 @@ namespace ProyectoLoboSostenido
         private ControlUsuariosRepo cu;
         private readonly Reportes conrepor = new Reportes();
         private Clase_ParametrosReportes cpr = new Clase_ParametrosReportes();
+        
         /* fausto */
 
 
@@ -355,8 +356,8 @@ namespace ProyectoLoboSostenido
         {
             try
             {
-                ActivarPermisoReporteadorLaguna();
-                ActivarPermisoReporteadorFastLaguna();
+                //ActivarPermisoReporteadorLaguna();
+               // ActivarPermisoReporteadorFastLaguna();
 
                 string especialidad_alumno = "";
                 string modalidad_alumno = "";
@@ -376,10 +377,10 @@ namespace ProyectoLoboSostenido
                 //Caja || Atención Alumnos
                 if (Clase_Sesion.Rol == "1" || Clase_Sesion.Rol == "2" || Clase_Sesion.Rol == "9")
                 {
-                    if (Clase_Sesion.Rol == "9")
-                        DesactivarPermiso();
-                    else
-                        ActivarPermiso();
+                    if (Clase_Sesion.Rol == "9") { }
+                    //DesactivarPermiso();
+                    else { }
+                        //ActivarPermiso();
 
                     switch (e.Node.Name)
                     {
@@ -1925,7 +1926,7 @@ namespace ProyectoLoboSostenido
                                                         frxExiste = true;
                                                         frrepForm.frReporte.Load(thisFolder + miReporte);
                                                         frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                        ActivarPermisoReporteadorFastLaguna();
+                                                        //ActivarPermisoReporteadorFastLaguna();
                                                         frrepForm.Show();
                                                         break;
                                                     }
@@ -2513,7 +2514,7 @@ namespace ProyectoLoboSostenido
                                                     frxExiste = true;
                                                     frrepForm.frReporte.Load(thisFolder + miReporte);
                                                     frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                    ActivarPermisoReporteadorFastLaguna();
+                                                    //ActivarPermisoReporteadorFastLaguna();
                                                     frrepForm.Show();
                                                 }
                                                 catch (Exception ex)
@@ -5488,8 +5489,8 @@ namespace ProyectoLoboSostenido
                 }
                 else if (Clase_Sesion.Rol == "12" || Clase_Sesion.Rol == "26" || Clase_Sesion.Rol == "13")
                 {
-                    ActivarPermisoReporteadorLaguna();
-                    ActivarPermisoReporteadorFastLaguna();
+                    //ActivarPermisoReporteadorLaguna();
+                    //ActivarPermisoReporteadorFastLaguna();
 
                     #region Parte1
                     switch (e.Node.Name)
@@ -6665,7 +6666,7 @@ namespace ProyectoLoboSostenido
                                                         frxExiste = true;
                                                         frrepForm.frReporte.Load(thisFolder + miReporte);
                                                         frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                        ActivarPermisoReporteadorFastLaguna();
+                                                        //ActivarPermisoReporteadorFastLaguna();
                                                         frrepForm.Show();
                                                         break;
                                                     }
@@ -7259,7 +7260,7 @@ namespace ProyectoLoboSostenido
                                                     frxExiste = true;
                                                     frrepForm.frReporte.Load(thisFolder + miReporte);
                                                     frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                    ActivarPermisoReporteadorFastLaguna();
+                                                    //ActivarPermisoReporteadorFastLaguna();
                                                     frrepForm.Show();
                                                 }
                                                 catch (Exception ex)
@@ -10131,7 +10132,7 @@ namespace ProyectoLoboSostenido
                 }
                 else
                 {
-                    ActivarPermisoReporteadorLaguna();
+                    //ActivarPermisoReporteadorLaguna();
 
                     #region Parte2
                     switch (e.Node.Name)
@@ -13390,7 +13391,7 @@ namespace ProyectoLoboSostenido
                                                         frxExiste = true;
                                                         frrepForm.frReporte.Load(thisFolder + miReporte);
                                                         frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                        ActivarPermisoReporteadorFastLaguna();
+                                                        //ActivarPermisoReporteadorFastLaguna();
                                                         frrepForm.Show();
                                                         break;
                                                     }
@@ -13982,7 +13983,7 @@ namespace ProyectoLoboSostenido
                                                     frxExiste = true;
                                                     frrepForm.frReporte.Load(thisFolder + miReporte);
                                                     frrepForm.frReporte.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                                                    ActivarPermisoReporteadorFastLaguna();
+                                                    //ActivarPermisoReporteadorFastLaguna();
                                                     frrepForm.Show();
                                                     break;
                                                 }
@@ -39169,7 +39170,7 @@ namespace ProyectoLoboSostenido
         {
             ro = Convert.ToInt32(e.RowIndex.ToString());
         }
-
+        /*
         #region Permisos para imprimir Reportes CrystalReports
         private void ActivarPermisoReporteadorLaguna()
         {
@@ -39204,8 +39205,9 @@ namespace ProyectoLoboSostenido
             CRViewer.ShowCopyButton = false;
         }
         #endregion
+        */
 
-        #region Permisos para imprimir Reportes FastREeports
+     /*   #region Permisos para imprimir Reportes FastREeports
         private void ActivarPermisoReporteadorFastLaguna()
         {
             if (Clase_Sesion.Campus == "11")
@@ -39237,7 +39239,7 @@ namespace ProyectoLoboSostenido
             fsetting.PreviewSettings.Buttons = PreviewButtons.Close | PreviewButtons.Find | PreviewButtons.PageSetup | PreviewButtons.Zoom | PreviewButtons.Navigator | PreviewButtons.Save;
         }
         #endregion
-
+     */
         private void ChkTodos_Click(object sender, EventArgs e)
         {
             GetCicloEscolar(chkTodos.Checked ? "0" : "1");
@@ -41658,7 +41660,7 @@ namespace ProyectoLoboSostenido
             especialidad.ConsultaEncargadoCECampus();
             cd = new Clase_ReportesCE();
            
-            ActivarPermiso();
+            //ActivarPermiso();
             cd.GetParmetros_Reportes("5");
             string[,] vec1 = new string[Convert.ToInt32(cd.Lector.Tables[0].Rows.Count), 2];
             string[] valorParametros={ especialidad.Lector.Tables[0].Rows[0][2].ToString() + " " + especialidad.Lector.Tables[0].Rows[0][0].ToString(), cBoxGrupo.SelectedValue.ToString(), gridViewAlumnos.Rows[ro].Cells[0].Value.ToString() };
@@ -41701,8 +41703,82 @@ namespace ProyectoLoboSostenido
 
         private void FrmReportesControlEscolar_Load(object sender, EventArgs e)
         {
-           
+            RestringirPermisosReportes();
             LlenadoNodosReporte(TreePrueba);
+        }
+
+        private void RestringirPermisosReportes()
+        {
+            try
+            {
+                
+                CRViewer.ShowCloseButton = false;
+                CRViewer.ShowCopyButton = false;
+                CRViewer.ShowExportButton = false;
+                CRViewer.ShowGotoPageButton = false;
+                CRViewer.ShowGroupTreeButton = false;
+                CRViewer.ShowPageNavigateButtons = false;
+                CRViewer.ShowParameterPanelButton = false;
+                CRViewer.ShowPrintButton = false;
+                CRViewer.ShowRefreshButton = false;
+                CRViewer.ShowTextSearchButton = false;
+                CRViewer.ShowZoomButton = false;
+                PermisosReportes pr;
+                pr = new PermisosReportes();
+                if (pr.GetPermisosRol(Clase_Sesion.Rol, Clase_Sesion.Campus))
+                {
+                    for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
+                    {
+                        int punto = Convert.ToInt32(pr.Lector.Tables[0].Rows[i][0]);
+                        switch (punto)
+                        {
+                            case 2:
+                                CRViewer.ShowCopyButton = true;
+                                
+                                break;
+
+                            case 3:
+                                CRViewer.ShowExportButton = true;
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Save;
+                                break;
+
+                            case 4:
+                                CRViewer.ShowGotoPageButton = true;
+                                break;
+                            case 5:
+                                CRViewer.ShowGroupTreeButton = true;
+                                break;
+                            case 6:
+                                CRViewer.ShowPageNavigateButtons = true;
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Navigator;
+                                break;
+                            case 7:
+                                CRViewer.ShowParameterPanelButton = true;
+                                break;
+                            case 8:
+                                CRViewer.ShowPrintButton = true;
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Print;
+                                break;
+                            case 9:
+                                CRViewer.ShowRefreshButton = true;
+                                break;
+                            case 10:
+                                CRViewer.ShowTextSearchButton = true;
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Find;
+                                break;
+                            case 11:
+                                CRViewer.ShowZoomButton = true;
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Zoom;
+                                break;
+                        }
+                                              
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btn_Restricciones_Click(object sender, EventArgs e)
@@ -41748,44 +41824,65 @@ namespace ProyectoLoboSostenido
                                 }
                             }
                         }
-                        MessageBox.Show(dt.Table.Rows[0][1].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        /*string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
-                        string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
-                        string id = cd.Lector.Tables[0].Rows[0][0].ToString();
-                        string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
-                        cd = new Clase_ReportesCE();
-                        cd.GetParmetros_Reportes(id);
-                        int tamVector = cd.Lector.Tables[0].Rows.Count;
-                        string[,] vec = new string[tamVector, 2];
-                        for (int i = 0; i < tamVector; i++)
+
+                        PermisosReportes pr = new PermisosReportes();
+
+                        pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol);
+                        if (Convert.ToInt32( pr.Lector.Tables[0].Rows[0][0]) >0)
                         {
-                            int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
-                            vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
-                            vec[i, 1] = vecExtParametros[par - 1];
-                        }
-                        try
-                        {
-                            cpr.MostrarRepos(vec, nomreporte, tipo);
-                            if (tipo.Equals(".rpt"))
+                            pr = new PermisosReportes();
+                            pr.RptGetRestriccionReporteEmpledo(dt.Table.Rows[0][0].ToString(), Clase_Sesion.IDEmpleado);
+                            if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) == -1)
                             {
-                                CRViewer.Visible = true;
-                                FrView.Visible = false;
-                                CRViewer.ShowCloseButton = true;
-                                CRViewer.ReportSource = cpr.CryRpt;
-                 
+                                MessageBox.Show(dt.Table.Rows[0][1].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                /*
+                                string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
+                                string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
+                                string id = cd.Lector.Tables[0].Rows[0][0].ToString();
+                                string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
+                                cd = new Clase_ReportesCE();
+                                cd.GetParmetros_Reportes(id);
+                                int tamVector = cd.Lector.Tables[0].Rows.Count;
+                                string[,] vec = new string[tamVector, 2];
+                                for (int i = 0; i < tamVector; i++)
+                                {
+                                    int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
+                                    vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
+                                    vec[i, 1] = vecExtParametros[par - 1];
+                                }
+                                try
+                                {
+                                    cpr.MostrarRepos(vec, nomreporte, tipo);
+                                    if (tipo.Equals(".rpt"))
+                                    {
+                                        CRViewer.Visible = true;
+                                        FrView.Visible = false;
+                                        CRViewer.ShowCloseButton = true;
+                                        CRViewer.ReportSource = cpr.CryRpt;
+
+                                    }
+                                    else
+                                    {
+                                        CRViewer.Visible = false;
+                                        FrView.Visible = true;
+                                        cpr.frrepForm.Preview = FrView;
+                                        cpr.frrepForm.Show();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+                                }*/
                             }
                             else
                             {
-                                CRViewer.Visible = false;
-                                FrView.Visible = true;
-                                cpr.frrepForm.Preview = FrView;
-                                cpr.frrepForm.Show();
+                                MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                        MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-                        }*/
+                            MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 catch

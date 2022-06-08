@@ -289,5 +289,11 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnUsuariosReportesw_Click(object sender, EventArgs e)
+        {
+            FrmRestriccionesRolesReportes rr = new FrmRestriccionesRolesReportes();
+            rr.Show();
+        }
     }
 }

@@ -255,6 +255,12 @@
     <Compile Include="FrmReportesLimitarNodos.designer.cs">
       <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRestriccionesRolesReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRestriccionesRolesReportes.Designer.cs">
+      <DependentUpon>FrmRestriccionesRolesReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRPTPermisosRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesLimitarNodos.resx">
       <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRestriccionesRolesReportes.resx">
+      <DependentUpon>FrmRestriccionesRolesReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRPTPermisosRol.resx">
       <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>

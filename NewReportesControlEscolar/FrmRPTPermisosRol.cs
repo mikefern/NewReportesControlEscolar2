@@ -105,9 +105,10 @@ namespace ProyectoLoboSostenido
                         
                         for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
                         {
-                            if (pr.Lector.Tables[0].Rows[i][0].ToString() == lvPermisos.Items[i].Text.ToString())
+                            for (int x = 0; x < lvPermisos.Items.Count; x++)
                             {
-                            lvPermisos.Items[i].Checked = true;
+                                if (Convert.ToInt32(pr.Lector.Tables[0].Rows[i][0]) == Convert.ToInt32(lvPermisos.Items[x].Text.ToString()))
+                                    lvPermisos.Items[x].Checked = true;
                             }
                         }
                     }
@@ -117,6 +118,14 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void btn_AgregarPermisos_Click(object sender, EventArgs e)
+        {
+            string nombre = tbPermisosReporte.Text;
+            pr = new PermisosReportes();
+            pr.AgregarIndicePermisosReportes(nombre);
+            getPermisos();
         }
     }
 }

@@ -29,8 +29,8 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.lvReportes = new System.Windows.Forms.ListView();
             this.ID_Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,6 +49,7 @@ namespace NewReportesControlEscolar
             this.btnGuardarCampus = new System.Windows.Forms.Button();
             this.btnGuardarRoles = new System.Windows.Forms.Button();
             this.btnGuardarRVOE = new System.Windows.Forms.Button();
+            this.btnUsuariosReportesw = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvReportes
@@ -57,12 +58,12 @@ namespace NewReportesControlEscolar
             this.ID_Reporte,
             this.Reporte});
             this.lvReportes.HideSelection = false;
-            listViewItem2.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.lvReportes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lvReportes.Location = new System.Drawing.Point(12, 30);
             this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(268, 477);
+            this.lvReportes.Size = new System.Drawing.Size(281, 477);
             this.lvReportes.TabIndex = 0;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
             this.lvReportes.View = System.Windows.Forms.View.Details;
@@ -75,7 +76,7 @@ namespace NewReportesControlEscolar
             // Reporte
             // 
             this.Reporte.Text = "Nombre";
-            this.Reporte.Width = 201;
+            this.Reporte.Width = 219;
             // 
             // lvCampus
             // 
@@ -107,7 +108,7 @@ namespace NewReportesControlEscolar
             this.NombreCampus});
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem2});
             this.lvCampusEspecificos.Location = new System.Drawing.Point(916, 30);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
             this.lvCampusEspecificos.Size = new System.Drawing.Size(261, 340);
@@ -201,11 +202,22 @@ namespace NewReportesControlEscolar
             this.btnGuardarRVOE.UseVisualStyleBackColor = true;
             this.btnGuardarRVOE.Click += new System.EventHandler(this.btnGuardarRVOE_Click);
             // 
+            // btnUsuariosReportesw
+            // 
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(962, 503);
+            this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
+            this.btnUsuariosReportesw.Size = new System.Drawing.Size(196, 59);
+            this.btnUsuariosReportesw.TabIndex = 8;
+            this.btnUsuariosReportesw.Text = "Agregar Restricciones de reportes para un usuario";
+            this.btnUsuariosReportesw.UseVisualStyleBackColor = true;
+            this.btnUsuariosReportesw.Click += new System.EventHandler(this.btnUsuariosReportesw_Click);
+            // 
             // FrmAniadirEspecifiacionesReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1618, 580);
+            this.Controls.Add(this.btnUsuariosReportesw);
             this.Controls.Add(this.btnGuardarRVOE);
             this.Controls.Add(this.btnGuardarRoles);
             this.Controls.Add(this.btnGuardarCampus);
@@ -241,5 +253,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Button btnGuardarRVOE;
         private System.Windows.Forms.ColumnHeader ID_RVOE;
         private System.Windows.Forms.ColumnHeader RVOE;
+        private System.Windows.Forms.Button btnUsuariosReportesw;
     }
 }
