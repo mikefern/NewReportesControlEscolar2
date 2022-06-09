@@ -11,7 +11,7 @@ namespace ProyectoLoboSostenido
         public bool DetalleArchivoReporte(string opt, string nombre, string ruta, string ultimamodificacion, string creacion, string ultimoacceso, string extension, string descripcionModificaciones, string id_Empleado, string id)
         {
 
-            string nomStore = "RegistroReportes";
+            string nomStore = "Reports_RegistroReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("Opt", opt),

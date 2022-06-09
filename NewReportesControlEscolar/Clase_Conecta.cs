@@ -174,7 +174,7 @@ namespace ProyectoLoboSostenido
                 catch (Exception ex)
                 {
                     error = ex.ToString();
-                  //  MessageBox.Show(error);
+                    MessageBox.Show("error procedimiento,\n"+error);
                     return false;
                 }
             }

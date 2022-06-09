@@ -1,6 +1,7 @@
 ﻿using FastReport;
 using FastReport.Utils;
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -24,6 +25,7 @@ namespace ProyectoLoboSostenido
         public string descripcionModificaciones { get; private set; }
         public string id_Empleado { get; private set; }
         public string opt { get; private set; }
+        public object actualizar_automatico { get; private set; }
 
         public string idreporte;
         string rutaArchivo = string.Empty;
@@ -174,13 +176,14 @@ namespace ProyectoLoboSostenido
         private void DatosReportes_Load(object sender, EventArgs e)
         {
             Habilitar();
+            //........
             txtIDReporte.Enabled = false;
             txtPeso.Enabled = false;
             txtUltima_Mod.Enabled = false;
             txtAcceso.Enabled = false;
             txtCreacion.Enabled = false;
             txtExtension.Enabled = true;
-            MessageBox.Show("En caso de realizar alguna modificación en los reportes, favor de comentar su nombre completo, nombre de archivo y cambios realizados en el apartado Decripción de Modificaciones", "DESCRIPCION DE MODIFICACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            // MessageBox.Show("En caso de realizar alguna modificación en los reportes, favor de comentar su nombre completo, nombre de archivo y cambios realizados en el apartado Decripción de Modificaciones", "DESCRIPCION DE MODIFICACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             MostrarReportes();
         }
 
@@ -224,7 +227,7 @@ namespace ProyectoLoboSostenido
             btnModificar.Enabled = true;
 
             //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\FastReports\FastReport.Net Demo\Designer.exe");//abrir el exe de fastreports
-
+            MostrarReportes();
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -233,7 +236,7 @@ namespace ProyectoLoboSostenido
         }
 
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardarDB(object sender, EventArgs e)
 
         {
             Clase_Reportes reportes = new Clase_Reportes();
@@ -256,8 +259,9 @@ namespace ProyectoLoboSostenido
 
             btnModificar.Enabled = true;
 
+            MostrarReportes();
         }
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnGuardarCambios(object sender, EventArgs e)
         {
 
 
@@ -283,6 +287,7 @@ namespace ProyectoLoboSostenido
             string nombreNuevo = Path.Combine(soloRuta, txtNombreArchivo.Text + txtExtension.Text);
 
             File.Move(fullPath, nombreNuevo);
+            MostrarReportes();
         }
 
         private void MostrarReportes()
@@ -305,10 +310,11 @@ namespace ProyectoLoboSostenido
             GridViewReportes.Columns[7].Visible = false;
             GridViewReportes.Columns[8].Visible = false;
             GridViewReportes.Columns[9].Visible = false;
-
+           // this.GridViewReportes.Refresh();
+            
             if (GridViewReportes.RowCount > 0)
             {
-                MessageBox.Show("Reportes en DB");
+                //MessageBox.Show("Reportes en DB");
             }
             else
             {
@@ -345,15 +351,6 @@ namespace ProyectoLoboSostenido
         }
 
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderDlgCompartida = new FolderBrowserDialog();
-            if (folderDlgCompartida.ShowDialog() == DialogResult.OK)
-            {
-                txtRuta.Text = folderDlgCompartida.SelectedPath + "\\" + txtNombreArchivo.Text + txtExtension.Text;
-            }
-
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -369,7 +366,7 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show("No se pudo eliminar el reporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            string archivo = rutaArchivo; //Eliminar el reporte de la carpeta
+            string archivo = txtRuta.Text; //Eliminar el reporte de la carpeta
             try
             {
                 File.Delete(archivo);
@@ -387,7 +384,7 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show("Error al eliminar el reporte");
             }
 
-
+ 
         }
 
         private void btnCambiar_Click(object sender, EventArgs e)
@@ -424,6 +421,17 @@ namespace ProyectoLoboSostenido
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+            FolderBrowserDialog folderDlgCompartida = new FolderBrowserDialog();
+            if (folderDlgCompartida.ShowDialog() == DialogResult.OK)
+            {
+                txtRuta.Text = folderDlgCompartida.SelectedPath + "\\" + txtNombreArchivo.Text + txtExtension.Text;
+
+            }
         }
     }
 

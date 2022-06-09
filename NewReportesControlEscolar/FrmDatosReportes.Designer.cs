@@ -29,12 +29,13 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtDescripcionModificaciones = new System.Windows.Forms.RichTextBox();
             this.txtIDReporte = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,20 +51,18 @@ namespace ProyectoLoboSostenido
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtRuta = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtRuta = new System.Windows.Forms.RichTextBox();
             this.GridViewReportes = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureEliminar = new System.Windows.Forms.PictureBox();
             this.pictureCambiar = new System.Windows.Forms.PictureBox();
             this.pictureAgregar = new System.Windows.Forms.PictureBox();
-            this.pictureBuscar = new System.Windows.Forms.PictureBox();
             this.pictureModificar = new System.Windows.Forms.PictureBox();
             this.pictureAbrirArchivo = new System.Windows.Forms.PictureBox();
             this.pictureAbrirCarpeta = new System.Windows.Forms.PictureBox();
             this.btnCambiar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureGuardar = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -83,12 +82,12 @@ namespace ProyectoLoboSostenido
             this.lblcerrar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewReportes)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirCarpeta)).BeginInit();
@@ -118,6 +117,7 @@ namespace ProyectoLoboSostenido
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtDescripcionModificaciones);
             this.groupBox1.Controls.Add(this.txtIDReporte);
             this.groupBox1.Controls.Add(this.label10);
@@ -133,9 +133,9 @@ namespace ProyectoLoboSostenido
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtRuta);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtRuta);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(3, 23);
@@ -145,6 +145,18 @@ namespace ProyectoLoboSostenido
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(757, 119);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 75;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // txtDescripcionModificaciones
             // 
@@ -310,17 +322,6 @@ namespace ProyectoLoboSostenido
             this.label4.TabIndex = 60;
             this.label4.Text = "Fecha de creación:";
             // 
-            // txtRuta
-            // 
-            this.txtRuta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRuta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRuta.Location = new System.Drawing.Point(19, 114);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(780, 42);
-            this.txtRuta.TabIndex = 3;
-            this.txtRuta.TabStop = false;
-            this.txtRuta.Text = "";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -343,29 +344,40 @@ namespace ProyectoLoboSostenido
             this.label2.TabIndex = 57;
             this.label2.Text = "Nombre del archivo:";
             // 
+            // txtRuta
+            // 
+            this.txtRuta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRuta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRuta.Location = new System.Drawing.Point(19, 114);
+            this.txtRuta.Name = "txtRuta";
+            this.txtRuta.Size = new System.Drawing.Size(780, 42);
+            this.txtRuta.TabIndex = 3;
+            this.txtRuta.TabStop = false;
+            this.txtRuta.Text = "";
+            // 
             // GridViewReportes
             // 
             this.GridViewReportes.AllowUserToAddRows = false;
             this.GridViewReportes.AllowUserToDeleteRows = false;
             this.GridViewReportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewReportes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewReportes.DefaultCellStyle = dataGridViewCellStyle4;
             this.GridViewReportes.GridColor = System.Drawing.Color.Black;
             this.GridViewReportes.Location = new System.Drawing.Point(652, 376);
             this.GridViewReportes.MultiSelect = false;
@@ -377,16 +389,14 @@ namespace ProyectoLoboSostenido
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.pictureEliminar);
             this.panel2.Controls.Add(this.pictureCambiar);
             this.panel2.Controls.Add(this.pictureAgregar);
-            this.panel2.Controls.Add(this.pictureBuscar);
             this.panel2.Controls.Add(this.pictureModificar);
             this.panel2.Controls.Add(this.pictureAbrirArchivo);
             this.panel2.Controls.Add(this.pictureAbrirCarpeta);
             this.panel2.Controls.Add(this.btnCambiar);
-            this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.pictureGuardar);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnAgregar);
@@ -399,7 +409,7 @@ namespace ProyectoLoboSostenido
             this.panel2.Controls.Add(this.btnAbrirarchivo);
             this.panel2.Controls.Add(this.btnModificar);
             this.panel2.Controls.Add(this.pictureIcono);
-            this.panel2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(215, 801);
@@ -408,7 +418,7 @@ namespace ProyectoLoboSostenido
             // pictureEliminar
             // 
             this.pictureEliminar.Image = ((System.Drawing.Image)(resources.GetObject("pictureEliminar.Image")));
-            this.pictureEliminar.Location = new System.Drawing.Point(17, 699);
+            this.pictureEliminar.Location = new System.Drawing.Point(17, 618);
             this.pictureEliminar.Name = "pictureEliminar";
             this.pictureEliminar.Size = new System.Drawing.Size(31, 35);
             this.pictureEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -418,7 +428,7 @@ namespace ProyectoLoboSostenido
             // pictureCambiar
             // 
             this.pictureCambiar.Image = ((System.Drawing.Image)(resources.GetObject("pictureCambiar.Image")));
-            this.pictureCambiar.Location = new System.Drawing.Point(17, 623);
+            this.pictureCambiar.Location = new System.Drawing.Point(17, 549);
             this.pictureCambiar.Name = "pictureCambiar";
             this.pictureCambiar.Size = new System.Drawing.Size(31, 35);
             this.pictureCambiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -428,27 +438,17 @@ namespace ProyectoLoboSostenido
             // pictureAgregar
             // 
             this.pictureAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pictureAgregar.Image")));
-            this.pictureAgregar.Location = new System.Drawing.Point(17, 474);
+            this.pictureAgregar.Location = new System.Drawing.Point(17, 473);
             this.pictureAgregar.Name = "pictureAgregar";
             this.pictureAgregar.Size = new System.Drawing.Size(31, 35);
             this.pictureAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureAgregar.TabIndex = 66;
             this.pictureAgregar.TabStop = false;
             // 
-            // pictureBuscar
-            // 
-            this.pictureBuscar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBuscar.Image")));
-            this.pictureBuscar.Location = new System.Drawing.Point(17, 549);
-            this.pictureBuscar.Name = "pictureBuscar";
-            this.pictureBuscar.Size = new System.Drawing.Size(31, 35);
-            this.pictureBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBuscar.TabIndex = 64;
-            this.pictureBuscar.TabStop = false;
-            // 
             // pictureModificar
             // 
             this.pictureModificar.Image = ((System.Drawing.Image)(resources.GetObject("pictureModificar.Image")));
-            this.pictureModificar.Location = new System.Drawing.Point(17, 400);
+            this.pictureModificar.Location = new System.Drawing.Point(17, 410);
             this.pictureModificar.Name = "pictureModificar";
             this.pictureModificar.Size = new System.Drawing.Size(31, 35);
             this.pictureModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -458,7 +458,7 @@ namespace ProyectoLoboSostenido
             // pictureAbrirArchivo
             // 
             this.pictureAbrirArchivo.Image = ((System.Drawing.Image)(resources.GetObject("pictureAbrirArchivo.Image")));
-            this.pictureAbrirArchivo.Location = new System.Drawing.Point(17, 180);
+            this.pictureAbrirArchivo.Location = new System.Drawing.Point(17, 189);
             this.pictureAbrirArchivo.Name = "pictureAbrirArchivo";
             this.pictureAbrirArchivo.Size = new System.Drawing.Size(31, 35);
             this.pictureAbrirArchivo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -468,7 +468,7 @@ namespace ProyectoLoboSostenido
             // pictureAbrirCarpeta
             // 
             this.pictureAbrirCarpeta.Image = ((System.Drawing.Image)(resources.GetObject("pictureAbrirCarpeta.Image")));
-            this.pictureAbrirCarpeta.Location = new System.Drawing.Point(17, 251);
+            this.pictureAbrirCarpeta.Location = new System.Drawing.Point(17, 260);
             this.pictureAbrirCarpeta.Name = "pictureAbrirCarpeta";
             this.pictureAbrirCarpeta.Size = new System.Drawing.Size(31, 35);
             this.pictureAbrirCarpeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -482,8 +482,8 @@ namespace ProyectoLoboSostenido
             this.btnCambiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCambiar.Location = new System.Drawing.Point(54, 624);
+            this.btnCambiar.ForeColor = System.Drawing.Color.Black;
+            this.btnCambiar.Location = new System.Drawing.Point(54, 550);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(147, 34);
             this.btnCambiar.TabIndex = 75;
@@ -491,27 +491,11 @@ namespace ProyectoLoboSostenido
             this.btnCambiar.UseVisualStyleBackColor = true;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBuscar.Location = new System.Drawing.Point(54, 549);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(147, 34);
-            this.btnBuscar.TabIndex = 63;
-            this.btnBuscar.Text = "Buscar Nueva Ruta";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // pictureGuardar
             // 
             this.pictureGuardar.Image = ((System.Drawing.Image)(resources.GetObject("pictureGuardar.Image")));
             this.pictureGuardar.InitialImage = null;
-            this.pictureGuardar.Location = new System.Drawing.Point(17, 325);
+            this.pictureGuardar.Location = new System.Drawing.Point(17, 335);
             this.pictureGuardar.Name = "pictureGuardar";
             this.pictureGuardar.Size = new System.Drawing.Size(31, 35);
             this.pictureGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -525,9 +509,9 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(54, 700);
+            this.btnEliminar.Location = new System.Drawing.Point(54, 619);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(147, 34);
             this.btnEliminar.TabIndex = 63;
@@ -542,7 +526,7 @@ namespace ProyectoLoboSostenido
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAgregar.Location = new System.Drawing.Point(54, 474);
             this.btnAgregar.Name = "btnAgregar";
@@ -559,7 +543,7 @@ namespace ProyectoLoboSostenido
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(54, 261);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 34);
@@ -591,14 +575,14 @@ namespace ProyectoLoboSostenido
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(54, 335);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 34);
+            this.button3.Size = new System.Drawing.Size(147, 47);
             this.button3.TabIndex = 59;
-            this.button3.Text = "Guardar";
+            this.button3.Text = "Guardar Reporte en DB";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.button3.Click += new System.EventHandler(this.btnGuardarDB);
             // 
             // btnGuardar
             // 
@@ -610,11 +594,11 @@ namespace ProyectoLoboSostenido
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Location = new System.Drawing.Point(54, 326);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(147, 34);
+            this.btnGuardar.Size = new System.Drawing.Size(147, 43);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardarDB);
             // 
             // button2
             // 
@@ -623,7 +607,7 @@ namespace ProyectoLoboSostenido
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(54, 189);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 34);
@@ -639,14 +623,14 @@ namespace ProyectoLoboSostenido
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(54, 410);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 34);
             this.button1.TabIndex = 17;
-            this.button1.Text = "Modificar";
+            this.button1.Text = "Guardar Cambios";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnModificar_Click);
+            this.button1.Click += new System.EventHandler(this.btnGuardarCambios);
             // 
             // btnAbrirarchivo
             // 
@@ -678,7 +662,7 @@ namespace ProyectoLoboSostenido
             this.btnModificar.TabIndex = 17;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificar.Click += new System.EventHandler(this.btnGuardarCambios);
             // 
             // pictureIcono
             // 
@@ -724,7 +708,7 @@ namespace ProyectoLoboSostenido
             this.lbltitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbltitulo.Location = new System.Drawing.Point(0, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(1036, 35);
+            this.lbltitulo.Size = new System.Drawing.Size(1031, 35);
             this.lbltitulo.TabIndex = 67;
             this.lbltitulo.Text = "Datos Archivo Reportes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -759,7 +743,7 @@ namespace ProyectoLoboSostenido
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1036, 836);
+            this.ClientSize = new System.Drawing.Size(1031, 836);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbltitulo);
             this.Controls.Add(this.panel3);
@@ -776,12 +760,12 @@ namespace ProyectoLoboSostenido
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewReportes)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirCarpeta)).EndInit();
@@ -825,12 +809,10 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.PictureBox pictureEliminar;
         private System.Windows.Forms.PictureBox pictureCambiar;
         private System.Windows.Forms.PictureBox pictureAgregar;
-        private System.Windows.Forms.PictureBox pictureBuscar;
         private System.Windows.Forms.PictureBox pictureModificar;
         private System.Windows.Forms.PictureBox pictureAbrirArchivo;
         private System.Windows.Forms.PictureBox pictureAbrirCarpeta;
         private System.Windows.Forms.Button btnCambiar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureGuardar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
@@ -843,5 +825,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Button btnAbrirarchivo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pictureIcono;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

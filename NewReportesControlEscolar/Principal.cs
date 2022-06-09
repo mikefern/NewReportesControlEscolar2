@@ -73,6 +73,7 @@ namespace NewReportesControlEscolar
 
         private void btnInformación(object sender, EventArgs e)
         {
+            Clase_Sesion.IDEmpleado = textBox1.Text;
             DatosReportes ARR = new DatosReportes();
             ARR.Show();
         }
@@ -92,6 +93,11 @@ namespace NewReportesControlEscolar
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnactualizar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
