@@ -63,7 +63,7 @@ namespace NewReportesControlEscolar
             this.Nombre});
             this.lvReportes.Enabled = false;
             this.lvReportes.HideSelection = false;
-            this.lvReportes.Location = new System.Drawing.Point(468, 27);
+            this.lvReportes.Location = new System.Drawing.Point(465, 27);
             this.lvReportes.Name = "lvReportes";
             this.lvReportes.Size = new System.Drawing.Size(309, 463);
             this.lvReportes.TabIndex = 2;

@@ -25,11 +25,13 @@ namespace ProyectoLoboSostenido
             try
             {
                 ur = new GetUsuariosRestricciones();
-                ur.GetUsuarios(campus);
-                cBoxUsuarios.DataSource = ur.Lector.Tables[0];
-                cBoxUsuarios.DisplayMember = "Usuario";
-                cBoxUsuarios.ValueMember = "ID_Empleado";
-                cBoxUsuarios.SelectedItem = null;
+                if (ur.GetUsuarios(campus))
+                {
+                    cBoxUsuarios.DataSource = ur.Lector.Tables[0];
+                    cBoxUsuarios.DisplayMember = "Usuario";
+                    cBoxUsuarios.ValueMember = "ID_Empleado";
+                    cBoxUsuarios.SelectedItem = null;
+                }
             }
             catch(Exception ex)
             {
@@ -41,13 +43,16 @@ namespace ProyectoLoboSostenido
             try
             {
                 ur = new GetUsuariosRestricciones();
-                ur.GetCampus();
-                cbCampus.DataSource = ur.Lector.Tables[0];
-                cbCampus.DisplayMember = "Campus";
-                cbCampus.ValueMember = "ID_Campus";
-                cbCampus.SelectedItem = null;
+                if (ur.GetCampus())
+                {
+                    cbCampus.DataSource = ur.Lector.Tables[0];
+                    cbCampus.DisplayMember = "Campus";
+                    cbCampus.ValueMember = "ID_Campus";
+                    cbCampus.SelectedItem = null;
+                }else
+                    MessageBox.Show("Error en el Script", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -71,9 +76,11 @@ namespace ProyectoLoboSostenido
 
                 if (!validar.Equals("-1"))
                 {
-
+                    cu = new ControlUsuariosRepo();
+                    cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
                     CrearNodosDelPadre(0, null, treeView);
                     btnAgregar.Enabled = true;
+                     
                 }
                 else
                 {
@@ -89,12 +96,12 @@ namespace ProyectoLoboSostenido
         private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre, TreeView treeView)
         {
             DataView dataViewHijos = new DataView(cd.Lector.Tables[0]);
-            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["nodo_Padre"].ColumnName + " = " + indicePadre;
+            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["nodo_text"].ToString().Trim();
-                nuevoNodo.Name = dataRowCurrent["nodo"].ToString().Trim();
+                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();
+                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
                 MarcarNodos(nuevoNodo);
                     if (nodePadre == null)
                         treeView.Nodes.Add(nuevoNodo);
@@ -107,8 +114,7 @@ namespace ProyectoLoboSostenido
         }
         private void MarcarNodos(TreeNode nodo)
         {
-                 cu= new ControlUsuariosRepo();
-                cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
+                
                 DataView nodos = new DataView(cu.Lector.Tables[0]);
 
                 for (int x = 0; x < nodos.Table.Rows.Count; x++)

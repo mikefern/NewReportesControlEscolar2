@@ -74,8 +74,11 @@ namespace NewReportesControlEscolar
                     p = new PermisosReportes();
                     if (p.GetRestriccionesReportesEmpleado(cbUsuarios.SelectedValue.ToString()))
                     {
+                        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+                        DataView dt = new DataView(p.Lector.Tables[0]);
+                        gn.marcarnodos(lvReportes, dt);
 
-                        for (int i = 0; i < p.Lector.Tables[0].Rows.Count; i++)
+                        /*for (int i = 0; i < p.Lector.Tables[0].Rows.Count; i++)
                         {
                             int dato = Convert.ToInt32(p.Lector.Tables[0].Rows[i][0]);
                             for (int x = 0; x < lvReportes.Items.Count; x++)
@@ -84,7 +87,7 @@ namespace NewReportesControlEscolar
                                 if (lv == dato)
                                     lvReportes.Items[x].Checked = true;
                             }
-                        }
+                        }*/
                     }
                 }
 

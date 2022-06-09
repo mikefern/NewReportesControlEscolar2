@@ -207,6 +207,7 @@
     <Compile Include="Clase_InformacionMatricula.cs" />
     <Compile Include="Clase_Reportes.cs" />
     <Compile Include="Clase_ReportesCE.cs" />
+    <Compile Include="Clase_ReportesGenericos.cs" />
     <Compile Include="Clase_Sesion.cs" />
     <Compile Include="FrmRPTPermisosRol.designer.cs">
       <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
@@ -258,12 +259,6 @@
     </Compile>
     <Compile Include="FrmReportesAsignarCampusNodos.designer.cs">
       <DependentUpon>FrmReportesAsignarCampusNodos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmReportesLimitarNodos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmReportesLimitarNodos.designer.cs">
-      <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRestriccionesRolesReportes.cs">
       <SubType>Form</SubType>
@@ -325,9 +320,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesAsignarCampusNodos.resx">
       <DependentUpon>FrmReportesAsignarCampusNodos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmReportesLimitarNodos.resx">
-      <DependentUpon>FrmReportesLimitarNodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRestriccionesRolesReportes.resx">
       <DependentUpon>FrmRestriccionesRolesReportes.cs</DependentUpon>

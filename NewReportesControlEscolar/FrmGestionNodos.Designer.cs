@@ -29,6 +29,9 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
             this.btn_EliminarNodo = new System.Windows.Forms.Button();
             this.btn_CambiarNombreNodo = new System.Windows.Forms.Button();
@@ -46,6 +49,17 @@ namespace NewReportesControlEscolar
             this.btn_AñadirNodoRaiz = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_GestionarNodos = new System.Windows.Forms.Button();
+            this.lvCampus = new System.Windows.Forms.ListView();
+            this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvSeleccionarCampus = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Campus_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvRoles = new System.Windows.Forms.ListView();
+            this.ID_Rol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Rol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnGuardarRoles = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TreeViewNodos
@@ -57,6 +71,7 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.TabIndex = 0;
             this.TreeViewNodos.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.TreeViewNodos_ItemDrag);
             this.TreeViewNodos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewNodos_AfterSelect);
+            this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
             this.TreeViewNodos.Click += new System.EventHandler(this.TreeViewNodos_Click);
             this.TreeViewNodos.DragDrop += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragDrop);
             this.TreeViewNodos.DragEnter += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragEnter);
@@ -206,11 +221,119 @@ namespace NewReportesControlEscolar
             this.btn_GestionarNodos.UseVisualStyleBackColor = true;
             this.btn_GestionarNodos.Click += new System.EventHandler(this.btn_GestionarNodos_Click);
             // 
+            // lvCampus
+            // 
+            this.lvCampus.CheckBoxes = true;
+            this.lvCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID_Campus,
+            this.Campus});
+            listViewGroup7.Header = "ListViewGroup";
+            listViewGroup7.Name = "listViewGroup1";
+            this.lvCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup7});
+            this.lvCampus.HideSelection = false;
+            this.lvCampus.Location = new System.Drawing.Point(375, 376);
+            this.lvCampus.Name = "lvCampus";
+            this.lvCampus.Size = new System.Drawing.Size(241, 361);
+            this.lvCampus.TabIndex = 55;
+            this.lvCampus.UseCompatibleStateImageBehavior = false;
+            this.lvCampus.View = System.Windows.Forms.View.Details;
+            // 
+            // ID_Campus
+            // 
+            this.ID_Campus.Text = "ID";
+            // 
+            // Campus
+            // 
+            this.Campus.Text = "Campus";
+            this.Campus.Width = 176;
+            // 
+            // lvSeleccionarCampus
+            // 
+            this.lvSeleccionarCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.Campus_name});
+            listViewGroup8.Header = "ListViewGroup";
+            listViewGroup8.Name = "listViewGroup1";
+            this.lvSeleccionarCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup8});
+            this.lvSeleccionarCampus.HideSelection = false;
+            this.lvSeleccionarCampus.Location = new System.Drawing.Point(654, 376);
+            this.lvSeleccionarCampus.Name = "lvSeleccionarCampus";
+            this.lvSeleccionarCampus.Size = new System.Drawing.Size(244, 361);
+            this.lvSeleccionarCampus.TabIndex = 56;
+            this.lvSeleccionarCampus.UseCompatibleStateImageBehavior = false;
+            this.lvSeleccionarCampus.View = System.Windows.Forms.View.Details;
+            this.lvSeleccionarCampus.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvSeleccionarCampus_ItemSelectionChanged);
+            // 
+            // id
+            // 
+            this.id.Text = "ID";
+            // 
+            // Campus_name
+            // 
+            this.Campus_name.Text = "Campus";
+            this.Campus_name.Width = 180;
+            // 
+            // lvRoles
+            // 
+            this.lvRoles.CheckBoxes = true;
+            this.lvRoles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID_Rol,
+            this.Rol});
+            this.lvRoles.Enabled = false;
+            listViewGroup9.Header = "ListViewGroup";
+            listViewGroup9.Name = "listViewGroup1";
+            this.lvRoles.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup9});
+            this.lvRoles.HideSelection = false;
+            this.lvRoles.Location = new System.Drawing.Point(935, 376);
+            this.lvRoles.Name = "lvRoles";
+            this.lvRoles.Size = new System.Drawing.Size(262, 343);
+            this.lvRoles.TabIndex = 57;
+            this.lvRoles.UseCompatibleStateImageBehavior = false;
+            this.lvRoles.View = System.Windows.Forms.View.Details;
+            // 
+            // ID_Rol
+            // 
+            this.ID_Rol.Text = "ID";
+            // 
+            // Rol
+            // 
+            this.Rol.Text = "Rol";
+            this.Rol.Width = 198;
+            // 
+            // btnGuardarRoles
+            // 
+            this.btnGuardarRoles.Enabled = false;
+            this.btnGuardarRoles.Location = new System.Drawing.Point(1079, 745);
+            this.btnGuardarRoles.Name = "btnGuardarRoles";
+            this.btnGuardarRoles.Size = new System.Drawing.Size(118, 23);
+            this.btnGuardarRoles.TabIndex = 58;
+            this.btnGuardarRoles.Text = "Guardar Roles";
+            this.btnGuardarRoles.UseVisualStyleBackColor = true;
+            this.btnGuardarRoles.Click += new System.EventHandler(this.btnGuardarRoles_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(527, 745);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(89, 23);
+            this.btnGuardar.TabIndex = 59;
+            this.btnGuardar.Text = "Guardar Campus";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FrmGestionNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 780);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnGuardarRoles);
+            this.Controls.Add(this.lvRoles);
+            this.Controls.Add(this.lvSeleccionarCampus);
+            this.Controls.Add(this.lvCampus);
             this.Controls.Add(this.btn_GestionarNodos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_EliminarNodo);
@@ -231,6 +354,7 @@ namespace NewReportesControlEscolar
             this.Name = "FrmGestionNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Nodos de Reporte Escolar";
+            this.Load += new System.EventHandler(this.FrmGestionNodos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +379,16 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Button btn_AñadirNodoRaiz;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_GestionarNodos;
+        private System.Windows.Forms.ListView lvCampus;
+        private System.Windows.Forms.ColumnHeader ID_Campus;
+        private System.Windows.Forms.ColumnHeader Campus;
+        private System.Windows.Forms.ListView lvSeleccionarCampus;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader Campus_name;
+        private System.Windows.Forms.ListView lvRoles;
+        private System.Windows.Forms.ColumnHeader ID_Rol;
+        private System.Windows.Forms.ColumnHeader Rol;
+        private System.Windows.Forms.Button btnGuardarRoles;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

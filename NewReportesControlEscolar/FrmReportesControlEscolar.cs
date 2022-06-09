@@ -39147,12 +39147,12 @@ namespace ProyectoLoboSostenido
         private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre, TreeView treeView)
         {
             DataView dataViewHijos = new DataView(cd.Lector.Tables[0]);
-            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["nodo_Padre"].ColumnName + " = " + indicePadre;
+            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["nodo_text"].ToString().Trim();   
-                nuevoNodo.Name = dataRowCurrent["nodo"].ToString().Trim();
+                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();   
+                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
                 if (!QuitarNodos(nuevoNodo)){
                     if (nodePadre == null)
                         treeView.Nodes.Add(nuevoNodo);
@@ -41919,8 +41919,8 @@ namespace ProyectoLoboSostenido
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
-            rl.Show();
+            //FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
+            //rl.Show();
         }
     }
 }
