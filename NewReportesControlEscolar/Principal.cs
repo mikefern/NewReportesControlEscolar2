@@ -40,14 +40,14 @@ namespace NewReportesControlEscolar
             Clase_Sesion.IDEmpleado = textBox1.Text;
             Clase_Sesion.Campus = textBox2.Text;
             Clase_Sesion.Rol = textBox3.Text;
-           // FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
-            //fr.Show();
+           FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
+           fr.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //FrmAniadirEspecifiacionesReporte fa = new FrmAniadirEspecifiacionesReporte();
-            //fa.Show();
+            FrmAniadirEspecifiacionesReporte fa = new FrmAniadirEspecifiacionesReporte();
+            fa.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,8 +58,8 @@ namespace NewReportesControlEscolar
 
         private void btn_Restricciones_Click(object sender, EventArgs e)
         {
-            //FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
-            //ARR.Show();
+            FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
+            ARR.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,7 +73,6 @@ namespace NewReportesControlEscolar
 
         private void btnInformación(object sender, EventArgs e)
         {
-            Clase_Sesion.IDEmpleado = textBox1.Text;
             DatosReportes ARR = new DatosReportes();
             ARR.Show();
         }
@@ -97,7 +96,11 @@ namespace NewReportesControlEscolar
 
         private void btnactualizar_Click_1(object sender, EventArgs e)
         {
-
+            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.Campus = textBox2.Text;
+            Clase_Sesion.Rol = textBox3.Text;
+            FrmReportesControlEscolar rce = new FrmReportesControlEscolar();
+            rce.Show();
         }
     }
 }

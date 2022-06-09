@@ -37,7 +37,12 @@ namespace ProyectoLoboSostenido
             this.ID_PermisosReporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btn_AgregarPermisos = new System.Windows.Forms.Button();
+            this.tbPermisosReporte = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbRoles
@@ -104,18 +109,57 @@ namespace ProyectoLoboSostenido
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // FmrRPTPermisosRol
+            // btn_AgregarPermisos
+            // 
+            this.btn_AgregarPermisos.Location = new System.Drawing.Point(98, 90);
+            this.btn_AgregarPermisos.Name = "btn_AgregarPermisos";
+            this.btn_AgregarPermisos.Size = new System.Drawing.Size(133, 46);
+            this.btn_AgregarPermisos.TabIndex = 5;
+            this.btn_AgregarPermisos.Text = "Agregar Permisos";
+            this.btn_AgregarPermisos.UseVisualStyleBackColor = true;
+            this.btn_AgregarPermisos.Click += new System.EventHandler(this.btn_AgregarPermisos_Click);
+            // 
+            // tbPermisosReporte
+            // 
+            this.tbPermisosReporte.Location = new System.Drawing.Point(33, 44);
+            this.tbPermisosReporte.Name = "tbPermisosReporte";
+            this.tbPermisosReporte.Size = new System.Drawing.Size(198, 20);
+            this.tbPermisosReporte.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.tbPermisosReporte);
+            this.panel2.Controls.Add(this.btn_AgregarPermisos);
+            this.panel2.Location = new System.Drawing.Point(29, 322);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(281, 151);
+            this.panel2.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Agregar nuevo boton para el reporte";
+            // 
+            // FrmRPTPermisosRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 485);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lvPermisos);
             this.Controls.Add(this.panel1);
-            this.Name = "FmrRPTPermisosRol";
+            this.Name = "FrmRPTPermisosRol";
             this.Text = "FmrRPTPermisosRol";
             this.Load += new System.EventHandler(this.FmrRPTPermisosRol_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -129,5 +173,9 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ColumnHeader ID_PermisosReporte;
         private System.Windows.Forms.ColumnHeader Nombre;
+        private System.Windows.Forms.Button btn_AgregarPermisos;
+        private System.Windows.Forms.TextBox tbPermisosReporte;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }

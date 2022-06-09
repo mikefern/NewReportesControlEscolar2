@@ -29,9 +29,9 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.lvCampus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,7 +46,6 @@ namespace ProyectoLoboSostenido
             this.Campus_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            //this.alumnos_ActasExamenTableAdapter1 = new ProyectoLoboSostenido.ne.Alumnos_ActasExamenTableAdapter();////FG Descomentar esto si se agrega al lobo one
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,10 +55,10 @@ namespace ProyectoLoboSostenido
             this.lvCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_Campus,
             this.Campus});
-            listViewGroup7.Header = "ListViewGroup";
-            listViewGroup7.Name = "listViewGroup1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
             this.lvCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7});
+            listViewGroup1});
             this.lvCampus.HideSelection = false;
             this.lvCampus.Location = new System.Drawing.Point(368, 38);
             this.lvCampus.Name = "lvCampus";
@@ -102,10 +101,10 @@ namespace ProyectoLoboSostenido
             this.ID_Rol,
             this.Rol});
             this.lvRoles.Enabled = false;
-            listViewGroup8.Header = "ListViewGroup";
-            listViewGroup8.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.lvRoles.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup8});
+            listViewGroup2});
             this.lvRoles.HideSelection = false;
             this.lvRoles.Location = new System.Drawing.Point(314, 26);
             this.lvRoles.Name = "lvRoles";
@@ -139,10 +138,10 @@ namespace ProyectoLoboSostenido
             this.lvSeleccionarCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
             this.Campus_name});
-            listViewGroup9.Header = "ListViewGroup";
-            listViewGroup9.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.lvSeleccionarCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup9});
+            listViewGroup3});
             this.lvSeleccionarCampus.HideSelection = false;
             this.lvSeleccionarCampus.Location = new System.Drawing.Point(3, 26);
             this.lvSeleccionarCampus.Name = "lvSeleccionarCampus";
@@ -181,10 +180,6 @@ namespace ProyectoLoboSostenido
             this.label1.TabIndex = 6;
             this.label1.Text = "Campus ya guardados en el nodo";
             // 
-            // alumnos_ActasExamenTableAdapter1
-            // 
-            //this.alumnos_ActasExamenTableAdapter1.ClearBeforeFill = true;//FG Descomentar eso si se agrega al lobo one
-            // 
             // FrmReportesAsignarCampusNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,7 +190,7 @@ namespace ProyectoLoboSostenido
             this.Controls.Add(this.tvNodos);
             this.Controls.Add(this.lvCampus);
             this.Name = "FrmReportesAsignarCampusNodos";
-            this.Text = "FmrReportesAsignarCampusNodos";
+            this.Text = "Metodo para agregar lo";
             this.Load += new System.EventHandler(this.FmrReportesAsignarCampusNodos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

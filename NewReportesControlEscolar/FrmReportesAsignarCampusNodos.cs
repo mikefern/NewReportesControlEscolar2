@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewReportesControlEscolar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +24,10 @@ namespace ProyectoLoboSostenido
 
         private void FmrReportesAsignarCampusNodos_Load(object sender, EventArgs e)
         {
+            Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
             LlenadoNodosReporte(tvNodos);
-            cargarCampus();
-            cargarRoles();
+            gn.cargarCampus(lvCampus);
+            gn.cargarRoles(lvRoles);
         }
         private void tvNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -124,12 +126,12 @@ namespace ProyectoLoboSostenido
         private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre, TreeView treeView)
         {
             DataView dataViewHijos = new DataView(cd.Lector.Tables[0]);
-            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["nodo_Padre"].ColumnName + " = " + indicePadre;
+            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["nodo_text"].ToString().Trim();
-                nuevoNodo.Name = dataRowCurrent["nodo"].ToString().Trim();
+                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();
+                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
                 if (nodePadre == null)
                     treeView.Nodes.Add(nuevoNodo);
                 else
@@ -138,21 +140,7 @@ namespace ProyectoLoboSostenido
                 CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo, treeView);
             }
         }
-        private void cargarCampus()
-        {
-            GetUsuariosRestricciones ur = new GetUsuariosRestricciones();
-            ur.GetCampus();
-            if (ur.Lector.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < ur.Lector.Tables[0].Rows.Count; i++)
-                {
-                    var item = new ListViewItem();
-                    item.Text = ur.Lector.Tables[0].Rows[i][0].ToString();
-                    item.SubItems.Add(ur.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
-                    lvCampus.Items.Add(item);
-                }
-            }
-        }
+        
         private void cargarCampusSeleccion(string nodo)
         {
 
@@ -170,21 +158,6 @@ namespace ProyectoLoboSostenido
             }
             btnGuardarRoles.Enabled = false;
             lvRoles.Enabled = false;
-        }
-        private void cargarRoles()
-        {
-            pr = new PermisosReportes();
-            pr.GetRoles();
-            if (pr.Lector.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
-                {
-                    var item = new ListViewItem();
-                    item.Text = pr.Lector.Tables[0].Rows[i][0].ToString();
-                    item.SubItems.Add(pr.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
-                    lvRoles.Items.Add(item);
-                }
-            }
         }
 
         private void lvSeleccionarCampus_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

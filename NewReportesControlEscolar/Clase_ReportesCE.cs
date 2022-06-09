@@ -16,6 +16,26 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
+        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol)
+        {
+            string nomStore = "RPTGetNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Campus", ID_Campus),
+                new Clase_Parametros("Rol", rol)
+
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Clase_ReportesCE()
         {
 
@@ -361,6 +381,23 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+        public bool AgregarIndicePermisosReportes(string nombre)
+        {
+            string nomStore = "RPTAgregarIndicePermisosReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nombre",nombre)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool GetReportesTodos()
         {
             string nomStore = "RptGetReportesTodos";
@@ -454,6 +491,42 @@ namespace ProyectoLoboSostenido
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetRelRolesReportes(string reporte, string rol)
+        {
+            string nomStore = "RptGetRelRolesReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("rol",rol)
+
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetPermisoRolReporteAbrir(string reporte, string rol)
+        {
+            string nomStore = "RptGetPermisoRolReporteAbrir";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("rol",rol)
             };
             if (ConsultarParametros(nomStore, par))
             {
@@ -633,6 +706,80 @@ namespace ProyectoLoboSostenido
             }
         }
 
+        public bool GetRestriccionesReportesEmpleado(string empleado)
+        {
+            string nomStore = "RptGetRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("empleado",empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool RptGetRestriccionReporteEmpledo(string reporte ,string empleado)
+        {
+            string nomStore = "RptGetRestriccionReporteEmpledo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("reporte",reporte),
+                 new Clase_Parametros("empleado",empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRestriccionesReportesEmpleado(string reporte, string usuario)
+        {
+            string nomStore = "RptEliminarRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("empleado",usuario)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRestriccionesReportesEmpleado(string reporte, string empleado)
+        {
+            string nomStore = "RptAgregarRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("empleado",empleado)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
     public class NodosPermisos : Clase_Conecta
@@ -1020,10 +1167,10 @@ namespace ProyectoLoboSostenido
                         miReporte = @"\LoboOne\LoboONE\LoboOne\Reportes\";
 
                         miReporte = miReporte + Reporte + ".frx";
-                        bool frxExiste = false;
+                        
                         if (File.Exists(miReporte))
                         {
-                            frxExiste = true;
+                            
                             frrepForm.Load(miReporte);
                             foreach (Clase_ParametrosReportes p in pr)
                             {

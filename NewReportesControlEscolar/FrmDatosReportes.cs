@@ -131,6 +131,8 @@ namespace ProyectoLoboSostenido
                 }
                 thisFolder += @"..\";
             }
+            Clase_ParametrosReportes pr = new Clase_ParametrosReportes();
+
 
             Clase_Reportes getid = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
 

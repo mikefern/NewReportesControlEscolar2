@@ -117,7 +117,7 @@ namespace NewReportesControlEscolar
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(57, 228);
+            this.button3.Location = new System.Drawing.Point(62, 236);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(250, 40);
             this.button3.TabIndex = 53;

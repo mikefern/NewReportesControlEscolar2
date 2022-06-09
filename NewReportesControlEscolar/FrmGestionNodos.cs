@@ -238,6 +238,10 @@ namespace NewReportesControlEscolar
             LlenadoNodosReporte();
         }
 
+        NodosPermisos n;
+        NodosPermisos np;
+        private Clase_ReportesGenericos gn;
+
         public void LlenadoNodosReporte()
         {
             TreeViewNodos.Nodes.Clear();
@@ -256,18 +260,18 @@ namespace NewReportesControlEscolar
         private void CrearNodos(int indicePadre, TreeNode nodePadre)
         {
             DataView dataViewHijos = new DataView(clase_ReportesCE.Lector.Tables[0]);
-            dataViewHijos.RowFilter = clase_ReportesCE.Lector.Tables[0].Columns["nodo_Padre"].ColumnName + " = " + indicePadre;
+            dataViewHijos.RowFilter = clase_ReportesCE.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["nodo_text"].ToString().Trim();
-                nuevoNodo.Name = dataRowCurrent["nodo"].ToString().Trim();
+                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();
+                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
                 if (nodePadre == null)
                     TreeViewNodos.Nodes.Add(nuevoNodo);
                 else
                     nodePadre.Nodes.Add(nuevoNodo);
 
-                CrearNodos(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo);
+                CrearNodos(Int32.Parse(dataRowCurrent["Nodo"].ToString()), nuevoNodo);
             }
         }
 
@@ -276,10 +280,10 @@ namespace NewReportesControlEscolar
                 DataRow[] elements = clase_ReportesCE.Lector.Tables[0].Select("nodo =" + nodo.Trim());
                 foreach (DataRow _elemento in elements)
                 {
-                    NNodo = _elemento["nodo"].ToString();
-                    NPadre = _elemento["nodo_padre"].ToString();
-                    Position = _elemento["position"].ToString();
-                    NombreNodo = _elemento["nodo_text"].ToString();
+                    NNodo = _elemento["Nodo"].ToString();
+                    NPadre = _elemento["NodoPadre"].ToString();
+                    Position = _elemento["Posicion"].ToString();
+                    NombreNodo = _elemento["TextoNodo"].ToString();
                 }
 
                 txt_IDNodo.Text = NNodo;
@@ -440,6 +444,10 @@ namespace NewReportesControlEscolar
                     LlenadoNodosReporte();
                     txtNombreNuevoNodo.Text = "";
                 }
+                else
+                {
+                    MessageBox.Show("Existre un error en el procedimiento con ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -469,6 +477,180 @@ namespace NewReportesControlEscolar
                 else MessageBox.Show("Seleccione un Nodo \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("ingresa un nombre en la caja de NUEVO NOMBRE NODO \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        }
+
+        private void btn_GestionarNodos_Click(object sender, EventArgs e)
+        {
+            FrmReportesAsignarCampusNodos rac = new FrmReportesAsignarCampusNodos();
+            rac.Show();
+        }
+
+        private void TreeViewNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < lvCampus.Items.Count; i++)
+                    lvCampus.Items[i].Checked = false;
+
+                n = new NodosPermisos();
+                string nodo = e.Node.Name;
+                if (n.GetCampusNodos(nodo))
+                {
+                    gn = new Clase_ReportesGenericos();
+                    DataView dt = new DataView(n.Lector.Tables[0]);
+                    gn.marcarnodos(lvCampus, dt);
+                    /*for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
+                    {
+                        int dato = Convert.ToInt32(n.Lector.Tables[0].Rows[i][0].ToString());
+                        for (int x = 0; x < lvCampus.Items.Count; x++)
+                        {
+                            if (Convert.ToInt32(lvCampus.Items[x].Text) == dato)
+                                lvCampus.Items[x].Checked = true;
+                        }
+                    }*/
+                }
+                cargarCampusSeleccion(nodo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+            }
+        }
+        private void cargarCampusSeleccion(string nodo)
+        {
+
+            lvSeleccionarCampus.Items.Clear();
+            n = new NodosPermisos();
+            if (n.GetCampusNodos(nodo))
+            {
+                for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
+                {
+                    var item = new ListViewItem();
+                    item.Text = n.Lector.Tables[0].Rows[i][0].ToString();
+                    item.SubItems.Add(n.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
+                    lvSeleccionarCampus.Items.Add(item);
+                }
+            }
+            btnGuardarRoles.Enabled = false;
+            lvRoles.Enabled = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                n = new NodosPermisos();
+                string nodo = TreeViewNodos.SelectedNode.Name.ToString();
+                n.GetCampusNodos(nodo);
+                np = new NodosPermisos();
+
+                for (int x = 0; x < lvCampus.Items.Count; x++)
+                {
+                    if (lvCampus.Items[x].Checked == true)
+                    {
+                        bool check = true;
+                        int CampusListView;
+                        int CampusLector;
+                        for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
+                        {
+                            CampusListView = Convert.ToInt32(lvCampus.Items[x].Text);
+                            CampusLector = Convert.ToInt32(n.Lector.Tables[0].Rows[i][0].ToString());
+                            if (CampusLector == CampusListView)
+                                check = false;
+                        }
+                        if (check)
+                            np.AgregarPermisosverReportes(TreeViewNodos.SelectedNode.Name.ToString(), lvCampus.Items[x].Text.ToString());
+                    }
+                    else
+                    {
+                        np.DeleteCampusNodos(lvCampus.Items[x].Text.ToString(), TreeViewNodos.SelectedNode.Name.ToString());
+
+                    }
+                }
+                MessageBox.Show("Se han guardado los campus que pueden ver el nodo " + TreeViewNodos.SelectedNode.Text, "Confirmar", MessageBoxButtons.OK);
+                cargarCampusSeleccion(TreeViewNodos.SelectedNode.Name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void lvSeleccionarCampus_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < lvRoles.Items.Count; i++)
+                    lvRoles.Items[i].Checked = false;
+
+                n = new NodosPermisos();
+                if (lvSeleccionarCampus.SelectedItems.Count > 0 && n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name))
+                {
+
+                    gn = new Clase_ReportesGenericos();
+                    DataView dt = new DataView(n.Lector.Tables[0]);
+                    gn.marcarnodos(lvRoles, dt);
+                }
+                btnGuardarRoles.Enabled = true;
+                lvRoles.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnGuardarRoles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                n = new NodosPermisos();
+                np = new NodosPermisos();
+                n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name);
+                for (int x = 0; x < lvRoles.Items.Count; x++)
+                {
+                    if (lvRoles.Items[x].Checked == true)
+                    {
+                        bool check = true;
+                        int RolesListView;
+                        int RolesLector;
+                        for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
+                        {
+                            RolesListView = Convert.ToInt32(lvRoles.Items[x].Text);
+                            RolesLector = Convert.ToInt32(n.Lector.Tables[0].Rows[i][1]);
+                            if (RolesLector == RolesListView)
+                                check = false;
+                        }
+                        if (check)
+                        {
+                            string campus = lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text;
+                            string nodo = TreeViewNodos.SelectedNode.Name;
+                            string rol = lvRoles.Items[x].Text;
+                            np.InsertarRolesCampusNodos(campus, nodo, rol);
+                        }
+
+                    }
+                    else
+                    {
+                        string campus = lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text;
+                        string nodo = TreeViewNodos.SelectedNode.Name;
+                        string rol = lvRoles.Items[x].Text;
+                        np.DeleteRolesCampusNodos(campus, nodo, rol);
+                    }
+                }
+                MessageBox.Show("Se han guardados los roles del campus " + lvSeleccionarCampus.SelectedItems[0].SubItems[1].Text + " en el nodo " + TreeViewNodos.SelectedNode.Text, "Completado", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void FrmGestionNodos_Load(object sender, EventArgs e)
+        {
+            Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+            gn.cargarRoles(lvRoles);
+            gn.cargarCampus(lvCampus);
         }
     }//fin de clase
 }
