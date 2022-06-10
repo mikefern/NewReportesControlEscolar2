@@ -381,6 +381,25 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        public bool GetDetallesReporte(string reporte)
+        {
+            string nomStore = "RptMostrarPermisosReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("reporte",reporte)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool AgregarIndicePermisosReportes(string nombre)
         {
             string nomStore = "RPTAgregarIndicePermisosReportes";

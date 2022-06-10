@@ -209,6 +209,12 @@
     <Compile Include="Clase_ReportesCE.cs" />
     <Compile Include="Clase_ReportesGenericos.cs" />
     <Compile Include="Clase_Sesion.cs" />
+    <Compile Include="FrmEnlazarReportesNodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnlazarReportesNodos.Designer.cs">
+      <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRPTPermisosRol.designer.cs">
       <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
     </Compile>
@@ -294,6 +300,9 @@
     <Compile Include="FrmReportesControlEscolar.Designer.cs">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmEnlazarReportesNodos.resx">
+      <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosReportes.resx">
       <DependentUpon>FrmDatosReportes.cs</DependentUpon>
     </EmbeddedResource>

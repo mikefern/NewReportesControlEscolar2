@@ -71,16 +71,12 @@ namespace ProyectoLoboSostenido
                 cd = new Clase_ReportesCE();
                 cd.OpcionesReporteControlEscolar(cbCampus.SelectedValue.ToString(), rol);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
-
-
-
                 if (!validar.Equals("-1"))
                 {
                     cu = new ControlUsuariosRepo();
                     cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
                     CrearNodosDelPadre(0, null, treeView);
                     btnAgregar.Enabled = true;
-                     
                 }
                 else
                 {
@@ -107,22 +103,17 @@ namespace ProyectoLoboSostenido
                         treeView.Nodes.Add(nuevoNodo);
                     else
                         nodePadre.Nodes.Add(nuevoNodo);
-                
 
                 CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo, treeView);
             }
         }
         private void MarcarNodos(TreeNode nodo)
         {
-                
                 DataView nodos = new DataView(cu.Lector.Tables[0]);
-
                 for (int x = 0; x < nodos.Table.Rows.Count; x++)
                 {
                  if (nodos.Table.Rows[x][0].ToString() == nodo.Name.ToString())
                     nodo.Checked = true;
-                    
-                    
                 }
             
         }
