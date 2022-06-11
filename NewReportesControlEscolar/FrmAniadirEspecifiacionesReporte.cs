@@ -194,7 +194,7 @@ namespace NewReportesControlEscolar
                         bool check = true;
                         for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
                         {
-                            int rvo = Convert.ToInt32(p.Lector.Tables[0].Rows[x][1]);
+                            int rvo = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
                             if (rvo == Convert.ToInt32(rvoe))
                             {
                                 check = false;

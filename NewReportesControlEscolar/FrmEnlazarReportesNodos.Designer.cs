@@ -31,10 +31,12 @@ namespace NewReportesControlEscolar
         {
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
             this.lvReportes = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvReportesNodo = new System.Windows.Forms.ListView();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.ID_reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NombreReporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // TreeViewNodos
@@ -43,6 +45,7 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.Name = "TreeViewNodos";
             this.TreeViewNodos.Size = new System.Drawing.Size(275, 601);
             this.TreeViewNodos.TabIndex = 0;
+            this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
             // 
             // lvReportes
             // 
@@ -58,14 +61,27 @@ namespace NewReportesControlEscolar
             this.lvReportes.UseCompatibleStateImageBehavior = false;
             this.lvReportes.View = System.Windows.Forms.View.Details;
             // 
-            // listView2
+            // id
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(351, 474);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(437, 162);
-            this.listView2.TabIndex = 2;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.id.Text = "ID";
+            // 
+            // Reporte
+            // 
+            this.Reporte.Text = "Reporte";
+            this.Reporte.Width = 270;
+            // 
+            // lvReportesNodo
+            // 
+            this.lvReportesNodo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID_reporte,
+            this.NombreReporte});
+            this.lvReportesNodo.HideSelection = false;
+            this.lvReportesNodo.Location = new System.Drawing.Point(351, 474);
+            this.lvReportesNodo.Name = "lvReportesNodo";
+            this.lvReportesNodo.Size = new System.Drawing.Size(437, 162);
+            this.lvReportesNodo.TabIndex = 2;
+            this.lvReportesNodo.UseCompatibleStateImageBehavior = false;
+            this.lvReportesNodo.View = System.Windows.Forms.View.Details;
             // 
             // btnGuardar
             // 
@@ -77,13 +93,14 @@ namespace NewReportesControlEscolar
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // id
+            // ID_reporte
             // 
-            this.id.Text = "ID";
+            this.ID_reporte.Text = "ID";
             // 
-            // Reporte
+            // NombreReporte
             // 
-            this.Reporte.Text = "Reporte";
+            this.NombreReporte.Text = "Reporte";
+            this.NombreReporte.Width = 371;
             // 
             // FrmEnlazarReportesNodos
             // 
@@ -91,7 +108,7 @@ namespace NewReportesControlEscolar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 648);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.lvReportesNodo);
             this.Controls.Add(this.lvReportes);
             this.Controls.Add(this.TreeViewNodos);
             this.Name = "FrmEnlazarReportesNodos";
@@ -105,9 +122,11 @@ namespace NewReportesControlEscolar
 
         private System.Windows.Forms.TreeView TreeViewNodos;
         private System.Windows.Forms.ListView lvReportes;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lvReportesNodo;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ColumnHeader id;
         private System.Windows.Forms.ColumnHeader Reporte;
+        private System.Windows.Forms.ColumnHeader ID_reporte;
+        private System.Windows.Forms.ColumnHeader NombreReporte;
     }
 }

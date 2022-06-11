@@ -384,7 +384,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetDetallesReporte(string reporte)
         {
-            string nomStore = "RptMostrarPermisosReportes";
+            string nomStore = "GetDetallesReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("reporte",reporte)
@@ -799,6 +799,58 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+        public bool GetReportesNodo(string nodo)
+        {
+            string nomStore = "RptGetReportesNodo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetNodoPadre(string nodo)
+        {
+            string nomStore = "RPTGetNodoPadre";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarNodoReporte(string nodo, string reporte)
+        {
+            string nomStore = "RptActualizarNodoReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("reporte",reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
     public class NodosPermisos : Clase_Conecta
@@ -956,6 +1008,8 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        
 
     }
 

@@ -21,6 +21,7 @@ namespace NewReportesControlEscolar
         private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
         Clase_ReportesCE clase_ReportesCE;
         PermisosReportes pr;
+        PermisosReportes p;
 
         public void LlenadoNodosReporte()
         {
@@ -57,7 +58,46 @@ namespace NewReportesControlEscolar
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string tree = TreeViewNodos.SelectedNode.Name;
+                pr = new PermisosReportes();
+                pr.GetNodoPadre(tree);
+                if (pr.Lector.Tables[0].Rows.Count > 0 && Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
+                {
+                    for (int i = 0; i < lvReportes.Items.Count; i++)
+                    {
+                        string reporte = lvReportes.Items[i].Text;
+                        if (lvReportes.Items[i].Checked == true)
+                        {
+                            pr.ActualizarNodoReporte(tree, reporte);
+                        }
+                        else
+                        {
+                            bool check = false;
+                            for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
+                            {
+                                int valortable = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
+                                if(valortable == Convert.ToInt32(reporte)){
+                                    check = true;
+                                    break;
+                                }
+                            }
+                            if (check)
+                                pr.ActualizarNodoReporte("0", reporte);
 
+                        }
+                    }
+                    cargarReportesnodos(tree);
+                }
+                else
+                    MessageBox.Show("Favor de seleccionar otro nodo, ya que este es un nodo padre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+         
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error SQL", MessageBoxButtons.OK);
+            }
         }
 
         private void FrmEnlazarReportesNodos_Load(object sender, EventArgs e)
@@ -74,6 +114,30 @@ namespace NewReportesControlEscolar
                 DataView dt = new DataView(pr.Lector.Tables[0]);
                 gn.llenarlistview(lvReportes, dt);
             }
+        }
+
+        private void TreeViewNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            cargarReportesnodos(e.Node.Name);
+        }
+        private void cargarReportesnodos(string nodo)
+        {
+            try
+            {
+                p = new PermisosReportes();
+                p.GetReportesNodo(nodo);
+                if (p.Lector.Tables.Count > 0)
+                {
+                    DataView dt = new DataView(p.Lector.Tables[0]);
+                    gn.llenarlistview(lvReportesNodo, dt);
+                    gn.marcarnodos(lvReportes, dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error SQL", MessageBoxButtons.OK);
+            }
+
         }
     }
 }
