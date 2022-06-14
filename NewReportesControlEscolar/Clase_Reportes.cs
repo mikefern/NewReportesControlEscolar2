@@ -17,7 +17,7 @@ namespace ProyectoLoboSostenido
                  new Clase_Parametros("Opt", opt),
                  new Clase_Parametros("NombreArchivo", nombre),
                  new Clase_Parametros("Ruta",ruta),
-                 new Clase_Parametros("FechaUltimaModificacion",ultimamodificacion),
+                 new Clase_Parametros("FechaUltimaModificacion",Convert.ToDateTime(ultimamodificacion).ToString()),
                  new Clase_Parametros("FechaCreacion",creacion),
                  new Clase_Parametros("FechaUltimoAcceso",ultimoacceso),
                  new Clase_Parametros("Extension",extension),

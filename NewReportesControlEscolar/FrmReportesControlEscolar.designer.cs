@@ -1842,7 +1842,7 @@
             this.FrView.PageOffset = new System.Drawing.Point(10, 10);
             this.FrView.Size = new System.Drawing.Size(882, 1041);
             this.FrView.TabIndex = 0;
-            //this.FrView.Load += new System.EventHandler(this.FrView_Load);
+            this.FrView.Visible = false;
             // 
             // FrmReportesControlEscolar
             // 

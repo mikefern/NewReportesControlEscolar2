@@ -1,7 +1,8 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using FastReport;
 using FastReport.Utils;
-using Microsoft.Office.Interop.Excel; 
+using Microsoft.Office.Interop.Excel;
+using NewReportesControlEscolar;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39111,17 +39112,16 @@ namespace ProyectoLoboSostenido
             {
 
                 cd = new Clase_ReportesCE();
-                cd.OpcionesReporteControlEscolar(Clase_Sesion.Campus,Clase_Sesion.Rol);
+                cd.OpcionesReporteControlEscolar(Clase_Sesion.Campus,Clase_Sesion.Rol,Clase_Sesion.IDEmpleado);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
 
 
 
                 if (validar != null)
                 {
-                    cu = new ControlUsuariosRepo();
-                    cu.GetRestriccionesUsuarioReportes(Clase_Sesion.IDEmpleado);
-                    
-                CrearNodosDelPadre(0, null, treeView);
+                    crearNodo cn = new crearNodo();
+                    cn.dt = new DataView(cd.Lector.Tables[0]);
+                    cn.CrearNodos(0, null, treeView);
                 }
                 else
                     MessageBox.Show("No se encontraron datos", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -39132,40 +39132,6 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private bool QuitarNodos(TreeNode nodo)
-        {
-            DataView nodos = new DataView(cu.Lector.Tables[0]);
-                
-                for(int x=0; x< nodos.Table.Rows.Count;x++)
-                {
-                if (nodos.Table.Rows[x][0].ToString() == nodo.Name.ToString())
-                return true;
-                }
-            return false;
-        }
-
-        private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre, TreeView treeView)
-        {
-            DataView dataViewHijos = new DataView(cd.Lector.Tables[0]);
-            dataViewHijos.RowFilter = cd.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
-            foreach (DataRowView dataRowCurrent in dataViewHijos)
-            {
-                TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();   
-                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
-                if (!QuitarNodos(nuevoNodo)){
-                    if (nodePadre == null)
-                        treeView.Nodes.Add(nuevoNodo);
-                    else
-                        nodePadre.Nodes.Add(nuevoNodo);
-                }
-
-                CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo, treeView);
-            }
-        }
-
-
-
         private void GridViewAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ro = Convert.ToInt32(e.RowIndex.ToString());
@@ -41793,95 +41759,106 @@ namespace ProyectoLoboSostenido
             {
                 try
                 {
-                    //Se preparan los datos y se cargan dentro de la aplicacion
-                    ea = new Clase_Control_Escolar();
-                    ea.DatosAlumnoReporteSSPP(gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                    string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
-                    cd = new Clase_ReportesCE();
-                    Clase_ReportesCE c = new Clase_ReportesCE();
-                    if (cd.GetReporte(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
+                    if (TreePrueba.SelectedNode.Nodes.Count == 0)
                     {
-                        DataView dt = new DataView(cd.Lector.Tables[0]);
-                        if (cd.Lector.Tables[0].Rows.Count > 1)
+                        //Se preparan los datos y se cargan dentro de la aplicacion
+                        ea = new Clase_Control_Escolar();
+                        ea.DatosAlumnoReporteSSPP(gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
+                        string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
+                        cd = new Clase_ReportesCE();
+                        Clase_ReportesCE c = new Clase_ReportesCE();
+                        if (cd.GetReporte(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
                         {
-                            c.GetReporteRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus, rvoe_alumno);
-                            if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count>0)
-                            dt = new DataView(c.Lector.Tables[0]);
-                            else
+                            DataView dt = new DataView(cd.Lector.Tables[0]);
+                            if (cd.Lector.Tables[0].Rows.Count > 0)
                             {
-                                c = new Clase_ReportesCE();
-                                c.GetReportesconRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus);
-                                for (int x=0; x < c.Lector.Tables[0].Rows.Count;x++)
+                                c.GetReporteRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus, rvoe_alumno);
+                                if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count > 0)
+                                    dt = new DataView(c.Lector.Tables[0]);
+                                else
                                 {
-                                    for(int i=0; i<dt.Table.Rows.Count; i++)
+                                    c = new Clase_ReportesCE();
+                                    c.GetReportesconRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus);
+                                    for (int x = 0; x < c.Lector.Tables[0].Rows.Count; x++)
                                     {
-                                        if (dt.Table.Rows[i][0].ToString() == c.Lector.Tables[0].Rows[x][0].ToString())
+                                        for (int i = 0; i < dt.Table.Rows.Count; i++)
                                         {
-                                            dt.Table.Rows.RemoveAt(i);
-                                            break;
+                                            if (dt.Table.Rows[i][0].ToString() == c.Lector.Tables[0].Rows[x][0].ToString())
+                                                dt.Table.Rows.RemoveAt(i);
                                         }
                                     }
                                 }
                             }
-                        }
-
-                        PermisosReportes pr = new PermisosReportes();
-
-                        pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol);
-                        if (Convert.ToInt32( pr.Lector.Tables[0].Rows[0][0]) >0)
-                        {
-                            pr = new PermisosReportes();
-                            pr.RptGetRestriccionReporteEmpledo(dt.Table.Rows[0][0].ToString(), Clase_Sesion.IDEmpleado);
-                            if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) == -1)
+                            if (dt.Table.Rows.Count > 0)
                             {
-                                MessageBox.Show(dt.Table.Rows[0][1].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                /*
-                                string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
-                                string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
-                                string id = cd.Lector.Tables[0].Rows[0][0].ToString();
-                                string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
-                                cd = new Clase_ReportesCE();
-                                cd.GetParmetros_Reportes(id);
-                                int tamVector = cd.Lector.Tables[0].Rows.Count;
-                                string[,] vec = new string[tamVector, 2];
-                                for (int i = 0; i < tamVector; i++)
-                                {
-                                    int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
-                                    vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
-                                    vec[i, 1] = vecExtParametros[par - 1];
-                                }
-                                try
-                                {
-                                    cpr.MostrarRepos(vec, nomreporte, tipo);
-                                    if (tipo.Equals(".rpt"))
-                                    {
-                                        CRViewer.Visible = true;
-                                        FrView.Visible = false;
-                                        CRViewer.ShowCloseButton = true;
-                                        CRViewer.ReportSource = cpr.CryRpt;
+                                PermisosReportes pr = new PermisosReportes();
 
+                                pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol);
+                                if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
+                                {
+                                    pr = new PermisosReportes();
+                                    pr.RptGetRestriccionReporteEmpledo(dt.Table.Rows[0][0].ToString(), Clase_Sesion.IDEmpleado);
+                                    if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) == -1)
+                                    {
+                                        pr = new PermisosReportes();
+                                        if (pr.GetDetallesReporte(dt.Table.Rows[0][0].ToString()))
+                                        {
+                                            MessageBox.Show(pr.Lector.Tables[0].Rows[0][1].ToString() + "." + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][2].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+                                            /*
+                                            string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
+                                            string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
+                                            string id = cd.Lector.Tables[0].Rows[0][0].ToString();
+                                            string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
+                                            cd = new Clase_ReportesCE();
+                                            cd.GetParmetros_Reportes(id);
+                                            int tamVector = cd.Lector.Tables[0].Rows.Count;
+                                            string[,] vec = new string[tamVector, 2];
+                                            for (int i = 0; i < tamVector; i++)
+                                            {
+                                                int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
+                                                vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
+                                                vec[i, 1] = vecExtParametros[par - 1];
+                                            }
+                                            try
+                                            {
+                                                cpr.MostrarRepos(vec, nomreporte, tipo);
+                                                if (tipo.Equals(".rpt"))
+                                                {
+                                                    CRViewer.Visible = true;
+                                                    FrView.Visible = false;
+                                                    CRViewer.ShowCloseButton = true;
+                                                    CRViewer.ReportSource = cpr.CryRpt;
+
+                                                }
+                                                else
+                                                {
+                                                    CRViewer.Visible = false;
+                                                    FrView.Visible = true;
+                                                    cpr.frrepForm.Preview = FrView;
+                                                    cpr.frrepForm.Show();
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                            MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+                                            }*/
+                                        }
                                     }
                                     else
                                     {
-                                        CRViewer.Visible = false;
-                                        FrView.Visible = true;
-                                        cpr.frrepForm.Preview = FrView;
-                                        cpr.frrepForm.Show();
+                                        MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
-                                catch (Exception ex)
+                                else
                                 {
-                                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-                                }*/
+                                    MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
                             else
-                            {
-                                MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("No se ha encontrado ningun reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

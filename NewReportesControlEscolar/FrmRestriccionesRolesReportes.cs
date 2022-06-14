@@ -19,7 +19,7 @@ namespace NewReportesControlEscolar
         }
 
         private PermisosReportes p;
-
+        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
         private void cbCampus_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cbCampus.SelectedValue != null)
@@ -51,13 +51,8 @@ namespace NewReportesControlEscolar
             pr.GetReportesTodos();
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
-                for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
-                {
-                    var item = new ListViewItem();
-                    item.Text = pr.Lector.Tables[0].Rows[i][0].ToString();
-                    item.SubItems.Add(pr.Lector.Tables[0].Rows[i][4].ToString());
-                    lvReportes.Items.Add(item);
-                }
+                DataView dt = new DataView(pr.Lector.Tables[0]);
+                gn.llenarlistview(lvReportes, dt);
             }
         }
 
@@ -68,26 +63,11 @@ namespace NewReportesControlEscolar
                 if (cbUsuarios.SelectedValue != null)
                 {
                     lvReportes.Enabled = true;
-                    for (int i = 0; i < lvReportes.Items.Count; i++)
-                        lvReportes.Items[i].Checked = false;
-
                     p = new PermisosReportes();
                     if (p.GetRestriccionesReportesEmpleado(cbUsuarios.SelectedValue.ToString()))
                     {
-                        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
                         DataView dt = new DataView(p.Lector.Tables[0]);
                         gn.marcarnodos(lvReportes, dt);
-
-                        /*for (int i = 0; i < p.Lector.Tables[0].Rows.Count; i++)
-                        {
-                            int dato = Convert.ToInt32(p.Lector.Tables[0].Rows[i][0]);
-                            for (int x = 0; x < lvReportes.Items.Count; x++)
-                            {
-                                int lv = Convert.ToInt32(lvReportes.Items[x].Text);
-                                if (lv == dato)
-                                    lvReportes.Items[x].Checked = true;
-                            }
-                        }*/
                     }
                 }
 
@@ -125,19 +105,12 @@ namespace NewReportesControlEscolar
                     string reporte = lvReportes.Items[i].Text;
                     if (lvReportes.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for(int x=0; x< p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            if (Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]) == Convert.ToInt32(lvReportes.Items[i].Text))
-                                check = false;
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(reporte)))
                             pr.AgregarRestriccionesReportesEmpleado(reporte, empleado);
                     }
                     else
-                    {
                         pr.EliminarRestriccionesReportesEmpleado(reporte, empleado);
-                    }
                 }
                 MessageBox.Show("Se han guardado las restricciones al usuario ", "Completado", MessageBoxButtons.OK);
             }catch(Exception ex)

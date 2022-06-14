@@ -16,14 +16,32 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
-        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol)
+        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol,  string Empleado)
         {
             string nomStore = "RPTGetNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("Campus", ID_Campus),
-                new Clase_Parametros("Rol", rol)
+                new Clase_Parametros("Rol", rol),
+                 new Clase_Parametros("Empleado", Empleado)
+            };
 
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool MostrarNodosRolCampus(string ID_Campus, string rol)
+        {
+            string nomStore = "MostrarNodosRolCampus";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Campus", ID_Campus),
+                new Clase_Parametros("Rol", rol)
             };
 
             if (ConsultarParametros(nomStore, par))
@@ -381,6 +399,25 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        public bool GetDetallesReporte(string reporte)
+        {
+            string nomStore = "GetDetallesReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("reporte",reporte)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool AgregarIndicePermisosReportes(string nombre)
         {
             string nomStore = "RPTAgregarIndicePermisosReportes";
@@ -780,6 +817,58 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+        public bool GetReportesNodo(string nodo)
+        {
+            string nomStore = "RptGetReportesNodo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetNodoPadre(string nodo)
+        {
+            string nomStore = "RPTGetNodoPadre";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarNodoReporte(string nodo, string reporte)
+        {
+            string nomStore = "RptActualizarNodoReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("reporte",reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
     public class NodosPermisos : Clase_Conecta
@@ -937,6 +1026,8 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        
 
     }
 

@@ -18,6 +18,7 @@ namespace ProyectoLoboSostenido
             InitializeComponent();
         }
         private PermisosReportes pr;
+        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         private void FmrRPTPermisosRol_Load(object sender, EventArgs e)
         {
@@ -71,13 +72,8 @@ namespace ProyectoLoboSostenido
             lvPermisos.Items.Clear();
             if (pr.Lector.Tables[0].Rows.Count>0)
             {
-                for (int i=0; i< pr.Lector.Tables[0].Rows.Count; i++)
-                {
-                    var item = new ListViewItem();
-                    item.Text = pr.Lector.Tables[0].Rows[i][0].ToString();
-                    item.SubItems.Add(pr.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
-                    lvPermisos.Items.Add(item);
-                }
+                DataView dt = new DataView(pr.Lector.Tables[0]);
+                gn.llenarlistview(lvPermisos, dt);
             }
 
         }
@@ -101,18 +97,8 @@ namespace ProyectoLoboSostenido
                     pr = new PermisosReportes();
                     if (pr.GetPermisosRol(cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
                     {
-
-                        for (int i = 0; i<lvPermisos.Items.Count; i++ )
-                            lvPermisos.Items[i].Checked = false;
-                        
-                        for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
-                        {
-                            for (int x = 0; x < lvPermisos.Items.Count; x++)
-                            {
-                                if (Convert.ToInt32(pr.Lector.Tables[0].Rows[i][0]) == Convert.ToInt32(lvPermisos.Items[x].Text.ToString()))
-                                    lvPermisos.Items[x].Checked = true;
-                            }
-                        }
+                        DataView dt = new DataView(pr.Lector.Tables[0]);
+                        gn.marcarnodos(lvPermisos, dt);
                     }
                 }
                 catch (Exception ex)
