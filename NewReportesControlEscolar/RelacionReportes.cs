@@ -81,13 +81,11 @@ namespace NewReportesControlEscolar
             GridViewControl.AutoResizeColumns();
             GridViewControl.Columns[0].Visible = false;
             GridViewControl.Columns[1].Visible = false;
-            GridViewControl.Columns[2].Visible = false;
             GridViewControl.Columns[3].Visible = false;
+            GridViewControl.Columns[4].Visible = false;
             GridViewControl.Columns[5].Visible = false;
             GridViewControl.Columns[6].Visible = false;
-            GridViewControl.Columns[7].Visible = false;
-            GridViewControl.Columns[8].Visible = false;
-            GridViewControl.Columns[9].Visible = false;
+            
 
             if (GridViewControl.RowCount > 0)
             {
@@ -107,7 +105,7 @@ namespace NewReportesControlEscolar
         {
             if (txtIDControl.Text == null || txtIDControl.Text == "" || txtIDDetalle.Text == null || txtIDDetalle.Text == "")
             {
-                MessageBox.Show("El campo ID no debe estar vacío");
+                MessageBox.Show("Favor de elegir los reportes a relacionar", "ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 txtIDDetalle.Text = string.Empty;
                 txtIDControl.Text = string.Empty;
             }
@@ -117,11 +115,11 @@ namespace NewReportesControlEscolar
                 RelacionarID();
             }
         }
-        private void RelacionarID()
+        private void RelacionarID() // Tabla ReportesControlEscolar 
         {
             Clase_Reportes relaciona = new Clase_Reportes();
 
-            if (relaciona.IDRelacionado("1",txtIDDetalle.Text, txtIDControl.Text) == true)//GetIDRepRel
+            if (relaciona.IDRelacionado("1",txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
 
                 MessageBox.Show("Se ha guardado el ID", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,7 +133,7 @@ namespace NewReportesControlEscolar
         {
             Clase_Reportes relaciona = new Clase_Reportes();
 
-            if (relaciona.IDRelacionado("2", txtIDDetalle.Text, txtIDControl.Text) == true)//GetIDRepRel
+            if (relaciona.IDRelacionado("2", txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
 
                 MessageBox.Show("Se ha eliminado la relación", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -144,7 +142,11 @@ namespace NewReportesControlEscolar
             {
                 MessageBox.Show("No se pudo eliminar la relación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtIDDetalle.Text = string.Empty;
+            txtRelacionado.Text = string.Empty;
+            MostrarReportesControl();
         }
+        
 
         private void GridViewDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -181,7 +183,22 @@ namespace NewReportesControlEscolar
 
         private void btnEliminarRelacion_Click(object sender, EventArgs e)
         {
-            EliminarRelacion();
+            if (txtIDControl.Text == null || txtIDControl.Text == "" || txtIDDetalle.Text == null || txtIDDetalle.Text == "")
+            {
+                MessageBox.Show("Favor de elegir la relación a eliminar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtIDDetalle.Text = string.Empty;
+                txtIDControl.Text = string.Empty;
+            }
+            else
+            {
+                EliminarRelacion();
+            }
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
