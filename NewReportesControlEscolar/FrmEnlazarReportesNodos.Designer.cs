@@ -34,16 +34,16 @@ namespace NewReportesControlEscolar
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvReportesNodo = new System.Windows.Forms.ListView();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.ID_reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NombreReporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TreeViewNodos
             // 
             this.TreeViewNodos.Location = new System.Drawing.Point(12, 12);
             this.TreeViewNodos.Name = "TreeViewNodos";
-            this.TreeViewNodos.Size = new System.Drawing.Size(275, 601);
+            this.TreeViewNodos.Size = new System.Drawing.Size(275, 624);
             this.TreeViewNodos.TabIndex = 0;
             this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
             // 
@@ -56,7 +56,7 @@ namespace NewReportesControlEscolar
             this.lvReportes.HideSelection = false;
             this.lvReportes.Location = new System.Drawing.Point(351, 12);
             this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(338, 405);
+            this.lvReportes.Size = new System.Drawing.Size(437, 405);
             this.lvReportes.TabIndex = 1;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
             this.lvReportes.View = System.Windows.Forms.View.Details;
@@ -83,6 +83,15 @@ namespace NewReportesControlEscolar
             this.lvReportesNodo.UseCompatibleStateImageBehavior = false;
             this.lvReportesNodo.View = System.Windows.Forms.View.Details;
             // 
+            // ID_reporte
+            // 
+            this.ID_reporte.Text = "ID";
+            // 
+            // NombreReporte
+            // 
+            this.NombreReporte.Text = "Reporte";
+            this.NombreReporte.Width = 371;
+            // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(351, 438);
@@ -92,15 +101,6 @@ namespace NewReportesControlEscolar
             this.btnGuardar.Text = "Guardar Datos reporte";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // ID_reporte
-            // 
-            this.ID_reporte.Text = "ID";
-            // 
-            // NombreReporte
-            // 
-            this.NombreReporte.Text = "Reporte";
-            this.NombreReporte.Width = 371;
             // 
             // FrmEnlazarReportesNodos
             // 

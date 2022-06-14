@@ -109,7 +109,7 @@ namespace NewReportesControlEscolar
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem2});
-            this.lvCampusEspecificos.Location = new System.Drawing.Point(916, 30);
+            this.lvCampusEspecificos.Location = new System.Drawing.Point(945, 30);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
             this.lvCampusEspecificos.Size = new System.Drawing.Size(261, 340);
             this.lvCampusEspecificos.TabIndex = 2;
@@ -156,7 +156,7 @@ namespace NewReportesControlEscolar
             this.ID_Rol,
             this.Rol});
             this.lvRoles.HideSelection = false;
-            this.lvRoles.Location = new System.Drawing.Point(647, 30);
+            this.lvRoles.Location = new System.Drawing.Point(662, 30);
             this.lvRoles.Name = "lvRoles";
             this.lvRoles.Size = new System.Drawing.Size(248, 477);
             this.lvRoles.TabIndex = 4;
@@ -174,7 +174,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarCampus
             // 
-            this.btnGuardarCampus.Location = new System.Drawing.Point(442, 539);
+            this.btnGuardarCampus.Location = new System.Drawing.Point(525, 539);
             this.btnGuardarCampus.Name = "btnGuardarCampus";
             this.btnGuardarCampus.Size = new System.Drawing.Size(116, 23);
             this.btnGuardarCampus.TabIndex = 5;
@@ -184,7 +184,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRoles
             // 
-            this.btnGuardarRoles.Location = new System.Drawing.Point(741, 539);
+            this.btnGuardarRoles.Location = new System.Drawing.Point(794, 539);
             this.btnGuardarRoles.Name = "btnGuardarRoles";
             this.btnGuardarRoles.Size = new System.Drawing.Size(116, 23);
             this.btnGuardarRoles.TabIndex = 6;
@@ -194,7 +194,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRVOE
             // 
-            this.btnGuardarRVOE.Location = new System.Drawing.Point(1453, 539);
+            this.btnGuardarRVOE.Location = new System.Drawing.Point(1531, 539);
             this.btnGuardarRVOE.Name = "btnGuardarRVOE";
             this.btnGuardarRVOE.Size = new System.Drawing.Size(75, 23);
             this.btnGuardarRVOE.TabIndex = 7;
@@ -204,7 +204,7 @@ namespace NewReportesControlEscolar
             // 
             // btnUsuariosReportesw
             // 
-            this.btnUsuariosReportesw.Location = new System.Drawing.Point(962, 503);
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(1010, 503);
             this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
             this.btnUsuariosReportesw.Size = new System.Drawing.Size(196, 59);
             this.btnUsuariosReportesw.TabIndex = 8;

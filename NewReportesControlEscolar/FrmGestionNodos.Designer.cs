@@ -29,9 +29,6 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
             this.btn_EliminarNodo = new System.Windows.Forms.Button();
             this.btn_CambiarNombreNodo = new System.Windows.Forms.Button();
@@ -47,7 +44,6 @@ namespace NewReportesControlEscolar
             this.label2 = new System.Windows.Forms.Label();
             this.txt_NombreNodo = new System.Windows.Forms.TextBox();
             this.btn_AñadirNodoRaiz = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lvCampus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -202,25 +198,12 @@ namespace NewReportesControlEscolar
             this.btn_AñadirNodoRaiz.UseVisualStyleBackColor = true;
             this.btn_AñadirNodoRaiz.Click += new System.EventHandler(this.btn_AñadirNodoRaiz_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(581, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "label1";
-            // 
             // lvCampus
             // 
             this.lvCampus.CheckBoxes = true;
             this.lvCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_Campus,
             this.Campus});
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            this.lvCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
             this.lvCampus.HideSelection = false;
             this.lvCampus.Location = new System.Drawing.Point(375, 376);
             this.lvCampus.Name = "lvCampus";
@@ -243,10 +226,6 @@ namespace NewReportesControlEscolar
             this.lvSeleccionarCampus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
             this.Campus_name});
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
-            this.lvSeleccionarCampus.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
             this.lvSeleccionarCampus.HideSelection = false;
             this.lvSeleccionarCampus.Location = new System.Drawing.Point(654, 376);
             this.lvSeleccionarCampus.Name = "lvSeleccionarCampus";
@@ -272,14 +251,10 @@ namespace NewReportesControlEscolar
             this.ID_Rol,
             this.Rol});
             this.lvRoles.Enabled = false;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
-            this.lvRoles.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
             this.lvRoles.HideSelection = false;
             this.lvRoles.Location = new System.Drawing.Point(935, 376);
             this.lvRoles.Name = "lvRoles";
-            this.lvRoles.Size = new System.Drawing.Size(262, 343);
+            this.lvRoles.Size = new System.Drawing.Size(262, 361);
             this.lvRoles.TabIndex = 57;
             this.lvRoles.UseCompatibleStateImageBehavior = false;
             this.lvRoles.View = System.Windows.Forms.View.Details;
@@ -335,7 +310,6 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.lvRoles);
             this.Controls.Add(this.lvSeleccionarCampus);
             this.Controls.Add(this.lvCampus);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_EliminarNodo);
             this.Controls.Add(this.btn_CambiarNombreNodo);
             this.Controls.Add(this.label7);
@@ -377,7 +351,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_NombreNodo;
         private System.Windows.Forms.Button btn_AñadirNodoRaiz;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lvCampus;
         private System.Windows.Forms.ColumnHeader ID_Campus;
         private System.Windows.Forms.ColumnHeader Campus;

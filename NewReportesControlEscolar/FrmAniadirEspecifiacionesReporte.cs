@@ -53,7 +53,7 @@ namespace NewReportesControlEscolar
             lvCampusEspecificos.Items.Clear();
             pr = new PermisosReportes();
             pr.GetCampusReportes(id);
-            if (pr.Lector.Tables[0].Rows.Count > 0)
+            if (pr.Lector.Tables.Count > 0)
             {
                 DataView dt1 = new DataView(pr.Lector.Tables[0]);
                 gn.marcarnodos(lvCampus, dt1);
@@ -110,23 +110,13 @@ namespace NewReportesControlEscolar
                     string campus = lvCampus.Items[i].Text;
                     if (lvCampus.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int campusget = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0].ToString());
-                            if (campusget == Convert.ToInt32(campus))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
                             pr.AgregarRelCampusReporte(reporte, campus);
                     }
                     else
-                    {
                         pr.EliminarRelCampusReporte(reporte, campus);
-                    }
+                    
                 }
                 MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
                 cargarCampusReportes(id);
@@ -151,17 +141,8 @@ namespace NewReportesControlEscolar
                     string rol = lvRoles.Items[i].Text;
                     if (lvRoles.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int rolLecto = Convert.ToInt32(p.Lector.Tables[0].Rows[x][1]);
-                            if (Convert.ToInt32(rol) == rolLecto)
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
                             pr.AgregarRelRolesReportes(rol, id);
                     }
                     else
@@ -191,17 +172,8 @@ namespace NewReportesControlEscolar
                     string rvoe = lvRVOE.Items[i].Text;
                     if (lvRVOE.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int rvo = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
-                            if (rvo == Convert.ToInt32(rvoe))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(rvoe)))
                             pr.AgregarRVOEReportes(id, rvoe);
                     }
                     else

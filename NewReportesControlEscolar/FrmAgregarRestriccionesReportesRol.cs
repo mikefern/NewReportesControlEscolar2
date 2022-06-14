@@ -69,7 +69,7 @@ namespace ProyectoLoboSostenido
                 gr.getRol(cBoxUsuarios.SelectedValue.ToString());
                 string rol = gr.Lector.Tables[0].Rows[0][0].ToString();
                 cd = new Clase_ReportesCE();
-                cd.OpcionesReporteControlEscolar(cbCampus.SelectedValue.ToString(), rol);
+                cd.MostrarNodosRolCampus(cbCampus.SelectedValue.ToString(), rol);
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
                 if (!validar.Equals("-1"))
                 {
@@ -131,7 +131,7 @@ namespace ProyectoLoboSostenido
             foreach (TreeNode tn in treeNode.Nodes)
             {
                 if (tn.Checked)
-                    agregarRestriccion(tn.Name.ToString());
+                    agregarRestriccion(tn.Name);
                 else
                     VerificacionNodosRecursiva(tn);
             }
@@ -141,7 +141,7 @@ namespace ProyectoLoboSostenido
             foreach (TreeNode n in treeView.Nodes)
             {
                 if (n.Checked)
-                    agregarRestriccion(n.Name.ToString());
+                    agregarRestriccion(n.Name);
                 else
                     VerificacionNodosRecursiva(n);
             }

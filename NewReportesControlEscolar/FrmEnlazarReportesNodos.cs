@@ -29,31 +29,16 @@ namespace NewReportesControlEscolar
             clase_ReportesCE = new Clase_ReportesCE();
             if (clase_ReportesCE.LlenadoNodosReporteEscolar())
             {
-                if (clase_ReportesCE.Lector.Tables[0].Rows.Count > 0)
+                if (clase_ReportesCE.Lector.Tables.Count > 0)
                 {
-                    CrearNodos(0, null);
+                    crearNodo cn = new crearNodo();
+                    cn.dt = new DataView(clase_ReportesCE.Lector.Tables[0]);
+                    cn.CrearNodos(0, null, TreeViewNodos);
+                    
                 }
                 else MessageBox.Show("No tiene Ningun Nodo Asingado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void CrearNodos(int indicePadre, TreeNode nodePadre)
-        {
-            DataView dataViewHijos = new DataView(clase_ReportesCE.Lector.Tables[0]);
-            dataViewHijos.RowFilter = clase_ReportesCE.Lector.Tables[0].Columns["NodoPadre"].ColumnName + " = " + indicePadre;
-            foreach (DataRowView dataRowCurrent in dataViewHijos)
-            {
-                TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();
-                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
-                if (nodePadre == null)
-                    TreeViewNodos.Nodes.Add(nuevoNodo);
-                else
-                    nodePadre.Nodes.Add(nuevoNodo);
-
-                CrearNodos(Int32.Parse(dataRowCurrent["Nodo"].ToString()), nuevoNodo);
-            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

@@ -254,7 +254,10 @@ namespace NewReportesControlEscolar
             {
                 if (clase_ReportesCE.Lector.Tables[0].Rows.Count > 0)
                 {
-                    CrearNodos(0, null);
+                    crearNodo cn = new crearNodo();
+                    cn.dt = new DataView(clase_ReportesCE.Lector.Tables[0]);
+                    cn.CrearNodos(0, null, TreeViewNodos);
+                    //CrearNodos(0, null);
                 }
                 else MessageBox.Show("No tiene Ningun Nodo Asingado" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
@@ -531,20 +534,8 @@ namespace NewReportesControlEscolar
                     string lvItem = lvCampus.Items[x].Text.ToString();
                     if (lvCampus.Items[x].Checked == true)
                     {
-                        bool check = true;
-                        int CampusListView;
-                        int CampusLector;
-                        for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
-                        {
-                            CampusListView = Convert.ToInt32(lvCampus.Items[x].Text);
-                            CampusLector = Convert.ToInt32(n.Lector.Tables[0].Rows[i][0].ToString());
-                            if (CampusLector == CampusListView)
-                            {
-                                check = false;
-                                break;
-                            }        
-                        }
-                        if (check)
+                        DataView dv = new DataView(n.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(lvItem)))
                             np.AgregarPermisosverReportes(tvName, lvItem);
                     }
                     else
@@ -595,20 +586,8 @@ namespace NewReportesControlEscolar
                     string rol = lvRoles.Items[x].Text;
                     if (lvRoles.Items[x].Checked == true)
                     {
-                        bool check = true;
-                        int RolesListView;
-                        int RolesLector;
-                        for (int i = 0; i < n.Lector.Tables[0].Rows.Count; i++)
-                        {
-                            RolesListView = Convert.ToInt32(lvRoles.Items[x].Text);
-                            RolesLector = Convert.ToInt32(n.Lector.Tables[0].Rows[i][1]);
-                            if (RolesLector == RolesListView)
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(n.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
                             np.InsertarRolesCampusNodos(campus, nodo, rol);
                     }
                     else

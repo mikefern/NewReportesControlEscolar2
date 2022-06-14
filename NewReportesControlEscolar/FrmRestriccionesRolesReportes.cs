@@ -105,16 +105,8 @@ namespace NewReportesControlEscolar
                     string reporte = lvReportes.Items[i].Text;
                     if (lvReportes.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for(int x=0; x< p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            if (Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]) == Convert.ToInt32(reporte))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(reporte)))
                             pr.AgregarRestriccionesReportesEmpleado(reporte, empleado);
                     }
                     else
