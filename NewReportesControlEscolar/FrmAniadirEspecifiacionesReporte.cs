@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,21 @@ namespace NewReportesControlEscolar
         {
             InitializeComponent();
         }
-        
+
+        #region MoverFORM
+        //--------- MOVER FORMS
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void Principal_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        #endregion
+
         private void FrmAniadirEspecifiacionesReporte_Load(object sender, EventArgs e)
         {
             gn.cargarCampus(lvCampus);
@@ -43,7 +58,7 @@ namespace NewReportesControlEscolar
             if (lvReportes.SelectedItems.Count > 0)
             {
                 cargarCampusReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
-                cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
+                
                 lvRVOE.Items.Clear();
             }
         }
@@ -63,8 +78,9 @@ namespace NewReportesControlEscolar
 
         private void cargarRolesReportes(string id)
         {
+
             pr = new PermisosReportes();
-            if (pr.MostrarRelRolesReportes(id))
+            if (pr.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
                 gn.marcarnodos(lvRoles, dt);
@@ -73,9 +89,18 @@ namespace NewReportesControlEscolar
 
         private void lvCampusEspecificos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (lvCampusEspecificos.SelectedItems.Count > 0)
-                cargarRVOE();
-                
+            try
+            {
+                if (lvCampusEspecificos.SelectedItems.Count > 0)
+                    cargarRVOE();
+                lvRoles.Enabled = true;
+                btnGuardarRoles.Enabled = true;
+                cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
+            }
+            catch
+            {
+
+            }
         }
         private void cargarRVOE()
         {
@@ -133,7 +158,7 @@ namespace NewReportesControlEscolar
             {
                 p = new PermisosReportes();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
-                p.MostrarRelRolesReportes(id);
+                p.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text );
                 pr = new PermisosReportes();
             
                 for(int i=0;i<lvRoles.Items.Count; i++)
@@ -192,6 +217,17 @@ namespace NewReportesControlEscolar
         {
             FrmRestriccionesRolesReportes rr = new FrmRestriccionesRolesReportes();
             rr.Show();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

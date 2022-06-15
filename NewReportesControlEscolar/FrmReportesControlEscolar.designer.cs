@@ -1759,7 +1759,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.BackColor = System.Drawing.Color.White;
             this.btnRestaurar.Image = global::NewReportesControlEscolar.Properties.Resources.icon_restaurar;
-            this.btnRestaurar.Location = new System.Drawing.Point(1234, 7);
+            this.btnRestaurar.Location = new System.Drawing.Point(1316, 7);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(25, 23);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

@@ -105,8 +105,8 @@ namespace NewReportesControlEscolar
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FrmAdministrarParametrosRCE ARR = new FrmAdministrarParametrosRCE();
-            ARR.Show();
+            //FrmAdministrarParametrosRCE ARR = new FrmAdministrarParametrosRCE();
+            //ARR.Show();
         }
     }
 }

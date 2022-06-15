@@ -29,7 +29,7 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPTPermisosRol));
             this.cbRoles = new System.Windows.Forms.ComboBox();
             this.cbCampus = new System.Windows.Forms.ComboBox();
@@ -43,19 +43,21 @@ namespace ProyectoLoboSostenido
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRoles
             // 
             this.cbRoles.FormattingEnabled = true;
-            this.cbRoles.Location = new System.Drawing.Point(47, 76);
+            this.cbRoles.Location = new System.Drawing.Point(5, 73);
             this.cbRoles.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbRoles.Name = "cbRoles";
             this.cbRoles.Size = new System.Drawing.Size(464, 31);
@@ -65,7 +67,7 @@ namespace ProyectoLoboSostenido
             // cbCampus
             // 
             this.cbCampus.FormattingEnabled = true;
-            this.cbCampus.Location = new System.Drawing.Point(47, 204);
+            this.cbCampus.Location = new System.Drawing.Point(5, 198);
             this.cbCampus.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbCampus.Name = "cbCampus";
             this.cbCampus.Size = new System.Drawing.Size(464, 31);
@@ -76,11 +78,12 @@ namespace ProyectoLoboSostenido
             // 
             this.panel1.Controls.Add(this.cbCampus);
             this.panel1.Controls.Add(this.cbRoles);
-            this.panel1.Location = new System.Drawing.Point(63, 82);
+            this.panel1.Location = new System.Drawing.Point(68, 41);
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(561, 444);
+            this.panel1.Size = new System.Drawing.Size(477, 274);
             this.panel1.TabIndex = 2;
+            this.panel1.Tag = "";
             // 
             // lvPermisos
             // 
@@ -89,14 +92,15 @@ namespace ProyectoLoboSostenido
             this.lvPermisos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_PermisosReporte,
             this.Nombre});
+            this.lvPermisos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvPermisos.HideSelection = false;
-            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
             this.lvPermisos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.lvPermisos.Location = new System.Drawing.Point(813, 126);
+            listViewItem3});
+            this.lvPermisos.Location = new System.Drawing.Point(701, 41);
             this.lvPermisos.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lvPermisos.Name = "lvPermisos";
-            this.lvPermisos.Size = new System.Drawing.Size(486, 649);
+            this.lvPermisos.Size = new System.Drawing.Size(326, 492);
             this.lvPermisos.TabIndex = 3;
             this.lvPermisos.UseCompatibleStateImageBehavior = false;
             this.lvPermisos.View = System.Windows.Forms.View.Details;
@@ -112,10 +116,11 @@ namespace ProyectoLoboSostenido
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(1162, 787);
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(890, 543);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(137, 40);
+            this.btnGuardar.Size = new System.Drawing.Size(137, 30);
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -123,10 +128,11 @@ namespace ProyectoLoboSostenido
             // 
             // btn_AgregarPermisos
             // 
-            this.btn_AgregarPermisos.Location = new System.Drawing.Point(179, 160);
+            this.btn_AgregarPermisos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AgregarPermisos.Location = new System.Drawing.Point(308, 200);
             this.btn_AgregarPermisos.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btn_AgregarPermisos.Name = "btn_AgregarPermisos";
-            this.btn_AgregarPermisos.Size = new System.Drawing.Size(244, 82);
+            this.btn_AgregarPermisos.Size = new System.Drawing.Size(161, 37);
             this.btn_AgregarPermisos.TabIndex = 5;
             this.btn_AgregarPermisos.Text = "Agregar Permisos";
             this.btn_AgregarPermisos.UseVisualStyleBackColor = true;
@@ -134,10 +140,10 @@ namespace ProyectoLoboSostenido
             // 
             // tbPermisosReporte
             // 
-            this.tbPermisosReporte.Location = new System.Drawing.Point(60, 78);
+            this.tbPermisosReporte.Location = new System.Drawing.Point(11, 111);
             this.tbPermisosReporte.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tbPermisosReporte.Name = "tbPermisosReporte";
-            this.tbPermisosReporte.Size = new System.Drawing.Size(359, 31);
+            this.tbPermisosReporte.Size = new System.Drawing.Size(289, 31);
             this.tbPermisosReporte.TabIndex = 6;
             // 
             // panel2
@@ -145,77 +151,90 @@ namespace ProyectoLoboSostenido
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tbPermisosReporte);
             this.panel2.Controls.Add(this.btn_AgregarPermisos);
-            this.panel2.Location = new System.Drawing.Point(63, 538);
+            this.panel2.Location = new System.Drawing.Point(68, 340);
             this.panel2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 267);
+            this.panel2.Size = new System.Drawing.Size(477, 243);
             this.panel2.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 7);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 86);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 23);
+            this.label1.Size = new System.Drawing.Size(302, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Agregar nuevo boton para el reporte";
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.lvPermisos);
             this.panel3.Controls.Add(this.btnGuardar);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Location = new System.Drawing.Point(1, 36);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1467, 826);
+            this.panel3.Size = new System.Drawing.Size(1102, 610);
             this.panel3.TabIndex = 8;
             // 
-            // label2
+            // panel4
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1466, 39);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Gestonar permisos del usuario para ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnMinimizar.Image = global::NewReportesControlEscolar.Properties.Resources.icon_minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1398, 7);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 57;
-            this.btnMinimizar.TabStop = false;
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.btnMinimizar);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1102, 32);
+            this.panel4.TabIndex = 59;
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.Location = new System.Drawing.Point(1429, 7);
+            this.label8.Location = new System.Drawing.Point(1064, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 23);
             this.label8.TabIndex = 58;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnMinimizar.Image = global::NewReportesControlEscolar.Properties.Resources.icon_minimizar;
+            this.btnMinimizar.Location = new System.Drawing.Point(1015, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 57;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1102, 32);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Gestionar Permisos de los Usuarios para Manipular los Reportes ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
             // 
             // FrmRPTPermisosRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1466, 858);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1102, 610);
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -227,6 +246,7 @@ namespace ProyectoLoboSostenido
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             this.ResumeLayout(false);
 
@@ -249,5 +269,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel4;
     }
 }

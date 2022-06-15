@@ -466,12 +466,13 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool MostrarRelRolesReportes(string reporte)
+        public bool MostrarRelRolesReportes(string reporte, string campus)
         {
             string nomStore = "RptMostrarRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("reporte",reporte)
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
             };
             if (ConsultarParametros(nomStore, par))
             {
