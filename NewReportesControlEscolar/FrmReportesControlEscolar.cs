@@ -29,7 +29,6 @@ namespace ProyectoLoboSostenido
 
         /* fausto */
         private Clase_ReportesCE cd ;
-        private ControlUsuariosRepo cu;
         private readonly Reportes conrepor = new Reportes();
         private Clase_ParametrosReportes cpr = new Clase_ParametrosReportes();
         

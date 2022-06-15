@@ -59,46 +59,11 @@ namespace ProyectoLoboSostenido
 
         }
 
-        public bool LlenadoNodosReporteEscolar(string ID_Campus, string rol)
-        {
-            string nomStore = "RPTGetNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("Campus", ID_Campus),
-                new Clase_Parametros("Rol", rol)
-
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         public bool LlenadoNodosReporteEscolar()
         {
             string nomStore = "Reports_GetNodos";
              
             if (Consultar(nomStore))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool RPTMostrarNodos()
-        {
-            string nomStore = "RPTMostrarNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
             {
                 return true;
             }
@@ -113,7 +78,7 @@ namespace ProyectoLoboSostenido
             string nomStore = "GetParmetros_Reportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("id_Reporte",id),
+                new Clase_Parametros("id_Reporte",id)
             };
 
             if (ConsultarParametros(nomStore, par))
@@ -132,7 +97,7 @@ namespace ProyectoLoboSostenido
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
-                new Clase_Parametros("campus",campus),
+                new Clase_Parametros("campus",campus)
 
 
             };
@@ -171,7 +136,7 @@ namespace ProyectoLoboSostenido
                 new Clase_Parametros("NodoPadre", NodoPadre),
                 new Clase_Parametros("Nodo", Nodo),
                 new Clase_Parametros("PosicionViejo", posicionOld),
-                new Clase_Parametros("PosicionNuevo", posicionnew),
+                new Clase_Parametros("PosicionNuevo", posicionnew)
             };
             if (Ejecuta(nomProce, par))
             {
@@ -227,27 +192,6 @@ namespace ProyectoLoboSostenido
             {
                 new Clase_Parametros("nodo",nodo),
                 new Clase_Parametros("campus",campus)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    public class NodosReportesControlEscolar : Clase_Conecta
-    {
-        public bool GetNodosReportesControlEscolar(string ID_Campus)
-        {
-            string nomStore = "GetNodosReportesControlEscolar";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("ID_CAMPUS",ID_Campus)
             };
 
             if (ConsultarParametros(nomStore, par))
@@ -691,7 +635,7 @@ namespace ProyectoLoboSostenido
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
+                 new Clase_Parametros("campus",campus)
             };
 
             if (ConsultarParametros(nomStore, par))

@@ -194,7 +194,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRVOE
             // 
-            this.btnGuardarRVOE.Location = new System.Drawing.Point(1531, 539);
+            this.btnGuardarRVOE.Location = new System.Drawing.Point(1531, 521);
             this.btnGuardarRVOE.Name = "btnGuardarRVOE";
             this.btnGuardarRVOE.Size = new System.Drawing.Size(75, 23);
             this.btnGuardarRVOE.TabIndex = 7;
@@ -204,7 +204,7 @@ namespace NewReportesControlEscolar
             // 
             // btnUsuariosReportesw
             // 
-            this.btnUsuariosReportesw.Location = new System.Drawing.Point(1010, 503);
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(1010, 509);
             this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
             this.btnUsuariosReportesw.Size = new System.Drawing.Size(196, 59);
             this.btnUsuariosReportesw.TabIndex = 8;
