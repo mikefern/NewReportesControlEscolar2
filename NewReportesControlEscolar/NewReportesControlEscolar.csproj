@@ -294,6 +294,12 @@
     <Compile Include="RelacionReportes.Designer.cs">
       <DependentUpon>RelacionReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAdministrarParametrosRCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdministrarParametrosRCE.Designer.cs">
+      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReportesControlEscolar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </Compile>
     <EmbeddedResource Include="FrmEnlazarReportesNodos.resx">
       <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
+    </EmbeddedResource>
+     <EmbeddedResource Include="FrmAdministrarParametrosRCE.resx">
+      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosReportes.resx">
       <DependentUpon>FrmDatosReportes.cs</DependentUpon>
