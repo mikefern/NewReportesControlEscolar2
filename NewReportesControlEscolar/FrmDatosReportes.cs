@@ -1,6 +1,9 @@
-﻿using FastReport;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
+using FastReport;
 using FastReport.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -70,6 +73,17 @@ namespace ProyectoLoboSostenido
                 }
             }
         }
+        public void Limpiar()
+        {
+            foreach (Control ctrl1 in groupBox1.Controls)
+            {
+                if (ctrl1 is RichTextBox)
+                {
+                    ctrl1.Text = string.Empty;
+
+                }
+            }
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -77,7 +91,7 @@ namespace ProyectoLoboSostenido
         }
         private void btnAbrircarpeta_Click(object sender, EventArgs e)
         {
-            Process.Start(@"\\10.11.10.12");
+            Process.Start(@"\\10.11.10.230");
         }
         private void label1_Click_2(object sender, EventArgs e)
         {
@@ -93,63 +107,75 @@ namespace ProyectoLoboSostenido
             string extension;
 
             OpenFileDialog OpenFileDialog = new OpenFileDialog();
+            OpenFileDialog.InitialDirectory = "c:\\";
+            OpenFileDialog.Filter = "(*.frx)|*.frx|(*.rpt)|*.rpt";
+            OpenFileDialog.FilterIndex = 1;
+            OpenFileDialog.RestoreDirectory = true;
 
             if (OpenFileDialog.ShowDialog() == DialogResult.OK)
             {
+                
                 rutaArchivo = OpenFileDialog.FileName; //rutaArchivo
-            }
-            txtRuta.Text = rutaArchivo;
-            txtPeso.Text = Convert.ToString(rutaArchivo.Length + " " + "bytes");//TamañoArchivo
-            dt = File.GetLastWriteTime(rutaArchivo);//Ultimamodificación
-            dateTime = File.GetCreationTime(rutaArchivo);//CreacionArchivo
-            datet = File.GetLastAccessTime(rutaArchivo);//Fecha de ultimo acceso
-            txtUltima_Mod.Text = dt.ToString();
-            txtCreacion.Text = dateTime.ToString();
-            txtAcceso.Text = datet.ToString();
-            result = Path.GetFileNameWithoutExtension(rutaArchivo);//Nombre de archivo sin extensión
-            txtNombreArchivo.Text = result;
-            extension = Path.GetExtension(rutaArchivo);
-            txtExtension.Text = extension;
-            numerototalnombre = txtNombreArchivo.Text.Length + txtExtension.Text.Length;
-            //Imprimir reporte FastReport
-            string miReporte = @"Loboone\Reportes\rptCertificadoNvo_18.frx";  //Loboone\Reportes\RPTCardexGenericoAlumno.frx
-            string thisFolder = Config.ApplicationFolder;
-            Report frxReport = new Report();
-            for (int i = 1; i < 6; i++)
-            {
-                if (File.Exists(thisFolder + miReporte))
+                txtRuta.Text = rutaArchivo;
+                txtPeso.Text = Convert.ToString(rutaArchivo.Length + " " + "bytes");//TamañoArchivo
+                dt = File.GetLastWriteTime(rutaArchivo);//Ultimamodificación
+                dateTime = File.GetCreationTime(rutaArchivo);//CreacionArchivo
+                datet = File.GetLastAccessTime(rutaArchivo);//Fecha de ultimo acceso
+                txtUltima_Mod.Text = dt.ToString();
+                txtCreacion.Text = dateTime.ToString();
+                txtAcceso.Text = datet.ToString();
+                result = Path.GetFileNameWithoutExtension(rutaArchivo);//Nombre de archivo sin extensión
+                txtNombreArchivo.Text = result;
+                extension = Path.GetExtension(rutaArchivo);
+                txtExtension.Text = extension;
+                numerototalnombre = txtNombreArchivo.Text.Length + txtExtension.Text.Length;
+                //Imprimir reporte FastReport
+                string miReporte = @"Loboone\Reportes\rptCertificadoNvo_18.frx";  //Loboone\Reportes\RPTCardexGenericoAlumno.frx
+                string thisFolder = Config.ApplicationFolder;
+                Report frxReport = new Report();
+                for (int i = 1; i < 6; i++)
                 {
-
-                    previewReportes.Buttons = PreviewButtons.Print | PreviewButtons.Zoom | PreviewButtons.Navigator; //Print reporte 
-                    previewReportes.ZoomPageWidth();
-                    frxReport.Preview = previewReportes;
-                    frxReport.Load(thisFolder + miReporte);
-                    frxReport.SetParameterValue("@ID_Alumno", "3919045025");
-                    frxReport.Show();
-                    previewReportes.ZoomPageWidth();
-                    break;
-                }
-                thisFolder += @"..\";
-            }
-            Clase_ParametrosReportes pr = new Clase_ParametrosReportes();
-
-
-            Clase_Reportes getid = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
-
-            if (getid.GetIDReporte(txtNombreArchivo.Text))
-            {
-
-                if (getid.Lector.Tables.Count > 0)
-                {
-                    if (getid.Lector.Tables[0].Rows.Count > 0)
+                    if (File.Exists(thisFolder + miReporte))
                     {
-                        //MessageBox.Show("ID Reporte Encontrado");
-                        idreporte = getid.Lector.Tables[0].Rows[0]["ID"].ToString();
-                        txtIDReporte.Text = idreporte;
-                        btnGuardar.Enabled = false;
-                        btnModificar.Enabled = true;
+
+                        previewReportes.Buttons = PreviewButtons.Print | PreviewButtons.Zoom | PreviewButtons.Navigator; //Print reporte 
+                        previewReportes.ZoomPageWidth();
+                        frxReport.Preview = previewReportes;
+                        frxReport.Load(thisFolder + miReporte);
+                        frxReport.SetParameterValue("@ID_Alumno", "3919045025");
+                        frxReport.Show();
+                        previewReportes.ZoomPageWidth();
+                        break;
+                    }
+                    thisFolder += @"..\";
+                }
+                Clase_ParametrosReportes pr = new Clase_ParametrosReportes();
+                
 
 
+                Clase_Reportes getid = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
+
+                if (getid.GetIDReporte(txtNombreArchivo.Text))
+                {
+
+                    if (getid.Lector.Tables.Count > 0)
+                    {
+                        if (getid.Lector.Tables[0].Rows.Count > 0)
+                        {
+                            //MessageBox.Show("ID Reporte Encontrado");
+                            idreporte = getid.Lector.Tables[0].Rows[0]["ID"].ToString();
+                            txtIDReporte.Text = idreporte;
+                            btnGuardar.Enabled = false;
+                            btnModificar.Enabled = true;
+
+
+                        }
+                        else
+                        {
+                            btnModificar.Enabled = false;
+                            btnGuardar.Enabled = true;
+                            txtIDReporte.Text = String.Empty;
+                        }
                     }
                     else
                     {
@@ -158,22 +184,66 @@ namespace ProyectoLoboSostenido
                         txtIDReporte.Text = String.Empty;
                     }
                 }
+
                 else
                 {
-                    btnModificar.Enabled = false;
-                    btnGuardar.Enabled = true;
-                    txtIDReporte.Text = String.Empty;
+                    MessageBox.Show("Falla en el procedimiento", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
-            }
 
-            else
-            {
-                MessageBox.Show("Falla en el procedimiento", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            else{
+                MessageBox.Show("Favor de abrir un archivo", "ATENCION",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        //    AbrirReporteenVisualizador(txtNombreArchivo.Text);
+            
+        //}
+
+        //private readonly Reportes conrepor = new Reportes();
+        //public void AbrirReporteenVisualizador(string nombre)
+        //{
+        //    string miReporte = "";
 
 
+
+
+        //conrepor.ReporteFRX("RPTCardexGenericoAlumno");
+        //        miReporte = @"C:\LoboONE\LoboONE\LoboOne\Reportes\RPTCardexGenericoAlumno.frx";
+            
+        //    string thisFolder = Config.ApplicationFolder;
+        //    FrmFRVisor frrepForm = new FrmFRVisor { frReporte = new Report() };
+        //    bool frxExiste = false;
+
+        //    for (int i = 1; i < 6; i++)
+        //    {
+        //        if (File.Exists(miReporte))
+        //        {
+        //            try
+        //            {
+        //                frxExiste = true;
+        //                frrepForm.frReporte.Load(miReporte);
+        //                frrepForm.frReporte.SetParameterValue("@ID_Alumno", "PR15008001");
+        //                frrepForm.frReporte.Show();
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                break;
+        //            }
+        //        }
+        //        thisFolder += @"..\";
+        //    }
+        //    frrepForm.Close();
+        //    if (!frxExiste)
+        //    {
+        //        MessageBox.Show("No se encontró el reporte: " + miReporte, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
         }
+
+
+        
 
         private void DatosReportes_Load(object sender, EventArgs e)
         {
@@ -191,45 +261,53 @@ namespace ProyectoLoboSostenido
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string path = txtRuta.Text;
-            if (!File.Exists(path))
+            if(txtNombreArchivo.Text == null || txtNombreArchivo.Text == "" || txtRuta.Text == null || txtRuta.Text == "")
             {
-                File.Create(path);
-                txtCreacion.Text = File.GetCreationTime(path).ToString();
-                txtUltima_Mod.Text = File.GetLastWriteTime(path).ToString();
-                txtAcceso.Text = File.GetLastAccessTime(path).ToString();
-                txtPeso.Text = path.Length.ToString();
-
-                MessageBox.Show("El archivo fue creado");
+                MessageBox.Show("Favor de llenar los campos Nombre Archivo, Extensión y Ruta", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("El archivo ya existe");
-            }
-
-
-            Clase_Reportes reportes = new Clase_Reportes();
-
-            if (reportes.DetalleArchivoReporte("1", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtIDReporte.Text) == true)
-            {
-                if (reportes.Lector.Tables.Count > 0)
+                string path = txtRuta.Text;
+                if (!File.Exists(path))
                 {
-                    MessageBox.Show("El registro ya existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    File.Create(path);
+                    txtCreacion.Text = File.GetCreationTime(path).ToString();
+                    txtUltima_Mod.Text = File.GetLastWriteTime(path).ToString();
+                    txtAcceso.Text = File.GetLastAccessTime(path).ToString();
+                    txtPeso.Text = path.Length.ToString();
+
+                    MessageBox.Show("El archivo fue creado");
                 }
                 else
                 {
-                    MessageBox.Show("Registro guardado correctamente", "REGISTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El archivo ya existe");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            btnModificar.Enabled = true;
 
-            //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\FastReports\FastReport.Net Demo\Designer.exe");//abrir el exe de fastreports
-            MostrarReportes();
+                Clase_Reportes reportes = new Clase_Reportes();
+
+                if (reportes.DetalleArchivoReporte("1", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "0010040031", txtIDReporte.Text) == true)
+                {
+                    if (reportes.Lector.Tables.Count > 0)
+                    {
+                        MessageBox.Show("El registro ya existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro guardado correctamente", "REGISTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                btnModificar.Enabled = true;
+
+                //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\FastReports\FastReport.Net Demo\Designer.exe");//abrir el exe de fastreports
+                MostrarReportes();
+            }
+            
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -238,58 +316,72 @@ namespace ProyectoLoboSostenido
         }
 
 
-        private void btnGuardarDB(object sender, EventArgs e)
+        private void btnGuardarDB(object sender, EventArgs e) //Tabla DetalleArchivoReporte
 
         {
             Clase_Reportes reportes = new Clase_Reportes();
-
-            if (reportes.DetalleArchivoReporte("1", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtIDReporte.Text) == true)
+            if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
-                if (reportes.Lector.Tables.Count > 0)
+                MessageBox.Show("Favor de elegir el reporte a guardar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (reportes.DetalleArchivoReporte("1", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "001040031", txtIDReporte.Text) == true)
                 {
-                    MessageBox.Show("El registro ya existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (reportes.Lector.Tables.Count > 0)
+                    {
+                        MessageBox.Show("El registro ya existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro guardado correctamente", "REGISTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Registro guardado correctamente", "REGISTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            btnModificar.Enabled = true;
+                btnModificar.Enabled = true;
 
-            MostrarReportes();
+                MostrarReportes();
+            }
         }
         private void btnGuardarCambios(object sender, EventArgs e)
         {
-
-
             Clase_Reportes reportes = new Clase_Reportes();
-
-            if (reportes.DetalleArchivoReporte("2", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtIDReporte.Text) == true)
+            if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
-
-                MessageBox.Show("Registro actualizado correctamente", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se ha modificado ningún reporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("No se pudo actualizar el registro, contacte al departamento de sistemas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Cambiar nombre del archivo en el directorio
+                string fullPath = Path.GetFullPath(txtRuta.Text);
+                //Con esta instrucción obtienes la ruta donde está el archivo origen
+                string soloRuta = Path.GetDirectoryName(fullPath);
+
+                //Con esta instrucción combinas la ruta de origen con el nuevo nombre de archivo
+                string nombreNuevo = Path.Combine(soloRuta, txtNombreArchivo.Text + txtExtension.Text);
+
+                txtRuta.Text = nombreNuevo;
+                File.Move(fullPath, nombreNuevo);
+
+                if (reportes.DetalleArchivoReporte("2", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "001040031", txtIDReporte.Text) == true)
+                {
+
+                    MessageBox.Show("Registro actualizado correctamente", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el registro, contacte al departamento de sistemas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+                MostrarReportes();
             }
+               
 
-
-            //Cambiar nombre del archivo en el directorio
-            string fullPath = Path.GetFullPath(txtRuta.Text);
-            //Con esta instrucción obtienes la ruta donde está el archivo origen
-            string soloRuta = Path.GetDirectoryName(fullPath);
-
-            //Con esta instrucción combinas la ruta de origen con el nuevo nombre de archivo
-            string nombreNuevo = Path.Combine(soloRuta, txtNombreArchivo.Text + txtExtension.Text);
-
-            File.Move(fullPath, nombreNuevo);
-            MostrarReportes();
         }
 
         private void MostrarReportes()
@@ -320,7 +412,7 @@ namespace ProyectoLoboSostenido
             }
             else
             {
-                MessageBox.Show("No se puede mostrar la información");
+                //MessageBox.Show("No se puede mostrar la información");
 
             }
         }
@@ -357,56 +449,79 @@ namespace ProyectoLoboSostenido
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Clase_Reportes reportes = new Clase_Reportes();
-
-            if (reportes.DetalleArchivoReporte("3", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtIDReporte.Text) == true)
+            if(txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
-
-                MessageBox.Show("El registro ha sido eliminado", "ELIMINADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor de elegir el reporte a eliminar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("No se pudo eliminar el reporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            string archivo = txtRuta.Text; //Eliminar el reporte de la carpeta
-            try
-            {
-                File.Delete(archivo);
-                if (File.Exists(archivo))
+                var mensaje = MessageBox.Show("¿Estás seguro de eliminar el reporte?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (mensaje == DialogResult.Yes)
                 {
-                    MessageBox.Show("No se pudo eliminar el reporte");
+                    if (reportes.DetalleArchivoReporte("3", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "001040031", txtIDReporte.Text) == true)
+                    {
+
+                        MessageBox.Show("El registro ha sido eliminado", "ELIMINADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el reporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+                    string archivo = txtRuta.Text; //Eliminar el reporte de la carpeta
+                    try
+                    {
+                        File.Delete(archivo);
+                        if (File.Exists(archivo))
+                        {
+                            MessageBox.Show("No se pudo eliminar el reporte");
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Reporte eliminado");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al eliminar el reporte");
+                    }
+                    MostrarReportes();
                 }
                 else
                 {
-                    MessageBox.Show("Reporte eliminado");
+                    MessageBox.Show("El reporte no ha sido eliminado", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch
-            {
-                MessageBox.Show("Error al eliminar el reporte");
-            }
-
- 
         }
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            //Mover archivo de ruta 
-            string ruta1 = rutaBD;
-            string ruta2 = txtRuta.Text;
-            File.Move(ruta1, ruta2);
-
-            Clase_Reportes reportes = new Clase_Reportes();
-
-            if (reportes.DetalleArchivoReporte("2", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtIDReporte.Text))
+            if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "" || txtRuta.Text == null || txtRuta.Text == "")
             {
-
-                MessageBox.Show("El archivo se cambió a la ruta especificada", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Elija el reporte y nueva ubicación", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("No se puede cambiar la ruta del archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Mover archivo de ruta 
+                string ruta1 = rutaBD;
+                string ruta2 = txtRuta.Text;
+                File.Move(ruta1, ruta2);
+
+                Clase_Reportes reportes = new Clase_Reportes();
+
+                if (reportes.DetalleArchivoReporte("2", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "001040031", txtIDReporte.Text))
+                {
+
+                    MessageBox.Show("El archivo se cambió a la ruta especificada", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se puede cambiar la ruta del archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            
+                
 
         }
 
@@ -435,17 +550,29 @@ namespace ProyectoLoboSostenido
 
             }
         }
+
+        private void btnLimpiar(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnModoEdicion(object sender, EventArgs e)
+        {
+          
+            if ( txtRuta.Text !="")
+            {
+                Process proceso = new Process();
+                proceso.StartInfo.FileName = txtRuta.Text;
+                proceso.Start();
+            }
+            else
+            {
+                MessageBox.Show("Favor de abrir un archivo", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 
 }
-
-
-
-
-
-
-
-
 
 
 

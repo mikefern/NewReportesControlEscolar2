@@ -14,6 +14,7 @@ namespace NewReportesControlEscolar
 {
     public partial class RelacionParametrosReporte : Form
     {
+        string idparametro = "";
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -60,18 +61,33 @@ namespace NewReportesControlEscolar
             if (GridViewDetalles.RowCount > 0)
             {
                 // MessageBox.Show("Reportes en DB");
+                GridViewDetalles.Rows[0].Selected = true;
+                txtIDReporte.Text = GridViewDetalles.Rows[0].Cells[0].Value.ToString();
+                txtNombreReporte.Text = GridViewDetalles.Rows[0].Cells[1].Value.ToString();
+                getParametros();
+                Guardados();
             }
             else
             {
                 //MessageBox.Show("No se puede mostrar la información");
             }
+
+
         }
 
         private void RelacionParametrosReporte_Load(object sender, EventArgs e)
         {
+            
+            
+            
+            
             MostrarReportesDetalle();
-            getParametros();
+            //getParametros();
+            //getNombreParametro();
             checkbox();
+            listViewParametros.Visible = false;
+            btnGuardar.Enabled = false;
+            btnModificar.Enabled = true;
 
         }
 
@@ -80,6 +96,9 @@ namespace NewReportesControlEscolar
             txtIDReporte.Text = GridViewDetalles.CurrentRow.Cells[0].Value.ToString();
             txtNombreReporte.Text = GridViewDetalles.CurrentRow.Cells[1].Value.ToString();
             Guardados();
+            listViewParametros.Visible = false;
+
+           
         }
 
         private void getParametros()
@@ -95,10 +114,12 @@ namespace NewReportesControlEscolar
                     item.Text = parametros.Lector.Tables[0].Rows[i][0].ToString();
                     item.SubItems.Add(parametros.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
                     listViewParametros.Items.Add(item);
+                    
 
                 }
             }
         }
+       
         private void checkbox()
         {
             foreach (CheckBox c in listViewParametros.Controls)
@@ -110,7 +131,22 @@ namespace NewReportesControlEscolar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Clase_Reportes agregar = new Clase_Reportes();
-            string idparametro = "";
+            //if(agregar.AsignarParametros(txtIDReporte.Text, idparametro) == true)
+            //{
+            //    if(agregar.Lector.Tables.Count > 0)
+            //    {
+            //        MessageBox.Show("El parametro ya esta asignado al reporte");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Parametro agregado");
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Favor de revisar el procedimiento");
+            //}
+
             if (txtIDReporte != null && txtNombreReporte != null)
             {
 
@@ -122,16 +158,31 @@ namespace NewReportesControlEscolar
                         idparametro = idparametro + "," + listViewParametros.Items[i].Text;
                     }
                 }
-                if (idparametro != "")
-                    idparametro = idparametro.Substring(1);
-                MessageBox.Show("Se han agregado los parametros", "Confirmado", MessageBoxButtons.OK);
-                MessageBox.Show(idparametro);
-                agregar.AsignarParametros(txtIDReporte.Text, idparametro);
+                if (idparametro != "") idparametro = idparametro.Substring(1);
+
+                
+
+                if (agregar.AsignarParametros(txtIDReporte.Text, idparametro))
+                {
+                    MessageBox.Show("Se han agregado los parametros", "Confirmado", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Error en el procedimiento", "ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                idparametro = "";
+
+                //MessageBox.Show(idparametro);
+               
+                listViewParametros.Visible = false;
+                Guardados();
+                btnGuardar.Enabled = false;
+                btnModificar.Enabled = true;
             }
-
-
         }
-        private void Guardados()
+       
+
+        private void Guardados() //Tabla RelParametroReporte
         {
             if (txtIDReporte != null)
             {
@@ -140,6 +191,11 @@ namespace NewReportesControlEscolar
                     Clase_Reportes guardados= new Clase_Reportes();
                     if (guardados.GetParametrosOK(txtIDReporte.Text))
                     {
+                        DGVNombreParametro.DataSource = guardados.Lector.Tables[0];
+                        DGVNombreParametro.Columns[0].Visible = false;
+                        DGVNombreParametro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
 
                         for (int i = 0; i < listViewParametros.Items.Count; i++)
                             listViewParametros.Items[i].Checked = false;
@@ -165,8 +221,12 @@ namespace NewReportesControlEscolar
             }
         }
 
-        
-
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            listViewParametros.Visible = true;
+            btnGuardar.Enabled = true;
+            btnModificar.Enabled = false;
+        }
     }
 }
 

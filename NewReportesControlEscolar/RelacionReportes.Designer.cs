@@ -29,10 +29,10 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelacionReportes));
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnRelacionar = new System.Windows.Forms.Button();
@@ -70,9 +70,9 @@ namespace NewReportesControlEscolar
             // 
             this.btnRelacionar.BackColor = System.Drawing.Color.Transparent;
             this.btnRelacionar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRelacionar.FlatAppearance.BorderSize = 0;
+            this.btnRelacionar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRelacionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnRelacionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelacionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRelacionar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnRelacionar.ForeColor = System.Drawing.Color.Black;
             this.btnRelacionar.Location = new System.Drawing.Point(4, 399);
@@ -93,6 +93,7 @@ namespace NewReportesControlEscolar
             this.label2.Size = new System.Drawing.Size(158, 17);
             this.label2.TabIndex = 21;
             this.label2.Text = "ReportesControlEscolar";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -122,6 +123,7 @@ namespace NewReportesControlEscolar
             this.txtIDDetalle.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDDetalle.Location = new System.Drawing.Point(41, 227);
             this.txtIDDetalle.Name = "txtIDDetalle";
+            this.txtIDDetalle.ReadOnly = true;
             this.txtIDDetalle.Size = new System.Drawing.Size(55, 37);
             this.txtIDDetalle.TabIndex = 25;
             this.txtIDDetalle.Text = "";
@@ -141,28 +143,29 @@ namespace NewReportesControlEscolar
             this.GridViewControl.AllowUserToAddRows = false;
             this.GridViewControl.AllowUserToDeleteRows = false;
             this.GridViewControl.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewControl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewControl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.GridViewControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewControl.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewControl.DefaultCellStyle = dataGridViewCellStyle26;
             this.GridViewControl.GridColor = System.Drawing.Color.Black;
             this.GridViewControl.Location = new System.Drawing.Point(146, 72);
             this.GridViewControl.MultiSelect = false;
             this.GridViewControl.Name = "GridViewControl";
+            this.GridViewControl.ReadOnly = true;
             this.GridViewControl.RowHeadersVisible = false;
             this.GridViewControl.ShowEditingIcon = false;
             this.GridViewControl.Size = new System.Drawing.Size(245, 419);
@@ -175,6 +178,7 @@ namespace NewReportesControlEscolar
             this.txtIDControl.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDControl.Location = new System.Drawing.Point(41, 136);
             this.txtIDControl.Name = "txtIDControl";
+            this.txtIDControl.ReadOnly = true;
             this.txtIDControl.Size = new System.Drawing.Size(55, 37);
             this.txtIDControl.TabIndex = 65;
             this.txtIDControl.Text = "";
@@ -195,28 +199,29 @@ namespace NewReportesControlEscolar
             this.GridViewDetalles.AllowUserToAddRows = false;
             this.GridViewDetalles.AllowUserToDeleteRows = false;
             this.GridViewDetalles.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.GridViewDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewDetalles.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewDetalles.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewDetalles.DefaultCellStyle = dataGridViewCellStyle28;
             this.GridViewDetalles.GridColor = System.Drawing.Color.Black;
             this.GridViewDetalles.Location = new System.Drawing.Point(397, 72);
             this.GridViewDetalles.MultiSelect = false;
             this.GridViewDetalles.Name = "GridViewDetalles";
+            this.GridViewDetalles.ReadOnly = true;
             this.GridViewDetalles.RowHeadersVisible = false;
             this.GridViewDetalles.Size = new System.Drawing.Size(245, 419);
             this.GridViewDetalles.TabIndex = 64;
@@ -239,6 +244,7 @@ namespace NewReportesControlEscolar
             this.txtRelacionado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRelacionado.Location = new System.Drawing.Point(41, 329);
             this.txtRelacionado.Name = "txtRelacionado";
+            this.txtRelacionado.ReadOnly = true;
             this.txtRelacionado.Size = new System.Drawing.Size(55, 37);
             this.txtRelacionado.TabIndex = 68;
             this.txtRelacionado.Text = "";
@@ -258,9 +264,8 @@ namespace NewReportesControlEscolar
             // 
             this.btnEliminarRelacion.BackColor = System.Drawing.Color.Transparent;
             this.btnEliminarRelacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarRelacion.FlatAppearance.BorderSize = 0;
             this.btnEliminarRelacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnEliminarRelacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarRelacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarRelacion.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnEliminarRelacion.ForeColor = System.Drawing.Color.Black;
             this.btnEliminarRelacion.Location = new System.Drawing.Point(4, 448);
