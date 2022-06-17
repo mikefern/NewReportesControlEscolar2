@@ -37,8 +37,7 @@ namespace NewReportesControlEscolar
 
            
 
-           // DGV_parametros.Columns[2].ReadOnly = true;
-            label1.Text = DGV_parametros.Rows.Count.ToString();
+           // DGV_parametros.Columns[2].ReadOnly = true; 
 
             DGV_parametros.CellEndEdit += new DataGridViewCellEventHandler(DGV_parametros_CellEndEdit);
             DGV_parametros.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(DGV_parametros_EditingControlShowing);
@@ -225,12 +224,7 @@ namespace NewReportesControlEscolar
         private void DGV_parametros_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //e.KeyCode == Keys.Enter &&
-            if ( DGV_parametros.CurrentCell.IsInEditMode == true)
-            {
-                int i = DGV_parametros.CurrentRow.Index;
-                button1.Text = i.ToString();
-               // MessageBox.Show(i.ToString());
-            }
+            
         }
 
         private void DGV_parametros_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -256,7 +250,7 @@ namespace NewReportesControlEscolar
             {
                 modoinser = true;
                 //renglonadd = DGV_parametros.CurrentRow.ToString();
-                label1.Text = DGV_parametros.Rows.Count.ToString();
+                
                 flag2 = false;
             }
         }

@@ -17,7 +17,7 @@ namespace NewReportesControlEscolar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAdministrarParametrosRCE());
+            Application.Run(new Principal());
         }
     }
 }

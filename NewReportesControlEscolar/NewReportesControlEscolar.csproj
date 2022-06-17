@@ -294,21 +294,14 @@
     <Compile Include="RelacionReportes.Designer.cs">
       <DependentUpon>RelacionReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAdministrarParametrosRCE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAdministrarParametrosRCE.Designer.cs">
-      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
-    </Compile>
+     
     <Compile Include="FrmReportesControlEscolar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmReportesControlEscolar.Designer.cs">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAdministrarParametrosRCE.resx">
-      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
-    </EmbeddedResource>
+  
     <EmbeddedResource Include="FrmEnlazarReportesNodos.resx">
       <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
     </EmbeddedResource>
