@@ -18,7 +18,7 @@ namespace ProyectoLoboSostenido
             InitializeComponent();
         }
         private Clase_ReportesCE cd;
-        private PermisosReportes pr;
+       // private PermisosReportes pr;
         private NodosPermisos n;
         private NodosPermisos np;
 

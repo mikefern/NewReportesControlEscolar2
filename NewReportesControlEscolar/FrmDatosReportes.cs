@@ -1,5 +1,6 @@
 ﻿using FastReport;
 using FastReport.Utils;
+using NewReportesControlEscolar;
 using System;
 using System.Data;
 using System.Diagnostics;
@@ -7,7 +8,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows.Forms;
-
+using ProyectoLoboSostenido;
 
 
 namespace ProyectoLoboSostenido
@@ -434,6 +435,40 @@ namespace ProyectoLoboSostenido
                 txtRuta.Text = folderDlgCompartida.SelectedPath + "\\" + txtNombreArchivo.Text + txtExtension.Text;
 
             }
+        }
+
+        private readonly Reportes conrepor = new Reportes();
+        private void button5_Click(object sender, EventArgs e)
+        {
+            conrepor.ReporteFRX("RPTConcentradoCalificacionesFinalPorCiclo");
+            string miReporte = @"\Loboone\Reportes\RPTConcentradoCalificacionesFinalPorCiclo.frx";
+            string thisFolder = Config.ApplicationFolder;
+            bool frxExiste = false;
+            FrmFRVisor frrepForm = new FrmFRVisor { frReporte = new Report() };
+
+            for (int i = 1; i < 6; i++)
+            {
+                if (File.Exists(thisFolder + miReporte))
+                {
+                    frxExiste = true;
+                    frrepForm.frReporte.Load(thisFolder + miReporte);
+                    frrepForm.frReporte.SetParameterValue("@ID_Periodo", "");
+                    frrepForm.frReporte.SetParameterValue("@ID_Especialidad", "");
+                    frrepForm.frReporte.Show();
+                    break;
+                }
+                thisFolder += @"..\";
+            }
+            frrepForm.Close();
+
+            if (!frxExiste)
+                MessageBox.Show("No se encontró el reporte: " + miReporte, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmAdministrarParametrosRCE frm = new FrmAdministrarParametrosRCE();
+            frm.Show();
         }
     }
 
