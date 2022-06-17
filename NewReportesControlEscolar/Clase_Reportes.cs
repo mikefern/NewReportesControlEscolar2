@@ -17,7 +17,7 @@ namespace ProyectoLoboSostenido
                  new Clase_Parametros("Opt", opt),
                  new Clase_Parametros("NombreArchivo", nombre),
                  new Clase_Parametros("Ruta",ruta),
-                 new Clase_Parametros("FechaUltimaModificacion",Convert.ToDateTime(ultimamodificacion).ToString()),
+                 new Clase_Parametros("FechaUltimaModificacion",ultimamodificacion),
                  new Clase_Parametros("FechaCreacion",creacion),
                  new Clase_Parametros("FechaUltimoAcceso",ultimoacceso),
                  new Clase_Parametros("Extension",extension),
@@ -92,8 +92,10 @@ namespace ProyectoLoboSostenido
             string nomStore = "AsignarParametros";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("ID",ID),
+                new Clase_Parametros("ID_Reporte",ID),
                 new Clase_Parametros("ID_Parametro",ID_Parametro)
+                
+
             };
             if (ConsultarParametros(nomStore, par))
             {
@@ -153,17 +155,17 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool IDRelacionado (string ID, string ID_Reporte, string opt)
+        public bool IDRelacionado (string opt,string ID_Reporte, string ID_Archivo)
         {
             string nomStore = "GetIDRepRel";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             { 
                 new Clase_Parametros("Opt",opt),
-                new Clase_Parametros("ID",ID), 
-                new Clase_Parametros("ID_Reporte",ID_Reporte)
+                new Clase_Parametros("ID_Reporte",ID_Reporte), 
+                new Clase_Parametros("ID_Archivo",ID_Archivo)
                
 
-            };
+            };  
             if (ConsultarParametros(nomStore, par))
             {
                 return true;
@@ -183,6 +185,26 @@ namespace ProyectoLoboSostenido
             {
                 new Clase_Parametros("ID",ID)
                 
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
+        public bool EliminarParametros(string ID_Parametro)
+        {
+            string nomStore = "EliminarParametros";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Parametro",ID_Parametro)
+
             };
             if (ConsultarParametros(nomStore, par))
             {

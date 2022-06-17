@@ -64,6 +64,43 @@ namespace NewReportesControlEscolar
                 lv.Items.Add(item);
             }
         }
+        public bool checarPermiso(DataView dv, int comparar)
+        {
+            for (int x = 0; x < dv.Table.Rows.Count; x++)
+            {
+                int comparador = Convert.ToInt32(dv.Table.Rows[x][0]);
+                if (comparar == comparador)
+                    return false;
+            }
+            return true;
+        }
+    }
+
+    public class crearNodo
+    {
+        public DataView dt = new DataView();
+
+
+        public void CrearNodos(int indicePadre, TreeNode nodePadre, TreeView treeView)
+        {
+            DataView dataViewHijos = new DataView(dt.Table);
+            dataViewHijos.RowFilter = dt.Table.Columns["NodoPadre"].ColumnName + " = " + indicePadre;
+            foreach (DataRowView dataRowCurrent in dataViewHijos)
+            {
+                TreeNode nuevoNodo = new TreeNode();
+                nuevoNodo.Text = dataRowCurrent["TextoNodo"].ToString().Trim();
+                nuevoNodo.Name = dataRowCurrent["Nodo"].ToString().Trim();
+
+                if (nodePadre == null)
+                    treeView.Nodes.Add(nuevoNodo);
+                else
+                    nodePadre.Nodes.Add(nuevoNodo);
+
+
+                CrearNodos(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo, treeView);
+            }
+        }
+
     }
 }
 

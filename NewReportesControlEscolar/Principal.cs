@@ -58,7 +58,7 @@ namespace NewReportesControlEscolar
 
         private void btn_Restricciones_Click(object sender, EventArgs e)
         {
-            FrmAgregarRestriccionesReportesRol ARR = new FrmAgregarRestriccionesReportesRol();
+            FrmRestriccionesRolesReportes ARR = new FrmRestriccionesRolesReportes();
             ARR.Show();
         }
 
@@ -101,6 +101,29 @@ namespace NewReportesControlEscolar
             Clase_Sesion.Rol = textBox3.Text;
             FrmReportesControlEscolar rce = new FrmReportesControlEscolar();
             rce.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //FrmAdministrarParametrosRCE ARR = new FrmAdministrarParametrosRCE();
+            //ARR.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FrmRestriccionesRolesReportes ARR = new FrmRestriccionesRolesReportes();
+            ARR.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FrmEnlazarReportesNodos ARR = new FrmEnlazarReportesNodos();
+            ARR.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

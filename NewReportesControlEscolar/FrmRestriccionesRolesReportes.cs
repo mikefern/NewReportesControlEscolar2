@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,21 @@ namespace NewReportesControlEscolar
 
         private PermisosReportes p;
         Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+
+        #region MoverFORM
+        //--------- MOVER FORMS
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void Principal_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        #endregion
+
         private void cbCampus_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cbCampus.SelectedValue != null)
@@ -105,16 +121,8 @@ namespace NewReportesControlEscolar
                     string reporte = lvReportes.Items[i].Text;
                     if (lvReportes.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for(int x=0; x< p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            if (Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]) == Convert.ToInt32(reporte))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(reporte)))
                             pr.AgregarRestriccionesReportesEmpleado(reporte, empleado);
                     }
                     else
@@ -125,6 +133,17 @@ namespace NewReportesControlEscolar
             {
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Close();
         }
     }
 }

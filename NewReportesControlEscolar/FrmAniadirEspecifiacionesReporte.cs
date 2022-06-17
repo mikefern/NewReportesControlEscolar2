@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,22 @@ using System.Windows.Forms;
 namespace NewReportesControlEscolar
 {
     public partial class FrmAniadirEspecifiacionesReporte : Form
+
     {
+        #region MoverFORM
+        //--------- MOVER FORMS
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        #endregion
+
         private PermisosReportes pr;
         private PermisosReportes p;
         private Clase_ReportesGenericos gn= new Clase_ReportesGenericos();
@@ -20,7 +36,9 @@ namespace NewReportesControlEscolar
         {
             InitializeComponent();
         }
-        
+
+       
+
         private void FrmAniadirEspecifiacionesReporte_Load(object sender, EventArgs e)
         {
             gn.cargarCampus(lvCampus);
@@ -43,7 +61,7 @@ namespace NewReportesControlEscolar
             if (lvReportes.SelectedItems.Count > 0)
             {
                 cargarCampusReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
-                cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
+                
                 lvRVOE.Items.Clear();
             }
         }
@@ -53,7 +71,7 @@ namespace NewReportesControlEscolar
             lvCampusEspecificos.Items.Clear();
             pr = new PermisosReportes();
             pr.GetCampusReportes(id);
-            if (pr.Lector.Tables[0].Rows.Count > 0)
+            if (pr.Lector.Tables.Count > 0)
             {
                 DataView dt1 = new DataView(pr.Lector.Tables[0]);
                 gn.marcarnodos(lvCampus, dt1);
@@ -63,8 +81,9 @@ namespace NewReportesControlEscolar
 
         private void cargarRolesReportes(string id)
         {
+
             pr = new PermisosReportes();
-            if (pr.MostrarRelRolesReportes(id))
+            if (pr.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
                 gn.marcarnodos(lvRoles, dt);
@@ -73,9 +92,18 @@ namespace NewReportesControlEscolar
 
         private void lvCampusEspecificos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (lvCampusEspecificos.SelectedItems.Count > 0)
-                cargarRVOE();
-                
+            try
+            {
+                if (lvCampusEspecificos.SelectedItems.Count > 0)
+                    cargarRVOE();
+                lvRoles.Enabled = true;
+                btnGuardarRoles.Enabled = true;
+                cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
+            }
+            catch
+            {
+
+            }
         }
         private void cargarRVOE()
         {
@@ -110,23 +138,13 @@ namespace NewReportesControlEscolar
                     string campus = lvCampus.Items[i].Text;
                     if (lvCampus.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int campusget = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0].ToString());
-                            if (campusget == Convert.ToInt32(campus))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
                             pr.AgregarRelCampusReporte(reporte, campus);
                     }
                     else
-                    {
                         pr.EliminarRelCampusReporte(reporte, campus);
-                    }
+                    
                 }
                 MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
                 cargarCampusReportes(id);
@@ -143,7 +161,7 @@ namespace NewReportesControlEscolar
             {
                 p = new PermisosReportes();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
-                p.MostrarRelRolesReportes(id);
+                p.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text );
                 pr = new PermisosReportes();
             
                 for(int i=0;i<lvRoles.Items.Count; i++)
@@ -151,17 +169,8 @@ namespace NewReportesControlEscolar
                     string rol = lvRoles.Items[i].Text;
                     if (lvRoles.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int rolLecto = Convert.ToInt32(p.Lector.Tables[0].Rows[x][1]);
-                            if (Convert.ToInt32(rol) == rolLecto)
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
                             pr.AgregarRelRolesReportes(rol, id);
                     }
                     else
@@ -191,17 +200,8 @@ namespace NewReportesControlEscolar
                     string rvoe = lvRVOE.Items[i].Text;
                     if (lvRVOE.Items[i].Checked == true)
                     {
-                        bool check = true;
-                        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
-                        {
-                            int rvo = Convert.ToInt32(p.Lector.Tables[0].Rows[x][1]);
-                            if (rvo == Convert.ToInt32(rvoe))
-                            {
-                                check = false;
-                                break;
-                            }
-                        }
-                        if (check)
+                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        if (gn.checarPermiso(dv, Convert.ToInt32(rvoe)))
                             pr.AgregarRVOEReportes(id, rvoe);
                     }
                     else
@@ -221,5 +221,33 @@ namespace NewReportesControlEscolar
             FrmRestriccionesRolesReportes rr = new FrmRestriccionesRolesReportes();
             rr.Show();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }
