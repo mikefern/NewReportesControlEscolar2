@@ -37,8 +37,8 @@ namespace NewReportesControlEscolar
         string nodopadre = "";
 
         //Varibales Fausto
-        NodosPermisos n;
-        NodosPermisos np;
+        Clase_ReportesCE n;
+        Clase_ReportesCE np;
         private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         #endregion
@@ -505,7 +505,7 @@ namespace NewReportesControlEscolar
             try
             {
 
-                n = new NodosPermisos();
+                n = new Clase_ReportesCE();
                 string nodo = e.Node.Name;
                 if (n.GetCampusNodos(nodo))
                 {
@@ -523,7 +523,7 @@ namespace NewReportesControlEscolar
 
         private void cargarCampusSeleccion(string nodo)
         {
-            n = new NodosPermisos();
+            n = new Clase_ReportesCE();
             if (n.GetCampusNodos(nodo))
             {
                 DataView dt = new DataView(n.Lector.Tables[0]);
@@ -537,10 +537,10 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                n = new NodosPermisos();
+                n = new Clase_ReportesCE();
                 string nodo = TreeViewNodos.SelectedNode.Name.ToString();
                 n.GetCampusNodos(nodo);
-                np = new NodosPermisos();
+                np = new Clase_ReportesCE();
 
                 for (int x = 0; x < lvCampus.Items.Count; x++)
                 {
@@ -571,7 +571,7 @@ namespace NewReportesControlEscolar
                 for (int i = 0; i < lvRoles.Items.Count; i++)
                     lvRoles.Items[i].Checked = false;
 
-                n = new NodosPermisos();
+                n = new Clase_ReportesCE();
                 if (lvSeleccionarCampus.SelectedItems.Count > 0 && n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name))
                 {
                     DataView dt = new DataView(n.Lector.Tables[0]);
@@ -590,8 +590,8 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                n = new NodosPermisos();
-                np = new NodosPermisos();
+                n = new Clase_ReportesCE();
+                np = new Clase_ReportesCE();
                 n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name);
                 for (int x = 0; x < lvRoles.Items.Count; x++)
                 {

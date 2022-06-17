@@ -41668,11 +41668,11 @@ namespace ProyectoLoboSostenido
 
         private void FrmReportesControlEscolar_Load(object sender, EventArgs e)
         {
-            RestringirPermisosReportes();
+            RestringirClase_ReportesCE();
             LlenadoNodosReporte(TreePrueba);
         }
 
-        private void RestringirPermisosReportes()
+        private void RestringirClase_ReportesCE()
         {
             try
             {
@@ -41688,8 +41688,8 @@ namespace ProyectoLoboSostenido
                 CRViewer.ShowRefreshButton = false;
                 CRViewer.ShowTextSearchButton = false;
                 CRViewer.ShowZoomButton = false;
-                PermisosReportes pr;
-                pr = new PermisosReportes();
+                Clase_ReportesCE pr;
+                pr = new Clase_ReportesCE();
                 if (pr.GetPermisosRol(Clase_Sesion.Rol, Clase_Sesion.Campus))
                 {
                     for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
@@ -41791,16 +41791,16 @@ namespace ProyectoLoboSostenido
                             }
                             if (dt.Table.Rows.Count > 0)
                             {
-                                PermisosReportes pr = new PermisosReportes();
+                                Clase_ReportesCE pr = new Clase_ReportesCE();
 
                                 pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol,Clase_Sesion.Campus);
                                 if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
                                 {
-                                    pr = new PermisosReportes();
+                                    pr = new Clase_ReportesCE();
                                     pr.RptGetRestriccionReporteEmpledo(dt.Table.Rows[0][0].ToString(), Clase_Sesion.IDEmpleado);
                                     if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) == -1)
                                     {
-                                        pr = new PermisosReportes();
+                                        pr = new Clase_ReportesCE();
                                         if (pr.GetDetallesReporte(dt.Table.Rows[0][0].ToString()))
                                         {
                                            // MessageBox.Show(pr.Lector.Tables[0].Rows[0][0]+" "+pr.Lector.Tables[0].Rows[0][1].ToString() + " " + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][3].ToString()+" "+ pr.Lector.Tables[0].Rows[0][4].ToString()+ "FIN", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);

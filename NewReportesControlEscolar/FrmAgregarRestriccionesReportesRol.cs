@@ -12,10 +12,10 @@ namespace ProyectoLoboSostenido
 {
     public partial class FrmAgregarRestriccionesReportesRol : Form
     {
-        private GetUsuariosRestricciones ur;
+        private Clase_ReportesCE ur;
         private Clase_ReportesCE cd;
-        private ControlUsuariosRepo cu;
-        private RestriccionesNodos rn;
+        private Clase_ReportesCE cu;
+        private Clase_ReportesCE rn;
         public FrmAgregarRestriccionesReportesRol()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace ProyectoLoboSostenido
         {
             try
             {
-                ur = new GetUsuariosRestricciones();
+                ur = new Clase_ReportesCE();
                 if (ur.GetUsuarios(campus))
                 {
                     cBoxUsuarios.DataSource = ur.Lector.Tables[0];
@@ -42,7 +42,7 @@ namespace ProyectoLoboSostenido
         {
             try
             {
-                ur = new GetUsuariosRestricciones();
+                ur = new Clase_ReportesCE();
                 if (ur.GetCampus())
                 {
                     cbCampus.DataSource = ur.Lector.Tables[0];
@@ -65,7 +65,7 @@ namespace ProyectoLoboSostenido
         {
             try
             {
-                GetRoles gr = new GetRoles();
+                Clase_ReportesCE gr = new Clase_ReportesCE();
                 gr.getRol(cBoxUsuarios.SelectedValue.ToString());
                 string rol = gr.Lector.Tables[0].Rows[0][0].ToString();
                 cd = new Clase_ReportesCE();
@@ -73,7 +73,7 @@ namespace ProyectoLoboSostenido
                 string validar = cd.Lector.Tables[0].Rows[0][0].ToString();
                 if (!validar.Equals("-1"))
                 {
-                    cu = new ControlUsuariosRepo();
+                    cu = new Clase_ReportesCE();
                     cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
                     CrearNodosDelPadre(0, null, treeView);
                     btnAgregar.Enabled = true;
@@ -123,7 +123,7 @@ namespace ProyectoLoboSostenido
         }
         private void limpiarRestricciones()
         {
-            rn = new RestriccionesNodos();
+            rn = new Clase_ReportesCE();
             rn.LimpiarRestriccionesNodos(cBoxUsuarios.SelectedValue.ToString());
         }
         private void VerificacionNodosRecursiva(TreeNode treeNode)

@@ -33,7 +33,7 @@ namespace ProyectoLoboSostenido
         {
             InitializeComponent();
         }
-        private PermisosReportes pr;
+        private Clase_ReportesCE pr;
         Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         private void FmrRPTPermisosRol_Load(object sender, EventArgs e)
@@ -41,7 +41,6 @@ namespace ProyectoLoboSostenido
             cargarRoles();
             getPermisos();
             getCampus();
-
         }
 
         private void cbRoles_SelectionChangeCommitted(object sender, EventArgs e)
@@ -55,7 +54,7 @@ namespace ProyectoLoboSostenido
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             if (cbRoles.SelectedItem != null && cbCampus.SelectedItem != null)
             {
                 string rol = cbRoles.SelectedValue.ToString();
@@ -74,7 +73,7 @@ namespace ProyectoLoboSostenido
 
         private void cargarRoles()
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.GetRoles();
             cbRoles.DataSource = pr.Lector.Tables[0];
             cbRoles.DisplayMember = "Descripcion";
@@ -83,7 +82,7 @@ namespace ProyectoLoboSostenido
         }
         private void getPermisos()
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.MostrarPermisosReportes();
             lvPermisos.Items.Clear();
             if (pr.Lector.Tables[0].Rows.Count>0)
@@ -95,7 +94,7 @@ namespace ProyectoLoboSostenido
         }
         private void getCampus()
         {
-            GetUsuariosRestricciones ur =  new GetUsuariosRestricciones();
+            Clase_ReportesCE ur =  new Clase_ReportesCE();
             ur.GetCampus();
             cbCampus.DataSource = ur.Lector.Tables[0];
             cbCampus.DisplayMember = "Campus";
@@ -110,7 +109,7 @@ namespace ProyectoLoboSostenido
             {
                 try
                 {
-                    pr = new PermisosReportes();
+                    pr = new Clase_ReportesCE();
                     if (pr.GetPermisosRol(cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
                     {
                         DataView dt = new DataView(pr.Lector.Tables[0]);
@@ -127,7 +126,7 @@ namespace ProyectoLoboSostenido
         private void btn_AgregarPermisos_Click(object sender, EventArgs e)
         {
             string nombre = tbPermisosReporte.Text;
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.AgregarIndicePermisosReportes(nombre);
             getPermisos();
         }

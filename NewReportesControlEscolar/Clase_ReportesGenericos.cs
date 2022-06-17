@@ -14,7 +14,7 @@ namespace NewReportesControlEscolar
 
         public void cargarCampus(ListView lvCampus)
         {
-            GetUsuariosRestricciones ur = new GetUsuariosRestricciones();
+            Clase_ReportesCE ur = new Clase_ReportesCE();
             ur.GetCampus();
             if (ur.Lector.Tables[0].Rows.Count > 0)
             {
@@ -25,7 +25,7 @@ namespace NewReportesControlEscolar
 
         public void cargarRoles(ListView lvRoles)
         {
-            PermisosReportes pr = new PermisosReportes();
+            Clase_ReportesCE pr = new Clase_ReportesCE();
             pr.GetRoles();
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
