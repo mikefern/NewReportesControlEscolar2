@@ -21,8 +21,8 @@ namespace NewReportesControlEscolar
 
         private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
         Clase_ReportesCE clase_ReportesCE;
-        PermisosReportes pr;
-        PermisosReportes p;
+        Clase_ReportesCE pr;
+        Clase_ReportesCE p;
 
         #region MoverFORM
         //--------- MOVER FORMS
@@ -60,7 +60,7 @@ namespace NewReportesControlEscolar
             try
             {
                 string tree = TreeViewNodos.SelectedNode.Name;
-                pr = new PermisosReportes();
+                pr = new Clase_ReportesCE();
                 pr.GetNodoPadre(tree);
                 if (pr.Lector.Tables[0].Rows.Count > 0 && Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
                 {
@@ -106,7 +106,7 @@ namespace NewReportesControlEscolar
         }
         private void cargarReportes()
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.GetReportesTodos();
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
@@ -123,7 +123,7 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new PermisosReportes();
+                p = new Clase_ReportesCE();
                 p.GetReportesNodo(nodo);
                 if (p.Lector.Tables.Count > 0)
                 {

@@ -29,8 +29,8 @@ namespace NewReportesControlEscolar
 
         #endregion
 
-        private PermisosReportes pr;
-        private PermisosReportes p;
+        private Clase_ReportesCE pr;
+        private Clase_ReportesCE p;
         private Clase_ReportesGenericos gn= new Clase_ReportesGenericos();
         public FrmAniadirEspecifiacionesReporte()
         {
@@ -48,7 +48,7 @@ namespace NewReportesControlEscolar
 
         private void cargarReportes()
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.GetReportesTodos();
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
@@ -73,7 +73,7 @@ namespace NewReportesControlEscolar
         private void cargarCampusReportes(string id)
         {
             lvCampusEspecificos.Items.Clear();
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.GetCampusReportes(id);
             if (pr.Lector.Tables.Count > 0)
             {
@@ -86,7 +86,7 @@ namespace NewReportesControlEscolar
         private void cargarRolesReportes(string id)
         {
 
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             if (pr.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
@@ -112,14 +112,14 @@ namespace NewReportesControlEscolar
         }
         private void cargarRVOE()
         {
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             pr.MostrarRVOESCampusReportes(lvCampusEspecificos.SelectedItems[0].SubItems[0].Text);
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
                 gn.llenarlistview(lvRVOE, dt);
             }
-            pr = new PermisosReportes();
+            pr = new Clase_ReportesCE();
             if(pr.MostrarRVOECampusReporte(lvReportes.SelectedItems[0].SubItems[0].Text, lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
@@ -132,10 +132,10 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new PermisosReportes();
+                p = new Clase_ReportesCE();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
                 p.GetCampusReportes(id);
-                pr = new PermisosReportes();
+                pr = new Clase_ReportesCE();
             
                 for (int i = 0; i < lvCampus.Items.Count; i++)
                 {
@@ -167,11 +167,11 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new PermisosReportes();
+                p = new Clase_ReportesCE();
                 string id = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 string repo = lvReportes.SelectedItems[0].SubItems[0].Text;
                 p.MostrarRelRolesReportes(repo,id);
-                pr = new PermisosReportes();
+                pr = new Clase_ReportesCE();
                 
                 for(int i=0;i<lvRoles.Items.Count; i++)
                 {
@@ -202,11 +202,11 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new PermisosReportes();
+                p = new Clase_ReportesCE();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
                 string campus = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 p.MostrarRVOECampusReporte(id, campus);
-                pr = new PermisosReportes();
+                pr = new Clase_ReportesCE();
 
                 for (int i = 0; i < lvRVOE.Items.Count; i++)
                 {

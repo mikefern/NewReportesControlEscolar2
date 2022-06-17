@@ -153,7 +153,7 @@ namespace ProyectoLoboSostenido
                 
 
 
-                Clase_Reportes getid = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
+                Clase_ReportesCE getid = new Clase_ReportesCE(); //Procedimiento para obtener el IDReporte 
 
                 if (getid.GetIDReporte(txtNombreArchivo.Text))
                 {
@@ -284,7 +284,7 @@ namespace ProyectoLoboSostenido
                 }
 
 
-                Clase_Reportes reportes = new Clase_Reportes();
+                Clase_ReportesCE reportes = new Clase_ReportesCE();
 
                 if (reportes.DetalleArchivoReporte("1", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "0010040031", txtIDReporte.Text) == true)
                 {
@@ -319,7 +319,7 @@ namespace ProyectoLoboSostenido
         private void btnGuardarDB(object sender, EventArgs e) //Tabla DetalleArchivoReporte
 
         {
-            Clase_Reportes reportes = new Clase_Reportes();
+            Clase_ReportesCE reportes = new Clase_ReportesCE();
             if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
                 MessageBox.Show("Favor de elegir el reporte a guardar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -349,7 +349,7 @@ namespace ProyectoLoboSostenido
         }
         private void btnGuardarCambios(object sender, EventArgs e)
         {
-            Clase_Reportes reportes = new Clase_Reportes();
+            Clase_ReportesCE reportes = new Clase_ReportesCE();
             if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
                 MessageBox.Show("No se ha modificado ningún reporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -386,7 +386,7 @@ namespace ProyectoLoboSostenido
 
         private void MostrarReportes()
         {
-            Clase_Reportes mostrar = new Clase_Reportes();
+            Clase_ReportesCE mostrar = new Clase_ReportesCE();
             mostrar.GetNombreReporte();
             GridViewReportes.DataSource = mostrar.Lector.Tables[0];
             GridViewReportes.AllowUserToResizeRows = false;
@@ -428,7 +428,7 @@ namespace ProyectoLoboSostenido
             txtExtension.Text = GridViewReportes.CurrentRow.Cells[6].Value.ToString();
             txtDescripcionModificaciones.Text = GridViewReportes.CurrentRow.Cells[7].Value.ToString();
 
-            Clase_Reportes getruta = new Clase_Reportes();
+            Clase_ReportesCE getruta = new Clase_ReportesCE();
 
             if (getruta.GetRuta(txtNombreArchivo.Text))
             {
@@ -448,7 +448,7 @@ namespace ProyectoLoboSostenido
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Clase_Reportes reportes = new Clase_Reportes();
+            Clase_ReportesCE reportes = new Clase_ReportesCE();
             if(txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
             {
                 MessageBox.Show("Favor de elegir el reporte a eliminar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -508,7 +508,7 @@ namespace ProyectoLoboSostenido
                 string ruta2 = txtRuta.Text;
                 File.Move(ruta1, ruta2);
 
-                Clase_Reportes reportes = new Clase_Reportes();
+                Clase_ReportesCE reportes = new Clase_ReportesCE();
 
                 if (reportes.DetalleArchivoReporte("2", txtNombreArchivo.Text, txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtExtension.Text, txtDescripcionModificaciones.Text, "001040031", txtIDReporte.Text))
                 {

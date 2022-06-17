@@ -45,9 +45,7 @@ namespace NewReportesControlEscolar
             this.DGV_parametros.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DGV_parametros_RowsAdded_1);
             this.DGV_parametros.SelectionChanged += new System.EventHandler(this.DGV_parametros_SelectionChanged);
             this.DGV_parametros.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DGV_parametros_UserDeletingRow);
-            this.DGV_parametros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV_parametros_KeyDown);
-            this.DGV_parametros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGV_parametros_KeyPress);
-            this.DGV_parametros.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.DGV_parametros_PreviewKeyDown);
+            this.DGV_parametros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV_parametros_KeyDown);  
             // 
             // FrmAdministrarParametrosRCE
             // 

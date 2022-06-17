@@ -42,7 +42,7 @@ namespace NewReportesControlEscolar
         }
         private void MostrarReportesDetalle()
         {
-            Clase_Reportes mostrar = new Clase_Reportes();
+            Clase_ReportesCE mostrar = new Clase_ReportesCE();
             mostrar.GetNombreReporte();
             GridViewDetalles.DataSource = mostrar.Lector.Tables[0];
             GridViewDetalles.AllowUserToResizeRows = false;
@@ -72,7 +72,7 @@ namespace NewReportesControlEscolar
         }
         private void MostrarReportesControl()
         {
-            Clase_Reportes mostrar1 = new Clase_Reportes();
+            Clase_ReportesCE mostrar1 = new Clase_ReportesCE();
             mostrar1.GetNombreReporteControl();
             GridViewControl.DataSource = mostrar1.Lector.Tables[0];
             GridViewControl.AllowUserToResizeRows = false;
@@ -119,7 +119,7 @@ namespace NewReportesControlEscolar
         }
         private void RelacionarID() // Tabla ReportesControlEscolar 
         {
-            Clase_Reportes relaciona = new Clase_Reportes();
+            Clase_ReportesCE relaciona = new Clase_ReportesCE();
 
             if (relaciona.IDRelacionado("1",txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
@@ -134,7 +134,7 @@ namespace NewReportesControlEscolar
         }
         private void EliminarRelacion()
         {
-            Clase_Reportes relaciona = new Clase_Reportes();
+            Clase_ReportesCE relaciona = new Clase_ReportesCE();
 
             if (relaciona.IDRelacionado("2", txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
@@ -162,7 +162,7 @@ namespace NewReportesControlEscolar
         private void GridViewControl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtIDControl.Text = GridViewControl.CurrentRow.Cells[0].Value.ToString();
-            Clase_Reportes getID = new Clase_Reportes(); //Procedimiento para obtener el IDReporte 
+            Clase_ReportesCE getID = new Clase_ReportesCE(); //Procedimiento para obtener el IDReporte 
 
             if (getID.GetIDRelacionado(txtIDControl.Text))
             {

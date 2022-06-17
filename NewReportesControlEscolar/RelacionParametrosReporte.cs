@@ -39,7 +39,7 @@ namespace NewReportesControlEscolar
 
         private void MostrarReportesDetalle()
         {
-            Clase_Reportes mostrar = new Clase_Reportes();
+            Clase_ReportesCE mostrar = new Clase_ReportesCE();
             mostrar.GetNombreReporte();
             GridViewDetalles.DataSource = mostrar.Lector.Tables[0];
             GridViewDetalles.AllowUserToResizeRows = false;
@@ -103,7 +103,7 @@ namespace NewReportesControlEscolar
 
         private void getParametros()
         {
-            Clase_Reportes parametros = new Clase_Reportes();
+            Clase_ReportesCE parametros = new Clase_ReportesCE();
             parametros.MostrarParametros();
             listViewParametros.Items.Clear();
             if (parametros.Lector.Tables[0].Rows.Count > 0)
@@ -130,7 +130,7 @@ namespace NewReportesControlEscolar
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Clase_Reportes agregar = new Clase_Reportes();
+            Clase_ReportesCE agregar = new Clase_ReportesCE();
             //if(agregar.AsignarParametros(txtIDReporte.Text, idparametro) == true)
             //{
             //    if(agregar.Lector.Tables.Count > 0)
@@ -188,7 +188,7 @@ namespace NewReportesControlEscolar
             {
                 try
                 {
-                    Clase_Reportes guardados= new Clase_Reportes();
+                    Clase_ReportesCE guardados= new Clase_ReportesCE();
                     if (guardados.GetParametrosOK(txtIDReporte.Text))
                     {
                         DGVNombreParametro.DataSource = guardados.Lector.Tables[0];

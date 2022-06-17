@@ -19,7 +19,7 @@ namespace NewReportesControlEscolar
             InitializeComponent();
         }
 
-        private PermisosReportes p;
+        private Clase_ReportesCE p;
         Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         #region MoverFORM
@@ -54,7 +54,7 @@ namespace NewReportesControlEscolar
 
         private void getCampus()
         {
-            GetUsuariosRestricciones ur = new GetUsuariosRestricciones();
+            Clase_ReportesCE ur = new Clase_ReportesCE();
             ur.GetCampus();
             cbCampus.DataSource = ur.Lector.Tables[0];
             cbCampus.DisplayMember = "Campus";
@@ -63,7 +63,7 @@ namespace NewReportesControlEscolar
         }
         private void cargarReportes()
         {
-            PermisosReportes pr = new PermisosReportes();
+            Clase_ReportesCE pr = new Clase_ReportesCE();
             pr.GetReportesTodos();
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
@@ -79,7 +79,7 @@ namespace NewReportesControlEscolar
                 if (cbUsuarios.SelectedValue != null)
                 {
                     lvReportes.Enabled = true;
-                    p = new PermisosReportes();
+                    p = new Clase_ReportesCE();
                     if (p.GetRestriccionesReportesEmpleado(cbUsuarios.SelectedValue.ToString()))
                     {
                         DataView dt = new DataView(p.Lector.Tables[0]);
@@ -97,7 +97,7 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                GetUsuariosRestricciones ur = new GetUsuariosRestricciones();
+                Clase_ReportesCE ur = new Clase_ReportesCE();
                 ur.GetUsuarios(campus);
                 cbUsuarios.DataSource = ur.Lector.Tables[0];
                 cbUsuarios.DisplayMember = "Usuario";
@@ -114,7 +114,7 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                PermisosReportes pr = new PermisosReportes();
+                Clase_ReportesCE pr = new Clase_ReportesCE();
                 string empleado = cbUsuarios.SelectedValue.ToString();
                 for (int i = 0; i < lvReportes.Items.Count; i++)
                 {

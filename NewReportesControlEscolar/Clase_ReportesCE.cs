@@ -16,16 +16,73 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
-        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol,  string Empleado)
+
+        #region VARIABLES_INICIO
+
+        #endregion
+
+        public Clase_ReportesCE()
         {
-            string nomStore = "RPTGetNodos";
+
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------
+        #region FrmAdministrarParametrosRCE
+
+        public bool MostrarParametros() 
+        {
+            string nomProce = "MostrarParametros";
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ParametrosReportes(string tipo, string Id, string nombre, string valor) 
+        {
+            string nomStore = "Reports_DML_ParametrosFijosReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("Campus", ID_Campus),
-                new Clase_Parametros("Rol", rol),
-                 new Clase_Parametros("Empleado", Empleado)
+                new Clase_Parametros("Tipo",tipo),
+                new Clase_Parametros("Id_parametro",Id),
+                new Clase_Parametros("Nombre",nombre),
+                new Clase_Parametros("Valor",valor),
             };
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //---------------------------------------------------------------------------------------------------------------------------
+        #region FrmDatosReportes
 
+        public bool DetalleArchivoReporte(string opt, string nombre, string ruta, string ultimamodificacion, string creacion, string ultimoacceso, string extension, string descripcionModificaciones, string id_Empleado, string id)
+        {
+
+            string nomStore = "Reports_RegistroReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("Opt", opt),
+                 new Clase_Parametros("NombreArchivo", nombre),
+                 new Clase_Parametros("Ruta",ruta),
+                 new Clase_Parametros("FechaUltimaModificacion",ultimamodificacion),
+                 new Clase_Parametros("FechaCreacion",creacion),
+                 new Clase_Parametros("FechaUltimoAcceso",ultimoacceso),
+                 new Clase_Parametros("Extension",extension),
+                 new Clase_Parametros("DescripcionModificaciones",descripcionModificaciones),
+                 new Clase_Parametros("ID_Empleado",id_Empleado),
+                 new Clase_Parametros("ID",id)
+
+            };
             if (ConsultarParametros(nomStore, par))
             {
                 return true;
@@ -35,7 +92,147 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool MostrarNodosRolCampus(string ID_Campus, string rol)
+
+        public bool GetRuta(string nombre)
+        {
+            string nomStore = "GetRuta";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NombreArchivo", nombre),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetIDReporte(string nombre)
+        {
+            string nomStore = "GetIDReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NombreArchivo", nombre),
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetNombreReporte()
+        {
+            string nomProce = "GetNombreReporte";
+
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+        #region RelacionParametrosReporte
+        public bool AsignarParametros(string ID, string ID_Parametro)
+        {
+            string nomStore = "AsignarParametros";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID_Reporte",ID),
+                new Clase_Parametros("ID_Parametro",ID_Parametro)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetParametrosOK(string ID)
+        {
+            string nomStore = "GetParametrosOK";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID",ID)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+        #region RelacionReportes
+
+        public bool GetNombreReporteControl()
+        {
+            string nomProce = "GetNombreReporteControl";
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IDRelacionado(string opt, string ID_Reporte, string ID_Archivo)
+        {
+            string nomStore = "GetIDRepRel";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Opt",opt),
+                new Clase_Parametros("ID_Reporte",ID_Reporte),
+                new Clase_Parametros("ID_Archivo",ID_Archivo)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GetIDRelacionado(string ID)
+        {
+            string nomStore = "GetIDReporteRel";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("ID",ID)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+        #region FrmAgregarRestriccionesReportesRol
+
+        public bool MostrarNodosRolCampus(string ID_Campus, string rol) 
         {
             string nomStore = "MostrarNodosRolCampus";
             List<Clase_Parametros> par = new List<Clase_Parametros>
@@ -54,16 +251,129 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public Clase_ReportesCE()
+        public bool GetRestriccionesUsuarioReportes(string ID)
         {
+            string nomStore = "GetRestriccionesUsuarioReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id_empleado",ID)
+            };
 
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public bool LlenadoNodosReporteEscolar()
+        public bool getRol(string id)
         {
-            string nomStore = "Reports_GetNodos";
-             
-            if (Consultar(nomStore))
+            string nomStore = "getRolUsuario";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id",id)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool LimpiarRestriccionesNodos(string id)
+        {
+            string nomStore = "LimpiarRestriccionesNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id",id)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool Agregar_RestriccionReportesNodos(string id, string nodo)
+        {
+            string nomStore = "Agregar_RestriccionReportesNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id",id),
+                new Clase_Parametros("nodo",nodo)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetUsuarios(string Campus_ID)
+        {
+            string nomStore = "GetUsuariosResttriccionNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("id_Campus",Campus_ID)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetCampus()
+        {
+            string nomStore = "GetCampus";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
+        //---------------------------------------------------------------------------------------------------------------------------
+        #region FrmReportesControlEscolar
+
+        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol, string Empleado)
+        {
+            string nomStore = "RPTGetNodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Campus", ID_Campus),
+                new Clase_Parametros("Rol", rol),
+                 new Clase_Parametros("Empleado", Empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
             {
                 return true;
             }
@@ -91,6 +401,25 @@ namespace ProyectoLoboSostenido
             }
         }
 
+        public bool GetReportesconRVOE(string nodo, string campus)
+        {
+            string nomStore = "RptGetReportesconRVOE";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool GetReporte(string nodo, string campus)
         {
             string nomStore = "GetReporte";
@@ -98,11 +427,102 @@ namespace ProyectoLoboSostenido
             {
                 new Clase_Parametros("nodo",nodo),
                 new Clase_Parametros("campus",campus)
-
-
             };
 
             if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetReporteRVOE(string nodo, string campus, string rvoe)
+        {
+            string nomStore = "RPTGetReporteRVOE";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("campus",campus),
+                new Clase_Parametros("rvoe",rvoe)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetDetallesReporte(string reporte)
+        {
+            string nomStore = "GetDetallesReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("reporte",reporte)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetPermisoRolReporteAbrir(string reporte, string rol, string campus)
+        {
+            string nomStore = "RptGetPermisoRolReporteAbrir";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool RptGetRestriccionReporteEmpledo(string reporte, string empleado)
+        {
+            string nomStore = "RptGetRestriccionReporteEmpledo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("reporte",reporte),
+                 new Clase_Parametros("empleado",empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
+        //---------------------------------------------------------------------------------------------------------------------------
+        #region FrmGestionNodos
+        public bool LlenadoNodosReporteEscolar()
+        {
+            string nomStore = "Reports_GetNodos";
+             
+            if (Consultar(nomStore))
             {
                 return true;
             }
@@ -166,662 +586,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetReporteRVOE(string nodo, string campus,string rvoe)
-        {
-            string nomStore = "RPTGetReporteRVOE";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("nodo",nodo),
-                new Clase_Parametros("campus",campus),
-                new Clase_Parametros("rvoe",rvoe)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetReportesconRVOE(string nodo, string campus)
-        {
-            string nomStore = "RptGetReportesconRVOE";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("nodo",nodo),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    public class ControlUsuariosRepo : Clase_Conecta
-    {
-        public bool GetRestriccionesUsuarioReportes(string ID)
-        {
-            string nomStore = "GetRestriccionesUsuarioReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id_empleado",ID)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-    }
-
-    public class GetUsuariosRestricciones : Clase_Conecta
-    {
-        public bool GetUsuarios(string Campus_ID)
-        {
-            string nomStore = "GetUsuariosResttriccionNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id_Campus",Campus_ID)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetCampus()
-        {
-            string nomStore = "GetCampus";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    public class GetRoles : Clase_Conecta
-    {
-        public bool getRol(string id)
-        {
-            string nomStore = "getRolUsuario";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id",id)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-    public class RestriccionesNodos : Clase_Conecta
-    {
-        public bool LimpiarRestriccionesNodos(string id)
-        {
-            string nomStore = "LimpiarRestriccionesNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id",id)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool Agregar_RestriccionReportesNodos(string id, string nodo)
-        {
-            string nomStore = "Agregar_RestriccionReportesNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id",id),
-                new Clase_Parametros("nodo",nodo)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-    }
-
-    public class PermisosReportes : Clase_Conecta
-    {
-        public bool MostrarPermisosReportes()
-        {
-            string nomStore = "RptMostrarPermisosReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetDetallesReporte(string reporte)
-        {
-            string nomStore = "GetDetallesReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("reporte",reporte)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarIndicePermisosReportes(string nombre)
-        {
-            string nomStore = "RPTAgregarIndicePermisosReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("nombre",nombre)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetReportesTodos()
-        {
-            string nomStore = "RptGetReportesTodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetCampusReportes(string idreporte)
-        {
-            string nomStore = "RptGetCampusReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("idreporte",idreporte)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool MostrarRVOESCampusReportes(string campus)
-        {
-            string nomStore = "RptMostrarRVOECampusReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("campus",campus)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool EliminarRelCampusReporte(string reporte,string campus)
-        {
-            string nomStore = "RptEliminarRelCampusReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool AgregarRelCampusReporte(string reporte, string campus)
-        {
-            string nomStore = "RptAgregarRelCampusReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool MostrarRelRolesReportes(string reporte, string campus)
-        {
-            string nomStore = "RptMostrarRelRolesReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetRelRolesReportes(string reporte, string rol, string campus)
-        {
-            string nomStore = "RptGetRelRolesReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetPermisoRolReporteAbrir(string reporte, string rol, string campus)
-        {
-            string nomStore = "RptGetPermisoRolReporteAbrir";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRelRolesReportes(string rol, string campus, string reporte)
-        {
-            string nomStore = "RptAgregarRelRolesReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus", campus),
-                new Clase_Parametros("reporte", reporte)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool EliminarRelRolesReportes(string rol, string campus, string reporte)
-        {
-            string nomStore = "RptEliminarRelRolesReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus", campus),
-                new Clase_Parametros("reporte",reporte)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool MostrarRVOECampusReporte(string reporte,string campus)
-        {
-            string nomStore = "RptMostrarRVOECampusReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRVOEReportes(string reporte, string RVOE)
-        {
-            string nomStore = "RptAgregarRVOEReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("RVOE", RVOE)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool EliminarRVOEReportes(string reporte, string RVOE)
-        {
-            string nomStore = "RptEliminarRVOEReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("RVOE", RVOE)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetRoles()
-        {
-            string nomStore = "GetRoles";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetPermisosRol(string rol, string campus)
-        {
-            string nomStore = "RptGetPermisosRol";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("rol",rol),
-                 new Clase_Parametros("campus",campus)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool LimpiarPermisos(string rol, string campus)
-        {
-            string nomStore = "RPTLimpiarPermisos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarPermisosverReportes(string permiso, string rol, string campus)
-        {
-            string nomStore = "RptAgregarPermisosverReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("permiso",permiso),
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool GetRestriccionesReportesEmpleado(string empleado)
-        {
-            string nomStore = "RptGetRestriccionesReportesEmpleado";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("empleado",empleado)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool RptGetRestriccionReporteEmpledo(string reporte ,string empleado)
-        {
-            string nomStore = "RptGetRestriccionReporteEmpledo";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("reporte",reporte),
-                 new Clase_Parametros("empleado",empleado)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool EliminarRestriccionesReportesEmpleado(string reporte, string usuario)
-        {
-            string nomStore = "RptEliminarRestriccionesReportesEmpleado";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("empleado",usuario)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRestriccionesReportesEmpleado(string reporte, string empleado)
-        {
-            string nomStore = "RptAgregarRestriccionesReportesEmpleado";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("empleado",empleado)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetReportesNodo(string nodo)
-        {
-            string nomStore = "RptGetReportesNodo";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("nodo",nodo)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool GetNodoPadre(string nodo)
-        {
-            string nomStore = "RPTGetNodoPadre";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("nodo",nodo)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool ActualizarNodoReporte(string nodo, string reporte)
-        {
-            string nomStore = "RptActualizarNodoReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("nodo",nodo),
-                new Clase_Parametros("reporte",reporte)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-    }
-    public class NodosPermisos : Clase_Conecta
-    {
         public bool GetCampusNodos(string nodo)
         {
             string nomStore = "RPTGetCampusNodos";
@@ -919,7 +683,7 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool DeleteRolesCampusNodos(string campus, string CampusNodo,string rol)
+        public bool DeleteRolesCampusNodos(string campus, string CampusNodo, string rol)
         {
             string nomStore = "RptDeleteRolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
@@ -939,17 +703,20 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool UpdatePosicionesNodos(string NodoPadre, string Nodo, string posicionOld, string posicionnew)
+       
+
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+        #region FrmRPTPermisosRol
+
+        public bool MostrarPermisosReportes()
         {
-            string nomProce = "Reports_OrdenamientoNodos";
+            string nomStore = "RptMostrarPermisosReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("NodoPadre", NodoPadre),
-                new Clase_Parametros("Nodo", Nodo),
-                new Clase_Parametros("PosicionViejo", posicionOld),
-                new Clase_Parametros("PosicionNuevo", posicionnew),
             };
-            if (Ejecuta(nomProce, par))
+
+            if (ConsultarParametros(nomStore, par))
             {
                 return true;
             }
@@ -958,15 +725,16 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool updatepositionwhenInsert(string NodoPadre, string Nodo)
+       
+        public bool AgregarIndicePermisosReportes(string nombre)
         {
-            string nomProce = "Reports_OrdenamientoNodosW";
+            string nomStore = "RPTAgregarIndicePermisosReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("NodoPadre", NodoPadre),
-                new Clase_Parametros("Nodo", Nodo)
+                new Clase_Parametros("nombre",nombre)
             };
-            if (Ejecuta(nomProce, par))
+
+            if (Ejecuta(nomStore, par))
             {
                 return true;
             }
@@ -976,14 +744,434 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        
+        public bool LimpiarPermisos(string rol, string campus)
+        {
+            string nomStore = "RPTLimpiarPermisos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
+            };
 
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarPermisosverReportes(string permiso, string rol, string campus)
+        {
+            string nomStore = "RptAgregarPermisosverReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("permiso",permiso),
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetRoles()
+        {
+            string nomStore = "GetRoles";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetPermisosRol(string rol, string campus)
+        {
+            string nomStore = "RptGetPermisosRol";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("rol",rol),
+                 new Clase_Parametros("campus",campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        #endregion
+        //---------------------------------------------------------------------------------------------------------------------------
+        #region FrmAniadirEspecifiacionesReporte
+
+
+        public bool GetCampusReportes(string idreporte)
+        {
+            string nomStore = "RptGetCampusReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("idreporte",idreporte)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MostrarRVOESCampusReportes(string campus)
+        {
+            string nomStore = "RptMostrarRVOECampusReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("campus",campus)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRelCampusReporte(string reporte, string campus)
+        {
+            string nomStore = "RptEliminarRelCampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRelCampusReporte(string reporte, string campus)
+        {
+            string nomStore = "RptAgregarRelCampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MostrarRelRolesReportes(string reporte, string campus)
+        {
+            string nomStore = "RptMostrarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetRelRolesReportes(string reporte, string rol, string campus)
+        {
+            string nomStore = "RptGetRelRolesReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
+
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRelRolesReportes(string rol, string campus, string reporte)
+        {
+            string nomStore = "RptAgregarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus", campus),
+                new Clase_Parametros("reporte", reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRelRolesReportes(string rol, string campus, string reporte)
+        {
+            string nomStore = "RptEliminarRelRolesReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus", campus),
+                new Clase_Parametros("reporte",reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MostrarRVOECampusReporte(string reporte, string campus)
+        {
+            string nomStore = "RptMostrarRVOECampusReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("campus",campus)
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRVOEReportes(string reporte, string RVOE)
+        {
+            string nomStore = "RptAgregarRVOEReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("RVOE", RVOE)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarRVOEReportes(string reporte, string RVOE)
+        {
+            string nomStore = "RptEliminarRVOEReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("RVOE", RVOE)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //----------------------------------------------------------------------------------------------------------------------------
+        #region FrmEnlazarReportesNodos
+
+        public bool GetReportesTodos()
+        {
+            string nomStore = "RptGetReportesTodos";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetReportesNodo(string nodo)
+        {
+            string nomStore = "RptGetReportesNodo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool GetNodoPadre(string nodo)
+        {
+            string nomStore = "RPTGetNodoPadre";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("nodo",nodo)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ActualizarNodoReporte(string nodo, string reporte)
+        {
+            string nomStore = "RptActualizarNodoReporte";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("nodo",nodo),
+                new Clase_Parametros("reporte",reporte)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //-------------------------------------------------------------------------------------------------------------------
+        #region FrmRestriccionesRolesReportes
+
+        public bool GetRestriccionesReportesEmpleado(string empleado)
+        {
+            string nomStore = "RptGetRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("empleado",empleado)
+            };
+
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool EliminarRestriccionesReportesEmpleado(string reporte, string usuario)
+        {
+            string nomStore = "RptEliminarRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("empleado",usuario)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AgregarRestriccionesReportesEmpleado(string reporte, string empleado)
+        {
+            string nomStore = "RptAgregarRestriccionesReportesEmpleado";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("reporte",reporte),
+                new Clase_Parametros("empleado",empleado)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+        //------------------------------------------------------------------------------------------------------------------
     }
-
-
+     
     public class Reportes : Clase_Conecta
     {
         #region Constructores
+
         public Reportes()
         {
             if (Clase_Sesion.Rol == "16")
@@ -1011,17 +1199,13 @@ namespace ProyectoLoboSostenido
             {
                 FastReport.EnvironmentSettings fsetting = new FastReport.EnvironmentSettings();
                 fsetting.PreviewSettings.Buttons = PreviewButtons.All;
-
             }
-
             else
             {
                 FastReport.EnvironmentSettings fsetting = new FastReport.EnvironmentSettings();
                 fsetting.PreviewSettings.Buttons = PreviewButtons.Print;
             }
         }
-
-
 
         public Reportes(String Roles, String Id_Empleados, String Id_Usuarios)
         {
@@ -1129,8 +1313,6 @@ namespace ProyectoLoboSostenido
             }
             Thread.Sleep(3000);
         }
-
-
         public void copyAnyFile(string reporte)
         {
             Thread.Sleep(3000);
