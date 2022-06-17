@@ -41640,7 +41640,7 @@ namespace ProyectoLoboSostenido
                     }
                 }
             }
-            switch (e.Node.Name)
+            /*switch (e.Node.Name)
             {
                 case "RPTBoletaCalificacionesParcial":
                     
@@ -41663,7 +41663,7 @@ namespace ProyectoLoboSostenido
                     break;
                 default:
                     break;
-            }
+            }*/
         }
 
         private void FrmReportesControlEscolar_Load(object sender, EventArgs e)
@@ -41754,6 +41754,7 @@ namespace ProyectoLoboSostenido
 
         private void TreePrueba_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            TreePrueba.Enabled = false;
             if (gridViewAlumnos.Rows.Count > 0)
             {
                 try
@@ -41792,7 +41793,7 @@ namespace ProyectoLoboSostenido
                             {
                                 PermisosReportes pr = new PermisosReportes();
 
-                                pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol);
+                                pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol,Clase_Sesion.Campus);
                                 if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
                                 {
                                     pr = new PermisosReportes();
@@ -41802,28 +41803,34 @@ namespace ProyectoLoboSostenido
                                         pr = new PermisosReportes();
                                         if (pr.GetDetallesReporte(dt.Table.Rows[0][0].ToString()))
                                         {
-                                            MessageBox.Show(pr.Lector.Tables[0].Rows[0][1].ToString() + "." + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][2].ToString(), "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                           // MessageBox.Show(pr.Lector.Tables[0].Rows[0][0]+" "+pr.Lector.Tables[0].Rows[0][1].ToString() + " " + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][3].ToString()+" "+ pr.Lector.Tables[0].Rows[0][4].ToString()+ "FIN", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
-                                            /*
-                                            string nomreporte = cd.Lector.Tables[0].Rows[0][1].ToString();
-                                            string tipo = cd.Lector.Tables[0].Rows[0][2].ToString();
-                                            string id = cd.Lector.Tables[0].Rows[0][0].ToString();
-                                            string[] vecExtParametros = { cBoxEspecialidad.SelectedValue.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.Campus, cBoxGrupo.SelectedValue.ToString()};
+                                            
+                                            string nomreporte = pr.Lector.Tables[0].Rows[0][1].ToString();
+                                            string tipo = pr.Lector.Tables[0].Rows[0][3].ToString();
+                                            string id = pr.Lector.Tables[0].Rows[0][0].ToString();
+                                            string ruta = pr.Lector.Tables[0].Rows[0][2].ToString();
+                                            string[] vecExtParametros = { gridViewAlumnos.Rows[ro].Cells[0].Value.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.campus, cBoxEspecialidad.SelectedValue.ToString(),
+                                            cBoxCicloEscolar.SelectedValue.ToString(), cBoxGrupo.SelectedValue.ToString(), "", "", cBoxGrupo.SelectedValue.ToString(), gridViewAlumnos.Rows[ro].Cells[0].Value.ToString(),
+                                            especialidad.Lector.Tables[0].Rows[0][0].ToString(),"frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')", "", "","",""};
                                             cd = new Clase_ReportesCE();
                                             cd.GetParmetros_Reportes(id);
                                             int tamVector = cd.Lector.Tables[0].Rows.Count;
                                             string[,] vec = new string[tamVector, 2];
+                                            
+                                            
                                             for (int i = 0; i < tamVector; i++)
                                             {
                                                 int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
                                                 vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
                                                 vec[i, 1] = vecExtParametros[par - 1];
                                             }
+                                            
                                             try
                                             {
-                                                cpr.MostrarRepos(vec, nomreporte, tipo);
+                                                cpr.MostrarRepos(vec, nomreporte, tipo,ruta);
                                                 if (tipo.Equals(".rpt"))
                                                 {
                                                     CRViewer.Visible = true;
@@ -41843,7 +41850,7 @@ namespace ProyectoLoboSostenido
                                             catch (Exception ex)
                                             {
                                             MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-                                            }*/
+                                            }
                                         }
                                     }
                                     else
@@ -41856,6 +41863,8 @@ namespace ProyectoLoboSostenido
                                     MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
+
+
                             else
                                 MessageBox.Show("No se ha encontrado ningun reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -41866,6 +41875,7 @@ namespace ProyectoLoboSostenido
 
                 }
             }
+            TreePrueba.Enabled = true;
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -41899,7 +41909,15 @@ namespace ProyectoLoboSostenido
             //rl.Show();
         }
 
-        
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
+            this.WindowState = FormWindowState.Normal;
+            btnMaximizar.Visible = true;
+            btnRestaurar.Visible = false;
+
+        }
     }
 }
     

@@ -483,13 +483,14 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool GetRelRolesReportes(string reporte, string rol)
+        public bool GetRelRolesReportes(string reporte, string rol, string campus)
         {
             string nomStore = "RptGetRelRolesReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("rol",rol)
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
 
             };
             if (ConsultarParametros(nomStore, par))
@@ -502,13 +503,14 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetPermisoRolReporteAbrir(string reporte, string rol)
+        public bool GetPermisoRolReporteAbrir(string reporte, string rol, string campus)
         {
             string nomStore = "RptGetPermisoRolReporteAbrir";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("rol",rol)
+                new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus",campus)
             };
             if (ConsultarParametros(nomStore, par))
             {
@@ -520,12 +522,13 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool AgregarRelRolesReportes(string rol, string reporte)
+        public bool AgregarRelRolesReportes(string rol, string campus, string reporte)
         {
             string nomStore = "RptAgregarRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("rol",rol),
+                new Clase_Parametros("campus", campus),
                 new Clase_Parametros("reporte", reporte)
             };
 
@@ -539,13 +542,14 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool EliminarRelRolesReportes(string rol, string reporte)
+        public bool EliminarRelRolesReportes(string rol, string campus, string reporte)
         {
             string nomStore = "RptEliminarRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("rol",rol),
-                new Clase_Parametros("reporte", reporte)
+                new Clase_Parametros("campus", campus),
+                new Clase_Parametros("reporte",reporte)
             };
 
             if (Ejecuta(nomStore, par))
@@ -1171,27 +1175,29 @@ namespace ProyectoLoboSostenido
             nomParametro = nombre; valParametro = valor;
         }
 
-        public void ShowRepo(List<Clase_ParametrosReportes> pr, string Reporte, string tipoRepor)
+        public void ShowRepo(List<Clase_ParametrosReportes> pr, string Reporte, string tipoRepor, string ruta)
         {
             try
             {
-                string miReporte = "";
+                //string miReporte = "";
                 if (tipoRepor.Equals(".rpt"))
                 {
                     conrepor.ReporteRPT(Reporte);
-                    miReporte = @"C:\LoboONE\LoboOne\LoboOne\Reportes\";
-                    miReporte = miReporte + Reporte + ".rpt";
-                    CryRpt.Load(miReporte);
-                    foreach (Clase_ParametrosReportes p in pr)
+                    //miReporte = @"C:\LoboONE\LoboOne\LoboOne\Reportes\";
+                    //miReporte = miReporte + Reporte + ".rpt";
+                    if (File.Exists(ruta))
                     {
-                        CryRpt.SetParameterValue(p.NomParametro.ToString(), p.ValParametro.ToString());
+                        CryRpt.Load(ruta);
+                        foreach (Clase_ParametrosReportes p in pr)
+                        {
+                            CryRpt.SetParameterValue(p.NomParametro.ToString(), p.ValParametro.ToString());
+                        }
+
+                        CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
+                        //FormVerReportesCristal fc = new FormVerReportesCristal();
+                        //fc.Show();
+                        //fc.FormVerRsCristal(CryRpt);
                     }
-
-                    CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
-                    //FormVerReportesCristal fc = new FormVerReportesCristal();
-                    //fc.Show();
-                    //fc.FormVerRsCristal(CryRpt);
-
 
                 }
                 else
@@ -1200,14 +1206,14 @@ namespace ProyectoLoboSostenido
                     {
                         conrepor.ReporteFRX(Reporte);
                         string thisFolder = Config.ApplicationFolder;
-                        miReporte = @"\LoboOne\LoboONE\LoboOne\Reportes\";
+                        //miReporte = @"\LoboOne\LoboONE\LoboOne\Reportes\";
 
-                        miReporte = miReporte + Reporte + ".frx";
+                        //miReporte = miReporte + Reporte + ".frx";
                         
-                        if (File.Exists(miReporte))
+                        if (File.Exists(ruta))
                         {
                             
-                            frrepForm.Load(miReporte);
+                            frrepForm.Load(ruta);
                             foreach (Clase_ParametrosReportes p in pr)
                             {
                                 frrepForm.SetParameterValue(p.NomParametro, p.ValParametro);
@@ -1226,14 +1232,14 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void MostrarRepos(string[,] arreglo, string reporte, string tipo)
+        public void MostrarRepos(string[,] arreglo, string reporte, string tipo, string ruta)
         {
             List<Clase_ParametrosReportes> par = new List<Clase_ParametrosReportes>();
             for (int i = 0; i < arreglo.GetLength(0); i++)
             {
                 par.Add(new Clase_ParametrosReportes(arreglo[i, 0], arreglo[i, 1]));
             }
-            ShowRepo(par, reporte, tipo);
+            ShowRepo(par, reporte, tipo,ruta);
         }
         #endregion
     }

@@ -584,6 +584,9 @@ namespace NewReportesControlEscolar
                     string campus = lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text;
                     string nodo = TreeViewNodos.SelectedNode.Name;
                     string rol = lvRoles.Items[x].Text;
+                    //if (Convert.ToInt32(rol) == 14)
+                      //  lvRoles.Items[x].Checked = true;
+
                     if (lvRoles.Items[x].Checked == true)
                     {
                         DataView dv = new DataView(n.Lector.Tables[0]);

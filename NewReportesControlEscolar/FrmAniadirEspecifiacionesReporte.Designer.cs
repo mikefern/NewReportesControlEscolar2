@@ -29,8 +29,8 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAniadirEspecifiacionesReporte));
             this.lvReportes = new System.Windows.Forms.ListView();
             this.ID_Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,9 +68,9 @@ namespace NewReportesControlEscolar
             this.Reporte});
             this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvReportes.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
             this.lvReportes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.lvReportes.Location = new System.Drawing.Point(3, 60);
             this.lvReportes.Name = "lvReportes";
             this.lvReportes.Size = new System.Drawing.Size(287, 477);
@@ -120,7 +120,7 @@ namespace NewReportesControlEscolar
             this.lvCampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.lvCampusEspecificos.Location = new System.Drawing.Point(629, 60);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
             this.lvCampusEspecificos.Size = new System.Drawing.Size(261, 340);
@@ -189,6 +189,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarCampus
             // 
+            this.btnGuardarCampus.Enabled = false;
             this.btnGuardarCampus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCampus.Location = new System.Drawing.Point(466, 553);
             this.btnGuardarCampus.Name = "btnGuardarCampus";
@@ -212,6 +213,7 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRVOE
             // 
+            this.btnGuardarRVOE.Enabled = false;
             this.btnGuardarRVOE.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarRVOE.Location = new System.Drawing.Point(1397, 553);
             this.btnGuardarRVOE.Name = "btnGuardarRVOE";

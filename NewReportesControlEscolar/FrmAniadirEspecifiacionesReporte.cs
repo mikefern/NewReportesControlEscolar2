@@ -60,6 +60,10 @@ namespace NewReportesControlEscolar
                 cargarCampusReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
                 
                 lvRVOE.Items.Clear();
+                lvRoles.Enabled = false;
+                btnGuardarRoles.Enabled = false;
+                btnGuardarRVOE.Enabled = false;
+                btnGuardarCampus.Enabled = true;
             }
         }
 
@@ -95,6 +99,7 @@ namespace NewReportesControlEscolar
                     cargarRVOE();
                 lvRoles.Enabled = true;
                 btnGuardarRoles.Enabled = true;
+                btnGuardarRVOE.Enabled = true;
                 cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
             }
             catch
@@ -145,6 +150,9 @@ namespace NewReportesControlEscolar
                 }
                 MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
                 cargarCampusReportes(id);
+                lvRoles.Enabled = false;
+                btnGuardarRoles.Enabled = false;
+                btnGuardarRVOE.Enabled = false;
             }
             catch(Exception ex)
             {
@@ -157,24 +165,29 @@ namespace NewReportesControlEscolar
             try
             {
                 p = new PermisosReportes();
-                string id = lvReportes.SelectedItems[0].SubItems[0].Text;
-                p.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text );
+                string id = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
+                string repo = lvReportes.SelectedItems[0].SubItems[0].Text;
+                p.MostrarRelRolesReportes(repo,id);
                 pr = new PermisosReportes();
-            
+                
                 for(int i=0;i<lvRoles.Items.Count; i++)
                 {
+
                     string rol = lvRoles.Items[i].Text;
+
+                   // if (Convert.ToInt32(rol) == 14)
+                     //   lvRoles.Items[i].Checked = true;
+
                     if (lvRoles.Items[i].Checked == true)
                     {
                         DataView dv = new DataView(p.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
-                            pr.AgregarRelRolesReportes(rol, id);
+                            pr.AgregarRelRolesReportes(rol, id, repo);
                     }
                     else
-                        pr.EliminarRelRolesReportes(rol, id);
+                        pr.EliminarRelRolesReportes(rol, id, repo);
                 }
                 MessageBox.Show("Se han guardado los roles del reporte", "Completado", MessageBoxButtons.OK);
-                cargarCampusReportes(id);
             }
             catch(Exception ex)
             {
