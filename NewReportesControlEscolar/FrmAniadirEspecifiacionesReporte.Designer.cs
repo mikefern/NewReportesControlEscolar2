@@ -29,12 +29,9 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAniadirEspecifiacionesReporte));
-            this.lvReportes = new System.Windows.Forms.ListView();
-            this.ID_Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.lvCampus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,41 +49,37 @@ namespace NewReportesControlEscolar
             this.btnGuardarRVOE = new System.Windows.Forms.Button();
             this.btnUsuariosReportesw = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ID_Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvReportes = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lvReportes
-            // 
-            this.lvReportes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID_Reporte,
-            this.Reporte});
-            this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.lvReportes.HideSelection = false;
-            listViewItem3.StateImageIndex = 0;
-            this.lvReportes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.lvReportes.Location = new System.Drawing.Point(3, 60);
-            this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(287, 477);
-            this.lvReportes.TabIndex = 0;
-            this.lvReportes.UseCompatibleStateImageBehavior = false;
-            this.lvReportes.View = System.Windows.Forms.View.Details;
-            this.lvReportes.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvReportes_ItemSelectionChanged);
-            // 
-            // ID_Reporte
-            // 
-            this.ID_Reporte.Text = "ID";
-            // 
-            // Reporte
-            // 
-            this.Reporte.Text = "Nombre";
-            this.Reporte.Width = 221;
             // 
             // lvCampus
             // 
@@ -96,9 +89,9 @@ namespace NewReportesControlEscolar
             this.Campus});
             this.lvCampus.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvCampus.HideSelection = false;
-            this.lvCampus.Location = new System.Drawing.Point(326, 60);
+            this.lvCampus.Location = new System.Drawing.Point(6, 24);
             this.lvCampus.Name = "lvCampus";
-            this.lvCampus.Size = new System.Drawing.Size(260, 477);
+            this.lvCampus.Size = new System.Drawing.Size(294, 364);
             this.lvCampus.TabIndex = 1;
             this.lvCampus.UseCompatibleStateImageBehavior = false;
             this.lvCampus.View = System.Windows.Forms.View.Details;
@@ -120,10 +113,10 @@ namespace NewReportesControlEscolar
             this.lvCampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.lvCampusEspecificos.Location = new System.Drawing.Point(629, 60);
+            listViewItem1});
+            this.lvCampusEspecificos.Location = new System.Drawing.Point(318, 22);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
-            this.lvCampusEspecificos.Size = new System.Drawing.Size(261, 340);
+            this.lvCampusEspecificos.Size = new System.Drawing.Size(382, 366);
             this.lvCampusEspecificos.TabIndex = 2;
             this.lvCampusEspecificos.UseCompatibleStateImageBehavior = false;
             this.lvCampusEspecificos.View = System.Windows.Forms.View.Details;
@@ -146,9 +139,9 @@ namespace NewReportesControlEscolar
             this.RVOE});
             this.lvRVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvRVOE.HideSelection = false;
-            this.lvRVOE.Location = new System.Drawing.Point(1215, 60);
+            this.lvRVOE.Location = new System.Drawing.Point(6, 22);
             this.lvRVOE.Name = "lvRVOE";
-            this.lvRVOE.Size = new System.Drawing.Size(377, 477);
+            this.lvRVOE.Size = new System.Drawing.Size(382, 381);
             this.lvRVOE.TabIndex = 3;
             this.lvRVOE.UseCompatibleStateImageBehavior = false;
             this.lvRVOE.View = System.Windows.Forms.View.Details;
@@ -171,9 +164,9 @@ namespace NewReportesControlEscolar
             this.lvRoles.Enabled = false;
             this.lvRoles.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvRoles.HideSelection = false;
-            this.lvRoles.Location = new System.Drawing.Point(923, 60);
+            this.lvRoles.Location = new System.Drawing.Point(6, 22);
             this.lvRoles.Name = "lvRoles";
-            this.lvRoles.Size = new System.Drawing.Size(265, 477);
+            this.lvRoles.Size = new System.Drawing.Size(294, 378);
             this.lvRoles.TabIndex = 4;
             this.lvRoles.UseCompatibleStateImageBehavior = false;
             this.lvRoles.View = System.Windows.Forms.View.Details;
@@ -189,9 +182,11 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarCampus
             // 
-            this.btnGuardarCampus.Enabled = false;
-            this.btnGuardarCampus.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarCampus.Location = new System.Drawing.Point(466, 553);
+            this.btnGuardarCampus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarCampus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnGuardarCampus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCampus.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardarCampus.Location = new System.Drawing.Point(180, 392);
             this.btnGuardarCampus.Name = "btnGuardarCampus";
             this.btnGuardarCampus.Size = new System.Drawing.Size(120, 30);
             this.btnGuardarCampus.TabIndex = 5;
@@ -201,11 +196,14 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRoles
             // 
+            this.btnGuardarRoles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarRoles.Enabled = false;
-            this.btnGuardarRoles.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarRoles.Location = new System.Drawing.Point(1023, 553);
+            this.btnGuardarRoles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnGuardarRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarRoles.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardarRoles.Location = new System.Drawing.Point(180, 405);
             this.btnGuardarRoles.Name = "btnGuardarRoles";
-            this.btnGuardarRoles.Size = new System.Drawing.Size(165, 30);
+            this.btnGuardarRoles.Size = new System.Drawing.Size(120, 30);
             this.btnGuardarRoles.TabIndex = 6;
             this.btnGuardarRoles.Text = "Guardar Roles";
             this.btnGuardarRoles.UseVisualStyleBackColor = true;
@@ -213,11 +211,13 @@ namespace NewReportesControlEscolar
             // 
             // btnGuardarRVOE
             // 
-            this.btnGuardarRVOE.Enabled = false;
-            this.btnGuardarRVOE.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarRVOE.Location = new System.Drawing.Point(1397, 553);
+            this.btnGuardarRVOE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarRVOE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnGuardarRVOE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarRVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardarRVOE.Location = new System.Drawing.Point(268, 408);
             this.btnGuardarRVOE.Name = "btnGuardarRVOE";
-            this.btnGuardarRVOE.Size = new System.Drawing.Size(195, 30);
+            this.btnGuardarRVOE.Size = new System.Drawing.Size(120, 30);
             this.btnGuardarRVOE.TabIndex = 7;
             this.btnGuardarRVOE.Text = "Guardar RVOE";
             this.btnGuardarRVOE.UseVisualStyleBackColor = true;
@@ -225,44 +225,204 @@ namespace NewReportesControlEscolar
             // 
             // btnUsuariosReportesw
             // 
-            this.btnUsuariosReportesw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuariosReportesw.Location = new System.Drawing.Point(630, 417);
+            this.btnUsuariosReportesw.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuariosReportesw.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnUsuariosReportesw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuariosReportesw.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(69, 38);
             this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
-            this.btnUsuariosReportesw.Size = new System.Drawing.Size(260, 60);
+            this.btnUsuariosReportesw.Size = new System.Drawing.Size(268, 30);
             this.btnUsuariosReportesw.TabIndex = 8;
-            this.btnUsuariosReportesw.Text = "Agregar Restricciones de reportes para un usuario";
+            this.btnUsuariosReportesw.Text = "Asignación de Restricciones al Usuario";
             this.btnUsuariosReportesw.UseVisualStyleBackColor = true;
             this.btnUsuariosReportesw.Click += new System.EventHandler(this.btnUsuariosReportesw_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lvReportes);
-            this.panel1.Controls.Add(this.btnGuardarCampus);
-            this.panel1.Controls.Add(this.btnGuardarRoles);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnUsuariosReportesw);
-            this.panel1.Controls.Add(this.lvCampus);
-            this.panel1.Controls.Add(this.btnGuardarRVOE);
-            this.panel1.Controls.Add(this.lvRoles);
-            this.panel1.Controls.Add(this.lvCampusEspecificos);
-            this.panel1.Controls.Add(this.lvRVOE);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1624, 657);
+            this.panel1.Size = new System.Drawing.Size(1097, 913);
             this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // label7
+            // 
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label7.Location = new System.Drawing.Point(74, 834);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(276, 32);
+            this.label7.TabIndex = 81;
+            this.label7.Text = "Paso 4. Para asignar el RVOE haga click en el ID del Campus en el segundo apartad" +
+    "o y guarde.";
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label5.Location = new System.Drawing.Point(74, 789);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(276, 32);
+            this.label5.TabIndex = 80;
+            this.label5.Text = "Paso 3. Asigne los roles que pueden ver el reporte  en los campus seleccionados y" +
+    " guarde.";
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label4.Location = new System.Drawing.Point(74, 737);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(276, 32);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Paso 2. En el apartado asiganción de campus elija  el o los Campus y guarde.";
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label3.Location = new System.Drawing.Point(74, 688);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(276, 32);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "Paso 1. Elija el reporte al que asignará el Campus y Rol.";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lvRVOE);
+            this.groupBox4.Controls.Add(this.btnGuardarRVOE);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.groupBox4.Location = new System.Drawing.Point(674, 472);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(398, 438);
+            this.groupBox4.TabIndex = 64;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Asignación de RVOE según el Campus";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(232, 406);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(33, 35);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 74;
+            this.pictureBox3.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lvRoles);
+            this.groupBox3.Controls.Add(this.btnGuardarRoles);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.groupBox3.Location = new System.Drawing.Point(362, 472);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(306, 438);
+            this.groupBox3.TabIndex = 63;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Asignación de Roles";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(144, 403);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 73;
+            this.pictureBox2.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pictureBox4);
+            this.groupBox2.Controls.Add(this.lvCampus);
+            this.groupBox2.Controls.Add(this.lvCampusEspecificos);
+            this.groupBox2.Controls.Add(this.btnGuardarCampus);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.groupBox2.Location = new System.Drawing.Point(362, 38);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(710, 428);
+            this.groupBox2.TabIndex = 62;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Asignación de Campus ";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(144, 392);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 75;
+            this.pictureBox4.TabStop = false;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.btnMinimizar);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1624, 32);
+            this.panel4.Size = new System.Drawing.Size(1097, 32);
             this.panel4.TabIndex = 60;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
+            this.label6.Location = new System.Drawing.Point(1069, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 32);
+            this.label6.TabIndex = 75;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(1468, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(25, 32);
+            this.label1.TabIndex = 71;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label8
             // 
@@ -275,52 +435,91 @@ namespace NewReportesControlEscolar
             this.label8.TabIndex = 58;
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnMinimizar.Image = global::NewReportesControlEscolar.Properties.Resources.icon_minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1555, 3);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 23);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 57;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1624, 32);
+            this.label2.Size = new System.Drawing.Size(1097, 32);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Gestionar Reportes";
+            this.label2.Text = "Asignación de Campus y Roles a Reportes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
+            // 
+            // ID_Reporte
+            // 
+            this.ID_Reporte.Text = "ID";
+            // 
+            // Reporte
+            // 
+            this.Reporte.Text = "Nombre";
+            this.Reporte.Width = 221;
+            // 
+            // lvReportes
+            // 
+            this.lvReportes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID_Reporte,
+            this.Reporte});
+            this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.lvReportes.HideSelection = false;
+            listViewItem2.StateImageIndex = 0;
+            this.lvReportes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
+            this.lvReportes.Location = new System.Drawing.Point(42, 125);
+            this.lvReportes.Name = "lvReportes";
+            this.lvReportes.Size = new System.Drawing.Size(283, 523);
+            this.lvReportes.TabIndex = 0;
+            this.lvReportes.UseCompatibleStateImageBehavior = false;
+            this.lvReportes.View = System.Windows.Forms.View.Details;
+            this.lvReportes.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvReportes_ItemSelectionChanged);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 5;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(33, 112);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(304, 543);
+            this.button1.TabIndex = 82;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.label9.Location = new System.Drawing.Point(105, 92);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 17);
+            this.label9.TabIndex = 83;
+            this.label9.Text = "Reportes Existentes ";
             // 
             // FrmAniadirEspecifiacionesReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1624, 657);
+            this.ClientSize = new System.Drawing.Size(1098, 912);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAniadirEspecifiacionesReporte";
             this.Text = "FrmAniadirEspecifiacionesReporte";
             this.Load += new System.EventHandler(this.FrmAniadirEspecifiacionesReporte_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView lvReportes;
         private System.Windows.Forms.ListView lvCampus;
         private System.Windows.Forms.ListView lvCampusEspecificos;
         private System.Windows.Forms.ListView lvRVOE;
@@ -329,8 +528,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.ColumnHeader Rol;
         private System.Windows.Forms.ColumnHeader ID_Campus;
         private System.Windows.Forms.ColumnHeader Campus;
-        private System.Windows.Forms.ColumnHeader ID_Reporte;
-        private System.Windows.Forms.ColumnHeader Reporte;
         private System.Windows.Forms.Button btnGuardarCampus;
         private System.Windows.Forms.Button btnGuardarRoles;
         private System.Windows.Forms.ColumnHeader Campus_ID;
@@ -342,7 +539,24 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListView lvReportes;
+        private System.Windows.Forms.ColumnHeader ID_Reporte;
+        private System.Windows.Forms.ColumnHeader Reporte;
+        private System.Windows.Forms.Button button1;
     }
 }

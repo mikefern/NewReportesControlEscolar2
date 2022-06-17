@@ -38,6 +38,7 @@ namespace NewReportesControlEscolar
         {
             MostrarReportesDetalle();
             MostrarReportesControl();
+
         }
         private void MostrarReportesDetalle()
         {
@@ -113,6 +114,7 @@ namespace NewReportesControlEscolar
             else
             {
                 RelacionarID();
+                
             }
         }
         private void RelacionarID() // Tabla ReportesControlEscolar 
@@ -123,6 +125,7 @@ namespace NewReportesControlEscolar
             {
 
                 MessageBox.Show("Se ha guardado el ID", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
             else
             {
@@ -145,8 +148,10 @@ namespace NewReportesControlEscolar
             txtIDDetalle.Text = string.Empty;
             txtRelacionado.Text = string.Empty;
             MostrarReportesControl();
+            
         }
         
+
 
         private void GridViewDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -219,5 +219,26 @@ namespace ProyectoLoboSostenido
             }
         }
 
+        public bool ParametrosReportes(string tipo,string Id,string nombre,string valor)
+        {
+            string nomStore = "Reports_DML_ParametrosFijosReportes";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("Tipo",tipo),
+                new Clase_Parametros("Id_parametro",Id),
+                new Clase_Parametros("Nombre",nombre),
+                new Clase_Parametros("Valor",valor),
+            };
+            if(Ejecuta(nomStore,par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+         
     }
 }
