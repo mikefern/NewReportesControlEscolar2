@@ -29,7 +29,7 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPTPermisosRol));
             this.cbRoles = new System.Windows.Forms.ComboBox();
             this.cbCampus = new System.Windows.Forms.ComboBox();
@@ -41,6 +41,7 @@ namespace ProyectoLoboSostenido
             this.tbPermisosReporte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,7 +50,6 @@ namespace ProyectoLoboSostenido
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,9 +86,9 @@ namespace ProyectoLoboSostenido
             this.Nombre});
             this.lvPermisos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvPermisos.HideSelection = false;
-            listViewItem3.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.lvPermisos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.lvPermisos.Location = new System.Drawing.Point(0, 25);
             this.lvPermisos.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lvPermisos.Name = "lvPermisos";
@@ -163,6 +163,17 @@ namespace ProyectoLoboSostenido
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(917, 610);
             this.panel3.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(12, 311);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(501, 49);
+            this.label5.TabIndex = 63;
+            this.label5.Text = resources.GetString("label5.Text");
             // 
             // groupBox3
             // 
@@ -260,17 +271,6 @@ namespace ProyectoLoboSostenido
             this.label2.Text = "Gestionar Permisos de los Usuarios para Manipular los Reportes ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.label5.Location = new System.Drawing.Point(12, 311);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(501, 49);
-            this.label5.TabIndex = 63;
-            this.label5.Text = resources.GetString("label5.Text");
             // 
             // FrmRPTPermisosRol
             // 

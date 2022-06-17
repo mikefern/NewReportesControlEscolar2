@@ -139,20 +139,21 @@ namespace NewReportesControlEscolar
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(854, 781);
+            this.panel1.Size = new System.Drawing.Size(852, 781);
             this.panel1.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(390, 488);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(450, 29);
+            this.label3.Size = new System.Drawing.Size(450, 38);
             this.label3.TabIndex = 77;
             this.label3.Text = "*Solo se pueden relacionar nodos hijo con los reportes,  de preferencia elija un " +
     "reporte por nodo.";
@@ -172,11 +173,11 @@ namespace NewReportesControlEscolar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label6.Location = new System.Drawing.Point(159, 41);
+            this.label6.Location = new System.Drawing.Point(128, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
+            this.label6.Size = new System.Drawing.Size(119, 17);
             this.label6.TabIndex = 74;
-            this.label6.Text = "Nodos";
+            this.label6.Text = "Nodos existentes ";
             // 
             // groupBox2
             // 
@@ -209,7 +210,7 @@ namespace NewReportesControlEscolar
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(854, 32);
+            this.panel4.Size = new System.Drawing.Size(852, 32);
             this.panel4.TabIndex = 61;
             // 
             // label1
@@ -241,7 +242,7 @@ namespace NewReportesControlEscolar
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(854, 32);
+            this.label2.Size = new System.Drawing.Size(852, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Relación de nodo con el reporte";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,6 +267,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEnlazarReportesNodos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.FrmEnlazarReportesNodos_Load);
             this.panel1.ResumeLayout(false);

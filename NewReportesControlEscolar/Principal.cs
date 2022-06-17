@@ -73,7 +73,7 @@ namespace NewReportesControlEscolar
 
         private void btnInformación(object sender, EventArgs e)
         {
-            DatosReportes ARR = new DatosReportes();
+            FrmDatosReportes ARR = new FrmDatosReportes();
             ARR.Show();
         }
 
@@ -130,6 +130,14 @@ namespace NewReportesControlEscolar
         {
             FrmAdministrarParametrosRCE frm = new FrmAdministrarParametrosRCE();
             frm.Show();
+        }
+
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+
+            FrmEnlazarReportesNodos ARR = new FrmEnlazarReportesNodos();
+            ARR.Show();
         }
     }
 }

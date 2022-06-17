@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoLoboSostenido
 {
-    partial class DatosReportes
+    partial class FrmDatosReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace ProyectoLoboSostenido
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -147,7 +147,6 @@ namespace ProyectoLoboSostenido
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 
@@ -260,7 +259,6 @@ namespace ProyectoLoboSostenido
             this.txtNombreArchivo.TabIndex = 1;
             this.txtNombreArchivo.TabStop = false;
             this.txtNombreArchivo.Text = "";
-            this.txtNombreArchivo.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // txtCreacion
             // 
@@ -391,9 +389,11 @@ namespace ProyectoLoboSostenido
             this.GridViewReportes.Name = "GridViewReportes";
             this.GridViewReportes.ReadOnly = true;
             this.GridViewReportes.RowHeadersVisible = false;
+            this.GridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridViewReportes.Size = new System.Drawing.Size(156, 419);
             this.GridViewReportes.TabIndex = 62;
             this.GridViewReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewReportes_CellContentClick);
+            this.GridViewReportes.SelectionChanged += new System.EventHandler(this.GridViewReportes_SelectionChanged);
             // 
             // panel2
             // 
@@ -673,7 +673,6 @@ namespace ProyectoLoboSostenido
             this.pictureIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureIcono.TabIndex = 1;
             this.pictureIcono.TabStop = false;
-            this.pictureIcono.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel3
             // 
@@ -687,7 +686,6 @@ namespace ProyectoLoboSostenido
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(811, 798);
             this.panel3.TabIndex = 66;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // crystalReport
             // 
@@ -745,7 +743,7 @@ namespace ProyectoLoboSostenido
             this.lblcerrar.TabIndex = 54;
             this.lblcerrar.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // DatosReportes
+            // FrmDatosReportes
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,8 +758,8 @@ namespace ProyectoLoboSostenido
             this.Controls.Add(this.lblcerrar);
             this.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DatosReportes";
-            this.Opacity = 0.9D;
+            this.Name = "FrmDatosReportes";
+            this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
             this.Load += new System.EventHandler(this.DatosReportes_Load);

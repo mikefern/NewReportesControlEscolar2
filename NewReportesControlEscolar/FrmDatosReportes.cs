@@ -1,43 +1,26 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Windows.Forms;
-using FastReport;
+﻿using FastReport;
 using FastReport.Utils;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Security;
 using System.Windows.Forms;
 
 
 
 namespace ProyectoLoboSostenido
 {
-
-    public partial class DatosReportes : Form
+    public partial class FrmDatosReportes : Form
     {
 
-        public string nombre { get; private set; }
-        public string ruta { get; private set; }
-        public string ultimamodificacion { get; private set; }
-        public string creacion { get; private set; }
-        public string ultimoacceso { get; private set; }
-        public string extension { get; private set; }
-        public string descripcionModificaciones { get; private set; }
-        public string id_Empleado { get; private set; }
-        public string opt { get; private set; }
-        public object actualizar_automatico { get; private set; }
-
-        public string idreporte;
+        #region VARIABLES
+        string idreporte;
         string rutaArchivo = string.Empty;
-        int numerototalnombre;
         DateTime dt; //FechaCreacion
         DateTime dateTime; //FechaModificación
         DateTime datet;//FechaUltimoAcceso 
         string rutaBD;
-
+        #endregion
 
         #region MoverFORM
         //--------- MOVER FORMS
@@ -55,11 +38,20 @@ namespace ProyectoLoboSostenido
         #endregion
 
 
-        public DatosReportes()
+        public FrmDatosReportes()
         {
             InitializeComponent();
-
-
+        }
+        private void DatosReportes_Load(object sender, EventArgs e)
+        {
+            Habilitar();
+            txtIDReporte.Enabled = false;
+            txtPeso.Enabled = false;
+            txtUltima_Mod.Enabled = false;
+            txtAcceso.Enabled = false;
+            txtCreacion.Enabled = false;
+            txtExtension.Enabled = true;
+            MostrarReportes();
         }
 
         public void Habilitar()
@@ -85,10 +77,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnAbrircarpeta_Click(object sender, EventArgs e)
         {
             Process.Start(@"\\10.11.10.230");
@@ -105,6 +93,7 @@ namespace ProyectoLoboSostenido
             string filename = rutaArchivo;
             string result;
             string extension;
+            int numerototalnombre;
 
             OpenFileDialog OpenFileDialog = new OpenFileDialog();
             OpenFileDialog.InitialDirectory = "c:\\";
@@ -197,67 +186,11 @@ namespace ProyectoLoboSostenido
                 MessageBox.Show("Favor de abrir un archivo", "ATENCION",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-        //    AbrirReporteenVisualizador(txtNombreArchivo.Text);
-            
-        //}
-
-        //private readonly Reportes conrepor = new Reportes();
-        //public void AbrirReporteenVisualizador(string nombre)
-        //{
-        //    string miReporte = "";
-
-
-
-
-        //conrepor.ReporteFRX("RPTCardexGenericoAlumno");
-        //        miReporte = @"C:\LoboONE\LoboONE\LoboOne\Reportes\RPTCardexGenericoAlumno.frx";
-            
-        //    string thisFolder = Config.ApplicationFolder;
-        //    FrmFRVisor frrepForm = new FrmFRVisor { frReporte = new Report() };
-        //    bool frxExiste = false;
-
-        //    for (int i = 1; i < 6; i++)
-        //    {
-        //        if (File.Exists(miReporte))
-        //        {
-        //            try
-        //            {
-        //                frxExiste = true;
-        //                frrepForm.frReporte.Load(miReporte);
-        //                frrepForm.frReporte.SetParameterValue("@ID_Alumno", "PR15008001");
-        //                frrepForm.frReporte.Show();
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show(ex.Message, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //                break;
-        //            }
-        //        }
-        //        thisFolder += @"..\";
-        //    }
-        //    frrepForm.Close();
-        //    if (!frxExiste)
-        //    {
-        //        MessageBox.Show("No se encontró el reporte: " + miReporte, "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
         }
 
 
         
 
-        private void DatosReportes_Load(object sender, EventArgs e)
-        {
-            Habilitar();
-            //........
-            txtIDReporte.Enabled = false;
-            txtPeso.Enabled = false;
-            txtUltima_Mod.Enabled = false;
-            txtAcceso.Enabled = false;
-            txtCreacion.Enabled = false;
-            txtExtension.Enabled = true;
-            // MessageBox.Show("En caso de realizar alguna modificación en los reportes, favor de comentar su nombre completo, nombre de archivo y cambios realizados en el apartado Decripción de Modificaciones", "DESCRIPCION DE MODIFICACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            MostrarReportes();
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -304,16 +237,11 @@ namespace ProyectoLoboSostenido
 
                 btnModificar.Enabled = true;
 
-                //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\FastReports\FastReport.Net Demo\Designer.exe");//abrir el exe de fastreports
                 MostrarReportes();
             }
             
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void btnGuardarDB(object sender, EventArgs e) //Tabla DetalleArchivoReporte
@@ -404,44 +332,13 @@ namespace ProyectoLoboSostenido
             GridViewReportes.Columns[7].Visible = false;
             GridViewReportes.Columns[8].Visible = false;
             GridViewReportes.Columns[9].Visible = false;
-           // this.GridViewReportes.Refresh();
+           
             
-            if (GridViewReportes.RowCount > 0)
-            {
-                //MessageBox.Show("Reportes en DB");
-            }
-            else
-            {
-                //MessageBox.Show("No se puede mostrar la información");
-
-            }
         }
 
         private void GridViewReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtIDReporte.Text = GridViewReportes.CurrentRow.Cells[0].Value.ToString();
-            txtNombreArchivo.Text = GridViewReportes.CurrentRow.Cells[1].Value.ToString();
-            txtRuta.Text = GridViewReportes.CurrentRow.Cells[2].Value.ToString();
-            txtUltima_Mod.Text = GridViewReportes.CurrentRow.Cells[3].Value.ToString();
-            txtCreacion.Text = GridViewReportes.CurrentRow.Cells[4].Value.ToString();
-            txtAcceso.Text = GridViewReportes.CurrentRow.Cells[5].Value.ToString();
-            txtExtension.Text = GridViewReportes.CurrentRow.Cells[6].Value.ToString();
-            txtDescripcionModificaciones.Text = GridViewReportes.CurrentRow.Cells[7].Value.ToString();
-
-            Clase_Reportes getruta = new Clase_Reportes();
-
-            if (getruta.GetRuta(txtNombreArchivo.Text))
-            {
-
-                if (getruta.Lector.Tables.Count > 0)
-                {
-                    if (getruta.Lector.Tables[0].Rows.Count > 0)
-                    {
-                        rutaBD = getruta.Lector.Tables[0].Rows[0]["Ruta"].ToString();
-                        txtRuta.Text = rutaBD;
-                    }
-                }
-            }
+            
         }
 
 
@@ -479,7 +376,7 @@ namespace ProyectoLoboSostenido
                         }
                         else
                         {
-                            //MessageBox.Show("Reporte eliminado");
+                            MessageBox.Show("Reporte eliminado");
                         }
                     }
                     catch
@@ -530,15 +427,9 @@ namespace ProyectoLoboSostenido
             this.Close();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
+      
 
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -561,13 +452,49 @@ namespace ProyectoLoboSostenido
           
             if ( txtRuta.Text !="")
             {
-                Process proceso = new Process();
-                proceso.StartInfo.FileName = txtRuta.Text;
-                proceso.Start();
+                try
+                {
+
+
+                    Process proceso = new Process();
+                    proceso.StartInfo.FileName = txtRuta.Text;
+                    proceso.Start();
+                }
+                catch(System.ComponentModel.Win32Exception error)
+                {
+                    MessageBox.Show("No se encuentra el archivo en la ruta", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }
             }
             else
             {
                 MessageBox.Show("Favor de abrir un archivo", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void GridViewReportes_SelectionChanged(object sender, EventArgs e)
+        {
+            txtIDReporte.Text = GridViewReportes.CurrentRow.Cells[0].Value.ToString();
+            txtNombreArchivo.Text = GridViewReportes.CurrentRow.Cells[1].Value.ToString();
+            txtRuta.Text = GridViewReportes.CurrentRow.Cells[2].Value.ToString();
+            txtUltima_Mod.Text = GridViewReportes.CurrentRow.Cells[3].Value.ToString();
+            txtCreacion.Text = GridViewReportes.CurrentRow.Cells[4].Value.ToString();
+            txtAcceso.Text = GridViewReportes.CurrentRow.Cells[5].Value.ToString();
+            txtExtension.Text = GridViewReportes.CurrentRow.Cells[6].Value.ToString();
+            txtDescripcionModificaciones.Text = GridViewReportes.CurrentRow.Cells[7].Value.ToString();
+
+            Clase_Reportes getruta = new Clase_Reportes();
+
+            if (getruta.GetRuta(txtNombreArchivo.Text))
+            {
+
+                if (getruta.Lector.Tables.Count > 0)
+                {
+                    if (getruta.Lector.Tables[0].Rows.Count > 0)
+                    {
+                        rutaBD = getruta.Lector.Tables[0].Rows[0]["Ruta"].ToString();
+                        txtRuta.Text = rutaBD;
+                    }
+                }
             }
         }
     }

@@ -58,8 +58,8 @@ namespace NewReportesControlEscolar
             this.btnReportes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_CambiarNombreNodo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -357,7 +357,7 @@ namespace NewReportesControlEscolar
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnReportes.Location = new System.Drawing.Point(664, 734);
+            this.btnReportes.Location = new System.Drawing.Point(955, 155);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(239, 30);
             this.btnReportes.TabIndex = 60;
@@ -390,6 +390,16 @@ namespace NewReportesControlEscolar
             this.panel1.Size = new System.Drawing.Size(347, 748);
             this.panel1.TabIndex = 62;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.label6.Location = new System.Drawing.Point(118, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Nodos Existentes ";
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
@@ -400,16 +410,6 @@ namespace NewReportesControlEscolar
             this.button2.Size = new System.Drawing.Size(344, 708);
             this.button2.TabIndex = 72;
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label6.Location = new System.Drawing.Point(136, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Nodos";
             // 
             // label8
             // 
@@ -490,7 +490,7 @@ namespace NewReportesControlEscolar
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(628, 732);
+            this.pictureBox6.Location = new System.Drawing.Point(919, 155);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 32);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
