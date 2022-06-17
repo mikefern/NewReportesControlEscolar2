@@ -38,7 +38,7 @@ namespace ProyectoLoboSostenido
             // tvPermisos
             // 
             this.tvPermisos.CheckBoxes = true;
-            this.tvPermisos.Location = new System.Drawing.Point(321, 95);
+            this.tvPermisos.Location = new System.Drawing.Point(321, 79);
             this.tvPermisos.Name = "tvPermisos";
             this.tvPermisos.Size = new System.Drawing.Size(428, 292);
             this.tvPermisos.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace ProyectoLoboSostenido
             // btnAgregar
             // 
             this.btnAgregar.Enabled = false;
-            this.btnAgregar.Location = new System.Drawing.Point(593, 393);
+            this.btnAgregar.Location = new System.Drawing.Point(593, 411);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(156, 27);
             this.btnAgregar.TabIndex = 2;

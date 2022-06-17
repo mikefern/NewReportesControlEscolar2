@@ -74,14 +74,13 @@ namespace ProyectoLoboSostenido
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAbrirarchivo = new System.Windows.Forms.Button();
             this.pictureIcono = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.crystalReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.label12 = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblcerrar = new System.Windows.Forms.Label();
-            this.crystalReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -417,7 +416,6 @@ namespace ProyectoLoboSostenido
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnModificar);
-            this.panel2.Controls.Add(this.btnAbrirarchivo);
             this.panel2.Controls.Add(this.pictureIcono);
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 35);
@@ -471,9 +469,9 @@ namespace ProyectoLoboSostenido
             this.button5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.Location = new System.Drawing.Point(54, 755);
+            this.button5.Location = new System.Drawing.Point(54, 759);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 34);
+            this.button5.Size = new System.Drawing.Size(147, 30);
             this.button5.TabIndex = 77;
             this.button5.Text = "Limpiar";
             this.button5.UseVisualStyleBackColor = true;
@@ -547,9 +545,9 @@ namespace ProyectoLoboSostenido
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(54, 623);
+            this.btnCambiar.Location = new System.Drawing.Point(54, 627);
             this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(147, 34);
+            this.btnCambiar.Size = new System.Drawing.Size(147, 30);
             this.btnCambiar.TabIndex = 75;
             this.btnCambiar.Text = "Cambiar ruta";
             this.btnCambiar.UseVisualStyleBackColor = true;
@@ -575,9 +573,9 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(54, 690);
+            this.btnEliminar.Location = new System.Drawing.Point(54, 694);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(147, 34);
+            this.btnEliminar.Size = new System.Drawing.Size(147, 30);
             this.btnEliminar.TabIndex = 63;
             this.btnEliminar.Text = "Eliminar Reporte ";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -592,9 +590,9 @@ namespace ProyectoLoboSostenido
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(54, 560);
+            this.btnAgregar.Location = new System.Drawing.Point(54, 564);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(147, 34);
+            this.btnAgregar.Size = new System.Drawing.Size(147, 30);
             this.btnAgregar.TabIndex = 18;
             this.btnAgregar.Text = "Agregar nuevo ";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -608,9 +606,9 @@ namespace ProyectoLoboSostenido
             this.btnAbrircarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrircarpeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbrircarpeta.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrircarpeta.Location = new System.Drawing.Point(54, 338);
+            this.btnAbrircarpeta.Location = new System.Drawing.Point(54, 343);
             this.btnAbrircarpeta.Name = "btnAbrircarpeta";
-            this.btnAbrircarpeta.Size = new System.Drawing.Size(147, 34);
+            this.btnAbrircarpeta.Size = new System.Drawing.Size(147, 30);
             this.btnAbrircarpeta.TabIndex = 16;
             this.btnAbrircarpeta.Text = "Abrir carpeta";
             this.btnAbrircarpeta.UseVisualStyleBackColor = true;
@@ -640,9 +638,9 @@ namespace ProyectoLoboSostenido
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(54, 189);
+            this.button2.Location = new System.Drawing.Point(54, 194);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 34);
+            this.button2.Size = new System.Drawing.Size(147, 30);
             this.button2.TabIndex = 15;
             this.button2.Text = "Abrir archivo";
             this.button2.UseVisualStyleBackColor = true;
@@ -656,29 +654,13 @@ namespace ProyectoLoboSostenido
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(54, 489);
+            this.btnModificar.Location = new System.Drawing.Point(54, 493);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(147, 34);
+            this.btnModificar.Size = new System.Drawing.Size(147, 30);
             this.btnModificar.TabIndex = 17;
             this.btnModificar.Text = "Guardar Cambios";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnGuardarCambios);
-            // 
-            // btnAbrirarchivo
-            // 
-            this.btnAbrirarchivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbrirarchivo.FlatAppearance.BorderSize = 0;
-            this.btnAbrirarchivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnAbrirarchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbrirarchivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirarchivo.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrirarchivo.Location = new System.Drawing.Point(54, 180);
-            this.btnAbrirarchivo.Name = "btnAbrirarchivo";
-            this.btnAbrirarchivo.Size = new System.Drawing.Size(147, 34);
-            this.btnAbrirarchivo.TabIndex = 15;
-            this.btnAbrirarchivo.Text = "Abrir archivo";
-            this.btnAbrirarchivo.UseVisualStyleBackColor = true;
-            this.btnAbrirarchivo.Click += new System.EventHandler(this.btnAbrirarchivo_Click);
             // 
             // pictureIcono
             // 
@@ -706,6 +688,16 @@ namespace ProyectoLoboSostenido
             this.panel3.Size = new System.Drawing.Size(811, 798);
             this.panel3.TabIndex = 66;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // crystalReport
+            // 
+            this.crystalReport.ActiveViewIndex = -1;
+            this.crystalReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReport.Location = new System.Drawing.Point(22, 376);
+            this.crystalReport.Name = "crystalReport";
+            this.crystalReport.Size = new System.Drawing.Size(624, 419);
+            this.crystalReport.TabIndex = 76;
             // 
             // label12
             // 
@@ -752,16 +744,6 @@ namespace ProyectoLoboSostenido
             this.lblcerrar.Size = new System.Drawing.Size(35, 32);
             this.lblcerrar.TabIndex = 54;
             this.lblcerrar.Click += new System.EventHandler(this.label1_Click_2);
-            // 
-            // crystalReport
-            // 
-            this.crystalReport.ActiveViewIndex = -1;
-            this.crystalReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReport.Location = new System.Drawing.Point(22, 376);
-            this.crystalReport.Name = "crystalReport";
-            this.crystalReport.Size = new System.Drawing.Size(624, 419);
-            this.crystalReport.TabIndex = 76;
             // 
             // DatosReportes
             // 
@@ -849,7 +831,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAbrirarchivo;
         private System.Windows.Forms.PictureBox pictureIcono;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
