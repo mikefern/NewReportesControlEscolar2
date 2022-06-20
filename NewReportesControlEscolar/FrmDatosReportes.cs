@@ -482,7 +482,7 @@ namespace ProyectoLoboSostenido
             txtExtension.Text = GridViewReportes.CurrentRow.Cells[6].Value.ToString();
             txtDescripcionModificaciones.Text = GridViewReportes.CurrentRow.Cells[7].Value.ToString();
 
-            Clase_Reportes getruta = new Clase_Reportes();
+            Clase_ReportesCE getruta = new Clase_ReportesCE();
 
             if (getruta.GetRuta(txtNombreArchivo.Text))
             {
