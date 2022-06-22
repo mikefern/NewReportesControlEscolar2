@@ -29,7 +29,7 @@ namespace NewReportesControlEscolar
         #endregion
 
         #region VARIABLES
-        Clase_ReportesCE parametros;
+        Clase_ReportesCE clase_reportesCE;
         string valorAlEscribir = "";
         string valorAlEscribirenCelda2 = "";
         bool CellIsBeingEdited = false;
@@ -48,7 +48,7 @@ namespace NewReportesControlEscolar
         {
             FlagInsertar = false;
             InitializeComponent();
-            parametros = new Clase_ReportesCE();
+            clase_reportesCE = new Clase_ReportesCE();
             llenadoListaParametros();
             DGV_parametros.Columns[0].ReadOnly = true;
             DGV_parametros.CellEndEdit += new DataGridViewCellEventHandler(DGV_parametros_CellEndEdit);
@@ -63,15 +63,24 @@ namespace NewReportesControlEscolar
             DGV_parametros.Rows[DGV_parametros.Rows.Count-1].Cells[2].ReadOnly = true;
         }
 
+        public void llenadoListaParametros()
+        {
+            clase_reportesCE.MostrarParametros();
+            DGV_parametros.DataSource = clase_reportesCE.Lector.Tables[0];
+            DGV_parametros.Rows[DGV_parametros.Rows.Count - 1].Cells[2].ReadOnly = true;
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (CellIsBeingEdited)
             {
-                Console.WriteLine(posicioncuandoescribe);
+                //Guardar la posicion del renglon y los valores al momento de escribir en cualquier celda
                 posicioncuandoescribe = DGV_parametros.CurrentCell.RowIndex;
                 valorAlEscribir = DGV_parametros.Rows[posicioncuandoescribe].Cells[1].Value.ToString();
                 valorAlEscribirenCelda2 = DGV_parametros.Rows[posicioncuandoescribe].Cells[2].Value.ToString();
 
+
+                //Si mientras escribimos presionamos cualquiera de estas teclas
                 if (keyData == Keys.Enter ||
                     keyData == Keys.Right ||
                     keyData == Keys.Left  ||
@@ -79,6 +88,7 @@ namespace NewReportesControlEscolar
                     keyData == Keys.Down  ||
                     keyData == Keys.Tab)
                 {
+                    //Modo Insertar--------------------------------------------------------------------------------------------
                     if (FlagInsertar)
                     {
                         string nombre = DGV_parametros.CurrentCell.EditedFormattedValue.ToString().Trim();
@@ -86,10 +96,11 @@ namespace NewReportesControlEscolar
 
                         if (nombre != "")
                         {
-                            if (MessageBox.Show("¿Esta seguro de ingresar este nuevo Registro?", "Confirmacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            if (MessageBox.Show("¿Esta seguro de ingresar este nuevo Registro?", "Confirmacion", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                parametros = new Clase_ReportesCE();
-                                if (parametros.ParametrosReportes("1", "", nombre, ""))
+                                clase_reportesCE = new Clase_ReportesCE();
+
+                                if (clase_reportesCE.ParametrosReportes("1", "", nombre, ""))
                                 {
                                     MessageBox.Show("Parametro Ingresado", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     FlagInsertar = false;
@@ -113,7 +124,8 @@ namespace NewReportesControlEscolar
                             FlagInsertar = false;
                         }
                     }//--------------------------------------------------------------------------------------------------------------------
-                    else //Modificacion
+                    //Modo Modificacion
+                    else
                     {
                         
                         string id = DGV_parametros.Rows[posicioncuandoescribe].Cells[0].Value.ToString();
@@ -127,8 +139,8 @@ namespace NewReportesControlEscolar
                             if (valorAlEscribir.Trim() != DGV_parametros.Rows[posicioncuandoescribe].Cells[1].EditedFormattedValue.ToString().Trim()||
                                 valorAlEscribirenCelda2.Trim() != DGV_parametros.Rows[posicioncuandoescribe].Cells[2].EditedFormattedValue.ToString().Trim())
                             {
-                                parametros = new Clase_ReportesCE();
-                                if (parametros.ParametrosReportes("2", id, nombre, valor))
+                                clase_reportesCE = new Clase_ReportesCE();
+                                if (clase_reportesCE.ParametrosReportes("2", id, nombre, valor))
                                 {
                                     flagModificar = true;
                                     MessageBox.Show("Parametro Modificado", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -158,14 +170,6 @@ namespace NewReportesControlEscolar
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-        public void llenadoListaParametros()
-        {
-            parametros.MostrarParametros();
-            DGV_parametros.DataSource = parametros.Lector.Tables[0];
-            this.DGV_parametros.Rows[DGV_parametros.Rows.Count - 1].Cells[2].ReadOnly = true;
-        }
-
         
         private void DGV_parametros_KeyDown(object sender, KeyEventArgs e)
         {
@@ -187,7 +191,7 @@ namespace NewReportesControlEscolar
             //Console.WriteLine("No cell is being edited! -----------");
         }
 
-        private void DGV_parametros_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
+        private void DGV_parametros_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (flagInicio)
             {
@@ -207,8 +211,8 @@ namespace NewReportesControlEscolar
                     {
                         if (MessageBox.Show("DGV_parametros_SelectionChanged - Quieres Insertar el Nuevo Registro de la posi?" + posicioncuandoescribe, "Confirmacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            parametros = new Clase_ReportesCE();
-                            if (parametros.ParametrosReportes("1", "", nombre, ""))
+                            clase_reportesCE = new Clase_ReportesCE();
+                            if (clase_reportesCE.ParametrosReportes("1", "", nombre, ""))
                             {
                                 MessageBox.Show("Parametro Ingresado", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 FlagInsertar = false;
@@ -254,8 +258,8 @@ namespace NewReportesControlEscolar
                             flag2 = true;
                             if (nombre != "")
                             {
-                                parametros = new Clase_ReportesCE();
-                                if (parametros.ParametrosReportes("2", id, nombre, valor))
+                                clase_reportesCE = new Clase_ReportesCE();
+                                if (clase_reportesCE.ParametrosReportes("2", id, nombre, valor))
                                 {
                                     MessageBox.Show("Parametro Modificado", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     FlagInsertar = false;
@@ -283,7 +287,7 @@ namespace NewReportesControlEscolar
             string nameX = DGV_parametros.SelectedRows[DGV_parametros.SelectedRows.Count - count].Cells[1].Value.ToString();
             if (MessageBox.Show("Desea Eliminar el Registro " + nameX, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               if (parametros.ParametrosReportes("3", id, "", ""))
+               if (clase_reportesCE.ParametrosReportes("3", id, "", ""))
                 {
                     MessageBox.Show("Eliminacion exitosa", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -295,7 +299,7 @@ namespace NewReportesControlEscolar
             if (cuantosrenglones == 0) count = 1;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void lblCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }

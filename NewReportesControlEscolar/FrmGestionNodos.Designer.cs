@@ -69,6 +69,8 @@ namespace NewReportesControlEscolar
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.txt_PosicionBD = new System.Windows.Forms.TextBox();
+            this.btn_igualarPosicion = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -160,11 +162,11 @@ namespace NewReportesControlEscolar
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label5.Location = new System.Drawing.Point(676, 60);
+            this.label5.Location = new System.Drawing.Point(667, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 17);
+            this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 46;
-            this.label5.Text = "POSICIÓN";
+            this.label5.Text = "POSICIÓN  BD";
             // 
             // txt_NodoPadre
             // 
@@ -192,7 +194,7 @@ namespace NewReportesControlEscolar
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label3.Location = new System.Drawing.Point(762, 60);
+            this.label3.Location = new System.Drawing.Point(802, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 17);
             this.label3.TabIndex = 43;
@@ -224,7 +226,7 @@ namespace NewReportesControlEscolar
             // 
             this.txt_NombreNodo.BackColor = System.Drawing.SystemColors.Window;
             this.txt_NombreNodo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NombreNodo.Location = new System.Drawing.Point(759, 80);
+            this.txt_NombreNodo.Location = new System.Drawing.Point(805, 80);
             this.txt_NombreNodo.Multiline = true;
             this.txt_NombreNodo.Name = "txt_NombreNodo";
             this.txt_NombreNodo.ReadOnly = true;
@@ -507,12 +509,38 @@ namespace NewReportesControlEscolar
             this.pictureBox7.TabIndex = 77;
             this.pictureBox7.TabStop = false;
             // 
+            // txt_PosicionBD
+            // 
+            this.txt_PosicionBD.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_PosicionBD.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PosicionBD.Location = new System.Drawing.Point(735, 80);
+            this.txt_PosicionBD.Multiline = true;
+            this.txt_PosicionBD.Name = "txt_PosicionBD";
+            this.txt_PosicionBD.ReadOnly = true;
+            this.txt_PosicionBD.Size = new System.Drawing.Size(50, 30);
+            this.txt_PosicionBD.TabIndex = 78;
+            this.txt_PosicionBD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btn_igualarPosicion
+            // 
+            this.btn_igualarPosicion.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_igualarPosicion.Location = new System.Drawing.Point(679, 116);
+            this.btn_igualarPosicion.Name = "btn_igualarPosicion";
+            this.btn_igualarPosicion.Size = new System.Drawing.Size(106, 23);
+            this.btn_igualarPosicion.TabIndex = 79;
+            this.btn_igualarPosicion.Text = "Igualar Posicion";
+            this.btn_igualarPosicion.UseVisualStyleBackColor = true;
+            this.btn_igualarPosicion.Visible = false;
+            this.btn_igualarPosicion.Click += new System.EventHandler(this.btn_igualarPosicion_Click);
+            // 
             // FrmGestionNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1214, 780);
+            this.Controls.Add(this.btn_igualarPosicion);
+            this.Controls.Add(this.txt_PosicionBD);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -604,5 +632,7 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.TextBox txt_PosicionBD;
+        private System.Windows.Forms.Button btn_igualarPosicion;
     }
 }

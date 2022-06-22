@@ -93,22 +93,22 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetRuta(string nombre)
-        {
-            string nomStore = "GetRuta";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("NombreArchivo", nombre),
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool GetRuta(string nombre)
+        //{
+        //    string nomStore = "GetRuta";
+        //    List<Clase_Parametros> par = new List<Clase_Parametros>
+        //    {
+        //        new Clase_Parametros("NombreArchivo", nombre),
+        //    };
+        //    if (ConsultarParametros(nomStore, par))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public bool GetIDReporte(string nombre)
         {
@@ -129,7 +129,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetNombreReporte()
         {
-            string nomProce = "GetNombreReporte";
+            string nomProce = "Reports_GetNombreReporte";
 
             if (Consultar(nomProce))
             {
@@ -383,7 +383,7 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetParmetros_Reportes(string id)
+        public bool GetParametros_Reportes(string id)
         {
             string nomStore = "GetParmetros_Reportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
@@ -585,7 +585,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
         public bool GetCampusNodos(string nodo)
         {
             string nomStore = "RPTGetCampusNodos";
@@ -603,7 +602,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
         public bool AgregarPermisosverReportes(string CampusNodo, string campus)
         {
             string nomStore = "RPTInsertarCampusNodos";
@@ -622,7 +620,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
         public bool DeleteCampusNodos(string campus, string CampusNodo)
         {
             string nomStore = "RptDeleteCampusNodos";
@@ -641,7 +638,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
         public bool GetRolesCampusNodos(string campus, string CampusNodo)
         {
             string nomStore = "RPTGetRolesCampusNodos";
@@ -660,7 +656,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
         public bool InsertarRolesCampusNodos(string campus, string CampusNodo, string rol)
         {
             string nomStore = "RPTInsertarRolesCampusNodos";
@@ -682,7 +677,6 @@ namespace ProyectoLoboSostenido
 
             }
         }
-
         public bool DeleteRolesCampusNodos(string campus, string CampusNodo, string rol)
         {
             string nomStore = "RptDeleteRolesCampusNodos";
@@ -702,7 +696,23 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+        public bool IgualarPosicionNodo(string nodoPadre)
+        {
+            string nomStore = "Reports_IgualarPosicionNodo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre",nodoPadre) 
+            };
 
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
        
 
         #endregion

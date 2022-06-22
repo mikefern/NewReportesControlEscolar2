@@ -29,8 +29,8 @@ namespace NewReportesControlEscolar
 
         #endregion
 
-        private Clase_ReportesCE pr;
-        private Clase_ReportesCE p;
+        private Clase_ReportesCE clase_reportes;
+        private Clase_ReportesCE ReportCE;
         private Clase_ReportesGenericos gn= new Clase_ReportesGenericos();
         public FrmAniadirEspecifiacionesReporte()
         {
@@ -48,11 +48,11 @@ namespace NewReportesControlEscolar
 
         private void cargarReportes()
         {
-            pr = new Clase_ReportesCE();
-            pr.GetReportesTodos();
-            if (pr.Lector.Tables[0].Rows.Count > 0)
+            clase_reportes = new Clase_ReportesCE();
+            clase_reportes.GetReportesTodos();
+            if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
-                DataView dt = new DataView(pr.Lector.Tables[0]);
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.llenarlistview(lvReportes, dt);
             }
         }
@@ -73,11 +73,11 @@ namespace NewReportesControlEscolar
         private void cargarCampusReportes(string id)
         {
             lvCampusEspecificos.Items.Clear();
-            pr = new Clase_ReportesCE();
-            pr.GetCampusReportes(id);
-            if (pr.Lector.Tables.Count > 0)
+            clase_reportes = new Clase_ReportesCE();
+            clase_reportes.GetCampusReportes(id);
+            if (clase_reportes.Lector.Tables.Count > 0)
             {
-                DataView dt1 = new DataView(pr.Lector.Tables[0]);
+                DataView dt1 = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.marcarnodos(lvCampus, dt1);
                 gn.llenarlistview(lvCampusEspecificos, dt1);
             }
@@ -86,10 +86,10 @@ namespace NewReportesControlEscolar
         private void cargarRolesReportes(string id)
         {
 
-            pr = new Clase_ReportesCE();
-            if (pr.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
+            clase_reportes = new Clase_ReportesCE();
+            if (clase_reportes.MostrarRelRolesReportes(id,lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
-                DataView dt = new DataView(pr.Lector.Tables[0]);
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.marcarnodos(lvRoles, dt);
             }
         }
@@ -112,17 +112,17 @@ namespace NewReportesControlEscolar
         }
         private void cargarRVOE()
         {
-            pr = new Clase_ReportesCE();
-            pr.MostrarRVOESCampusReportes(lvCampusEspecificos.SelectedItems[0].SubItems[0].Text);
-            if (pr.Lector.Tables[0].Rows.Count > 0)
+            clase_reportes = new Clase_ReportesCE();
+            clase_reportes.MostrarRVOESCampusReportes(lvCampusEspecificos.SelectedItems[0].SubItems[0].Text);
+            if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
-                DataView dt = new DataView(pr.Lector.Tables[0]);
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.llenarlistview(lvRVOE, dt);
             }
-            pr = new Clase_ReportesCE();
-            if(pr.MostrarRVOECampusReporte(lvReportes.SelectedItems[0].SubItems[0].Text, lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
+            clase_reportes = new Clase_ReportesCE();
+            if(clase_reportes.MostrarRVOECampusReporte(lvReportes.SelectedItems[0].SubItems[0].Text, lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
-                DataView dt = new DataView(pr.Lector.Tables[0]);
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.marcarnodos(lvRVOE, dt);
 
             }
@@ -132,10 +132,10 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new Clase_ReportesCE();
+                ReportCE = new Clase_ReportesCE();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
-                p.GetCampusReportes(id);
-                pr = new Clase_ReportesCE();
+                ReportCE.GetCampusReportes(id);
+                clase_reportes = new Clase_ReportesCE();
             
                 for (int i = 0; i < lvCampus.Items.Count; i++)
                 {
@@ -143,12 +143,12 @@ namespace NewReportesControlEscolar
                     string campus = lvCampus.Items[i].Text;
                     if (lvCampus.Items[i].Checked == true)
                     {
-                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
-                            pr.AgregarRelCampusReporte(reporte, campus);
+                            clase_reportes.AgregarRelCampusReporte(reporte, campus);
                     }
                     else
-                        pr.EliminarRelCampusReporte(reporte, campus);
+                        clase_reportes.EliminarRelCampusReporte(reporte, campus);
                     
                 }
                 MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
@@ -167,28 +167,28 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new Clase_ReportesCE();
+                ReportCE = new Clase_ReportesCE();
                 string id = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 string repo = lvReportes.SelectedItems[0].SubItems[0].Text;
-                p.MostrarRelRolesReportes(repo,id);
-                pr = new Clase_ReportesCE();
+                ReportCE.MostrarRelRolesReportes(repo,id);
+                clase_reportes = new Clase_ReportesCE();
                 
                 for(int i=0;i<lvRoles.Items.Count; i++)
                 {
 
                     string rol = lvRoles.Items[i].Text;
 
-                   // if (Convert.ToInt32(rol) == 14)
-                     //   lvRoles.Items[i].Checked = true;
+                    if (Convert.ToInt32(rol) == 14 || Convert.ToInt32(rol) == 16)
+                        lvRoles.Items[i].Checked = true;
 
                     if (lvRoles.Items[i].Checked == true)
                     {
-                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
-                            pr.AgregarRelRolesReportes(rol, id, repo);
+                            clase_reportes.AgregarRelRolesReportes(rol, id, repo);
                     }
                     else
-                        pr.EliminarRelRolesReportes(rol, id, repo);
+                        clase_reportes.EliminarRelRolesReportes(rol, id, repo);
                 }
                 MessageBox.Show("Se han guardado los roles del reporte", "Completado", MessageBoxButtons.OK);
             }
@@ -202,23 +202,23 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new Clase_ReportesCE();
+                ReportCE = new Clase_ReportesCE();
                 string id = lvReportes.SelectedItems[0].SubItems[0].Text;
                 string campus = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
-                p.MostrarRVOECampusReporte(id, campus);
-                pr = new Clase_ReportesCE();
+                ReportCE.MostrarRVOECampusReporte(id, campus);
+                clase_reportes = new Clase_ReportesCE();
 
                 for (int i = 0; i < lvRVOE.Items.Count; i++)
                 {
                     string rvoe = lvRVOE.Items[i].Text;
                     if (lvRVOE.Items[i].Checked == true)
                     {
-                        DataView dv = new DataView(p.Lector.Tables[0]);
+                        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(rvoe)))
-                            pr.AgregarRVOEReportes(id, rvoe);
+                            clase_reportes.AgregarRVOEReportes(id, rvoe);
                     }
                     else
-                        pr.EliminarRVOEReportes(id, rvoe);
+                        clase_reportes.EliminarRVOEReportes(id, rvoe);
                 }
                 MessageBox.Show("Se han guardado los RVOE del reporte", "Completado", MessageBoxButtons.OK);
 
