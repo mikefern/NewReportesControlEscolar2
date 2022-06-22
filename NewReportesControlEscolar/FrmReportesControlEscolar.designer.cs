@@ -724,9 +724,9 @@
             // 
             // TreePrueba
             // 
-            this.TreePrueba.Location = new System.Drawing.Point(4, 471);
+            this.TreePrueba.Location = new System.Drawing.Point(4, 472);
             this.TreePrueba.Name = "TreePrueba";
-            this.TreePrueba.Size = new System.Drawing.Size(473, 187);
+            this.TreePrueba.Size = new System.Drawing.Size(473, 453);
             this.TreePrueba.TabIndex = 2;
             this.TreePrueba.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TreePrueba_MouseDoubleClick);
             // 
@@ -1585,7 +1585,7 @@
             // 
             this.btn_Restricciones.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Restricciones.ForeColor = System.Drawing.Color.Black;
-            this.btn_Restricciones.Location = new System.Drawing.Point(10, 664);
+            this.btn_Restricciones.Location = new System.Drawing.Point(4, 936);
             this.btn_Restricciones.Name = "btn_Restricciones";
             this.btn_Restricciones.Size = new System.Drawing.Size(228, 31);
             this.btn_Restricciones.TabIndex = 3;
@@ -1612,7 +1612,7 @@
             this.btnMail.FlatAppearance.BorderSize = 0;
             this.btnMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMail.Image = ((System.Drawing.Image)(resources.GetObject("btnMail.Image")));
-            this.btnMail.Location = new System.Drawing.Point(377, 659);
+            this.btnMail.Location = new System.Drawing.Point(377, 931);
             this.btnMail.Name = "btnMail";
             this.btnMail.Size = new System.Drawing.Size(72, 36);
             this.btnMail.TabIndex = 4;

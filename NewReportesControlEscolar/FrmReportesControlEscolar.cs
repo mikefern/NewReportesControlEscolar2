@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace ProyectoLoboSostenido
 {
@@ -41793,7 +41794,7 @@ namespace ProyectoLoboSostenido
                             {
                                 Clase_ReportesCE pr = new Clase_ReportesCE();
 
-                                pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol,Clase_Sesion.Campus);
+                                pr.GetPermisoRolReporteAbrir(dt.Table.Rows[0][0].ToString(), Clase_Sesion.Rol, Clase_Sesion.Campus);
                                 if (Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
                                 {
                                     pr = new Clase_ReportesCE();
@@ -41803,76 +41804,106 @@ namespace ProyectoLoboSostenido
                                         pr = new Clase_ReportesCE();
                                         if (pr.GetDetallesReporte(dt.Table.Rows[0][0].ToString()))
                                         {
-                                           // MessageBox.Show(pr.Lector.Tables[0].Rows[0][0]+" "+pr.Lector.Tables[0].Rows[0][1].ToString() + " " + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][3].ToString()+" "+ pr.Lector.Tables[0].Rows[0][4].ToString()+ "FIN", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
-                                            
+                                            // MessageBox.Show(pr.Lector.Tables[0].Rows[0][0]+" "+pr.Lector.Tables[0].Rows[0][1].ToString() + " " + pr.Lector.Tables[0].Rows[0][2] + " " + pr.Lector.Tables[0].Rows[0][3].ToString()+" "+ pr.Lector.Tables[0].Rows[0][4].ToString()+ "FIN", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             string nomreporte = pr.Lector.Tables[0].Rows[0][1].ToString();
                                             string tipo = pr.Lector.Tables[0].Rows[0][3].ToString();
                                             string id = pr.Lector.Tables[0].Rows[0][0].ToString();
                                             string ruta = pr.Lector.Tables[0].Rows[0][2].ToString();
-                                            string[] vecExtParametros = { gridViewAlumnos.Rows[ro].Cells[0].Value.ToString(), cBoxCicloEscolar.SelectedValue.ToString(), Clase_Sesion.campus, cBoxEspecialidad.SelectedValue.ToString(),
-                                            cBoxCicloEscolar.SelectedValue.ToString(), cBoxGrupo.SelectedValue.ToString(), "", "", cBoxGrupo.SelectedValue.ToString(), gridViewAlumnos.Rows[ro].Cells[0].Value.ToString(),
-                                            especialidad.Lector.Tables[0].Rows[0][0].ToString(),"frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')", "", "","",""};
+
+                                            string alumno = "";
+                                            if (gridViewAlumnos.Rows[ro].Cells[0].Value != null)
+                                                alumno = gridViewAlumnos.Rows[ro].Cells[0].Value.ToString();
+                                            string ciclo = "";
+                                            if (cBoxCicloEscolar.SelectedValue != null)
+                                                ciclo = cBoxCicloEscolar.SelectedValue.ToString();
+                                            string especialidad = "";
+                                            if (cBoxEspecialidad.SelectedValue != null)
+                                                especialidad = cBoxEspecialidad.SelectedValue.ToString();
+                                            string grupo = "";
+                                            if (cBoxGrupo.SelectedValue != null)
+                                                grupo = cBoxGrupo.SelectedValue.ToString();
+
+                                            string[,] vecExtParametros = { {"1", alumno},  {"2", ciclo}, { "3", Clase_Sesion.campus },{"4",especialidad},
+                                            {"5", ciclo }, {"6",grupo }, {"7","" },{ "8","" }, {"9",grupo }, {"10", alumno },
+                                            {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },{"15","" },{"16","" } };
                                             cd = new Clase_ReportesCE();
                                             cd.GetParametros_Reportes(id);
                                             int tamVector = cd.Lector.Tables[0].Rows.Count;
                                             string[,] vec = new string[tamVector, 2];
-                                            
-                                            
-                                            for (int i = 0; i < tamVector; i++)
+                                            bool check = true;
+                                            if (tamVector <= 0)
                                             {
-                                                int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
-                                                vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
-                                                vec[i, 1] = vecExtParametros[par - 1];
+                                                if (MessageBox.Show("Atencion el reporte cuanta con parametros encontrados, ¿desea utilizar unb valor por default?", "Atencion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                                                    check = false;
                                             }
-                                            
+                                            if (check)
+                                            {
+                                                for (int i = 0; i < tamVector; i++)
+                                                {
+                                                    int par = Convert.ToInt32(cd.Lector.Tables[0].Rows[i][0]);
+                                                    for (int x = 0; x < vecExtParametros.GetLength(0); x++)
+                                                    {
+                                                        if (Convert.ToInt32(vecExtParametros[x, 0]) == par)
+                                                        {
+                                                            vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
+                                                            if (vecExtParametros[x, 1].Equals(""))
+                                                            {
+                                                                
+                                                                    string input = Interaction.InputBox("Falta informacion para ver el reporte, en este caso el prametro "+ vec[i,0]+ "Puede agregar en este campo ese valor", "Atencion", "", 80, 20);
+                                                                if (input.Equals(""))
+                                                                    input= cd.Lector.Tables[0].Rows[i][2].ToString();
+                                                                vec[i, 1] = input;
+                                                                
+                                                            }
+                                                            else
+                                                                vec[i , 1] = vecExtParametros[x, 1];
+
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                             try
                                             {
-                                                cpr.MostrarRepos(vec, nomreporte, tipo,ruta);
+                                                cpr.MostrarRepos(vec, nomreporte, tipo, ruta);
                                                 if (tipo.Equals(".rpt"))
                                                 {
                                                     CRViewer.Visible = true;
                                                     FrView.Visible = false;
-                                                    CRViewer.ShowCloseButton = true;
+                                                    //CRViewer.ShowCloseButton = true;
                                                     CRViewer.ReportSource = cpr.CryRpt;
-
                                                 }
                                                 else
                                                 {
-                                                    CRViewer.Visible = false;
-                                                    FrView.Visible = true;
-                                                    cpr.frrepForm.Preview = FrView;
-                                                    cpr.frrepForm.Show();
+                                                    if (tipo.Equals(".frx"))
+                                                    {
+                                                        CRViewer.Visible = false;
+                                                        FrView.Visible = true;
+                                                        cpr.frrepForm.Preview = FrView;
+                                                        cpr.frrepForm.Show();
+                                                    }
                                                 }
                                             }
                                             catch (Exception ex)
                                             {
-                                            MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+                                                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
                                             }
                                         }
                                     }
                                     else
-                                    {
                                         MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
                                 }
                                 else
-                                {
                                     MessageBox.Show("No tiene permiso para ver este reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
                             }
-
-
                             else
                                 MessageBox.Show("No se ha encontrado ningun reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show(ex.Message, "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             TreePrueba.Enabled = true;

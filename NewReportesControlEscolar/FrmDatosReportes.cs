@@ -637,6 +637,7 @@ namespace ProyectoLoboSostenido
                     int tamVector = claseParametros.Lector.Tables[0].Rows.Count;
                     vecParametros = new string[tamVector, 2];
 
+            Clase_ReportesCE getruta = new Clase_ReportesCE();
 
                     for (int i = 0; i < tamVector; i++)
                     {

@@ -178,8 +178,8 @@ namespace NewReportesControlEscolar
 
                     string rol = lvRoles.Items[i].Text;
 
-                   // if (Convert.ToInt32(rol) == 14)
-                     //   lvRoles.Items[i].Checked = true;
+                    if (Convert.ToInt32(rol) == 14 || Convert.ToInt32(rol) == 16)
+                        lvRoles.Items[i].Checked = true;
 
                     if (lvRoles.Items[i].Checked == true)
                     {

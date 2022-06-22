@@ -204,7 +204,7 @@
             // imgFotografia
             // 
             this.imgFotografia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgFotografia.Image = ((System.Drawing.Image)(resources.GetObject("imgFotografia.Image")));
+            //this.imgFotografia.Image = ((System.Drawing.Image)(resources.GetObject("imgFotografia.Image")));
             this.imgFotografia.Location = new System.Drawing.Point(63, 15);
             this.imgFotografia.Name = "imgFotografia";
             this.imgFotografia.Size = new System.Drawing.Size(126, 155);
@@ -343,7 +343,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
