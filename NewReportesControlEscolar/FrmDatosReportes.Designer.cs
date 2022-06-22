@@ -29,18 +29,18 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CB_Extension = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtDescripcionModificaciones = new System.Windows.Forms.RichTextBox();
             this.txtIDReporte = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtExtension = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAcceso = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,49 +54,60 @@ namespace ProyectoLoboSostenido
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRuta = new System.Windows.Forms.RichTextBox();
-            this.GridViewReportes = new System.Windows.Forms.DataGridView();
+            this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_ReemplazarCarpeta = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCopiar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_AbrirArchivoEdicion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureEliminar = new System.Windows.Forms.PictureBox();
             this.pictureCambiar = new System.Windows.Forms.PictureBox();
-            this.pictureAgregar = new System.Windows.Forms.PictureBox();
-            this.pictureModificar = new System.Windows.Forms.PictureBox();
             this.pictureAbrirArchivo = new System.Windows.Forms.PictureBox();
             this.pictureAbrirCarpeta = new System.Windows.Forms.PictureBox();
             this.btnCambiar = new System.Windows.Forms.Button();
-            this.pictureGuardar = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnAbrircarpeta = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btn_Abrircarpeta = new System.Windows.Forms.Button();
+            this.btn_AbrirArchivo = new System.Windows.Forms.Button();
             this.pictureIcono = new System.Windows.Forms.PictureBox();
+            this.pictureAgregar = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.pictureModificar = new System.Windows.Forms.PictureBox();
+            this.pictureGuardar = new System.Windows.Forms.PictureBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.crystalReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblcerrar = new System.Windows.Forms.Label();
+            this.txtExistencia = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewReportes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirCarpeta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).BeginInit();
             this.panel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -110,22 +121,24 @@ namespace ProyectoLoboSostenido
             this.previewReportes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.previewReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.previewReportes.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previewReportes.Location = new System.Drawing.Point(22, 375);
+            this.previewReportes.Location = new System.Drawing.Point(25, 30);
             this.previewReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.previewReportes.Name = "previewReportes";
             this.previewReportes.PageOffset = new System.Drawing.Point(10, 10);
-            this.previewReportes.Size = new System.Drawing.Size(624, 419);
+            this.previewReportes.Size = new System.Drawing.Size(989, 358);
             this.previewReportes.TabIndex = 57;
             this.previewReportes.UseBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtExistencia);
+            this.groupBox1.Controls.Add(this.CB_Extension);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtDescripcionModificaciones);
             this.groupBox1.Controls.Add(this.txtIDReporte);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtExtension);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtAcceso);
             this.groupBox1.Controls.Add(this.label7);
@@ -141,12 +154,24 @@ namespace ProyectoLoboSostenido
             this.groupBox1.Controls.Add(this.txtRuta);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(3, 23);
+            this.groupBox1.Location = new System.Drawing.Point(261, 23);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(805, 328);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información";
+            // 
+            // CB_Extension
+            // 
+            this.CB_Extension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Extension.FormattingEnabled = true;
+            this.CB_Extension.Items.AddRange(new object[] {
+            ".frx",
+            ".rpt"});
+            this.CB_Extension.Location = new System.Drawing.Point(727, 38);
+            this.CB_Extension.Name = "CB_Extension";
+            this.CB_Extension.Size = new System.Drawing.Size(68, 25);
+            this.CB_Extension.TabIndex = 76;
             // 
             // pictureBox1
             // 
@@ -204,17 +229,6 @@ namespace ProyectoLoboSostenido
             this.label8.TabIndex = 61;
             this.label8.Text = "Descripción de Modificaciones:";
             // 
-            // txtExtension
-            // 
-            this.txtExtension.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtExtension.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExtension.Location = new System.Drawing.Point(731, 36);
-            this.txtExtension.Name = "txtExtension";
-            this.txtExtension.Size = new System.Drawing.Size(68, 42);
-            this.txtExtension.TabIndex = 2;
-            this.txtExtension.TabStop = false;
-            this.txtExtension.Text = "";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -255,7 +269,7 @@ namespace ProyectoLoboSostenido
             this.txtNombreArchivo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreArchivo.Location = new System.Drawing.Point(89, 36);
             this.txtNombreArchivo.Name = "txtNombreArchivo";
-            this.txtNombreArchivo.Size = new System.Drawing.Size(635, 42);
+            this.txtNombreArchivo.Size = new System.Drawing.Size(620, 42);
             this.txtNombreArchivo.TabIndex = 1;
             this.txtNombreArchivo.TabStop = false;
             this.txtNombreArchivo.Text = "";
@@ -264,7 +278,7 @@ namespace ProyectoLoboSostenido
             // 
             this.txtCreacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCreacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreacion.Location = new System.Drawing.Point(440, 185);
+            this.txtCreacion.Location = new System.Drawing.Point(481, 185);
             this.txtCreacion.Name = "txtCreacion";
             this.txtCreacion.ReadOnly = true;
             this.txtCreacion.Size = new System.Drawing.Size(150, 40);
@@ -276,7 +290,7 @@ namespace ProyectoLoboSostenido
             // 
             this.txtUltima_Mod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUltima_Mod.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUltima_Mod.Location = new System.Drawing.Point(229, 185);
+            this.txtUltima_Mod.Location = new System.Drawing.Point(309, 185);
             this.txtUltima_Mod.Name = "txtUltima_Mod";
             this.txtUltima_Mod.ReadOnly = true;
             this.txtUltima_Mod.Size = new System.Drawing.Size(150, 40);
@@ -288,9 +302,10 @@ namespace ProyectoLoboSostenido
             // 
             this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPeso.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeso.Location = new System.Drawing.Point(19, 185);
+            this.txtPeso.Location = new System.Drawing.Point(178, 185);
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(150, 40);
+            this.txtPeso.ReadOnly = true;
+            this.txtPeso.Size = new System.Drawing.Size(93, 40);
             this.txtPeso.TabIndex = 63;
             this.txtPeso.Text = "";
             // 
@@ -299,7 +314,7 @@ namespace ProyectoLoboSostenido
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(74, 166);
+            this.label6.Location = new System.Drawing.Point(205, 166);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 62;
@@ -310,7 +325,7 @@ namespace ProyectoLoboSostenido
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(207, 166);
+            this.label5.Location = new System.Drawing.Point(274, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(207, 17);
             this.label5.TabIndex = 61;
@@ -321,7 +336,7 @@ namespace ProyectoLoboSostenido
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(449, 166);
+            this.label4.Location = new System.Drawing.Point(492, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 17);
             this.label4.TabIndex = 60;
@@ -360,68 +375,101 @@ namespace ProyectoLoboSostenido
             this.txtRuta.TabStop = false;
             this.txtRuta.Text = "";
             // 
-            // GridViewReportes
+            // DGV_Reportes
             // 
-            this.GridViewReportes.AllowUserToAddRows = false;
-            this.GridViewReportes.AllowUserToDeleteRows = false;
-            this.GridViewReportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.GridViewReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewReportes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridViewReportes.GridColor = System.Drawing.Color.Black;
-            this.GridViewReportes.Location = new System.Drawing.Point(652, 376);
-            this.GridViewReportes.MultiSelect = false;
-            this.GridViewReportes.Name = "GridViewReportes";
-            this.GridViewReportes.ReadOnly = true;
-            this.GridViewReportes.RowHeadersVisible = false;
-            this.GridViewReportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewReportes.Size = new System.Drawing.Size(156, 419);
-            this.GridViewReportes.TabIndex = 62;
-            this.GridViewReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewReportes_CellContentClick);
-            this.GridViewReportes.SelectionChanged += new System.EventHandler(this.GridViewReportes_SelectionChanged);
+            this.DGV_Reportes.AllowUserToAddRows = false;
+            this.DGV_Reportes.AllowUserToDeleteRows = false;
+            this.DGV_Reportes.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Reportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle8;
+            this.DGV_Reportes.GridColor = System.Drawing.Color.Black;
+            this.DGV_Reportes.Location = new System.Drawing.Point(15, 22);
+            this.DGV_Reportes.MultiSelect = false;
+            this.DGV_Reportes.Name = "DGV_Reportes";
+            this.DGV_Reportes.ReadOnly = true;
+            this.DGV_Reportes.RowHeadersVisible = false;
+            this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Reportes.Size = new System.Drawing.Size(182, 286);
+            this.DGV_Reportes.TabIndex = 62;
+            this.DGV_Reportes.SelectionChanged += new System.EventHandler(this.DGV_Reportes_SelectionChanged);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btn_ReemplazarCarpeta);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnCopiar);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btn_AbrirArchivoEdicion);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.pictureEliminar);
             this.panel2.Controls.Add(this.pictureCambiar);
-            this.panel2.Controls.Add(this.pictureAgregar);
-            this.panel2.Controls.Add(this.pictureModificar);
             this.panel2.Controls.Add(this.pictureAbrirArchivo);
             this.panel2.Controls.Add(this.pictureAbrirCarpeta);
             this.panel2.Controls.Add(this.btnCambiar);
-            this.panel2.Controls.Add(this.pictureGuardar);
             this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnAgregar);
-            this.panel2.Controls.Add(this.btnAbrircarpeta);
-            this.panel2.Controls.Add(this.btnGuardar);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.btnModificar);
+            this.panel2.Controls.Add(this.btn_Abrircarpeta);
+            this.panel2.Controls.Add(this.btn_AbrirArchivo);
             this.panel2.Controls.Add(this.pictureIcono);
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(215, 801);
+            this.panel2.Size = new System.Drawing.Size(217, 880);
             this.panel2.TabIndex = 65;
+            // 
+            // btn_ReemplazarCarpeta
+            // 
+            this.btn_ReemplazarCarpeta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ReemplazarCarpeta.FlatAppearance.BorderSize = 0;
+            this.btn_ReemplazarCarpeta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_ReemplazarCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ReemplazarCarpeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ReemplazarCarpeta.ForeColor = System.Drawing.Color.Black;
+            this.btn_ReemplazarCarpeta.Location = new System.Drawing.Point(65, 620);
+            this.btn_ReemplazarCarpeta.Name = "btn_ReemplazarCarpeta";
+            this.btn_ReemplazarCarpeta.Size = new System.Drawing.Size(147, 82);
+            this.btn_ReemplazarCarpeta.TabIndex = 83;
+            this.btn_ReemplazarCarpeta.Text = "Reemplazar la ruta a carpeta de Red de reportes Predeterminada";
+            this.btn_ReemplazarCarpeta.UseVisualStyleBackColor = true;
+            this.btn_ReemplazarCarpeta.Click += new System.EventHandler(this.btn_ReemplazarCarpeta_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 806);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCopiar
+            // 
+            this.btnCopiar.Location = new System.Drawing.Point(65, 765);
+            this.btnCopiar.Name = "btnCopiar";
+            this.btnCopiar.Size = new System.Drawing.Size(127, 23);
+            this.btnCopiar.TabIndex = 81;
+            this.btnCopiar.Text = "copiar reporte a ruta local";
+            this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
             // 
             // pictureBox3
             // 
@@ -433,27 +481,27 @@ namespace ProyectoLoboSostenido
             this.pictureBox3.TabIndex = 80;
             this.pictureBox3.TabStop = false;
             // 
-            // button6
+            // btn_AbrirArchivoEdicion
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.Location = new System.Drawing.Point(54, 260);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(147, 44);
-            this.button6.TabIndex = 79;
-            this.button6.Text = "Abrir archivo en modo edición";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.btnModoEdicion);
+            this.btn_AbrirArchivoEdicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AbrirArchivoEdicion.FlatAppearance.BorderSize = 0;
+            this.btn_AbrirArchivoEdicion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_AbrirArchivoEdicion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AbrirArchivoEdicion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AbrirArchivoEdicion.ForeColor = System.Drawing.Color.Black;
+            this.btn_AbrirArchivoEdicion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_AbrirArchivoEdicion.Location = new System.Drawing.Point(54, 260);
+            this.btn_AbrirArchivoEdicion.Name = "btn_AbrirArchivoEdicion";
+            this.btn_AbrirArchivoEdicion.Size = new System.Drawing.Size(147, 44);
+            this.btn_AbrirArchivoEdicion.TabIndex = 79;
+            this.btn_AbrirArchivoEdicion.Text = "Abrir archivo en modo edición";
+            this.btn_AbrirArchivoEdicion.UseVisualStyleBackColor = true;
+            this.btn_AbrirArchivoEdicion.Click += new System.EventHandler(this.btn_AbrirArchivoEdicion_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 754);
+            this.pictureBox2.Location = new System.Drawing.Point(17, 480);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -469,7 +517,7 @@ namespace ProyectoLoboSostenido
             this.button5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.Location = new System.Drawing.Point(54, 759);
+            this.button5.Location = new System.Drawing.Point(54, 485);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(147, 30);
             this.button5.TabIndex = 77;
@@ -480,7 +528,7 @@ namespace ProyectoLoboSostenido
             // pictureEliminar
             // 
             this.pictureEliminar.Image = ((System.Drawing.Image)(resources.GetObject("pictureEliminar.Image")));
-            this.pictureEliminar.Location = new System.Drawing.Point(17, 689);
+            this.pictureEliminar.Location = new System.Drawing.Point(17, 405);
             this.pictureEliminar.Name = "pictureEliminar";
             this.pictureEliminar.Size = new System.Drawing.Size(31, 35);
             this.pictureEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -490,32 +538,12 @@ namespace ProyectoLoboSostenido
             // pictureCambiar
             // 
             this.pictureCambiar.Image = ((System.Drawing.Image)(resources.GetObject("pictureCambiar.Image")));
-            this.pictureCambiar.Location = new System.Drawing.Point(17, 622);
+            this.pictureCambiar.Location = new System.Drawing.Point(17, 555);
             this.pictureCambiar.Name = "pictureCambiar";
             this.pictureCambiar.Size = new System.Drawing.Size(31, 35);
             this.pictureCambiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureCambiar.TabIndex = 65;
             this.pictureCambiar.TabStop = false;
-            // 
-            // pictureAgregar
-            // 
-            this.pictureAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pictureAgregar.Image")));
-            this.pictureAgregar.Location = new System.Drawing.Point(17, 559);
-            this.pictureAgregar.Name = "pictureAgregar";
-            this.pictureAgregar.Size = new System.Drawing.Size(31, 35);
-            this.pictureAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureAgregar.TabIndex = 66;
-            this.pictureAgregar.TabStop = false;
-            // 
-            // pictureModificar
-            // 
-            this.pictureModificar.Image = ((System.Drawing.Image)(resources.GetObject("pictureModificar.Image")));
-            this.pictureModificar.Location = new System.Drawing.Point(17, 488);
-            this.pictureModificar.Name = "pictureModificar";
-            this.pictureModificar.Size = new System.Drawing.Size(31, 35);
-            this.pictureModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureModificar.TabIndex = 68;
-            this.pictureModificar.TabStop = false;
             // 
             // pictureAbrirArchivo
             // 
@@ -545,24 +573,13 @@ namespace ProyectoLoboSostenido
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(54, 627);
+            this.btnCambiar.Location = new System.Drawing.Point(65, 560);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(147, 30);
             this.btnCambiar.TabIndex = 75;
             this.btnCambiar.Text = "Cambiar ruta";
             this.btnCambiar.UseVisualStyleBackColor = true;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
-            // 
-            // pictureGuardar
-            // 
-            this.pictureGuardar.Image = ((System.Drawing.Image)(resources.GetObject("pictureGuardar.Image")));
-            this.pictureGuardar.InitialImage = null;
-            this.pictureGuardar.Location = new System.Drawing.Point(17, 414);
-            this.pictureGuardar.Name = "pictureGuardar";
-            this.pictureGuardar.Size = new System.Drawing.Size(31, 35);
-            this.pictureGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureGuardar.TabIndex = 63;
-            this.pictureGuardar.TabStop = false;
             // 
             // btnEliminar
             // 
@@ -573,7 +590,7 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(54, 694);
+            this.btnEliminar.Location = new System.Drawing.Point(65, 410);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(147, 30);
             this.btnEliminar.TabIndex = 63;
@@ -581,131 +598,207 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btn_Abrircarpeta
+            // 
+            this.btn_Abrircarpeta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Abrircarpeta.FlatAppearance.BorderSize = 0;
+            this.btn_Abrircarpeta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_Abrircarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Abrircarpeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Abrircarpeta.ForeColor = System.Drawing.Color.Black;
+            this.btn_Abrircarpeta.Location = new System.Drawing.Point(54, 343);
+            this.btn_Abrircarpeta.Name = "btn_Abrircarpeta";
+            this.btn_Abrircarpeta.Size = new System.Drawing.Size(147, 30);
+            this.btn_Abrircarpeta.TabIndex = 16;
+            this.btn_Abrircarpeta.Text = "Abrir carpeta";
+            this.btn_Abrircarpeta.UseVisualStyleBackColor = true;
+            this.btn_Abrircarpeta.Click += new System.EventHandler(this.btn_Abrircarpeta_Click);
+            // 
+            // btn_AbrirArchivo
+            // 
+            this.btn_AbrirArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AbrirArchivo.FlatAppearance.BorderSize = 0;
+            this.btn_AbrirArchivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_AbrirArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AbrirArchivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AbrirArchivo.ForeColor = System.Drawing.Color.Black;
+            this.btn_AbrirArchivo.Location = new System.Drawing.Point(54, 194);
+            this.btn_AbrirArchivo.Name = "btn_AbrirArchivo";
+            this.btn_AbrirArchivo.Size = new System.Drawing.Size(147, 30);
+            this.btn_AbrirArchivo.TabIndex = 15;
+            this.btn_AbrirArchivo.Text = "Abrir archivo";
+            this.btn_AbrirArchivo.UseVisualStyleBackColor = true;
+            this.btn_AbrirArchivo.Click += new System.EventHandler(this.btn_AbrirArchivo_Click);
+            // 
+            // pictureIcono
+            // 
+            this.pictureIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureIcono.Image = ((System.Drawing.Image)(resources.GetObject("pictureIcono.Image")));
+            this.pictureIcono.InitialImage = null;
+            this.pictureIcono.Location = new System.Drawing.Point(36, 12);
+            this.pictureIcono.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureIcono.Name = "pictureIcono";
+            this.pictureIcono.Size = new System.Drawing.Size(142, 152);
+            this.pictureIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureIcono.TabIndex = 1;
+            this.pictureIcono.TabStop = false;
+            // 
+            // pictureAgregar
+            // 
+            this.pictureAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pictureAgregar.Image")));
+            this.pictureAgregar.Location = new System.Drawing.Point(146, 807);
+            this.pictureAgregar.Name = "pictureAgregar";
+            this.pictureAgregar.Size = new System.Drawing.Size(38, 47);
+            this.pictureAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureAgregar.TabIndex = 66;
+            this.pictureAgregar.TabStop = false;
+            // 
             // btnAgregar
             // 
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAgregar.Location = new System.Drawing.Point(54, 564);
+            this.btnAgregar.Location = new System.Drawing.Point(190, 807);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(147, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(175, 47);
             this.btnAgregar.TabIndex = 18;
-            this.btnAgregar.Text = "Agregar nuevo ";
+            this.btnAgregar.Text = "Crear Archivo de Cero";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnAbrircarpeta
+            // pictureModificar
             // 
-            this.btnAbrircarpeta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbrircarpeta.FlatAppearance.BorderSize = 0;
-            this.btnAbrircarpeta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnAbrircarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbrircarpeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrircarpeta.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrircarpeta.Location = new System.Drawing.Point(54, 343);
-            this.btnAbrircarpeta.Name = "btnAbrircarpeta";
-            this.btnAbrircarpeta.Size = new System.Drawing.Size(147, 30);
-            this.btnAbrircarpeta.TabIndex = 16;
-            this.btnAbrircarpeta.Text = "Abrir carpeta";
-            this.btnAbrircarpeta.UseVisualStyleBackColor = true;
-            this.btnAbrircarpeta.Click += new System.EventHandler(this.btnAbrircarpeta_Click);
+            this.pictureModificar.Image = ((System.Drawing.Image)(resources.GetObject("pictureModificar.Image")));
+            this.pictureModificar.Location = new System.Drawing.Point(686, 807);
+            this.pictureModificar.Name = "pictureModificar";
+            this.pictureModificar.Size = new System.Drawing.Size(42, 47);
+            this.pictureModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureModificar.TabIndex = 68;
+            this.pictureModificar.TabStop = false;
+            // 
+            // pictureGuardar
+            // 
+            this.pictureGuardar.Image = ((System.Drawing.Image)(resources.GetObject("pictureGuardar.Image")));
+            this.pictureGuardar.InitialImage = null;
+            this.pictureGuardar.Location = new System.Drawing.Point(386, 807);
+            this.pictureGuardar.Name = "pictureGuardar";
+            this.pictureGuardar.Size = new System.Drawing.Size(47, 47);
+            this.pictureGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureGuardar.TabIndex = 63;
+            this.pictureGuardar.TabStop = false;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(54, 414);
+            this.btnGuardar.Location = new System.Drawing.Point(439, 807);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(147, 47);
+            this.btnGuardar.Size = new System.Drawing.Size(229, 47);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar Reporte en DB";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardarDB);
             // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(54, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 30);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Abrir archivo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnAbrirarchivo_Click);
-            // 
             // btnModificar
             // 
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(54, 493);
+            this.btnModificar.Location = new System.Drawing.Point(734, 807);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(147, 30);
+            this.btnModificar.Size = new System.Drawing.Size(187, 47);
             this.btnModificar.TabIndex = 17;
-            this.btnModificar.Text = "Guardar Cambios";
+            this.btnModificar.Text = "Modificar Datos Reporte";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnGuardarCambios);
-            // 
-            // pictureIcono
-            // 
-            this.pictureIcono.Image = ((System.Drawing.Image)(resources.GetObject("pictureIcono.Image")));
-            this.pictureIcono.InitialImage = null;
-            this.pictureIcono.Location = new System.Drawing.Point(58, 23);
-            this.pictureIcono.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureIcono.Name = "pictureIcono";
-            this.pictureIcono.Size = new System.Drawing.Size(100, 91);
-            this.pictureIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureIcono.TabIndex = 1;
-            this.pictureIcono.TabStop = false;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.crystalReport);
-            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.GridViewReportes);
-            this.panel3.Controls.Add(this.previewReportes);
-            this.panel3.Location = new System.Drawing.Point(213, 35);
+            this.panel3.Controls.Add(this.btnGuardar);
+            this.panel3.Controls.Add(this.pictureGuardar);
+            this.panel3.Controls.Add(this.pictureAgregar);
+            this.panel3.Controls.Add(this.pictureModificar);
+            this.panel3.Controls.Add(this.btnModificar);
+            this.panel3.Controls.Add(this.btnAgregar);
+            this.panel3.Location = new System.Drawing.Point(223, 35);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(811, 798);
+            this.panel3.Size = new System.Drawing.Size(1092, 867);
             this.panel3.TabIndex = 66;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.DGV_Reportes);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.groupBox3.Location = new System.Drawing.Point(20, 23);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(214, 328);
+            this.groupBox3.TabIndex = 79;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reportes Registrados";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.previewReportes);
+            this.groupBox2.Controls.Add(this.crystalReport);
+            this.groupBox2.Location = new System.Drawing.Point(20, 401);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1046, 400);
+            this.groupBox2.TabIndex = 78;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Visualizador del Reporte";
             // 
             // crystalReport
             // 
             this.crystalReport.ActiveViewIndex = -1;
             this.crystalReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReport.Location = new System.Drawing.Point(22, 376);
+            this.crystalReport.Location = new System.Drawing.Point(25, 30);
             this.crystalReport.Name = "crystalReport";
-            this.crystalReport.Size = new System.Drawing.Size(624, 419);
+            this.crystalReport.Size = new System.Drawing.Size(963, 358);
             this.crystalReport.TabIndex = 76;
             // 
-            // label12
+            // textBox1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label12.Location = new System.Drawing.Point(656, 356);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 17);
-            this.label12.TabIndex = 64;
-            this.label12.Text = "Reportes Registrados ";
+            this.textBox1.Location = new System.Drawing.Point(904, 351);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 21);
+            this.textBox1.TabIndex = 68;
+            this.textBox1.Text = "Kp91S!NPBt0U";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(832, 354);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.TabIndex = 69;
+            this.label13.Text = "Pass Carpeta";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(353, 374);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 13);
+            this.label11.TabIndex = 77;
+            this.label11.Text = "Aun no se Puede Mostrar";
+            this.label11.Visible = false;
             // 
             // lbltitulo
             // 
@@ -715,17 +808,18 @@ namespace ProyectoLoboSostenido
             this.lbltitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbltitulo.Location = new System.Drawing.Point(0, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(1031, 35);
+            this.lbltitulo.Size = new System.Drawing.Size(1327, 35);
             this.lbltitulo.TabIndex = 67;
             this.lbltitulo.Text = "Datos Archivo Reportes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitulo_MouseDown);
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(998, 0);
+            this.label1.Location = new System.Drawing.Point(1277, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(38, 34);
@@ -743,6 +837,30 @@ namespace ProyectoLoboSostenido
             this.lblcerrar.TabIndex = 54;
             this.lblcerrar.Click += new System.EventHandler(this.label1_Click_2);
             // 
+            // txtExistencia
+            // 
+            this.txtExistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExistencia.Enabled = false;
+            this.txtExistencia.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExistencia.Location = new System.Drawing.Point(22, 185);
+            this.txtExistencia.Name = "txtExistencia";
+            this.txtExistencia.ReadOnly = true;
+            this.txtExistencia.Size = new System.Drawing.Size(136, 40);
+            this.txtExistencia.TabIndex = 77;
+            this.txtExistencia.TabStop = false;
+            this.txtExistencia.Text = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(30, 167);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 17);
+            this.label12.TabIndex = 78;
+            this.label12.Text = "Existencia Archivo";
+            // 
             // FrmDatosReportes
             // 
             this.AllowDrop = true;
@@ -750,7 +868,7 @@ namespace ProyectoLoboSostenido
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1031, 836);
+            this.ClientSize = new System.Drawing.Size(1327, 914);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbltitulo);
             this.Controls.Add(this.panel3);
@@ -768,20 +886,22 @@ namespace ProyectoLoboSostenido
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewReportes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirCarpeta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -804,17 +924,15 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox txtExtension;
         private System.Windows.Forms.RichTextBox txtIDReporte;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView GridViewReportes;
+        private System.Windows.Forms.DataGridView DGV_Reportes;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblcerrar;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.RichTextBox txtDescripcionModificaciones;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureEliminar;
         private System.Windows.Forms.PictureBox pictureCambiar;
         private System.Windows.Forms.PictureBox pictureAgregar;
@@ -825,16 +943,27 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.PictureBox pictureGuardar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnAbrircarpeta;
+        private System.Windows.Forms.Button btn_Abrircarpeta;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_AbrirArchivo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pictureIcono;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_AbrirArchivoEdicion;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReport;
+        private System.Windows.Forms.Button btnCopiar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btn_ReemplazarCarpeta;
+        private System.Windows.Forms.ComboBox CB_Extension;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RichTextBox txtExistencia;
     }
 }

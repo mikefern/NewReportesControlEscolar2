@@ -32,7 +32,7 @@ namespace NewReportesControlEscolar
         int LadoClick;
         string NNodo;
         string NPadre;
-        string Position;
+        string PositionBd;
         string NombreNodo;
         string nodopadre = "";
 
@@ -244,12 +244,15 @@ namespace NewReportesControlEscolar
 
                 txt_Posicion.Text = e.Node.Index.ToString();
 
+                ComprobarPosicionNodo();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en treeNodos_AfterSelect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
         #endregion
 
         public FrmGestionNodos()
@@ -298,18 +301,19 @@ namespace NewReportesControlEscolar
 
         private void cargaElementos(string nodo)
         {
-                DataRow[] elements = clase_ReportesCE.Lector.Tables[0].Select("nodo =" + nodo.Trim());
-                foreach (DataRow _elemento in elements)
-                {
-                    NNodo = _elemento["Nodo"].ToString();
-                    NPadre = _elemento["NodoPadre"].ToString();
-                    Position = _elemento["Posicion"].ToString();
-                    NombreNodo = _elemento["TextoNodo"].ToString();
-                }
+            DataRow[] elements = clase_ReportesCE.Lector.Tables[0].Select("nodo =" + nodo.Trim());
+            foreach (DataRow _elemento in elements)
+            {
+                NNodo = _elemento["Nodo"].ToString();
+                NPadre = _elemento["NodoPadre"].ToString();
+                PositionBd = _elemento["Posicion"].ToString();
+                NombreNodo = _elemento["TextoNodo"].ToString();
+            }
 
-                txt_IDNodo.Text = NNodo;
-                txt_NodoPadre.Text = NPadre;
-                txt_NombreNodo.Text = NombreNodo;
+            txt_IDNodo.Text = NNodo;
+            txt_NodoPadre.Text = NPadre;
+            txt_NombreNodo.Text = NombreNodo;
+            txt_PosicionBD.Text = PositionBd;
         }
 
         private void InsertarNodos(String NodoPadre, String Nodo)
@@ -634,6 +638,36 @@ namespace NewReportesControlEscolar
         private void label8_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void ComprobarPosicionNodo()
+        {
+            if (txt_Posicion.Text != txt_PosicionBD.Text)
+            {
+                btn_igualarPosicion.Visible = true;
+            }
+            else
+            {
+                btn_igualarPosicion.Visible = false;
+            }
+        }
+
+        private void btn_igualarPosicion_Click(object sender, EventArgs e)
+        {
+            Clase_ReportesCE frm = new Clase_ReportesCE();
+            if (frm.IgualarPosicionNodo(NPadre))
+            {
+                LlenadoNodosReporte();
+                TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
+                ExpandirNodoenInsercion(NodoaExpandir[0]);
+                btn_igualarPosicion.Visible = false;
+                txt_PosicionBD.Text = txt_Posicion.Text;
+                // txt_PosicionBD.Text = txt_Posicion.Text;
+            }
+            else 
+            { 
+                MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }//fin de clase
 }

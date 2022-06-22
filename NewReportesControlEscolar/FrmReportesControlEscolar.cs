@@ -41626,7 +41626,7 @@ namespace ProyectoLoboSostenido
             cd = new Clase_ReportesCE();
            
             //ActivarPermiso();
-            cd.GetParmetros_Reportes("5");
+            cd.GetParametros_Reportes("5");
             string[,] vec1 = new string[Convert.ToInt32(cd.Lector.Tables[0].Rows.Count), 2];
             string[] valorParametros={ especialidad.Lector.Tables[0].Rows[0][2].ToString() + " " + especialidad.Lector.Tables[0].Rows[0][0].ToString(), cBoxGrupo.SelectedValue.ToString(), gridViewAlumnos.Rows[ro].Cells[0].Value.ToString() };
             for (int i = 0; i<cd.Lector.Tables[0].Rows.Count; i++)
@@ -41816,7 +41816,7 @@ namespace ProyectoLoboSostenido
                                             cBoxCicloEscolar.SelectedValue.ToString(), cBoxGrupo.SelectedValue.ToString(), "", "", cBoxGrupo.SelectedValue.ToString(), gridViewAlumnos.Rows[ro].Cells[0].Value.ToString(),
                                             especialidad.Lector.Tables[0].Rows[0][0].ToString(),"frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')", "", "","",""};
                                             cd = new Clase_ReportesCE();
-                                            cd.GetParmetros_Reportes(id);
+                                            cd.GetParametros_Reportes(id);
                                             int tamVector = cd.Lector.Tables[0].Rows.Count;
                                             string[,] vec = new string[tamVector, 2];
                                             

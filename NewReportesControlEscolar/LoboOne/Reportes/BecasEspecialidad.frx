@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/01/2018 10:59:48" ReportInfo.Modified="06/09/2022 10:28:47" ReportInfo.CreatorVersion="2015.2.16.0">
+  <Styles Name="Gris">
+    <Style Name="Título" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Encabezado" Fill.Color="Gainsboro" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Grupo" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Datos"/>
+    <Style Name="Pie" Fill.Color="Gainsboro"/>
+    <Style Name="Eventos de filas" Fill.Color="WhiteSmoke"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="LoboCon" ConnectionString="rijcmlqqtzWLe5YNkM503qc41kpcML9Y0VS0gkX6+25qs61SwQ8EKFvKJKukMo1KufPxt0zXVmBE58eSZam2qgG8cvuy64TegLJX8HFXpCHHKBQeokOf7vaGsL90jHVywPXmXm2Z7TQShPuWnDiDfRd6xpkT/tHzSFA4whpwa2ImWLTrixjuHhajNZbCqq4JB7I0AtJHBS4T18yvBiG+VqhkTJQtR4VhS3iJRZBUl3/fEiJjVnltpQ36dnJZMI6TefvF1+C">
+      <TableDataSource Name="consAlumnosBeca" DataType="System.Int32" PropName="Table" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[ConsAlumnosBeca]&#13;&#10;		@Especialidad = @IDEspecialidad,&#13;&#10;		@CicloE = @IDCicloE&#13;&#10;&#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="ID_Beca_Alumno" DataType="System.Int32"/>
+        <Column Name="ID_Alumno" DataType="System.String"/>
+        <Column Name="Alumno" DataType="System.String"/>
+        <Column Name="PorcentajeBeca" DataType="System.Double"/>
+        <Column Name="Observaciones" DataType="System.String"/>
+        <Column Name="Nivel" DataType="System.String"/>
+        <Column Name="Grupo" DataType="System.String"/>
+        <Column Name="Activada" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="becaVacaciones" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Aplicada" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ActivarProrrateo" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Especialidad" DataType="System.String"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="TipoBeca" DataType="System.String"/>
+        <CommandParameter Name="@IDEspecialidad" DataType="22" Expression="[@Especialidad]"/>
+        <CommandParameter Name="@IDCicloE" DataType="22" Expression="[@Periodo]"/>
+      </TableDataSource>
+      <TableDataSource Name="Campus" DataType="System.Int32" PropName="Table1" Enabled="true" SelectCommand="SELECT   ID_Campus, Campus, DomicilioCampus, CPCampus, TelefonosCampus, Colonia, Numero, Estado, ID_Municipio, ClaveContable, Activo, NRP, ClaveEscuela, RepresentanteLegal, Testigo1, Testigo2, SMZ, Promedio, Logo, RutaImagenEvento, LogoOficialSep, Cuenta_Cargo_Banco, Empresa_Banco, Cuenta_Cargo_Banco2, Empresa_Banco2&#13;&#10;FROM            Campus&#13;&#10;WHERE  ID_Campus = @Campus ">
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="Campus" DataType="System.String"/>
+        <Column Name="DomicilioCampus" DataType="System.String"/>
+        <Column Name="CPCampus" DataType="System.String"/>
+        <Column Name="TelefonosCampus" DataType="System.String"/>
+        <Column Name="Colonia" DataType="System.String"/>
+        <Column Name="Numero" DataType="System.String"/>
+        <Column Name="Estado" DataType="System.String"/>
+        <Column Name="ID_Municipio" DataType="System.Int32"/>
+        <Column Name="ClaveContable" DataType="System.String"/>
+        <Column Name="Activo" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="NRP" DataType="System.String"/>
+        <Column Name="ClaveEscuela" DataType="System.String"/>
+        <Column Name="RepresentanteLegal" DataType="System.String"/>
+        <Column Name="Testigo1" DataType="System.String"/>
+        <Column Name="Testigo2" DataType="System.String"/>
+        <Column Name="SMZ" DataType="System.Decimal"/>
+        <Column Name="Promedio" DataType="System.String"/>
+        <Column Name="Logo" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="RutaImagenEvento" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="LogoOficialSep" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="Cuenta_Cargo_Banco" DataType="System.String"/>
+        <Column Name="Empresa_Banco" DataType="System.String"/>
+        <Column Name="Cuenta_Cargo_Banco2" DataType="System.String"/>
+        <Column Name="Empresa_Banco2" DataType="System.String"/>
+        <CommandParameter Name="@Campus" DataType="22" Expression="[consAlumnosBeca.ID_Campus]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="@Periodo" DataType="System.String" Expression="&quot;0120221&quot;"/>
+    <Parameter Name="@Especialidad" DataType="System.String" Expression="&quot;049&quot;"/>
+    <Total Name="TotalBecas" TotalType="Count" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" TopMargin="6" RightMargin="5" BottomMargin="6">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="999.43" Height="132.3" Guides="9.45">
+      <TextObject Name="Text3" Top="113.4" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text="ID Alumno" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text5" Left="113.4" Top="113.4" Width="245.7" Height="18.9" Fill.Color="Gainsboro" Text="Alumno" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text7" Left="359.1" Top="113.4" Width="66.15" Height="18.9" Fill.Color="Gainsboro" Text="% Beca" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text9" Left="425.25" Top="113.4" Width="236.25" Height="18.9" Fill.Color="Gainsboro" Text="Observaciones" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text14" Left="387.45" Top="85.05" Width="378" Height="18.9" Text="[consAlumnosBeca.Especialidad]" HorzAlign="Center"/>
+      <TextObject Name="Text13" Left="387.45" Top="47.25" Width="378" Height="37.8" Text="[Campus.DomicilioCampus] [Campus.Numero] [Campus.Colonia] Código Postal [Campus.CPCampus]" HorzAlign="Center" Font="Calibri, 11pt, style=Bold"/>
+      <TextObject Name="Text12" Left="387.45" Top="28.35" Width="378" Height="18.9" Text="Fomento Educativo y Cultural Francisco de Ibarra, A. C." HorzAlign="Center" Font="Calibri, 11pt"/>
+      <PictureObject Name="Picture1" Top="9.45" Width="359.1" Height="94.5" DataColumn="Campus.LogoOficialSep"/>
+      <TextObject Name="Text1" Left="387.45" Top="9.45" Width="378" Height="18.9" Text="Campus [Campus.Campus]" HorzAlign="Center" Font="Calibri, 11pt, style=Bold"/>
+      <TextObject Name="Text18" Left="661.5" Top="113.4" Width="47.25" Height="18.9" Fill.Color="Gainsboro" Text="Gpo." HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text19" Left="708.75" Top="113.4" Width="160.65" Height="18.9" Fill.Color="Gainsboro" Text="Especialidad" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" Style="Encabezado"/>
+      <TextObject Name="Text20" Left="869.4" Top="113.4" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Tipo de Beca" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="172.3" Width="999.43" Height="18.9" CanGrow="true" EvenStyle="Eventos de filas" DataSource="consAlumnosBeca">
+      <TextObject Name="Text2" Left="28.35" Width="85.05" Height="17.01" Border.Lines="All" Border.Color="Gainsboro" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.ID_Alumno]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text4" Left="113.4" Width="274.05" Height="17.01" Border.Lines="All" Border.Color="Gainsboro" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.Alumno]" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text6" Left="387.45" Width="37.8" Height="17.01" Border.Lines="All" Border.Color="Gainsboro" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.PorcentajeBeca]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text8" Left="425.25" Width="236.25" Height="17.01" Border.Lines="All" Border.Color="Gainsboro" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.Observaciones]" VertAlign="Center" Font="Calibri, 9pt"/>
+      <TextObject Name="Text11" Width="28.35" Height="17.01" Border.Lines="All" Border.Color="Gainsboro" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="661.5" Width="47.25" Height="18.9" Border.Lines="All" Border.Color="224, 224, 224" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.Grupo]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="708.75" Width="160.65" Height="18.9" Border.Lines="All" Border.Color="224, 224, 224" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.Especialidad]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="869.4" Width="122.85" Height="18.9" Border.Lines="All" Border.Color="224, 224, 224" CanGrow="true" GrowToBottom="true" Text="[consAlumnosBeca.TipoBeca]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="211.2" Width="999.43" Height="41.58">
+      <TextObject Name="Text15" Left="434.7" Top="18.9" Width="330.75" Height="22.68" Border.Lines="Top, Bottom" Border.Color="Gray" Border.Style="Double" Border.Width="0.5" Text="Total de becas: [TotalBecas]" HorzAlign="Center" VertAlign="Center"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="272.78" Width="999.43" Height="18.9">
+      <TextObject Name="Text10" Width="999.43" Height="18.9" Dock="Fill" Fill.Color="WhiteSmoke" Text="[PageN]" HorzAlign="Right" Font="Arial, 9pt" TextFill.Color="DimGray"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

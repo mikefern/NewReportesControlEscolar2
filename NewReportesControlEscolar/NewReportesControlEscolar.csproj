@@ -351,6 +351,7 @@
     <EmbeddedResource Include="RelacionReportes.resx">
       <DependentUpon>RelacionReportes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LoboOne\Reportes\ActaAdmin.frx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1726,5 +1727,6 @@
   <ItemGroup>
     <None Include="Resources\xml min.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

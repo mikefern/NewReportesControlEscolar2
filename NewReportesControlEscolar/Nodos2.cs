@@ -60,7 +60,7 @@ namespace NewReportesControlEscolar
 
         private void button9_Click(object sender, EventArgs e)
         {
-            DatosReportes FrmNuevoUs = new DatosReportes();
+            FrmDatosReportes FrmNuevoUs = new FrmDatosReportes();
             FrmNuevoUs.Show();
         }
 
