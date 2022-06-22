@@ -59,7 +59,7 @@ namespace NewReportesControlEscolar
             GridViewDetalles.Columns[6].Visible = false;
             GridViewDetalles.Columns[7].Visible = false;
             GridViewDetalles.Columns[8].Visible = false;
-            GridViewDetalles.Columns[9].Visible = false;
+            
 
             if (GridViewControl.RowCount > 0)
             {

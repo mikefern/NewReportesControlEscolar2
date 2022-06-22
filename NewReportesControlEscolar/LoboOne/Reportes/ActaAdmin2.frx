@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/19/2018 13:40:09" ReportInfo.Modified="07/24/2020 06:22:23" ReportInfo.CreatorVersion="2015.2.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void txt_Click(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void txtHechosSucedidos_Click(object sender, EventArgs e)
+    {
+      
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqqtzWLe5YNkM503qc41kpcML9Y0VS0gkX6+25qs61SwQ8EKFvKJKukMo1KufPxt0zXVmBE58eSZam2qgG8cvuy64TegLJX8HFXpCHHKBQeokOf7vaGsL90jHVywPXmXm2Z7TQShPuWnDiDfRd6xpkT/tHzSFA4whpwa2ImWLTrixjuHhajNZbCqq4JB7I0AtJHBS4T18yvBiG+VqhkTJQtWk+2JFFm9t2cvpAg32NRcc=">
+      <TableDataSource Name="Table" Alias="consActaAdmin" DataType="System.Int32" Enabled="true" SelectCommand="EXECUTE consActaAdmin @ID_Empleado">
+        <Column Name="nombre" DataType="System.String"/>
+        <Column Name="Id_persona" DataType="System.Int32"/>
+        <Column Name="Calle" DataType="System.String"/>
+        <Column Name="Colonia" DataType="System.String"/>
+        <Column Name="CP" DataType="System.String"/>
+        <Column Name="FechaNacimiento" DataType="System.DateTime"/>
+        <Column Name="Nacionalidad" DataType="System.String"/>
+        <Column Name="EdoCivil" DataType="System.String"/>
+        <Column Name="Telefono" DataType="System.String"/>
+        <Column Name="Celular" DataType="System.String"/>
+        <Column Name="Correo" DataType="System.String"/>
+        <Column Name="RFC" DataType="System.String"/>
+        <Column Name="LugarNacimiento" DataType="System.String"/>
+        <Column Name="Sexo" DataType="System.String"/>
+        <Column Name="CURP" DataType="System.String"/>
+        <Column Name="ID_Persona1" DataType="System.Int32"/>
+        <Column Name="Area" DataType="System.String"/>
+        <Column Name="Puesto" DataType="System.String"/>
+        <Column Name="Campus" DataType="System.String"/>
+        <Column Name="DomicilioCampus" DataType="System.String"/>
+        <Column Name="RepresentanteLegal" DataType="System.String"/>
+        <Column Name="Ciudad" DataType="System.String"/>
+        <Column Name="fecha" DataType="System.String"/>
+        <Column Name="fraccion" DataType="System.String"/>
+        <Column Name="descFrac" DataType="System.String"/>
+        <Column Name="justificacion" DataType="System.String"/>
+        <Column Name="motivo" DataType="System.String"/>
+        <Column Name="observacion" DataType="System.String"/>
+        <Column Name="tipoActa" DataType="System.String"/>
+        <Column Name="dia" DataType="System.String"/>
+        <Column Name="testigo1" DataType="System.String"/>
+        <Column Name="testigo2" DataType="System.String"/>
+        <Column Name="PuesTraba" DataType="System.String"/>
+        <Column Name="NomEncar" DataType="System.String"/>
+        <Column Name="Estado" DataType="System.String"/>
+        <CommandParameter Name="@ID_Empleado" DataType="22" Expression="[ID_Empleado]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="ID_Empleado" DataType="System.String" Expression="&quot;0070031&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="30" TopMargin="25" RightMargin="30" BottomMargin="25" MirrorMargins="true">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="567" Height="47.25">
+      <TextObject Name="Text1" Width="567" Height="18.9" Text="ACTA ADMINISTRATIVA" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="87.25" Width="567"/>
+    <DataBand Name="Data1" Top="107.25" Width="567" Height="1738.8" Guides="453.6,453.6,453.6,453.6" DataSource="Table">
+      <TextObject Name="Text2" Top="75.6" Width="567" Height="1143.45" Text="En la ciudad de [consActaAdmin.Ciudad], [consActaAdmin.Estado], siendo las &lt;u&gt;[FormatDateTime([Date],&quot;hh&quot;)]&lt;/u&gt; horas con &lt;u&gt;[FormatDateTime([Date],&quot;mm&quot;)]&lt;/u&gt; minutos del día &lt;u&gt;[FormatDateTime([Date],&quot;dd&quot;)]&lt;/u&gt; de &lt;u&gt;[FormatDateTime([Date],&quot;MMMM&quot;)]&lt;/u&gt; de &lt;u&gt;[FormatDateTime([Date],&quot;yyyy&quot;)]&lt;/u&gt;, encontrándonos en el local que ocupa el establecimiento denominado FOMENTO EDUCATIVO Y CULTURAL FRANCISCO DE IBARRA ASOCIACIÓN CIVIL, ubicada en calle &lt;u&gt;[consActaAdmin.Calle]&lt;/u&gt; de esta ciudad, precisamente en &lt;u&gt;[txtLugar.Text]&lt;/u&gt; estando presente el suscrito &lt;u&gt;[txtRedactor.Text]&lt;/u&gt;, asi como la presencia de los CC [txtTestigoHechos1.Text], [txtTestigoHechos2.Text], [txtTestigoActa1.Text], [txtTestigoActa2.Text]. así pues se procede al levantamiento de la siguiente Acta Administrativa en contra de usted [consActaAdmin.nombre] quien tiene la categoria de [consActaAdmin.Puesto] dentro de denominado FOMENTO EDUCATIVO Y CULTURAL FRANCISCO DE IBARRA ASOCIACIÓN CIVIL, y que fue citado mediante escrito de fecha &lt;u&gt;&lt;u&gt;[FormatDateTime(dtFechaCitatorio.Value,&quot;dd&quot;)]&lt;/u&gt; de &lt;u&gt;[FormatDateTime(dtFechaCitatorio.Value,&quot;MMMM&quot;)]&lt;/u&gt; de &lt;u&gt;[FormatDateTime(dtFechaCitatorio.Value,&quot;yyyy&quot;)]&lt;/u&gt;, por lo que [IIf(cboPresente.Text == &quot;Si&quot;, &quot;ante la presencia del&quot;, &quot;ante la incomparecencia del trabajador&quot;)] el C. &lt;u&gt;[consActaAdmin.nombre]&lt;/u&gt;, ha incurrido en lo previsto en el articulo &lt;b&gt;47 (fracciones ---- de la Ley Federal del Trabajo),&lt;/b&gt; [IIf(cboPresente.Text == &quot;Si&quot;, txtHechosMotivo.Text+&quot;,&quot;, &quot;&quot;)] incumpliendo así con sus obligaciones contempladas en el articulo 134 Fracción IV de la Ley Federal del trabajo, así como lo establecido por el Reglamento Interior de Trabajo de denominado FOMENTO EDUCATIVO Y CULTURAL FRANCISCO DE IBARRA ASOCIACIÓN CIVIL, [IIf(cboPresente.Text == &quot;Si&quot;,&quot;Se hace constar que se encuentra presente y se le da el uso de la voz respecto a los hechos que se le atribuyen. &quot; + txtHechosMotivo.Text + &quot;.&quot;, &quot;&quot;)]  Acto Seguido se procede a otorgar el uso de la voz a comparecientes quienes manifestarán de viva voz los hechos relacionados con el motivo de la presente Acta, siendo especificamente [txtHechosMotivo.Text] de manera. en este acto la C. &lt;u&gt;[txtTestigoHechos1.Text]&lt;/u&gt; en su carácter de testigo de cargo, manifiesta: &lt;u&gt;[txtHechostestigo1.Text]&lt;/u&gt;. Asimismo se le da el uso de la voz a &lt;u&gt;[txtTestigoHechos2.Text]&lt;/u&gt; quien manifiesta: &lt;u&gt;[txtHechosTestigo2.Text]&lt;/u&gt; Lo que da motivo al levantamiento de la presente acta para los efectos legales a que haya lugar a los &lt;u&gt;[FormatDateTime([Date],&quot;dd&quot;)]&lt;/u&gt; días del mes de &lt;u&gt;[FormatDateTime([Date],&quot;MMMM&quot;)]&lt;/u&gt; de &lt;u&gt;[FormatDateTime([Date],&quot;yyyy&quot;)]&lt;/u&gt;, firmando al calce los que en ella intervienen." HorzAlign="Justify" Font="Arial, 12pt" LineHeight="28.35" HtmlTags="true"/>
+      <TextObject Name="Text7" Width="567" Height="18.9" Text="C. [consActaAdmin.nombre]" Font="Arial, 12pt"/>
+      <TextObject Name="Text3" Left="18.9" Top="1483.65" Width="226.8" Height="18.9" Text="TESTIGO" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text6" Left="302.4" Top="1540.35" Width="264.6" Height="47.25" Border.Lines="Top" Text="[txtTestigoActa2.Text]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Top="1540.35" Width="264.6" Height="47.25" Border.Lines="Top" Text="[txtTestigoActa1.Text]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text9" Top="28.35" Width="567" Height="18.9" Text="PRESENTE.-" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text10" Left="28.35" Top="1351.35" Width="198.45" Height="18.9" Text="REPRESENTANTE PATRONAL" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text11" Left="330.75" Top="1351.35" Width="198.45" Height="18.9" Text="EL TRABAJADOR" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text12" Left="302.4" Top="1408.05" Width="264.6" Height="47.25" Border.Lines="Top" Text="[consActaAdmin.nombre]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text13" Top="1408.05" Width="264.6" Height="47.25" Border.Lines="Top" Text="[txtRedactor.Text]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text14" Top="1266.3" Width="567" Height="18.9" Text="ATENTAMENTE" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text15" Left="311.85" Top="1483.65" Width="226.8" Height="18.9" Text="TESTIGO" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text16" Left="18.9" Top="1615.95" Width="226.8" Height="18.9" Text="TESTIGO DE LOS HECHOS" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text17" Left="302.4" Top="1672.65" Width="264.6" Height="47.25" Border.Lines="Top" Text="[txtTestigoHechos2.Text]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text18" Top="1672.65" Width="264.6" Height="47.25" Border.Lines="Top" Text="[txtTestigoHechos1.Text]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text19" Left="311.85" Top="1615.95" Width="226.8" Height="18.9" Text="TESTIGO DE LOS HECHOS" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="1866.05" Width="567" Height="37.8">
+      <TextObject Name="Text8" Left="330.75" Top="9.45" Width="236.25" Height="18.9" Text="Página &lt;b&gt;[Page#]&lt;/b&gt; de &lt;b&gt;[TotalPages#]&lt;/b&gt;" HorzAlign="Right" HtmlTags="true"/>
+    </PageFooterBand>
+  </ReportPage>
+  <DialogPage Name="FrmAcataAdministrativa" Width="962" Height="402" AcceptButton="btnOk" CancelButton="btnCancel" Text="Datos para Acta Administrativa">
+    <ButtonControl Name="btnOk" Left="790" Top="342" Anchor="Bottom, Right" Font="Tahoma, 8pt" TabIndex="0" Text="Aceptar" DialogResult="OK"/>
+    <ButtonControl Name="btnCancel" Left="873" Top="342" Anchor="Bottom, Right" Font="Tahoma, 8pt" TabIndex="1" Text="Cancelar" DialogResult="Cancel"/>
+    <TextBoxControl Name="txtLugar" Left="44" Top="44" Width="424" Font="Tahoma, 8pt" TabIndex="2"/>
+    <LabelControl Name="Label1" Left="44" Top="24" Width="235" Height="13" Font="Tahoma, 8pt" TabIndex="3" Text="Lugar (Dirección, Gerencia, Recursos Humanos)"/>
+    <TextBoxControl Name="txtRedactor" Left="44" Top="88" Width="424" Font="Tahoma, 8pt" TabIndex="4"/>
+    <LabelControl Name="Label2" Left="44" Top="72" Width="110" Height="13" Font="Tahoma, 8pt" TabIndex="5" Text="Quien levanta el Acta"/>
+    <LabelControl Name="Label3" Left="44" Top="116" Width="128" Height="13" Font="Tahoma, 8pt" TabIndex="6" Text="Testigo de los Hechos (1)"/>
+    <TextBoxControl Name="txtTestigoHechos1" Left="44" Top="132" Width="424" Font="Tahoma, 8pt" TabIndex="7"/>
+    <LabelControl Name="Label4" Left="44" Top="160" Width="128" Height="13" Font="Tahoma, 8pt" TabIndex="8" Text="Testigo de los Hechos (2)"/>
+    <TextBoxControl Name="txtTestigoHechos2" Left="44" Top="176" Width="424" Font="Tahoma, 8pt" TabIndex="9"/>
+    <LabelControl Name="Label5" Left="44" Top="204" Width="101" Height="13" Font="Tahoma, 8pt" TabIndex="10" Text="Testigo del Acta (1)"/>
+    <TextBoxControl Name="txtTestigoActa1" Left="44" Top="220" Width="424" Font="Tahoma, 8pt" TabIndex="11"/>
+    <TextBoxControl Name="txtTestigoActa2" Left="44" Top="264" Width="424" Font="Tahoma, 8pt" TabIndex="12"/>
+    <LabelControl Name="Label6" Left="44" Top="248" Width="101" Height="13" Font="Tahoma, 8pt" TabIndex="13" Text="Testigo del Acta (2)"/>
+    <LabelControl Name="Label7" Left="44" Top="292" Width="197" Height="13" Font="Tahoma, 8pt" TabIndex="14" Text="Fecha en que se dio el citatorio del acta"/>
+    <DateTimePickerControl Name="dtFechaCitatorio" Left="44" Top="308" Width="196" Font="Tahoma, 8pt" TabIndex="15" Format="Short" Value="05/24/2019 11:41:45"/>
+    <LabelControl Name="Label8" Left="248" Top="292" Width="181" Height="13" Font="Tahoma, 8pt" TabIndex="16" Text="El trabajador se encuentra presente"/>
+    <ComboBoxControl Name="cboPresente" Left="252" Top="308" Width="217" Font="Tahoma, 8pt" TabIndex="17" DropDownWidth="217" ItemHeight="13" ItemsText="Si&#13;&#10;No"/>
+    <TextBoxControl Name="txtHechosMotivo" Left="492" Top="44" Width="424" Height="64" Font="Tahoma, 8pt" TabIndex="18" Text="Redactar los hechos que motivaron al incumplimiento del empleado." Multiline="true"/>
+    <TextBoxControl Name="txtHechostestigo1" Left="488" Top="132" Width="424" Height="64" Font="Tahoma, 8pt" TabIndex="18" Text="Redactar la manifestacion del testigo de los hechos (1)" ClickEvent="txt_Click" Multiline="true"/>
+    <TextBoxControl Name="txtHechosTestigo2" Left="488" Top="224" Width="424" Height="60" Font="Tahoma, 8pt" TabIndex="18" Text="Redactar la manifestacion del testigo de los hechos (2)" Multiline="true"/>
+  </DialogPage>
+</Report>
