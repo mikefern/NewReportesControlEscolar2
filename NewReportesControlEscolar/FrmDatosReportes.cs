@@ -1138,6 +1138,41 @@ namespace ProyectoLoboSostenido
                 visualizarReporte();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+            string rutaReal = @"\\189.197.190.214\Sistemas\ReportesCE\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+
+            if (V_Ruta != rutaReal) CopiarArchivo(txtRuta.Text, rutaReal);
+
+            Clase_ReportesCE reportes = new Clase_ReportesCE();
+            txtDescripcionModificaciones.Text = txtDescripcionModificaciones.Text + "\n" + Descripcion_Creacion;
+            if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), rutaReal, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
+            {
+                if (reportes.Lector.Tables.Count > 0)
+                {
+                    MessageBox.Show("El registro ya existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Registro guardado correctamente", "REGISTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                btnModificar.Enabled = true;
+                cambioRadioButton = true;
+                MostrarReportes();
+            }
+            else
+            {
+                MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            cambioRadioButton = true;
+            MostrarReportes();
+        }
     }
 
 }
