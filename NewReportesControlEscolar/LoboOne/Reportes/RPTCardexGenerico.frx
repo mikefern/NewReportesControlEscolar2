@@ -1,0 +1,1023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/13/2018 08:40:28" ReportInfo.Modified="07/23/2020 15:06:25" ReportInfo.CreatorVersion="2015.2.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    #region VariablesGenerales
+    public string nombreUniversidad;
+    public string extension;
+    public string nombreCampus;
+    public string encabezado;
+    
+    public string nombreAlumno;
+    public string fechaNacimiento;
+    public string domicilio;
+    public string carrera;
+    public string matricula;
+    public string interesado_a;
+    
+    public string medida;
+    public string semestre;
+    public string creditos;
+    public string calificacionMateria;
+    public string calificacionLetra;
+    public string fechaExamen;
+    public string folio;
+    public string posicion;
+    public string ciclo;
+    public string tipoExamen;
+    public string carrera_pos;
+    
+    public string responsable;
+    public string puesto;
+    
+    public double calificacion = 0;
+    public int contadorMaterias = 0;
+    public double sumaCalificaciones = 0;
+    public string letra = &quot;&quot;;
+    public double promedio = 0;
+    public string LetraPromedio;
+    public double sumaCreditos = 0;
+    public string creditosTotales = &quot;0&quot;;
+    public string promedioFinal = &quot;0&quot;;
+    #endregion
+        
+    #region Fuciones
+        
+    public string _nombreUniversidad()
+    { 
+      string id_campus = ((String)Report.GetColumnValue(&quot;LogoCampus.ID_Campus&quot;));
+      switch(id_campus)
+      {
+        case &quot;01&quot;: case &quot;02&quot;: case &quot;04&quot;: case &quot;05&quot;: case &quot;06&quot;: case &quot;07&quot;: case &quot;11&quot;: 
+        case &quot;18&quot;: case &quot;19&quot;: case &quot;20&quot;: case &quot;25&quot;: case &quot;31&quot;: case &quot;32&quot;: case &quot;33&quot;:
+          return &quot;Universidad Autónoma de Durango&quot;;
+          break;
+        case &quot;08&quot;: case &quot;13&quot;: case &quot;14&quot;: case &quot;21&quot;: 
+          return &quot;Universidad Durango Santander&quot;;
+          break;
+        case &quot;03&quot;: case &quot;09&quot;: case &quot;10&quot;: case &quot;12&quot;: case &quot;24&quot;: case &quot;26&quot;:
+          return &quot;Universidad de Durango&quot;;
+          break;
+        default:
+          return &quot;Universidad Autónoma de Durango&quot;;
+          break;
+      }
+    }
+    
+    public string _extension()
+    {
+      string id_campus = ((String)Report.GetColumnValue(&quot;LogoCampus.ID_Campus&quot;));
+      switch (id_campus)
+      {
+        case &quot;04&quot;:
+          return &quot;Extensión Santiago Papasquiaro\n&quot;;
+          break;
+        case &quot;11&quot;:
+          return &quot;Extensión Gómez Palacio\n&quot;;
+          break;
+        default:
+          return &quot;&quot;;
+          break;
+      }
+    }
+    
+    public string _nombreCampus()
+    {
+      string id_campus = ((String)Report.GetColumnValue(&quot;LogoCampus.ID_Campus&quot;));
+      switch (id_campus)
+      {
+        case &quot;14&quot;:
+          return &quot;Campus Obregón&quot;;
+          break;
+        case &quot;18&quot;:
+          return &quot;Campus Virtual&quot;;
+          break;
+        case &quot;29&quot;:
+          return &quot;Campus Ejecutivas&quot;;
+          break;
+        case &quot;40&quot;:
+          return &quot;Campus Ciudad de México&quot;;
+          break;
+        default:
+          return &quot;Campus &quot; + ((String)Report.GetColumnValue(&quot;LogoCampus.Campus&quot;));
+          break;
+      }
+    }
+    
+    public string _encabezado()
+    {
+      return ((String)Report.GetColumnValue(&quot;DatosGenerales.Encabezado&quot;));
+    }
+
+    public string _nombreAlumno()
+    {
+      return  UpperCase(((String)Report.GetColumnValue(&quot;DatosGenerales.Paterno&quot;)) + &quot; &quot; +
+                       ((String)Report.GetColumnValue(&quot;DatosGenerales.Materno&quot;)) + &quot; &quot; +
+                       ((String)Report.GetColumnValue(&quot;DatosGenerales.Nombre&quot;)));
+    }
+    
+    public string _fechaNacimiento()
+    {
+      return ((DateTime)Report.GetColumnValue(&quot;DatosGenerales.FechaNacimiento&quot;)).ToString(&quot;dd 'de' MMMM 'de' yyyy&quot;);
+    }
+    
+    public string _domicilio()
+    {
+      return  ((String)Report.GetColumnValue(&quot;DatosGenerales.Calle&quot;)) + &quot; &quot; + 
+              ((String)Report.GetColumnValue(&quot;DatosGenerales.Colonia&quot;)) + &quot; C.P. &quot; + 
+              ((String)Report.GetColumnValue(&quot;DatosGenerales.CP&quot;));
+    }
+    
+    public string _carrera()
+    {
+      return TitleCase(LowerCase(((String)Report.GetColumnValue(&quot;DatosGenerales.Licenciatura&quot;))));
+    }
+    
+    public string _matricula()
+    {
+      //return ((String)Report.GetColumnValue(&quot;DatosGenerales.ID_Alumno2&quot;));
+      return ((String)Report.GetColumnValue(&quot;DatosGenerales.ID_Alumno&quot;));
+    }
+    
+    public string _interesado_a()
+    {
+      return ((String)Report.GetColumnValue(&quot;DatosGenerales.Sexo&quot;)) == &quot;F&quot; ? &quot;a la interesada&quot; : &quot;al interesado&quot;;
+    }
+
+    public string _medida()
+    {
+      string med = UpperCase(((String)Report.GetColumnValue(&quot;Cardex.Medida&quot;)));
+      
+      switch(med)
+      {
+        case &quot;SEM&quot;: case &quot;SEMEST&quot;:
+          return &quot;SEMESTRE&quot;;
+          break;
+        case &quot;STD&quot;: case &quot;EJEC&quot;: case &quot;EJE&quot;: case &quot;CUATRI&quot;: case &quot;CUA&quot;: case &quot;SAB&quot;: case &quot;VES&quot;: case &quot;POS&quot;: 
+          return &quot;CUATRIMESTRE&quot;;
+          break;
+        default:
+          return &quot;SEMESTRE&quot;;
+          break;
+      }
+    }
+    
+    public string _semestre()
+    {
+      string sem = ((String)Report.GetColumnValue(&quot;Cardex.NumSemestre&quot;));
+      switch(sem)
+      {
+        case &quot;01&quot;:
+          return &quot;PRIMER&quot;;
+          break;
+        case &quot;02&quot;:
+          return &quot;SEGUNDO&quot;;
+          break;
+        case &quot;03&quot;: 
+          return &quot;TERCER&quot;;
+          break;
+        case &quot;04&quot;:
+          return &quot;CUARTO&quot;;
+          break;
+        case &quot;05&quot;:
+          return &quot;QUINTO&quot;;
+          break;
+        case &quot;06&quot;:
+          return &quot;SEXTO&quot;;
+          break;
+        case &quot;07&quot;:
+          return &quot;SÉPTIMO&quot;;
+          break;
+        case &quot;08&quot;:
+          return &quot;OCTAVO&quot;;
+          break;
+        case &quot;09&quot;:
+          return &quot;NOVENO&quot;;
+          break;
+        case &quot;10&quot;:
+          return &quot;DÉCIMO&quot;;
+          break;
+        case &quot;11&quot;:
+          return &quot;ONCEAVO&quot;;
+          break;
+        case &quot;12&quot;:
+          return &quot;DOCEAVO&quot;;
+          break;
+        case &quot;13&quot;:
+          return &quot;TRECEAVO&quot;;
+          break;
+        case &quot;14&quot;:
+          return &quot;CATORCEAVO&quot;;
+          break;
+        default:
+          return &quot;&quot;;
+          break;
+      }
+    }
+    
+    public string _creditos()
+    {
+      return (Report.GetColumnValue(&quot;Cardex.Creditos&quot;)).ToString(); 
+    }
+        
+    public string _calificacionMateria()
+    {
+      int band = getBandera();
+      double minima = ((Double)Report.GetColumnValue(&quot;Cardex.CalificacionMinima&quot;));
+      
+      switch(band)
+      {
+        case 1: //ORDINARIO
+          calificacion = ((Double)Report.GetColumnValue(&quot;Cardex.Ordinario&quot;));
+          if(calificacion &gt;= minima) 
+          {
+            contadorMaterias++;
+            sumaCalificaciones += calificacion;
+            sumaCreditos += Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Creditos&quot;)));
+          }
+          if(calificacion.ToString().Length == 1 || calificacion.ToString() == &quot;10&quot;)
+            return calificacion.ToString() + &quot;.0&quot;;  
+          else
+            return calificacion.ToString();    
+          break;
+        case 2: //EXTRAORDINARIO
+          calificacion = ((Double)Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;));
+          if(calificacion &gt;= minima) 
+          {
+            contadorMaterias++;
+            sumaCalificaciones += calificacion;
+            sumaCreditos += Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Creditos&quot;)));
+          }
+          if(calificacion.ToString().Length == 1 || calificacion.ToString() == &quot;10&quot;)
+            return calificacion.ToString() + &quot;.0&quot;;
+          else 
+            return calificacion.ToString();
+          break;
+        case 3: //TITULO
+          calificacion = ((Double)Report.GetColumnValue(&quot;Cardex.Titulo&quot;));
+          if(calificacion &gt;= minima) 
+          {
+            contadorMaterias++;
+            sumaCalificaciones += calificacion;
+            sumaCreditos += Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Creditos&quot;)));
+          }
+          if(calificacion.ToString().Length == 1 || calificacion.ToString() == &quot;10&quot;)
+            return calificacion.ToString() + &quot;.0&quot;;
+          else 
+            return calificacion.ToString();
+          break;
+        case 4: //EQUIVALENCIA
+          calificacion = ((Double)Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;));
+          if(calificacion &gt;= minima) 
+          {
+            contadorMaterias++;
+            sumaCalificaciones += calificacion;
+            sumaCreditos += Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Creditos&quot;)));
+          }    
+          if(calificacion.ToString().Length == 1 || calificacion.ToString() == &quot;10&quot;)
+            return calificacion.ToString() + &quot;.0&quot;;
+          else 
+            return calificacion.ToString();
+          break;       
+        case 5:           
+          return &quot;*&quot;;
+          break;
+        default:
+          return &quot;*&quot;;
+          break;
+      }
+    }
+    
+    public string _calificacionLetra()
+    {
+      double x = 0;
+      int band =getBandera();
+      switch(band)
+      {                                
+        case 1:    
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Ordinario&quot;)));         
+          letra = numeroLetra(x);
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;          
+        case 2:
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;)));
+          letra = numeroLetra(Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;))));
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 3: 
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Titulo&quot;)));
+          letra = numeroLetra(Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Titulo&quot;))));
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 4: 
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;)));
+          letra = numeroLetra(Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;))));
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 5:           
+          return &quot;&quot;; 
+          break; 
+        default:
+          return &quot;&quot;;
+          break;
+      }
+    }
+    public string _calificacionLetra100()
+    {
+      double x = 0;
+      int band =getBandera();
+      switch(band)
+      {                                
+        case 1:    
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Ordinario&quot;)));         
+          letra = Replace(TitleCase(Replace((Replace((Replace(ToWordsEs(x),&quot;euros con 00 centavos&quot;,&quot;&quot;)),&quot;.&quot;,&quot;y&quot;)),&quot;un&quot;,&quot;uno&quot;)),&quot;Y&quot;,&quot;y&quot;);
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;          
+        case 2:
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;)));
+          letra = Replace(TitleCase(Replace((Replace((Replace(ToWordsEs(x),&quot;euros con 00 centavos&quot;,&quot;&quot;)),&quot;.&quot;,&quot;y&quot;)),&quot;un&quot;,&quot;uno&quot;)),&quot;Y&quot;,&quot;y&quot;);
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 3: 
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Titulo&quot;)));
+          letra = Replace(TitleCase(Replace((Replace((Replace(ToWordsEs(x),&quot;euros con 00 centavos&quot;,&quot;&quot;)),&quot;.&quot;,&quot;y&quot;)),&quot;un&quot;,&quot;uno&quot;)),&quot;Y&quot;,&quot;y&quot;);
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 4: 
+          x = Convert.ToDouble((Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;)));
+          letra = Replace(TitleCase(Replace((Replace((Replace(ToWordsEs(x),&quot;euros con 00 centavos&quot;,&quot;&quot;)),&quot;.&quot;,&quot;y&quot;)),&quot;un&quot;,&quot;uno&quot;)),&quot;Y&quot;,&quot;y&quot;);
+          
+          if(x.ToString().Length == 1 || x.ToString() == &quot;10&quot;)
+            return letra + &quot;   .   Cero&quot;;
+          else 
+            return letra;
+          break;
+        case 5:           
+          return &quot;&quot;; 
+          break; 
+        default:
+          return &quot;&quot;;
+          break;
+      }
+    }
+    
+    public string _folio()
+    {
+      int bandera = getBandera();
+      switch (bandera)
+      {
+        case 1:
+          return ((String)Report.GetColumnValue(&quot;Cardex.FolioOrd&quot;));
+          break;
+        case 2:
+          return ((String)Report.GetColumnValue(&quot;Cardex.FolioExt&quot;));
+          break;
+        case 3:
+          return ((String)Report.GetColumnValue(&quot;Cardex.FolioTit&quot;));
+          break;
+        case 4:
+          return &quot;0&quot;;
+          break;
+        default:  
+          return &quot;&quot;;
+          break;
+      }
+    }
+    
+    public string _posicion()
+    {
+      int bandera = getBandera();
+      switch (bandera)
+      {
+        case 1:  
+          return ((String)Report.GetColumnValue(&quot;Cardex.PosicionActaOrd&quot;));
+          break;
+        case 2:
+          return ((String)Report.GetColumnValue(&quot;Cardex.PosicionActaExt&quot;));
+          break;
+        case 3:
+          return ((String)Report.GetColumnValue(&quot;Cardex.PosicionActaTit&quot;));
+          Year(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;)));
+          break;
+        case 4:
+          return &quot;0&quot;;
+          break;
+        default:          
+          return &quot;&quot;;
+          break;
+      }
+    }
+    
+    public string _ciclo()
+    {
+      return ((String)Report.GetColumnValue(&quot;Cardex.ID_Periodo&quot;));
+    }
+    
+    public string _fechaExamen()
+    {
+      int bandera = getBandera();
+      switch (bandera)
+      {
+        case 1:
+          return (Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaOrd&quot;))) &lt; 10 ? &quot;0&quot; + Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaOrd&quot;))).ToString(): Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaOrd&quot;))).ToString()) +&quot;-&quot;+
+            ToRoman(Month(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaOrd&quot;))))+&quot;-&quot;+
+            Year(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaOrd&quot;)));
+          break;
+        case 2:
+          return (Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaExt&quot;))) &lt; 10 ? &quot;0&quot; + Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaExt&quot;))).ToString(): Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaExt&quot;))).ToString()) +&quot;-&quot;+
+            ToRoman(Month(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaExt&quot;))))+&quot;-&quot;+
+            Year(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaExt&quot;)));
+          break;
+        case 3:
+          return (Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;))) &lt; 10 ? &quot;0&quot; + Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;))).ToString(): Day(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;))).ToString()) +&quot;-&quot;+
+            ToRoman(Month(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;))))+&quot;-&quot;+
+            Year(((DateTime)Report.GetColumnValue(&quot;Cardex.FechaTit&quot;)));
+          break;     
+        case 4:
+          return &quot;01-|-1&quot;;
+          break; 
+        default:          
+          return &quot;&quot;; 
+          break;        
+      }
+    }
+        
+    public string _tipoExamen()
+    {
+      int band =getBandera();
+      switch(band)
+      {
+        case 1: 
+         // if(((Double)Report.GetColumnValue(&quot;Cardex.Ordinario&quot;)))
+          return &quot;Ord&quot;;
+          break;
+        case 2: 
+         // if(((Double)Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;)))
+          return &quot;Ext&quot;;
+          break;
+        case 3:
+         // if(((Double)Report.GetColumnValue(&quot;Cardex.Titulo&quot;)))
+          return &quot;Tit&quot;;
+          break;
+        case 4:                                                                                
+         // if(((Double)Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;)))
+          if(ToInt32(((Boolean)Report.GetColumnValue(&quot;Cardex.Revalida&quot;)))==1)
+          return &quot;Rev&quot;;
+          else
+          return &quot;Equ&quot;;
+          break;
+        default:
+          return &quot;&quot;;
+          break;
+      }
+    }
+
+    public string _carrera_pos()
+    {
+      if( ((String)Report.GetColumnValue(&quot;DatosGenerales.TipoUniv&quot;))== &quot;3&quot;)
+        return &quot;Posgrado&quot;;
+      else
+        return &quot;Carrera&quot;;
+    }
+    
+    public string _responsable()
+    {
+      return ((String)Report.GetColumnValue(&quot;Cardex.TituloEncargadoCE&quot;)) + &quot; &quot; + ((String)Report.GetColumnValue(&quot;Cardex.EncargadoCE&quot;));
+    }
+    
+    public string _puesto()
+    {
+      string ID_Campus = ((String)Report.GetColumnValue(&quot;Cardex.ID_Campus&quot;));
+      switch (ID_Campus)
+      {
+        case &quot;01&quot;: case &quot;13&quot;: case &quot;29&quot;: 
+          return &quot;Directora de Control Escolar&quot;;
+          break;
+        case &quot;02&quot;:
+          return ((String)Report.GetColumnValue(&quot;Cardex.SexoEncargadoCE&quot;)) == &quot;M&quot; ? &quot;Jefe del departamento de Control Escolar&quot; : &quot;Jefa del departamento de Control Escolar&quot;;
+          break;
+        case &quot;07&quot;:
+          return &quot;Secretario Académico General&quot;;
+          break;
+        case &quot;14&quot;:
+          return ((String)Report.GetColumnValue(&quot;Cardex.SexoEncargadoCE&quot;)) == &quot;M&quot; ? &quot;Director de Control Escolar&quot; : &quot;Directora de Control Escolar&quot;;
+          break;
+        default:
+          return &quot;Responsable de Control Escolar&quot;;
+          break;
+      }
+    }
+    
+    public double _promedio()
+    {
+      return  (Math.Truncate((ToDouble(Report.GetTotalValue(&quot;TotalPromedio&quot;)))*10))/10;
+    }
+    
+    public string _promedioLetra()
+    {
+      return promedioLetra(_promedio());
+    }
+    
+    public string _sumaCredtitos()
+    {
+      return sumaCreditos.ToString();
+    }
+    
+    #endregion
+    
+    #region Métodos y Cálculos
+    private int getBandera()
+    {
+      double valorOrd = ((Double)Report.GetColumnValue(&quot;Cardex.Ordinario&quot;));
+      double valorExt = ((Double)Report.GetColumnValue(&quot;Cardex.Extraordinario&quot;));
+      double valorTit = ((Double)Report.GetColumnValue(&quot;Cardex.Titulo&quot;));
+      double valorEqv = ((Double)Report.GetColumnValue(&quot;Cardex.Equivalencia&quot;));
+      double minima = ((Double)Report.GetColumnValue(&quot;Cardex.CalificacionMinima&quot;));
+         
+      if(valorOrd&gt;0 &amp;&amp; valorExt==0 &amp;&amp; valorTit==0 &amp;&amp; valorEqv==0)
+      {
+        return 1; //ORDINARIO
+      }
+      else if(valorOrd&gt;0 &amp;&amp; valorExt&gt;0 &amp;&amp; valorTit==0 &amp;&amp; valorEqv==0)
+      {
+        return 2; //EXTRAORDINARIO  
+      }
+      else if(valorOrd&gt;0 &amp;&amp; valorExt&gt;0 &amp;&amp; valorTit&gt;0 &amp;&amp; valorEqv==0)
+      {
+        return 3; //TITULO
+      }  
+      else if(valorEqv&gt;0)
+      {  
+        if(valorOrd&gt;0 &amp;&amp; valorExt&gt;0 &amp;&amp; valorTit&gt;0 &amp;&amp; valorEqv&gt;0)
+        {
+          return 4; //EQUIVALENCIA
+        }
+        else if(valorOrd==0 &amp;&amp; valorExt==0 &amp;&amp; valorTit==0 &amp;&amp; valorEqv&gt;0)
+        {
+          return 4; //EQUIVALENCIA
+        }
+        else if(valorOrd==0 &amp;&amp; valorExt==0 &amp;&amp; valorTit&gt;0 &amp;&amp; valorEqv&gt;0)
+        {
+          return 4; //EQUIVALENCIA
+        }  
+        else
+        {
+          return 6;
+        }  
+      }
+      else if(valorOrd==0 &amp;&amp; valorExt==0 &amp;&amp; valorTit==0 &amp;&amp; valorEqv==0)
+      {
+        return 5; //*
+      }
+      else
+      {
+        return 6;
+      }   
+    }
+    
+    private string numeroLetra(double calificacion)
+    {
+      string ret = &quot;&quot;;
+  
+      string  numero = calificacion.ToString();
+      string[]  sep = numero.Split('.');
+      for(int g = 0; g &lt;sep.Length; g++)
+      {
+        if(sep[g].Equals(&quot;1&quot;))
+          ret+= &quot;Uno&quot;;
+        if(sep[g].Equals(&quot;2&quot;))
+          ret+= &quot;Dos&quot;;
+        if(sep[g].Equals(&quot;3&quot;))
+          ret+= &quot;Tres&quot;;
+        if(sep[g].Equals(&quot;4&quot;))
+          ret+= &quot;Cuatro&quot;;
+        if(sep[g].Equals(&quot;5&quot;))
+          ret+= &quot;Cinco&quot;;
+        if(sep[g].Equals(&quot;6&quot;))
+          ret+= &quot;Seis&quot;;
+        if(sep[g].Equals(&quot;7&quot;))
+          ret+= &quot;Siete&quot;;
+        if(sep[g].Equals(&quot;8&quot;))
+          ret+= &quot;Ocho&quot;;
+        if(sep[g].Equals(&quot;9&quot;))
+          ret+= &quot;Nueve&quot;;
+        if(sep[g].Equals(&quot;10&quot;))
+          ret+= &quot;Diez&quot;;
+        if(sep[g].Equals(&quot;0&quot;))
+          ret+= &quot;Cero&quot;;
+        if(sep.Length &gt; g+1)
+          ret+= &quot;   .   &quot;;
+      }        
+      return ret;
+    }
+    
+    private string promedioLetra(double calificacion)
+    {
+      string ret = &quot;&quot;;
+  
+      string  numero = calificacion.ToString();
+      string[]  sep = numero.Split('.');
+      for(int g = 0; g &lt;sep.Length; g++)
+      {
+        if(sep[g].Equals(&quot;1&quot;))
+          ret+= &quot;uno&quot;;
+        if(sep[g].Equals(&quot;2&quot;))
+          ret+= &quot;dos&quot;;
+        if(sep[g].Equals(&quot;3&quot;))
+          ret+= &quot;tres&quot;;
+        if(sep[g].Equals(&quot;4&quot;))
+          ret+= &quot;cuatro&quot;;
+        if(sep[g].Equals(&quot;5&quot;))
+          ret+= &quot;cinco&quot;;
+        if(sep[g].Equals(&quot;6&quot;))
+          ret+= &quot;seis&quot;;
+        if(sep[g].Equals(&quot;7&quot;))
+          ret+= &quot;siete&quot;;
+        if(sep[g].Equals(&quot;8&quot;))
+          ret+= &quot;ocho&quot;;
+        if(sep[g].Equals(&quot;9&quot;))
+          ret+= &quot;nueve&quot;;
+        if(sep[g].Equals(&quot;10&quot;))
+          ret+= &quot;diez&quot;;
+        if(sep[g].Equals(&quot;0&quot;))
+          ret+= &quot;cero&quot;;
+        if(sep.Length &gt; g+1)
+          ret+= &quot; punto &quot;;
+      }        
+      return ret;
+    }
+    
+    #endregion
+    
+    #region Eventos de Reporte
+    //NOMBRE DE LA UNIVERSIDAD
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      nombreUniversidad = _nombreUniversidad();
+    }
+    
+    //EXTENSIÓN Y NOMBRE DE CAMPUS
+    private void Text2_BeforePrint(object sender, EventArgs e)
+    {
+      extension = _extension();
+      nombreCampus = _nombreCampus();
+    }
+    
+    //ENCABEZADO
+    private void Text3_BeforePrint(object sender, EventArgs e)
+    {
+      encabezado = _encabezado();
+    }
+    
+    //NOMBRE DEL ALUMNO
+    private void Text10_BeforePrint(object sender, EventArgs e)
+    {
+      nombreAlumno = _nombreAlumno();
+    }
+    
+    //FECHA DE NACIMIENTO
+    private void Text11_BeforePrint(object sender, EventArgs e)
+    {
+      fechaNacimiento = _fechaNacimiento();
+    }  
+    
+    //DOMICILIO DEL ALUMNO
+    private void Text12_BeforePrint(object sender, EventArgs e)
+    {
+      domicilio = _domicilio();
+    }
+    
+    //CARRERA O POSGRADO
+    private void Text8_BeforePrint(object sender, EventArgs e)
+    {
+      carrera_pos = _carrera_pos();
+    }
+    
+    //CARRERA
+    private void Text13_BeforePrint(object sender, EventArgs e)
+    {
+      carrera = _carrera();
+    }
+    
+    //MATRICULA DEL ALUMNO
+    private void Text14_BeforePrint(object sender, EventArgs e)
+    {
+      matricula = _matricula();
+    }
+    
+    //NÚMERO DE SEMESTRE Y MEDIDA (SEM/CUA)
+    private void Text28_BeforePrint(object sender, EventArgs e)
+    {
+      medida = _medida();
+      semestre = _semestre();
+    }
+    
+    //INTERESADO O INTERESADA PARA EL CARDEX
+    private void Text29_BeforePrint(object sender, EventArgs e)
+    {
+      
+      interesado_a = _interesado_a();
+      promedio = _promedio();
+      if( promedio.ToString().Length == 1 || promedio.ToString() == &quot;10&quot; )
+      {
+        promedioFinal = promedio.ToString() + &quot;.0&quot;;          
+      }
+      else
+      {
+        promedioFinal = promedio.ToString();
+      }
+      LetraPromedio = _promedioLetra();
+      creditosTotales = Report.GetTotalValue(&quot;TotalCreditos&quot;);  //_sumaCredtitos();
+      creditosTotales = (Convert.ToDecimal(creditosTotales)).ToString(&quot;##.###&quot;);
+    }
+    
+    //PUESTO DE CONTROL ESCOLAR
+    private void Text31_BeforePrint(object sender, EventArgs e)
+    {
+      puesto = _puesto();
+    }
+    
+    //RESPONSABLE DE CONTROL ESCOLAR
+    private void Text30_BeforePrint(object sender, EventArgs e)
+    {
+      responsable = _responsable();
+    }
+    
+    //CRÉDITOS
+    private void Text32_BeforePrint(object sender, EventArgs e)
+    {
+      creditos = _creditos();
+      creditos =(Convert.ToDecimal(creditos)).ToString(&quot;##.###&quot;);
+    }
+    
+    //TIPO DE EXAMEN
+    string tipoExamen2;
+   // double? D = null;
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      tipoExamen = _tipoExamen();      
+    }
+    
+    //FECHA DE EXAMEN
+    private void Text38_BeforePrint(object sender, EventArgs e)
+    {
+      fechaExamen = _fechaExamen();
+    }
+    
+    //FOLIO
+    string folio_cadena;
+    private void Text36_BeforePrint(object sender, EventArgs e)
+    {
+      folio = _folio();     
+    }
+    
+    //CICLO ESCOLAR
+    private void Text35_BeforePrint(object sender, EventArgs e)
+    {
+      ciclo = _ciclo();
+    }
+    
+    //CALIFICACION MATERIA
+    private void Text33_BeforePrint(object sender, EventArgs e)
+    {
+      calificacionMateria = _calificacionMateria();       
+    }
+    
+    //CALIFICACION MATERIA EN LETRA
+    string letters;
+    private void Text34_BeforePrint(object sender, EventArgs e)
+    {
+      calificacionLetra = ((Int32)Report.GetColumnValue(&quot;Cardex.Id_RVOE&quot;)) == 5118 ? _calificacionLetra100() : _calificacionLetra();       
+    }
+    
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Int32)Report.GetColumnValue(&quot;Cardex.NoSemestre&quot;)) == 11 || ((Int32)Report.GetColumnValue(&quot;Cardex.NoSemestre&quot;)) == 12)
+      {
+        Text26.Visible = false;
+        Text33.Visible = false;
+        Text32.Visible = false;
+        Text34.Visible = false;
+        Text35.Visible = false;
+        Text36.Visible = false;
+        Text37.Visible = false;
+        Text38.Visible = false;
+        Text39.Visible = false;
+      }
+      else
+      {
+        Text26.Visible = true;
+        Text33.Visible = true;
+        Text32.Visible = true;
+        Text34.Visible = true;
+        Text35.Visible = true;
+        Text36.Visible = true;
+        Text37.Visible = true;
+        Text38.Visible = true;
+        Text39.Visible = true;
+      }        
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      posicion = _posicion();
+    }
+    #endregion
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqqtzWLe5YNkM503qc41kpcML9Y0VS0gkX6+25qs61SwQ8EKFvKJKukMo1KufPxt0zXVmBE58eSZam2qgG8cvuy64TegLJX8HFXpCHHKBQeokOf7vaGsL90jHVywPXmXm2Z7TQShPuWnDiDfRd6xpkT5Qlj5zkihhkFwRYr+fJ8paI4pPpGj6JUi3mzlE1c0CeiYj5YLSTP9XPUthU7KzeKMfO7uoQWfvjILzJtkaltiA=">
+      <TableDataSource Name="Table" Alias="Cardex" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[RPTCardex]&#13;&#10;		@ID_Alumno &#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="ID_Alumno" DataType="System.String"/>
+        <Column Name="ID_Especialidad" DataType="System.String"/>
+        <Column Name="Medida" DataType="System.String"/>
+        <Column Name="Clave" DataType="System.String"/>
+        <Column Name="Creditos" DataType="System.String"/>
+        <Column Name="Ordinario" DataType="System.Double"/>
+        <Column Name="Extraordinario" DataType="System.Double"/>
+        <Column Name="Titulo" DataType="System.Double"/>
+        <Column Name="Repeticion" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Equivalencia" DataType="System.Double"/>
+        <Column Name="ID_Periodo" DataType="System.String"/>
+        <Column Name="Orden" DataType="System.String"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="ID_Alumno2" DataType="System.String"/>
+        <Column Name="Carrera" DataType="System.String"/>
+        <Column Name="TipoUniv" DataType="System.String"/>
+        <Column Name="Materia" DataType="System.String"/>
+        <Column Name="FolioOrd" DataType="System.String"/>
+        <Column Name="FechaOrd" DataType="System.DateTime"/>
+        <Column Name="FolioExt" DataType="System.String"/>
+        <Column Name="FechaExt" DataType="System.DateTime"/>
+        <Column Name="FolioTit" DataType="System.String"/>
+        <Column Name="FechaTit" DataType="System.DateTime"/>
+        <Column Name="Revalida" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="PosicionActaOrd" DataType="System.String"/>
+        <Column Name="PosicionActaExt" DataType="System.String"/>
+        <Column Name="PosicionActaTit" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="TituloEncargadoCE" DataType="System.String"/>
+        <Column Name="EncargadoCE" DataType="System.String"/>
+        <Column Name="Puesto" DataType="System.String"/>
+        <Column Name="NumSemestre" DataType="System.String"/>
+        <Column Name="NoSemestre" DataType="System.Int32"/>
+        <Column Name="TituloDirector" DataType="System.String"/>
+        <Column Name="DirectorCampus" DataType="System.String"/>
+        <Column Name="CalificacionMinima" DataType="System.Double"/>
+        <Column Name="SexoEncargadoCE" DataType="System.String"/>
+        <Column Name="Fecha_Inicio" DataType="System.DateTime"/>
+        <Column Name="Ordinario2" DataType="System.Double"/>
+        <Column Name="Extraordinario2" DataType="System.Double"/>
+        <Column Name="Titulo2" DataType="System.Double"/>
+        <Column Name="Equivalencia2" DataType="System.Double"/>
+        <Column Name="CicloEscolar" DataType="System.String"/>
+        <Column Name="Id_RVOE" DataType="System.Int32"/>
+        <CommandParameter Name="@ID_Alumno" DataType="22" Expression="[@ID_Alumno]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table2" Alias="DatosGenerales" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[DatosGeneralesAlumno]&#13;&#10;		@ID_Alumno&#13;&#10;&#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="ID_Alumno" DataType="System.String"/>
+        <Column Name="Paterno" DataType="System.String"/>
+        <Column Name="Materno" DataType="System.String"/>
+        <Column Name="Nombre" DataType="System.String"/>
+        <Column Name="Sexo" DataType="System.String"/>
+        <Column Name="Calle" DataType="System.String"/>
+        <Column Name="Colonia" DataType="System.String"/>
+        <Column Name="CP" DataType="System.String"/>
+        <Column Name="FechaNacimiento" DataType="System.DateTime"/>
+        <Column Name="Licenciatura" DataType="System.String"/>
+        <Column Name="NoCertificado" DataType="System.String"/>
+        <Column Name="Encabezado" DataType="System.String"/>
+        <Column Name="ID_Especialidad" DataType="System.String"/>
+        <Column Name="TipoUniv" DataType="System.String"/>
+        <Column Name="ClaveEscuela" DataType="System.String"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="Campus" DataType="System.String"/>
+        <Column Name="ID_Alumno2" DataType="System.String"/>
+        <CommandParameter Name="@ID_Alumno" DataType="22" Expression="[@ID_Alumno]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" Alias="LogoCampus" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[LogosCampus]&#13;&#10;		@ID_Alumno&#13;&#10;SELECT	'Return Value' = @return_value&#13;&#10;">
+        <Column Name="Logo" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="Campus" DataType="System.String"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <CommandParameter Name="@ID_Alumno" DataType="22" Expression="[@ID_Alumno]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="@ID_Alumno" DataType="System.String" Expression="&quot;3919045025&quot;"/>
+    <Total Name="TotalMaterias" TotalType="Count" Evaluator="Data1" EvaluateCondition="calificacionMateria!=&quot;*&quot;&amp;&amp;([Cardex.Equivalencia]&gt;0||ToDouble(calificacionMateria)&gt;=7);"/>
+    <Total Name="TotalCreditos" Expression="[Cardex.Creditos]" Evaluator="Data1" EvaluateCondition="calificacionMateria!=&quot;*&quot;&amp;&amp;([Cardex.Equivalencia]&gt;0||ToDouble(calificacionMateria)&gt;=7);"/>
+    <Total Name="TotalPromedio" TotalType="Avg" Expression="ToDecimal(calificacionMateria);" Evaluator="Data1" EvaluateCondition="calificacionMateria!=&quot;*&quot;&amp;&amp;([Cardex.Equivalencia]&gt;0||ToDouble(calificacionMateria)&gt;=7);"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="355.6" RawPaperSize="5" LeftMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="9.45,66.15,311.85,349.65,396.9,491.4,585.9,548.1,623.7,765.45,680.4">
+    <ReportTitleBand Name="ReportTitle1" Width="778.3" Height="206.01">
+      <TextObject Name="Text1" Left="226.8" Width="538.65" Height="28.35" BeforePrintEvent="Text1_BeforePrint" Text="[nombreUniversidad]" HorzAlign="Center" Font="Times New Roman, 18pt, style=Bold"/>
+      <PictureObject Name="Picture1" Width="207.9" Height="141.75" CanGrow="true" DataColumn="LogoCampus.Logo"/>
+      <TextObject Name="Text2" Left="226.8" Top="18.9" Width="538.65" Height="37.8" BeforePrintEvent="Text2_BeforePrint" Text="&lt;b&gt;[extension][nombreCampus]&lt;/b&gt;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text3" Left="226.8" Top="56.7" Width="538.65" Height="47.25" CanGrow="true" BeforePrintEvent="Text3_BeforePrint" CanBreak="false" Text="[encabezado]" HorzAlign="Justify" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text4" Left="226.8" Top="103.95" Width="538.65" Height="18.9" Text="Cárdex de Alumno" HorzAlign="Center" Font="Times New Roman, 15pt, style=Bold, Italic"/>
+      <TextObject Name="Text5" Left="217.35" Top="128.52" Width="136.08" Height="15.12" Text="Nombre del Alumno:" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="387.45" Top="128.52" Width="378" Height="15.12" BeforePrintEvent="Text10_BeforePrint" Text="[nombreAlumno]" HorzAlign="Justify" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="217.35" Top="143.64" Width="136.08" Height="15.12" Text="Fecha de Nacimiento:" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text7" Left="217.35" Top="158.76" Width="136.08" Height="15.12" Text="Domicilio:" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text11" Left="387.45" Top="143.64" Width="378" Height="15.12" BeforePrintEvent="Text11_BeforePrint" Text="[fechaNacimiento]" Format="Custom" Format.Format="dd 'de' MMMM 'de 'YYYY'" HorzAlign="Justify" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="387.45" Top="158.76" Width="378" Height="15.12" BeforePrintEvent="Text12_BeforePrint" Text="[domicilio]" HorzAlign="Justify" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="217.35" Top="173.88" Width="136.08" Height="15.12" BeforePrintEvent="Text8_BeforePrint" Text="[carrera_pos]:" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text13" Left="387.45" Top="173.88" Width="378" Height="15.12" BeforePrintEvent="Text13_BeforePrint" Text="[carrera]" HorzAlign="Justify" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="217.35" Top="189" Width="136.08" Height="15.12" Text="Matricula" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Left="387.45" Top="189" Width="378" Height="15.12" BeforePrintEvent="Text14_BeforePrint" Text="[matricula]" HorzAlign="Justify" VertAlign="Bottom" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="210.01" Width="778.3" Height="37.8" Guides="0,0,0,0,0">
+      <TextObject Name="Text16" Left="66.15" Top="18.9" Width="245.7" Height="18.9" Text="Materia" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text15" Left="9.45" Top="18.9" Width="56.7" Height="18.9" Text="Clave" Padding="0, 0, 0, 0" HorzAlign="Justify" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text17" Left="311.85" Top="18.9" Width="37.8" Height="18.9" Text="Créd." Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text19" Left="349.65" Top="18.9" Width="47.25" Height="18.9" Text="Número" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text20" Left="396.9" Top="18.9" Width="94.5" Height="18.9" Text="Letra" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text21" Left="491.4" Top="18.9" Width="66.15" Height="18.9" Text="Fecha" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text22" Left="557.55" Top="18.9" Width="37.8" Height="18.9" Text="Folio" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text23" Left="595.35" Top="18.9" Width="37.8" Height="18.9" Text="Pos." Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text24" Left="633.15" Top="18.9" Width="56.7" Height="18.9" Text="Ciclo" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text25" Left="689.85" Top="18.9" Width="75.6" Height="18.9" Text="Tipo Examen" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text18" Left="349.65" Width="141.75" Height="18.9" Text="Calificación" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="251.81" Width="778.3" Height="18.9" Condition="[Cardex.NoSemestre]">
+      <TextObject Name="Text28" Left="66.15" Width="245.7" Height="18.9" BeforePrintEvent="Text28_BeforePrint" Text="[semestre] [medida]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <DataBand Name="Data1" Top="274.71" Width="778.3" Height="11.34" BeforePrintEvent="Data1_BeforePrint" DataSource="Table">
+        <TextObject Name="Text26" Left="9.45" Width="56.7" Height="11.34" Text="[Cardex.Clave]" AutoShrink="FontSize" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text27" Left="66.15" Width="245.7" Height="11.34" CanBreak="false" Text="[Cardex.Materia]" AutoShrink="FontWidth" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text32" Left="311.85" Width="37.8" Height="11.34" CanShrink="true" BeforePrintEvent="Text32_BeforePrint" Text="[creditos]" Font="Arial, 7pt"/>
+        <TextObject Name="Text33" Left="349.65" Width="47.25" Height="11.34" BeforePrintEvent="Text33_BeforePrint" Text="[calificacionMateria]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text34" Left="396.9" Width="94.5" Height="11.34" BeforePrintEvent="Text34_BeforePrint" Text="[calificacionLetra]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text36" Left="557.55" Width="37.8" Height="11.34" BeforePrintEvent="Text36_BeforePrint" Text="[folio]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 7pt">
+          <Highlight>
+            <Condition Expression="Value == &quot;0&quot;" TextFill.Color="Transparent" ApplyFill="true"/>
+          </Highlight>
+        </TextObject>
+        <TextObject Name="Text37" Left="595.35" Width="37.8" Height="11.34" BeforePrintEvent="Text37_BeforePrint" Text="[posicion]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 7pt">
+          <Highlight>
+            <Condition Expression="Value == &quot;0&quot;" TextFill.Color="Transparent" ApplyFill="true"/>
+          </Highlight>
+        </TextObject>
+        <TextObject Name="Text38" Left="491.4" Width="66.15" Height="11.34" BeforePrintEvent="Text38_BeforePrint" Text="[fechaExamen]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt">
+          <Highlight>
+            <Condition Expression="Value == &quot;01-I-1&quot;" TextFill.Color="Transparent" ApplyFill="true"/>
+            <Condition Expression="Value == &quot;01-I-1900&quot;" TextFill.Color="Transparent" ApplyFill="true"/>
+          </Highlight>
+        </TextObject>
+        <TextObject Name="Text39" Left="708.75" Width="37.8" Height="11.34" BeforePrintEvent="Text39_BeforePrint" Text="[tipoExamen]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text35" Left="633.15" Width="56.7" Height="11.34" BeforePrintEvent="Text35_BeforePrint" Text="[ciclo]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 7pt"/>
+        <Sort>
+          <Sort Expression="[Cardex.Orden]"/>
+        </Sort>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="290.05" Width="778.3"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="294.05" Width="778.3" Height="128.52">
+      <TextObject Name="Text29" Left="9.45" Width="756" Height="47.25" BeforePrintEvent="Text29_BeforePrint" Text="Este cardex ampara &lt;b&gt;[TotalMaterias]&lt;/b&gt; asignaturas con promedio general de &lt;b&gt;[promedioFinal]&lt;/b&gt; y &lt;b&gt;[creditosTotales]&lt;/b&gt; créditos cubiertos, tomando en cuenta solo calificaciones acreditadas. Se expide para fines de índole informativo que [interesado_a] convengan." HorzAlign="Justify" VertAlign="Center" Font="Arial, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text30" Left="236.25" Top="94.5" Width="349.65" Height="18.9" Border.Lines="Top" Border.Width="0.5" BeforePrintEvent="Text30_BeforePrint" Text="[responsable]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom"/>
+      <TextObject Name="Text31" Left="236.25" Top="109.62" Width="349.65" Height="18.9" BeforePrintEvent="Text31_BeforePrint" Text="[puesto]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="426.57" Width="778.3"/>
+  </ReportPage>
+</Report>

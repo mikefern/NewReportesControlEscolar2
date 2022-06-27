@@ -37,7 +37,7 @@ namespace NewReportesControlEscolar
 
         private void btnactualizar_Click(object sender, EventArgs e)
         {
-            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.IDEmpleado = txt_Usuario.Text;
             Clase_Sesion.Campus = textBox2.Text;
             Clase_Sesion.Rol = textBox3.Text;
            FrmReportesControlEscolar fr = new FrmReportesControlEscolar();
@@ -64,7 +64,7 @@ namespace NewReportesControlEscolar
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.IDEmpleado = txt_Usuario.Text;
             Clase_Sesion.Campus = textBox2.Text;
             Clase_Sesion.Rol = textBox3.Text;
             FrmGestionNodos frmGestionNodos = new FrmGestionNodos();
@@ -73,6 +73,7 @@ namespace NewReportesControlEscolar
 
         private void btnInformación(object sender, EventArgs e)
         {
+            Clase_Sesion.IDEmpleado = txt_Usuario.Text;
             FrmDatosReportes ARR = new FrmDatosReportes();
             ARR.Show();
         }
@@ -96,7 +97,7 @@ namespace NewReportesControlEscolar
 
         private void btnactualizar_Click_1(object sender, EventArgs e)
         {
-            Clase_Sesion.IDEmpleado = textBox1.Text;
+            Clase_Sesion.IDEmpleado = txt_Usuario.Text;
             Clase_Sesion.Campus = textBox2.Text;
             Clase_Sesion.Rol = textBox3.Text;
             FrmReportesControlEscolar rce = new FrmReportesControlEscolar();

@@ -65,23 +65,23 @@ namespace ProyectoLoboSostenido
         //---------------------------------------------------------------------------------------------------------------------------
         #region FrmDatosReportes
 
-        public bool DetalleArchivoReporte(string opt, string nombre, string ruta, string ultimamodificacion, string creacion, string ultimoacceso, string extension, string descripcionModificaciones, string id_Empleado, string id)
+        public bool DetalleArchivoReporte(string opt, string id, string nombre, string extension, string ruta,  string ultimamodificacion, string creacion, string ultimoacceso,  string descripcionModificaciones, string id_Empleado,string peso)
         {
 
             string nomStore = "Reports_RegistroReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("Opt", opt),
+                 new Clase_Parametros("ID",id),
                  new Clase_Parametros("NombreArchivo", nombre),
+                 new Clase_Parametros("Extension",extension),
                  new Clase_Parametros("Ruta",ruta),
                  new Clase_Parametros("FechaUltimaModificacion",ultimamodificacion),
                  new Clase_Parametros("FechaCreacion",creacion),
                  new Clase_Parametros("FechaUltimoAcceso",ultimoacceso),
-                 new Clase_Parametros("Extension",extension),
                  new Clase_Parametros("DescripcionModificaciones",descripcionModificaciones),
                  new Clase_Parametros("ID_Empleado",id_Empleado),
-                 new Clase_Parametros("ID",id)
-
+                 new Clase_Parametros("Peso",peso)
             };
             if (ConsultarParametros(nomStore, par))
             {
