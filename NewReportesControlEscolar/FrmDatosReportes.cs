@@ -41,6 +41,45 @@ namespace ProyectoLoboSostenido
         string V_Descripcion;
         string V_Peso;
         #endregion
+        #region Tootips
+        private void Tootip()
+        {
+            ToolTip TTbtnAbrirArchivo = new ToolTip();
+            TTbtnAbrirArchivo.SetToolTip(btn_AbrirArchivo, "Abrir archivo desde el explorador");
+            ToolTip TTbtnAabrirArchivoEdicion = new ToolTip();
+            TTbtnAabrirArchivoEdicion.SetToolTip(btn_AbrirArchivoEdicion, "Abrir archivo en Fast Reports y Crystal Reports");
+            ToolTip TTbtnAbrircarpeta = new ToolTip();
+            TTbtnAbrircarpeta.SetToolTip(btn_Abrircarpeta, "Abrir carpeta contenedora de reportes");
+            ToolTip TTbtnCopiar = new ToolTip();
+            TTbtnCopiar.SetToolTip(btnCopiar, "Copiar archivo de reporte a la ruta local");
+            ToolTip TTbtn_ReemplazarCarpeta = new ToolTip();
+            TTbtn_ReemplazarCarpeta.SetToolTip(btn_ReemplazarCarpeta, "Cambiar la ruta local por la ruta remota");
+            ToolTip TTbtnCrearCopia = new ToolTip();
+            TTbtnCrearCopia.SetToolTip(btnCrearCopia, "Copiar archivo de reporte a cualquier carpeta local");
+            ToolTip TTbutton4 = new ToolTip();
+            TTbutton4.SetToolTip(button4, "Copiar archivo de la carpeta Reportes a la carpeta ReportesCE");
+            ToolTip TTbutton1 = new ToolTip();
+            TTbutton1.SetToolTip(button1, "Prototipo de la vista de la vista delreporte");
+            ToolTip TTbutton3 = new ToolTip();
+            TTbutton3.SetToolTip(button3, "Visualizar los parametros que contiene el reporte");
+            ToolTip TTbutton6 = new ToolTip();
+            TTbutton6.SetToolTip(button6, "Actualizar reportes agregados a la base de datos");
+            ToolTip TTbutton2 = new ToolTip();
+            TTbutton2.SetToolTip(button2, "Crear nuevo archivo inexistente");
+            ToolTip TTbtnModificar = new ToolTip();
+            TTbtnModificar.SetToolTip(btnModificar, "Modificar información de los reportes guardados en base de datos");
+            ToolTip TTbtnGuardar = new ToolTip();
+            TTbtnGuardar.SetToolTip(btnGuardar, "Guardar archivo en la base de datos");
+            ToolTip TTbtnEliminar = new ToolTip();
+            TTbtnEliminar.SetToolTip(btnEliminar,"Eliminar reporte");
+            ToolTip TTbtn_CambiarSoloRutaBD = new ToolTip();
+            TTbtn_CambiarSoloRutaBD.SetToolTip(btn_CambiarSoloRutaBD, "Cambiar la ruta de archivo solamente en la base de datos");
+
+
+
+
+        }
+        #endregion
 
         #region MoverFORM
         //--------- MOVER FORMS
@@ -69,9 +108,10 @@ namespace ProyectoLoboSostenido
         }
         #endregion
 
-        public FrmDatosReportes()
+        public FrmDatosReportes() 
         {
             InitializeComponent();
+            Tootip();
         }
 
         private void DatosReportes_Load(object sender, EventArgs e)
