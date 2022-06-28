@@ -29,8 +29,8 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
@@ -58,18 +58,17 @@ namespace ProyectoLoboSostenido
             this.txtRuta = new System.Windows.Forms.RichTextBox();
             this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCrearCopia = new System.Windows.Forms.Button();
             this.btn_ReemplazarCarpeta = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCopiar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_AbrirArchivoEdicion = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.pictureEliminar = new System.Windows.Forms.PictureBox();
             this.pictureCambiar = new System.Windows.Forms.PictureBox();
             this.pictureAbrirArchivo = new System.Windows.Forms.PictureBox();
             this.pictureAbrirCarpeta = new System.Windows.Forms.PictureBox();
-            this.btnCambiar = new System.Windows.Forms.Button();
+            this.btn_CambiarSoloRutaBD = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btn_Abrircarpeta = new System.Windows.Forms.Button();
             this.btn_AbrirArchivo = new System.Windows.Forms.Button();
@@ -78,12 +77,16 @@ namespace ProyectoLoboSostenido
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.crystalReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -92,20 +95,13 @@ namespace ProyectoLoboSostenido
             this.pictureAgregar = new System.Windows.Forms.PictureBox();
             this.pictureModificar = new System.Windows.Forms.PictureBox();
             this.lbltitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblcerrar = new System.Windows.Forms.Label();
-            this.btnCrearCopia = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.lblCerrar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AbrirDirectorioRutas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).BeginInit();
@@ -417,24 +413,24 @@ namespace ProyectoLoboSostenido
             this.DGV_Reportes.AllowUserToAddRows = false;
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Reportes.GridColor = System.Drawing.Color.Black;
             this.DGV_Reportes.Location = new System.Drawing.Point(15, 22);
             this.DGV_Reportes.MultiSelect = false;
@@ -450,20 +446,19 @@ namespace ProyectoLoboSostenido
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.btnCrearCopia);
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.btn_ReemplazarCarpeta);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnCopiar);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.btn_AbrirArchivoEdicion);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.pictureEliminar);
             this.panel2.Controls.Add(this.pictureCambiar);
             this.panel2.Controls.Add(this.pictureAbrirArchivo);
             this.panel2.Controls.Add(this.pictureAbrirCarpeta);
-            this.panel2.Controls.Add(this.btnCambiar);
-            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.btn_CambiarSoloRutaBD);
             this.panel2.Controls.Add(this.btn_Abrircarpeta);
             this.panel2.Controls.Add(this.btn_AbrirArchivo);
             this.panel2.Controls.Add(this.pictureIcono);
@@ -473,6 +468,22 @@ namespace ProyectoLoboSostenido
             this.panel2.Size = new System.Drawing.Size(217, 880);
             this.panel2.TabIndex = 65;
             // 
+            // btnCrearCopia
+            // 
+            this.btnCrearCopia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCrearCopia.FlatAppearance.BorderSize = 0;
+            this.btnCrearCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnCrearCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearCopia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearCopia.ForeColor = System.Drawing.Color.Black;
+            this.btnCrearCopia.Location = new System.Drawing.Point(32, 689);
+            this.btnCrearCopia.Name = "btnCrearCopia";
+            this.btnCrearCopia.Size = new System.Drawing.Size(190, 30);
+            this.btnCrearCopia.TabIndex = 84;
+            this.btnCrearCopia.Text = "Crear Copia Reporte";
+            this.btnCrearCopia.UseVisualStyleBackColor = true;
+            this.btnCrearCopia.Click += new System.EventHandler(this.btnCrearCopia_Click);
+            // 
             // btn_ReemplazarCarpeta
             // 
             this.btn_ReemplazarCarpeta.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -481,7 +492,7 @@ namespace ProyectoLoboSostenido
             this.btn_ReemplazarCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ReemplazarCarpeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ReemplazarCarpeta.ForeColor = System.Drawing.Color.Black;
-            this.btn_ReemplazarCarpeta.Location = new System.Drawing.Point(65, 620);
+            this.btn_ReemplazarCarpeta.Location = new System.Drawing.Point(64, 589);
             this.btn_ReemplazarCarpeta.Name = "btn_ReemplazarCarpeta";
             this.btn_ReemplazarCarpeta.Size = new System.Drawing.Size(147, 82);
             this.btn_ReemplazarCarpeta.TabIndex = 83;
@@ -491,7 +502,7 @@ namespace ProyectoLoboSostenido
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(75, 819);
+            this.button1.Location = new System.Drawing.Point(84, 809);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 23);
             this.button1.TabIndex = 82;
@@ -501,7 +512,7 @@ namespace ProyectoLoboSostenido
             // 
             // btnCopiar
             // 
-            this.btnCopiar.Location = new System.Drawing.Point(74, 777);
+            this.btnCopiar.Location = new System.Drawing.Point(74, 545);
             this.btnCopiar.Name = "btnCopiar";
             this.btnCopiar.Size = new System.Drawing.Size(127, 23);
             this.btnCopiar.TabIndex = 81;
@@ -536,37 +547,10 @@ namespace ProyectoLoboSostenido
             this.btn_AbrirArchivoEdicion.UseVisualStyleBackColor = true;
             this.btn_AbrirArchivoEdicion.Click += new System.EventHandler(this.btn_AbrirArchivoEdicion_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 480);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 78;
-            this.pictureBox2.TabStop = false;
-            // 
-            // button5
-            // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.Location = new System.Drawing.Point(54, 485);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 30);
-            this.button5.TabIndex = 77;
-            this.button5.Text = "Limpiar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.btnLimpiar);
-            // 
             // pictureEliminar
             // 
             this.pictureEliminar.Image = ((System.Drawing.Image)(resources.GetObject("pictureEliminar.Image")));
-            this.pictureEliminar.Location = new System.Drawing.Point(17, 405);
+            this.pictureEliminar.Location = new System.Drawing.Point(894, 810);
             this.pictureEliminar.Name = "pictureEliminar";
             this.pictureEliminar.Size = new System.Drawing.Size(31, 35);
             this.pictureEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -576,7 +560,7 @@ namespace ProyectoLoboSostenido
             // pictureCambiar
             // 
             this.pictureCambiar.Image = ((System.Drawing.Image)(resources.GetObject("pictureCambiar.Image")));
-            this.pictureCambiar.Location = new System.Drawing.Point(17, 555);
+            this.pictureCambiar.Location = new System.Drawing.Point(17, 414);
             this.pictureCambiar.Name = "pictureCambiar";
             this.pictureCambiar.Size = new System.Drawing.Size(31, 35);
             this.pictureCambiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -603,21 +587,21 @@ namespace ProyectoLoboSostenido
             this.pictureAbrirCarpeta.TabIndex = 67;
             this.pictureAbrirCarpeta.TabStop = false;
             // 
-            // btnCambiar
+            // btn_CambiarSoloRutaBD
             // 
-            this.btnCambiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCambiar.FlatAppearance.BorderSize = 0;
-            this.btnCambiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(65, 560);
-            this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(147, 30);
-            this.btnCambiar.TabIndex = 75;
-            this.btnCambiar.Text = "Cambiar ruta solo en BD";
-            this.btnCambiar.UseVisualStyleBackColor = true;
-            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
+            this.btn_CambiarSoloRutaBD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CambiarSoloRutaBD.FlatAppearance.BorderSize = 0;
+            this.btn_CambiarSoloRutaBD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_CambiarSoloRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CambiarSoloRutaBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CambiarSoloRutaBD.ForeColor = System.Drawing.Color.Black;
+            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 406);
+            this.btn_CambiarSoloRutaBD.Name = "btn_CambiarSoloRutaBD";
+            this.btn_CambiarSoloRutaBD.Size = new System.Drawing.Size(147, 52);
+            this.btn_CambiarSoloRutaBD.TabIndex = 75;
+            this.btn_CambiarSoloRutaBD.Text = "Cambiar ruta solo en BD";
+            this.btn_CambiarSoloRutaBD.UseVisualStyleBackColor = true;
+            this.btn_CambiarSoloRutaBD.Click += new System.EventHandler(this.btn_CambiarSoloRutaBD_Click);
             // 
             // btnEliminar
             // 
@@ -628,7 +612,7 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(65, 410);
+            this.btnEliminar.Location = new System.Drawing.Point(942, 815);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(147, 30);
             this.btnEliminar.TabIndex = 63;
@@ -688,9 +672,9 @@ namespace ProyectoLoboSostenido
             this.btnCrearArchivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearArchivo.ForeColor = System.Drawing.Color.Black;
             this.btnCrearArchivo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCrearArchivo.Location = new System.Drawing.Point(303, 807);
+            this.btnCrearArchivo.Location = new System.Drawing.Point(261, 807);
             this.btnCrearArchivo.Name = "btnCrearArchivo";
-            this.btnCrearArchivo.Size = new System.Drawing.Size(175, 47);
+            this.btnCrearArchivo.Size = new System.Drawing.Size(123, 47);
             this.btnCrearArchivo.TabIndex = 18;
             this.btnCrearArchivo.Text = "Crear Archivo ";
             this.btnCrearArchivo.UseVisualStyleBackColor = true;
@@ -703,9 +687,9 @@ namespace ProyectoLoboSostenido
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(552, 807);
+            this.btnGuardar.Location = new System.Drawing.Point(456, 807);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(229, 47);
+            this.btnGuardar.Size = new System.Drawing.Size(174, 47);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar Reporte en DB";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -719,7 +703,7 @@ namespace ProyectoLoboSostenido
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(847, 807);
+            this.btnModificar.Location = new System.Drawing.Point(699, 807);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(187, 47);
             this.btnModificar.TabIndex = 17;
@@ -730,19 +714,18 @@ namespace ProyectoLoboSostenido
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.pictureEliminar);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.btnGuardar);
             this.panel3.Controls.Add(this.pictureGuardar);
             this.panel3.Controls.Add(this.pictureAgregar);
+            this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.pictureModificar);
             this.panel3.Controls.Add(this.btnModificar);
             this.panel3.Controls.Add(this.btnCrearArchivo);
@@ -752,6 +735,36 @@ namespace ProyectoLoboSostenido
             this.panel3.TabIndex = 66;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(85, 476);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(93, 31);
+            this.button6.TabIndex = 83;
+            this.button6.Text = "Actualizar";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(32, 750);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(180, 23);
+            this.button4.TabIndex = 82;
+            this.button4.Text = "Modo Copiar de Carpeta R - RCE";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(103, 843);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 81;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -760,7 +773,7 @@ namespace ProyectoLoboSostenido
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.Location = new System.Drawing.Point(59, 807);
+            this.button2.Location = new System.Drawing.Point(23, 807);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(175, 47);
             this.button2.TabIndex = 80;
@@ -830,6 +843,14 @@ namespace ProyectoLoboSostenido
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualizador del Reporte";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(15, 30);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(152, 355);
+            this.listBox1.TabIndex = 77;
+            // 
             // crystalReport
             // 
             this.crystalReport.ActiveViewIndex = -1;
@@ -871,7 +892,7 @@ namespace ProyectoLoboSostenido
             // 
             this.pictureGuardar.Image = ((System.Drawing.Image)(resources.GetObject("pictureGuardar.Image")));
             this.pictureGuardar.InitialImage = null;
-            this.pictureGuardar.Location = new System.Drawing.Point(499, 807);
+            this.pictureGuardar.Location = new System.Drawing.Point(403, 807);
             this.pictureGuardar.Name = "pictureGuardar";
             this.pictureGuardar.Size = new System.Drawing.Size(47, 47);
             this.pictureGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -881,7 +902,7 @@ namespace ProyectoLoboSostenido
             // pictureAgregar
             // 
             this.pictureAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pictureAgregar.Image")));
-            this.pictureAgregar.Location = new System.Drawing.Point(259, 807);
+            this.pictureAgregar.Location = new System.Drawing.Point(217, 807);
             this.pictureAgregar.Name = "pictureAgregar";
             this.pictureAgregar.Size = new System.Drawing.Size(38, 47);
             this.pictureAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -891,7 +912,7 @@ namespace ProyectoLoboSostenido
             // pictureModificar
             // 
             this.pictureModificar.Image = ((System.Drawing.Image)(resources.GetObject("pictureModificar.Image")));
-            this.pictureModificar.Location = new System.Drawing.Point(799, 807);
+            this.pictureModificar.Location = new System.Drawing.Point(651, 807);
             this.pictureModificar.Name = "pictureModificar";
             this.pictureModificar.Size = new System.Drawing.Size(42, 47);
             this.pictureModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -912,82 +933,17 @@ namespace ProyectoLoboSostenido
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbltitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitulo_MouseDown);
             // 
-            // label1
+            // lblCerrar
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(1277, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(38, 34);
-            this.label1.TabIndex = 63;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblcerrar
-            // 
-            this.lblcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblcerrar.Image = ((System.Drawing.Image)(resources.GetObject("lblcerrar.Image")));
-            this.lblcerrar.Location = new System.Drawing.Point(1001, 0);
-            this.lblcerrar.Name = "lblcerrar";
-            this.lblcerrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblcerrar.Size = new System.Drawing.Size(35, 32);
-            this.lblcerrar.TabIndex = 54;
-            this.lblcerrar.Click += new System.EventHandler(this.label1_Click_2);
-            // 
-            // btnCrearCopia
-            // 
-            this.btnCrearCopia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCrearCopia.FlatAppearance.BorderSize = 0;
-            this.btnCrearCopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnCrearCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearCopia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCopia.ForeColor = System.Drawing.Color.Black;
-            this.btnCrearCopia.Location = new System.Drawing.Point(22, 723);
-            this.btnCrearCopia.Name = "btnCrearCopia";
-            this.btnCrearCopia.Size = new System.Drawing.Size(190, 30);
-            this.btnCrearCopia.TabIndex = 84;
-            this.btnCrearCopia.Text = "Crear Copia Reporte";
-            this.btnCrearCopia.UseVisualStyleBackColor = true;
-            this.btnCrearCopia.Click += new System.EventHandler(this.btnCrearCopia_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(15, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(152, 355);
-            this.listBox1.TabIndex = 77;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(612, 364);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 81;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(156, 372);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 23);
-            this.button4.TabIndex = 82;
-            this.button4.Text = "Modo Copiar de Carpeta R - RCE";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(769, 370);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 31);
-            this.button6.TabIndex = 83;
-            this.button6.Text = "Actualizar";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.lblCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCerrar.Image = ((System.Drawing.Image)(resources.GetObject("lblCerrar.Image")));
+            this.lblCerrar.Location = new System.Drawing.Point(1277, 0);
+            this.lblCerrar.Name = "lblCerrar";
+            this.lblCerrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCerrar.Size = new System.Drawing.Size(38, 34);
+            this.lblCerrar.TabIndex = 63;
+            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
             // FrmDatosReportes
             // 
@@ -997,11 +953,10 @@ namespace ProyectoLoboSostenido
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1327, 914);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.lbltitulo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lblcerrar);
             this.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDatosReportes";
@@ -1017,7 +972,6 @@ namespace ProyectoLoboSostenido
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCambiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAbrirArchivo)).EndInit();
@@ -1058,17 +1012,16 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.DataGridView DGV_Reportes;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblcerrar;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.RichTextBox txtDescripcionModificaciones;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCerrar;
         private System.Windows.Forms.PictureBox pictureEliminar;
         private System.Windows.Forms.PictureBox pictureCambiar;
         private System.Windows.Forms.PictureBox pictureAgregar;
         private System.Windows.Forms.PictureBox pictureModificar;
         private System.Windows.Forms.PictureBox pictureAbrirArchivo;
         private System.Windows.Forms.PictureBox pictureAbrirCarpeta;
-        private System.Windows.Forms.Button btnCambiar;
+        private System.Windows.Forms.Button btn_CambiarSoloRutaBD;
         private System.Windows.Forms.PictureBox pictureGuardar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCrearArchivo;
@@ -1078,8 +1031,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pictureIcono;
         private System.Windows.Forms.PictureBox PB_AbrirDirectorioRutas;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btn_AbrirArchivoEdicion;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReport;
