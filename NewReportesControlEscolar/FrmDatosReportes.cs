@@ -285,59 +285,69 @@ namespace ProyectoLoboSostenido
         public void visualizarReporte()
         {
             //label11.Visible = false;
-            bool flag1 = false;
-            string miReporte = @"\Loboone\Reportes\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();// rptCertificadoNvo_18_251.frx";  //Loboone\Reportes\RPTCardexGenericoAlumno.frx
-            string thisFolder = Config.ApplicationFolder;
-            Report frxReport = new Report();
-            for (int i = 1; i < 6; i++)
+            if (CB_Extension.SelectedItem.ToString() == ".frx")
             {
-                if (File.Exists(thisFolder + miReporte))
+                bool flag1 = false;
+                string miReporte = @"\Loboone\Reportes\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();// rptCertificadoNvo_18_251.frx";  //Loboone\Reportes\RPTCardexGenericoAlumno.frx
+                string thisFolder = Config.ApplicationFolder;
+                Report frxReport = new Report();
+                for (int i = 1; i < 6; i++)
                 {
-
-                    previewReportes.Buttons = PreviewButtons.Print | PreviewButtons.Zoom | PreviewButtons.Navigator; //Print reporte 
-                    previewReportes.ZoomPageWidth();
-                    frxReport.Preview = previewReportes;
-                    frxReport.Load(thisFolder + miReporte);
-
-                    //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\RPTCardexGenerico.frx"
-                    //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\ActaAdmin.frx"
-                    //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\BecasEspecialidad.frx"
-                    //
-                     
-                    listBox1.Items.Clear();
-
-                    if (frxReport.Parameters.Count>0)
+                    if (File.Exists(thisFolder + miReporte))
                     {
-                        for(int x = 0;x< frxReport.Parameters.Count;x++)
+
+                        previewReportes.Buttons = PreviewButtons.Print | PreviewButtons.Zoom | PreviewButtons.Navigator; //Print reporte 
+                        previewReportes.ZoomPageWidth();
+                        frxReport.Preview = previewReportes;
+                        frxReport.Load(thisFolder + miReporte);
+
+                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\RPTCardexGenerico.frx"
+                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\ActaAdmin.frx"
+                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\BecasEspecialidad.frx"
+                        //
+
+                        listBox1.Items.Clear();
+
+                        if (frxReport.Parameters.Count > 0)
                         {
-                            listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
+                            for (int x = 0; x < frxReport.Parameters.Count; x++)
+                            {
+                                listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
+                            }
                         }
-                    }
-                    flag1 = true;
+                        flag1 = true;
                         //MessageBox.Show("lleva los siguientes")
                         //for(int y= 0; y<vecParametros.Length;y++)
                         //{
                         //    string NombreParamtreo = vecParametros[y, 0].ToString().Trim();
                         //    string valor = vecParametros[y, 1].ToString().Trim();
 
-                    // if(valor!="")
-                    //frxReport.SetParameterValue("@ID_Empleado", "1815251004");
-                    // MessageBox.Show(frxReport.Parameters[0].Name + frxReport.Parameters[0].Expression);//+ "" + frxReport.GetParameterValue());
-                    // frxReport.SetParameterValue("@x", "1815251004");
+                        // if(valor!="")
+                        //frxReport.SetParameterValue("@ID_Empleado", "1815251004");
+                        // MessageBox.Show(frxReport.Parameters[0].Name + frxReport.Parameters[0].Expression);//+ "" + frxReport.GetParameterValue());
+                        // frxReport.SetParameterValue("@x", "1815251004");
 
-                    //}
+                        //}
 
-                    // frxReport.Show();
-                    previewReportes.ZoomPageWidth();
-                    break;
+                        // frxReport.Show();
+                        previewReportes.ZoomPageWidth();
+                        break;
+                    }
+                    thisFolder += @"..\";
                 }
-                thisFolder += @"..\";
+                if (!flag1)
+                {
+                    if (MessageBox.Show("Redeporte No Encontrado en el la carpeta del proyecto para visualizar\n" + "¿deseas Agregarlo?", "info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string nombreArchivo = txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+                        string rutaOriginal = txtRuta.Text.Replace("\\" + nombreArchivo, "");
+                        var RutaLocalReportes = System.Reflection.Assembly.GetExecutingAssembly().Location.ToString().Replace("bin\\Debug\\NewReportesControlEscolar.exe", "LoboOne\\Reportes");
+                        CopiarArchivo(nombreArchivo, rutaOriginal, RutaLocalReportes.ToString());
+                        visualizarReporte();
+                    }
+                }
             }
-            if(!flag1)
-            {
-                MessageBox.Show("Reporte No Encontrado en el la carpeta del proyecto para visualizar");
-            }
-            Clase_ParametrosReportes pr = new Clase_ParametrosReportes();
+            else MessageBox.Show("Parametros aun no disponible para Crystal");
         }
 
         public void NuevoArchivo()
@@ -743,23 +753,21 @@ namespace ProyectoLoboSostenido
             }
             else
             {
-
-                Clase_ReportesCE reportes = new Clase_ReportesCE();
-
-                if (reportes.DetalleArchivoReporte(TIPO_MODIFICACION, txtIDReporte.Text.Trim(), txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text,  txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text))
+                if (MessageBox.Show("Estas seguro de cambiar la ruta del registro en BD?", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("El archivo se cambió a la ruta especificada", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cambioRadioButton = true;
-                    MostrarReportes();
-                }
-                else
-                {
-                    MessageBox.Show("No se puede cambiar la ruta del archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Clase_ReportesCE reportes = new Clase_ReportesCE();
+                    if (reportes.DetalleArchivoReporte(TIPO_MODIFICACION, txtIDReporte.Text.Trim(), txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text, txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text))
+                    {
+                        MessageBox.Show("El archivo se cambió a la ruta especificada", "ACTUALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cambioRadioButton = true;
+                        MostrarReportes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede cambiar la ruta del archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            
-                
-
         }
 
       
@@ -1141,6 +1149,7 @@ namespace ProyectoLoboSostenido
             {
 
                 visualizarReporte();
+
             }
         }
 

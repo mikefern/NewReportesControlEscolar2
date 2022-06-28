@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/26/2019 11:27:18" ReportInfo.Modified="03/18/2022 08:14:40" ReportInfo.CreatorVersion="2015.2.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private string creditos, texto1, texto2, controles, promediocortado, letra,  totalCred, letraCalMat, encargadoCE;
+    
+    private string numberToText(double califica){
+      string ret = &quot;&quot;;
+      string  numero = califica.ToString();
+      string[]  sep = numero.Split('.');
+      for(int g=0; g&lt;sep.Length; g++){
+        if(sep[g].Equals(&quot;1&quot;))
+          ret+= &quot;Uno&quot;;
+        if(sep[g].Equals(&quot;2&quot;))
+          ret+= &quot;Dos&quot;;
+        if(sep[g].Equals(&quot;3&quot;))
+          ret+= &quot;Tres&quot;;
+        if(sep[g].Equals(&quot;4&quot;))
+          ret+= &quot;Cuatro&quot;;
+        if(sep[g].Equals(&quot;5&quot;))
+          ret+= &quot;Cinco&quot;;
+        if(sep[g].Equals(&quot;6&quot;))
+          ret+= &quot;Seis&quot;;
+        if(sep[g].Equals(&quot;7&quot;))
+          ret+= &quot;Siete&quot;;
+        if(sep[g].Equals(&quot;8&quot;))
+          ret+= &quot;Ocho&quot;;
+        if(sep[g].Equals(&quot;9&quot;))
+          ret+= &quot;Nueve&quot;;
+        if(sep[g].Equals(&quot;10&quot;))
+          ret+= &quot;Diez&quot;;
+        if(sep[g].Equals(&quot;0&quot;))
+          ret+= &quot;Cero&quot;;
+        if(sep.Length &gt; g+1)
+          ret+= &quot; . &quot;;
+      }
+      if(sep.Length == 1)
+        ret+= &quot;  . Cero&quot;;
+      return ret;
+    }
+    
+    private string numberToText2(double califica){
+      string ret = &quot;&quot;;
+      string  numero = califica.ToString();
+      string[]  sep = numero.Split('.');
+      for(int g=0; g&lt;sep.Length; g++){
+        if(sep[g].Equals(&quot;1&quot;))
+          ret+= &quot;uno&quot;;
+        if(sep[g].Equals(&quot;2&quot;))
+          ret+= &quot;dos&quot;;
+        if(sep[g].Equals(&quot;3&quot;))
+          ret+= &quot;tres&quot;;
+        if(sep[g].Equals(&quot;4&quot;))
+          ret+= &quot;cuatro&quot;;
+        if(sep[g].Equals(&quot;5&quot;))
+          ret+= &quot;cinco&quot;;
+        if(sep[g].Equals(&quot;6&quot;))
+          ret+= &quot;seis&quot;;
+        if(sep[g].Equals(&quot;7&quot;))
+          ret+= &quot;siete&quot;;
+        if(sep[g].Equals(&quot;8&quot;))
+          ret+= &quot;ocho&quot;;
+        if(sep[g].Equals(&quot;9&quot;))
+          ret+= &quot;nueve&quot;;
+        if(sep[g].Equals(&quot;10&quot;))
+          ret+= &quot;diez&quot;;
+        if(sep[g].Equals(&quot;0&quot;))
+          ret+= &quot;cero&quot;;
+        if(sep.Length &gt; g+1)
+          ret+= &quot;.&quot;;
+      }
+      if(sep.Length == 1)
+        ret+= &quot;.cero&quot;;
+      return ret;
+    }
+    
+    
+
+    private void Text32_BeforePrint(object sender, EventArgs e)
+    {
+      string espe =  Report.GetColumnValue(&quot;fndListaAlumnosOrd.Descripcion&quot;).ToString();
+      string sexoEncargado =  Report.GetColumnValue(&quot;fndListaAlumnosOrd.Sexo&quot;).ToString();
+      
+      if (espe.ToUpper() == &quot;PREPARATORIA&quot; )
+        texto2 = &quot;Director&quot;;
+      else if (espe == &quot;Medicina General&quot; || espe == &quot;Médico General&quot;)
+      {
+        if (Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;).ToString() == &quot;01&quot;)
+          texto2 = &quot;Director de la Facultad de Medicina&quot;;
+        else
+          texto2 = &quot;Director de la Escuela de Medicina&quot;;
+      }
+      else if (Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;).ToString() == &quot;11&quot; || 
+        Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;).ToString() == &quot;07&quot;)
+        texto2 = &quot;Coordinador de Carrera&quot;;
+      else if (Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;).ToString() == &quot;55&quot;)
+        texto2 = &quot;Secretario Académico&quot;;
+      else
+      {
+        if(sexoEncargado == &quot;M&quot;) 
+          texto2 = &quot;Director de Carrera&quot;;
+        else 
+          texto2 = &quot;Directora de Carrera&quot;;
+      }
+      
+    }
+
+    private void Text33_BeforePrint(object sender, EventArgs e)
+    {
+      string espe =  Report.GetColumnValue(&quot;fndListaAlumnosOrd.Descripcion&quot;).ToString();
+      string campust = Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;).ToString();
+      
+      if (campust == &quot;08&quot;)
+        controles = &quot;Coordinación de Control Escolar&quot;;
+      else if (campust == &quot;07&quot; &amp;&amp; espe.Contains(&quot;Medicina&quot;))
+        controles = &quot;Secretario Académico General&quot;;
+      else if (campust == &quot;07&quot;)
+        controles = &quot;Secretario Académico&quot;;
+      else if (campust == &quot;11&quot; || campust == &quot;15&quot;)
+        controles = &quot;Responsable de Control Escolar&quot;;
+      else if (campust == &quot;32&quot;)
+        controles = &quot;Encargada de Control Escolar&quot;;
+      else if (campust == &quot;55&quot;)
+        controles = &quot;Director de Campus&quot;;
+      else
+        controles = &quot;Coordinación de Control Escolar&quot;;
+    }
+
+    private void Text34_BeforePrint(object sender, EventArgs e)
+    {
+      Double prom;
+      prom = Convert.ToDouble(Report.GetTotalValue(&quot;RTotal1&quot;).Value);
+      
+      
+      if(((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot;)
+        promediocortado = Math.Truncate(prom).ToString();
+      else
+          promediocortado = prom &gt; 0 ? prom.ToString(&quot;###.00&quot;).Substring( 0, prom.ToString(&quot;###.00&quot;).Length-1): promediocortado = prom.ToString(&quot;###.#&quot;);
+    }  
+    private void Text29_BeforePrint(object sender, EventArgs e)
+    {
+      Text29.Text = ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot; ?
+        string.Format(&quot;{0:##.#}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad1&quot;))):
+        string.Format(&quot;{0:0.0}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad1&quot;)));
+      
+      Text29.Text = Text29.Text == &quot;0.0&quot; ? &quot;&quot; : Text29.Text;
+    }
+    private void Text35_BeforePrint(object sender, EventArgs e)
+    {  
+      Text35.Text = ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot; ?
+        string.Format(&quot;{0:##.#}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad2&quot;))):
+        string.Format(&quot;{0:0.0}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad2&quot;)));
+      
+      Text35.Text = Text35.Text == &quot;0.0&quot; ? &quot;&quot; : Text35.Text;
+    }
+    private void Text43_BeforePrint(object sender, EventArgs e)
+    {
+      Text43.Text = ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot; ?
+        string.Format(&quot;{0:##.#}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad3&quot;))):
+        string.Format(&quot;{0:0.0}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Unidad3&quot;)));
+      
+      Text43.Text = Text43.Text == &quot;0.0&quot; ? &quot;&quot; : Text43.Text;
+    }
+    private void Text18_BeforePrint(object sender, EventArgs e)
+    {
+      Text18.Text = ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot; ?
+        string.Format(&quot;{0:##.#}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Promedio&quot;))):
+        string.Format(&quot;{0:0.0}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Promedio&quot;)));
+      
+      Text18.Text = Text18.Text == &quot;0.0&quot; ? &quot;&quot; : Text18.Text;
+    }
+
+    private void Text27_BeforePrint(object sender, EventArgs e)
+    {
+      Text27.Text = ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;03&quot; || ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;12&quot; ?
+        string.Format(&quot;{0:##.#}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Ordinario&quot;))):
+        string.Format(&quot;{0:0.0}&quot;, ((Double)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Ordinario&quot;)));
+      
+      Text27.Text = Text27.Text == &quot;0.0&quot; ? &quot;&quot; : Text27.Text;
+    }
+
+    private void Text36_BeforePrint(object sender, EventArgs e)
+    {
+      encargadoCE = (((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.ID_Campus&quot;)) == &quot;06&quot; 
+        &amp;&amp; ((String)Report.GetColumnValue(&quot;fndListaAlumnosOrd.Descripcion&quot;)).ToUpper() == &quot;PREPARATORIA&quot;)
+      ? &quot;LIC. JESUS ESBEYDI GONZALEZ IMPERIAL&quot;
+        :((String)Report.GetParameterValue(&quot;@encargadoCE&quot;)).ToUpper();
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqqtzWLe5YNkM503qc41kpcML9Y0VS0gkX6+25qs61SwQ8EKFvKJKukMo1KufPxt0zXVmBE58eSZam2qgG8cvuy64TegLJX8HFXpCHHKBQeokOf7vaGsL90jHVywPXmXm2Z7TQShPuWnDiDfRd6xpkT/tHzSFA4whpwa2ImWLTrixjuHhajNZbCqq4JB7I0AtJHBS4T18yvBiG+VqhkTJQtR4VhS3iJRZBUl3/fEiJjVk9yzJdA+kiJZFujrymE9ds">
+      <TableDataSource Name="Table" Alias="fndListaAlumnosOrd" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[fndListaAlumnosConCalificaciones]&#13;&#10;		@encargadoCE = @ceEncargado,&#13;&#10;		@grupo= @grupo&#13;&#10; &#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="ID_Alumno" DataType="System.String"/>
+        <Column Name="alumno" DataType="System.String"/>
+        <Column Name="EncargadoEspecialidad" DataType="System.String"/>
+        <Column Name="ciclo" DataType="System.String"/>
+        <Column Name="gpo" DataType="System.String"/>
+        <Column Name="Clave" DataType="System.String"/>
+        <Column Name="DescripcionMateria" DataType="System.String"/>
+        <Column Name="Ordinario" DataType="System.Double"/>
+        <Column Name="Promedio" DataType="System.Double"/>
+        <Column Name="Medida" DataType="System.String"/>
+        <Column Name="img" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="SemCua" DataType="System.String" PropName="Column" Calculated="true" Expression="IIf([fndListaAlumnosOrd.Medida]==&quot;SEM&quot;||[fndListaAlumnosOrd.Medida]==&quot;POS&quot;,&quot;Semestre&quot;,&quot;Cuatrimestre&quot;)"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="Unidad1" DataType="System.Double"/>
+        <Column Name="Faltas1" DataType="System.Int32"/>
+        <Column Name="Unidad2" DataType="System.Double"/>
+        <Column Name="Faltas2" DataType="System.Int32"/>
+        <Column Name="Unidad3" DataType="System.Double"/>
+        <Column Name="Faltas3" DataType="System.Int32"/>
+        <Column Name="Id_Materia" DataType="System.Int32"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="Sexo" DataType="System.String"/>
+        <Column Name="CalificacionMinima" DataType="System.Double"/>
+        <Column Name="estadoEmpl" DataType="System.Int32"/>
+        <CommandParameter Name="@ceEncargado" DataType="22" Expression="[@encargadoCE]"/>
+        <CommandParameter Name="@grupo" DataType="22" Expression="[@grupo]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" Alias="Campus" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[BoletaParcial_Logo]&#13;&#10;		@grupo &#13;&#10;&#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="Campus" DataType="System.String"/>
+        <Column Name="Logo" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="LogoOficialSep" DataType="System.Byte[]" BindableControl="Picture"/>
+        <CommandParameter Name="@grupo" DataType="22" Expression="[@grupo]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="@grupo" DataType="System.Int32" Expression="107792"/>
+    <Parameter Name="@encargadoCE" DataType="System.String" Expression="&quot;xxx&quot;"/>
+    <Total Name="RTotal1" TotalType="Avg" Expression="[fndListaAlumnosOrd.Ordinario]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[fndListaAlumnosOrd.Ordinario]&gt;= [fndListaAlumnosOrd.CalificacionMinima]"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="6" TopMargin="6" RightMargin="6" BottomMargin="0" Guides="765.45,283.5,9.45">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="770.74"/>
+    <PageHeaderBand Name="PageHeader1" Top="40" Width="770.74"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="60" Width="770.74" Height="236.25" StartNewPage="true" OutlineExpression="[fndListaAlumnosOrd.alumno]" Condition="[fndListaAlumnosOrd.alumno]">
+      <TextObject Name="Text1" Left="236.25" Top="90.6" Width="529.2" Height="18.9" Text="[fndListaAlumnosOrd.alumno]"/>
+      <TextObject Name="Text2" Left="9.45" Top="90.6" Width="226.8" Height="18.9" Text="Boleta de exámenes del alumno(a):" HorzAlign="Right"/>
+      <TextObject Name="Text3" Left="9.45" Top="134.85" Width="226.8" Height="18.9" Text="Matricula:" HorzAlign="Right"/>
+      <TextObject Name="Text4" Left="378" Top="134.95" Width="94.5" Height="18.9" Text="Ciclo Escolar:" HorzAlign="Right"/>
+      <TextObject Name="Text5" Left="236.25" Top="134.85" Width="141.75" Height="18.9" Text="[fndListaAlumnosOrd.ID_Alumno]"/>
+      <TextObject Name="Text6" Left="472.5" Top="134.95" Width="292.95" Height="18.9" Text="[fndListaAlumnosOrd.ciclo]" AutoShrink="FontSize"/>
+      <TextObject Name="Text11" Left="9.45" Top="112.5" Width="226.8" Height="18.9" Text="Carrera:" HorzAlign="Right"/>
+      <TextObject Name="Text12" Left="359.1" Top="157.65" Width="113.4" Height="18.9" Text="Tipo de examen:" HorzAlign="Right"/>
+      <TextObject Name="Text13" Left="472.5" Top="157.65" Width="292.95" Height="18.9" Text="EXAMEN DE UNIDAD ORDINARIO" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="236.25" Top="112.5" Width="529.2" Height="18.9" Text="[fndListaAlumnosOrd.Descripcion]"/>
+      <TextObject Name="Text15" Left="236.25" Top="157.2" Width="122.85" Height="18.9" Text="[fndListaAlumnosOrd.gpo]"/>
+      <TextObject Name="Text16" Left="245.7" Top="23.35" Width="519.75" Height="24.57" Text="Campus [Campus.Campus]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text8" Left="245.7" Width="519.75" Height="18.9" Text="Boleta Parcial de Calificaciones" HorzAlign="Center" Font="Arial, 13pt, style=Bold, Italic"/>
+      <ShapeObject Name="Shape2" Left="9" Top="189" Width="756.96" Height="47.25" Border.Width="0.5"/>
+      <LineObject Name="Line2" Left="283.5" Top="189" Height="46.49" Border.Width="0.5" Diagonal="true"/>
+      <LineObject Name="Line6" Left="283.5" Top="213.35" Width="481.95" Border.Width="0.5" Diagonal="true"/>
+      <TextObject Name="Text20" Left="9.45" Top="198.45" Width="274.05" Height="18.9" Text="Asignaturas" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text22" Left="283.5" Top="189" Width="481.95" Height="18.9" Text="Calificaciones" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text24" Left="661.5" Top="213.57" Width="103.95" Height="21.55" Text="Promedio Final" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text25" Left="283.5" Top="213.57" Width="66.15" Height="21.55" Text="U1" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text26" Left="378" Top="213.57" Width="66.15" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="U2" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <PictureObject Name="Picture1" Left="9.45" Width="217.35" Height="75.6" DataColumn="Campus.Logo"/>
+      <TextObject Name="Text28" Left="9.45" Top="157.2" Width="226.8" Height="18.9" Text="[fndListaAlumnosOrd.SemCua]:" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text37" Left="349.65" Top="213.57" Width="28.35" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="F" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text38" Left="444.15" Top="213.57" Width="28.35" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="F" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text39" Left="472.5" Top="213.57" Width="66.15" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="U3" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text40" Left="538.65" Top="213.57" Width="28.35" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="F" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text41" Left="567" Top="213.57" Width="94.5" Height="21.55" Border.Lines="Left, Right" Border.Width="0.5" Text="Ex. Final" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <DataBand Name="Data1" Top="316.25" Width="770.74" Height="15.12" CanGrow="true" CanBreak="true" DataSource="Table">
+        <TextObject Name="Text9" Left="9.07" Width="274.43" Height="15.12" Border.Lines="Left, Right" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[fndListaAlumnosOrd.DescripcionMateria]" Font="Arial, 8pt"/>
+        <TextObject Name="Text17" Left="349.65" Width="28.35" Height="15.12" Border.Lines="Left, Right" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[fndListaAlumnosOrd.Faltas1]" Format="Custom" Format.Format="##" HorzAlign="Center" WordWrap="false" Font="Arial, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text18" Left="567" Width="94.5" Height="15.12" Border.Lines="Left" Border.Width="0.5" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text18_BeforePrint" Text="[fndListaAlumnosOrd.Promedio]" HorzAlign="Center" Font="Arial, 9pt"/>
+        <TextObject Name="Text27" Left="661.5" Width="103.95" Height="15.12" Border.Lines="Left, Right" Border.Width="0.5" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text27_BeforePrint" Text="[fndListaAlumnosOrd.Ordinario]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+        <TextObject Name="Text29" Left="283.5" Width="66.15" Height="15.12" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text29_BeforePrint" Text="[fndListaAlumnosOrd.Unidad1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+        <TextObject Name="Text35" Left="378" Width="66.15" Height="15.12" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text35_BeforePrint" Text="[fndListaAlumnosOrd.Unidad2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+        <TextObject Name="Text42" Left="444.15" Width="28.35" Height="15.12" Border.Lines="Left, Right" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[fndListaAlumnosOrd.Faltas2]" Format="Custom" Format.Format="##" HorzAlign="Center" WordWrap="false" Font="Arial, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text43" Left="472.5" Width="66.15" Height="15.12" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text43_BeforePrint" Text="[fndListaAlumnosOrd.Unidad3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+        <TextObject Name="Text44" Left="538.65" Width="28.35" Height="15.12" Border.Lines="Left, Right" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[fndListaAlumnosOrd.Faltas3]" Format="Custom" Format.Format="##" HorzAlign="Center" WordWrap="false" Font="Arial, 9pt" Trimming="EllipsisCharacter"/>
+        <Sort>
+          <Sort Expression="[fndListaAlumnosOrd.DescripcionMateria]"/>
+        </Sort>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="351.37" Width="770.74" Height="160.65">
+        <TextObject Name="Text10" Left="9.45" Top="41.8" Width="330.75" Height="18.9" Text="[fndListaAlumnosOrd.EncargadoEspecialidad]" AutoShrink="FontWidth" HorzAlign="Center" Font="Arial, 9.5pt"/>
+        <LineObject Name="Line8" Left="9.45" Width="756" Border.Width="0.5" Diagonal="true"/>
+        <TextObject Name="Text31" Left="425.25" Top="98.5" Width="784.35" Height="18.9" Text="[FormatDateTime([Date],&quot;dd/MM/yyyy&quot;)]" Font="Arial, 9pt">
+          <Formats>
+            <DateFormat/>
+            <GeneralFormat/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text32" Left="28.35" Top="60.7" Width="292.95" Height="18.9" Border.Lines="Top" Border.Width="0.5" BeforePrintEvent="Text32_BeforePrint" Text="[texto2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text33" Left="444.15" Top="60.7" Width="274.05" Height="18.9" Border.Lines="Top" Border.Width="0.5" BeforePrintEvent="Text33_BeforePrint" Text="[controles]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text34" Left="661.5" Top="9.45" Width="103.95" Height="18.9" BeforePrintEvent="Text34_BeforePrint" Text="[promediocortado]" Format="Custom" Format.Format="##.#" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+        <TextObject Name="Text36" Left="415.8" Top="41.8" Width="330.75" Height="18.9" BeforePrintEvent="Text36_BeforePrint" Text="[encargadoCE]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9.5pt"/>
+        <TextObject Name="Text7" Left="9.45" Top="98.5" Width="415.8" Height="18.9" Text="Se presenta Examen Final en el caso de no exentar la materia" Font="Arial, 10pt, style=Bold, Italic"/>
+        <TextObject Name="Text19" Left="557.55" Top="9.45" Width="94.5" Height="18.9" Text="Promedio:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="532.02" Width="770.74"/>
+  </ReportPage>
+</Report>
