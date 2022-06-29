@@ -67,6 +67,8 @@ namespace ProyectoLoboSostenido
             ToolTip TTbutton2 = new ToolTip();
             TTbutton2.SetToolTip(button2, "Crear nuevo archivo inexistente");
             ToolTip TTbtnModificar = new ToolTip();
+            ToolTip TTbtnCrearArchivo = new ToolTip();
+            TTbtnCrearArchivo.SetToolTip(btnCrearArchivo, "Crear archivo que no existe en la maquina");
             TTbtnModificar.SetToolTip(btnModificar, "Modificar información de los reportes guardados en base de datos");
             ToolTip TTbtnGuardar = new ToolTip();
             TTbtnGuardar.SetToolTip(btnGuardar, "Guardar archivo en la base de datos");
