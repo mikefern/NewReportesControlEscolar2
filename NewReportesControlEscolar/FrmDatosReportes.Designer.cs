@@ -29,8 +29,8 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
@@ -64,20 +64,20 @@ namespace ProyectoLoboSostenido
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnCrearCopia = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btn_ReemplazarCarpeta = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnCopiar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_AbrirArchivoEdicion = new System.Windows.Forms.Button();
             this.pictureCambiar = new System.Windows.Forms.PictureBox();
             this.pictureAbrirArchivo = new System.Windows.Forms.PictureBox();
             this.pictureAbrirCarpeta = new System.Windows.Forms.PictureBox();
             this.btn_CambiarSoloRutaBD = new System.Windows.Forms.Button();
+            this.btnCopiar = new System.Windows.Forms.Button();
             this.btn_Abrircarpeta = new System.Windows.Forms.Button();
             this.btn_AbrirArchivo = new System.Windows.Forms.Button();
             this.pictureIcono = new System.Windows.Forms.PictureBox();
@@ -88,6 +88,7 @@ namespace ProyectoLoboSostenido
             this.btnModificar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@ namespace ProyectoLoboSostenido
             this.pictureModificar = new System.Windows.Forms.PictureBox();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AbrirDirectorioRutas)).BeginInit();
@@ -124,11 +124,11 @@ namespace ProyectoLoboSostenido
             ((System.ComponentModel.ISupportInitialize)(this.pictureEliminar)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -429,24 +429,24 @@ namespace ProyectoLoboSostenido
             this.DGV_Reportes.AllowUserToAddRows = false;
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Reportes.GridColor = System.Drawing.Color.Black;
             this.DGV_Reportes.Location = new System.Drawing.Point(15, 22);
             this.DGV_Reportes.MultiSelect = false;
@@ -514,7 +514,7 @@ namespace ProyectoLoboSostenido
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(17, 448);
+            this.pictureBox6.Location = new System.Drawing.Point(17, 373);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 35);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -548,17 +548,31 @@ namespace ProyectoLoboSostenido
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 582);
+            this.pictureBox4.Location = new System.Drawing.Point(17, 636);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 87;
             this.pictureBox4.TabStop = false;
             // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button4.Location = new System.Drawing.Point(54, 582);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(147, 45);
+            this.button4.TabIndex = 82;
+            this.button4.Text = "Modo Copiar de Carpeta R - RCE";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 636);
+            this.pictureBox2.Location = new System.Drawing.Point(17, 577);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -597,27 +611,13 @@ namespace ProyectoLoboSostenido
             this.btnCrearCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearCopia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearCopia.ForeColor = System.Drawing.Color.Black;
-            this.btnCrearCopia.Location = new System.Drawing.Point(54, 582);
+            this.btnCrearCopia.Location = new System.Drawing.Point(54, 641);
             this.btnCrearCopia.Name = "btnCrearCopia";
             this.btnCrearCopia.Size = new System.Drawing.Size(147, 30);
             this.btnCrearCopia.TabIndex = 84;
             this.btnCrearCopia.Text = "Crear Copia Reporte";
             this.btnCrearCopia.UseVisualStyleBackColor = true;
             this.btnCrearCopia.Click += new System.EventHandler(this.btnCrearCopia_Click);
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button4.Location = new System.Drawing.Point(54, 636);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 45);
-            this.button4.TabIndex = 82;
-            this.button4.Text = "Modo Copiar de Carpeta R - RCE";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btn_ReemplazarCarpeta
             // 
@@ -649,20 +649,6 @@ namespace ProyectoLoboSostenido
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnCopiar
-            // 
-            this.btnCopiar.FlatAppearance.BorderSize = 0;
-            this.btnCopiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCopiar.Location = new System.Drawing.Point(54, 446);
-            this.btnCopiar.Name = "btnCopiar";
-            this.btnCopiar.Size = new System.Drawing.Size(147, 42);
-            this.btnCopiar.TabIndex = 81;
-            this.btnCopiar.Text = "Copiar reporte a ruta local";
-            this.btnCopiar.UseVisualStyleBackColor = true;
-            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -693,7 +679,7 @@ namespace ProyectoLoboSostenido
             // pictureCambiar
             // 
             this.pictureCambiar.Image = ((System.Drawing.Image)(resources.GetObject("pictureCambiar.Image")));
-            this.pictureCambiar.Location = new System.Drawing.Point(17, 379);
+            this.pictureCambiar.Location = new System.Drawing.Point(17, 436);
             this.pictureCambiar.Name = "pictureCambiar";
             this.pictureCambiar.Size = new System.Drawing.Size(31, 35);
             this.pictureCambiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -728,13 +714,27 @@ namespace ProyectoLoboSostenido
             this.btn_CambiarSoloRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarSoloRutaBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarSoloRutaBD.ForeColor = System.Drawing.Color.Black;
-            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 372);
+            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 436);
             this.btn_CambiarSoloRutaBD.Name = "btn_CambiarSoloRutaBD";
             this.btn_CambiarSoloRutaBD.Size = new System.Drawing.Size(147, 52);
             this.btn_CambiarSoloRutaBD.TabIndex = 75;
             this.btn_CambiarSoloRutaBD.Text = "Cambiar ruta solo en BD";
             this.btn_CambiarSoloRutaBD.UseVisualStyleBackColor = true;
             this.btn_CambiarSoloRutaBD.Click += new System.EventHandler(this.btn_CambiarSoloRutaBD_Click);
+            // 
+            // btnCopiar
+            // 
+            this.btnCopiar.FlatAppearance.BorderSize = 0;
+            this.btnCopiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCopiar.Location = new System.Drawing.Point(54, 373);
+            this.btnCopiar.Name = "btnCopiar";
+            this.btnCopiar.Size = new System.Drawing.Size(147, 42);
+            this.btnCopiar.TabIndex = 81;
+            this.btnCopiar.Text = "Copiar reporte a ruta local";
+            this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
             // 
             // btn_Abrircarpeta
             // 
@@ -783,7 +783,7 @@ namespace ProyectoLoboSostenido
             // pictureEliminar
             // 
             this.pictureEliminar.Image = ((System.Drawing.Image)(resources.GetObject("pictureEliminar.Image")));
-            this.pictureEliminar.Location = new System.Drawing.Point(894, 810);
+            this.pictureEliminar.Location = new System.Drawing.Point(867, 815);
             this.pictureEliminar.Name = "pictureEliminar";
             this.pictureEliminar.Size = new System.Drawing.Size(31, 35);
             this.pictureEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -799,7 +799,7 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(942, 815);
+            this.btnEliminar.Location = new System.Drawing.Point(922, 815);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(147, 30);
             this.btnEliminar.TabIndex = 63;
@@ -891,6 +891,16 @@ namespace ProyectoLoboSostenido
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 82;
             this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(20, 815);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(31, 35);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 81;
+            this.pictureBox9.TabStop = false;
             // 
             // button2
             // 
@@ -1065,16 +1075,6 @@ namespace ProyectoLoboSostenido
             this.lblCerrar.TabIndex = 63;
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(20, 815);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(31, 35);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 81;
-            this.pictureBox9.TabStop = false;
-            // 
             // FrmDatosReportes
             // 
             this.AllowDrop = true;
@@ -1117,12 +1117,12 @@ namespace ProyectoLoboSostenido
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
