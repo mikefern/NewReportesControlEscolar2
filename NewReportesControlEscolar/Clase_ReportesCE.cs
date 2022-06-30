@@ -31,7 +31,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarParametros() 
         {
-            string nomProce = "MostrarParametros";
+            string nomProce = "Reports_MostrarParametros";
             if (Consultar(nomProce))
             {
                 return true;
