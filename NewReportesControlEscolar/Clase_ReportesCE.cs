@@ -1277,10 +1277,11 @@ namespace ProyectoLoboSostenido
             }
             else
             {
+                reporte = reporte.Replace("System.Windows.Forms.ComboBox, Items.Count: 2", "");
                 if (!System.IO.File.Exists(@"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".rpt"))
                 {
-                    System.IO.File.Copy(@"\\189.197.190.214\Sistemas\Reportes\" + reporte + ".rpt", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".rpt", true);
-                    System.IO.File.Copy(@"\\189.197.190.214\Sistemas\Reportes\" + reporte + ".cs", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".cs", true);
+                    System.IO.File.Copy(@"\\189.197.190.214\Sistemas\ReportesCE\" + reporte + ".rpt", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".rpt", true);
+                    System.IO.File.Copy(@"\\189.197.190.214\Sistemas\ReportesCE\" + reporte + ".cs", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".cs", true);
                 }
             }
             Thread.Sleep(3000);
