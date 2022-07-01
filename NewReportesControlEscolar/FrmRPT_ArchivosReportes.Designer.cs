@@ -562,7 +562,7 @@ namespace ProyectoLoboSostenido
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button4.Location = new System.Drawing.Point(54, 636);
+            this.button4.Location = new System.Drawing.Point(54, 582);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 45);
             this.button4.TabIndex = 82;
@@ -715,7 +715,7 @@ namespace ProyectoLoboSostenido
             this.btn_CambiarSoloRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarSoloRutaBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarSoloRutaBD.ForeColor = System.Drawing.Color.Black;
-            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 436);
+            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 373);
             this.btn_CambiarSoloRutaBD.Name = "btn_CambiarSoloRutaBD";
             this.btn_CambiarSoloRutaBD.Size = new System.Drawing.Size(147, 52);
             this.btn_CambiarSoloRutaBD.TabIndex = 75;
