@@ -515,7 +515,7 @@ namespace ProyectoLoboSostenido
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(17, 448);
+            this.pictureBox6.Location = new System.Drawing.Point(17, 373);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 35);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -549,7 +549,7 @@ namespace ProyectoLoboSostenido
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 582);
+            this.pictureBox4.Location = new System.Drawing.Point(17, 636);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -573,7 +573,7 @@ namespace ProyectoLoboSostenido
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 636);
+            this.pictureBox2.Location = new System.Drawing.Point(17, 577);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -612,7 +612,7 @@ namespace ProyectoLoboSostenido
             this.btnCrearCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearCopia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearCopia.ForeColor = System.Drawing.Color.Black;
-            this.btnCrearCopia.Location = new System.Drawing.Point(54, 582);
+            this.btnCrearCopia.Location = new System.Drawing.Point(54, 641);
             this.btnCrearCopia.Name = "btnCrearCopia";
             this.btnCrearCopia.Size = new System.Drawing.Size(147, 30);
             this.btnCrearCopia.TabIndex = 84;
@@ -680,7 +680,7 @@ namespace ProyectoLoboSostenido
             // pictureCambiar
             // 
             this.pictureCambiar.Image = ((System.Drawing.Image)(resources.GetObject("pictureCambiar.Image")));
-            this.pictureCambiar.Location = new System.Drawing.Point(17, 379);
+            this.pictureCambiar.Location = new System.Drawing.Point(17, 436);
             this.pictureCambiar.Name = "pictureCambiar";
             this.pictureCambiar.Size = new System.Drawing.Size(31, 35);
             this.pictureCambiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -715,7 +715,7 @@ namespace ProyectoLoboSostenido
             this.btn_CambiarSoloRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarSoloRutaBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarSoloRutaBD.ForeColor = System.Drawing.Color.Black;
-            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 372);
+            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 436);
             this.btn_CambiarSoloRutaBD.Name = "btn_CambiarSoloRutaBD";
             this.btn_CambiarSoloRutaBD.Size = new System.Drawing.Size(147, 52);
             this.btn_CambiarSoloRutaBD.TabIndex = 75;
@@ -784,7 +784,7 @@ namespace ProyectoLoboSostenido
             // pictureEliminar
             // 
             this.pictureEliminar.Image = ((System.Drawing.Image)(resources.GetObject("pictureEliminar.Image")));
-            this.pictureEliminar.Location = new System.Drawing.Point(894, 810);
+            this.pictureEliminar.Location = new System.Drawing.Point(867, 815);
             this.pictureEliminar.Name = "pictureEliminar";
             this.pictureEliminar.Size = new System.Drawing.Size(31, 35);
             this.pictureEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -800,7 +800,7 @@ namespace ProyectoLoboSostenido
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(942, 815);
+            this.btnEliminar.Location = new System.Drawing.Point(922, 815);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(147, 30);
             this.btnEliminar.TabIndex = 63;

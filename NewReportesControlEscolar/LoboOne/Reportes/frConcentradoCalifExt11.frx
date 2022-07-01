@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="10/10/2016 13:59:12" ReportInfo.Modified="05/03/2022 12:54:45" ReportInfo.CreatorVersion="2015.2.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private int numMat =0;
+    public string encabezado;
+
+
+    private void Cell3_BeforePrint(object sender, EventArgs e)
+    {
+     int valor = int.Parse(Replace(txtRenglon.Text,&quot;.&quot;,&quot;&quot;))+1;
+     txtRenglon.Text = valor.ToString()+&quot;.&quot;;
+          
+     if (int.Parse(Replace(txtRenglon.Text,&quot;.&quot;,&quot;&quot;))&gt;int.Parse(Replace(Text11.Text,&quot;.&quot;,&quot;&quot;)))
+     Text11.Text = txtRenglon.Text ; 
+    }
+
+    private void _BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Matrix1_AfterPrint(object sender, EventArgs e)
+    {
+         //linea1.Height = Matrix1.Height;
+    }
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+        Text2.Left = Matrix1.Width + (((numMat-1) / 2) * Cell4.Width)- (Text2.Width/2) - Cell8.Width;
+        
+        txtRenglon.Text = &quot;0&quot;;
+        numMat =0;
+        
+    }
+
+    private void Matrix1_AfterData(object sender, EventArgs e)
+    {
+        //linea1.Height = Matrix1.Height;         
+      
+    }
+
+    private void Matrix1_BeforePrint(object sender, EventArgs e)
+    {
+         //linea1.Height = Matrix1.Height;
+      Text2.Left = 350;
+    }
+
+    private void Line1_BeforePrint(object sender, EventArgs e)
+    {
+        Line1.Left = Cell4.Width;
+    }
+
+    private void Cell2_BeforePrint(object sender, EventArgs e)
+    {
+        //Cell2.Width = Cell2.Width - 0.9F;
+        Cell2.Height = Cell2.Height - 0.9F;
+    }
+
+    private void Cell4_AfterPrint(object sender, EventArgs e)
+    {
+      numMat += 1;
+    }
+
+    private void Text2_BeforePrint(object sender, EventArgs e)
+    {
+         Text2.Left = Matrix1.Width + (((numMat-1) / 2) * Cell4.Width)- (Text2.Width/2);
+    }
+
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    {
+      /*
+      if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;01&quot;)
+      {
+        Text6.Text = &quot;Primer Semestre&quot;;
+      }
+      else  if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;02&quot;)
+      {
+        Text6.Text = &quot;Segundo Semestre&quot;;
+      }
+      else  if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;03&quot;)
+      {
+        Text6.Text = &quot;Tercer Semestre&quot;;
+      }
+      else  if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;04&quot;)
+      {
+        Text6.Text = &quot;Cuarto Semestre&quot;;
+      }
+      else  if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;05&quot;)
+      {
+        Text6.Text = &quot;Quinto Semestre&quot;;
+      }
+      else  if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;06&quot;)
+      {
+        Text6.Text = &quot;Sexto Semestre&quot;;
+      }
+       */
+    }
+
+    private void Text10_BeforePrint(object sender, EventArgs e)
+    { if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;01&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;03&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;05&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;07&quot; ||
+      Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;09&quot;  )
+      {
+        Text10.Text = ( ((DateTime)Report.GetColumnValue(&quot;gpoDatosGrales.Fecha_Inicio&quot;)).Year +1).ToString()+&quot;)&quot;;
+      } else
+        Text10.Text = ( ((DateTime)Report.GetColumnValue(&quot;gpoDatosGrales.Fecha_Inicio&quot;)).Year).ToString()+&quot;)&quot;;
+    }
+
+    private void Text15_BeforePrint(object sender, EventArgs e)
+    {
+      if(Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;01&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;03&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;05&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;07&quot; ||
+        Report.GetColumnValue(&quot;gpoDatosGrales.NumSem&quot;).ToString() == &quot;09&quot;  )
+      {
+        Text15.Text = &quot;AGO&quot; + ( ((DateTime)Report.GetColumnValue(&quot;gpoDatosGrales.Fecha_Inicio&quot;)).Year).ToString().Substring(2,2)
+          +   &quot;- ENE&quot;+Text10.Text.Substring(2,2);
+      }
+      else
+        Text15.Text = &quot;FEB&quot; + ( ((DateTime)Report.GetColumnValue(&quot;gpoDatosGrales.Fecha_Inicio&quot;)).Year).ToString().Substring(2,2)
+          +   &quot;- JUL&quot;+Text10.Text.Substring(2,2);    
+    }
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      encabezado = Replace(((String)Report.GetColumnValue(&quot;gpoDatosGrales.Encabezado&quot;)),&quot;, CERTIFICA que&quot;,&quot;&quot;);
+    }
+  }
+  
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqqtzWLe5YNkM503qc41kpcML9Y0VS0gkX6+25qs61SwQ8EKFvKJKukMo1KufPxt0zXVmBE58eSZam2qgG8cvuy64TegLJX8HFXpCHHKBQeokOf7vaGsL90jHVywPXmXm2Z7TQShPuWnDiDfRd6xpkT/tHzSFA4whpwa2ImWLTrixjuHhajNZbCqq4JB7I0AtJHBS4T18yvBiG+VqhkTJQta5dtT+o/Z+dcH+W4VWjQjA=">
+      <TableDataSource Name="Table" Alias="CalificacionesXGpo" DataType="System.Int32" Enabled="true" SelectCommand="DECLARE	@return_value int&#13;&#10;&#13;&#10;EXEC	@return_value = [dbo].[getCalifConcentrado]&#13;&#10;		@idCampus,@idEspecialidad,@grupo,&quot;EXTRA&quot;&#13;&#10;&#13;&#10;SELECT	'Return Value' = @return_value">
+        <Column Name="id" DataType="System.Int32"/>
+        <Column Name="id_Materia" DataType="System.Int32"/>
+        <Column Name="Matricula" DataType="System.String"/>
+        <Column Name="Alumno" DataType="System.String"/>
+        <Column Name="Descripcion Materia" DataType="System.String"/>
+        <Column Name="Unidad 1" DataType="System.Double"/>
+        <Column Name="Faltas 1" DataType="System.Int32"/>
+        <Column Name="Unidad 2" DataType="System.Double"/>
+        <Column Name="Faltas 2" DataType="System.Int32"/>
+        <Column Name="Unidad 3" DataType="System.Double"/>
+        <Column Name="Faltas 3" DataType="System.Int32"/>
+        <Column Name="Promedio" DataType="System.Double"/>
+        <Column Name="Ordinario" DataType="System.Double"/>
+        <Column Name="Folio Ordinario" DataType="System.String"/>
+        <Column Name="Fecha Ordinario" DataType="System.DateTime"/>
+        <Column Name="Extraordinario" DataType="System.Double"/>
+        <Column Name="Folio Extraordinario" DataType="System.String"/>
+        <Column Name="Fecha Extraordinario" DataType="System.DateTime"/>
+        <Column Name="titulo" DataType="System.Double"/>
+        <Column Name="Folio Titulo" DataType="System.String"/>
+        <Column Name="Fecha Titulo" DataType="System.DateTime"/>
+        <Column Name="Repeticion" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Revalida" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Equivalencia" DataType="System.Double"/>
+        <Column Name="Folio Equivalencia" DataType="System.String"/>
+        <Column Name="Fecha Equivalencia" DataType="System.DateTime"/>
+        <Column Name="Grupo" DataType="System.String"/>
+        <Column Name="Column" DataType="System.Int32" Calculated="true" Expression="[Row#]"/>
+        <Column Name="TotalAlumnos" DataType="System.Int32" PropName="Column1" Calculated="true" Expression="[AbsRow#]"/>
+        <Column Name="clave" DataType="System.String"/>
+        <CommandParameter Name="@grupo" DataType="22" Expression="[pGrupo]"/>
+        <CommandParameter Name="@idEspecialidad" DataType="22" Expression="[idEspecialidad]"/>
+        <CommandParameter Name="@idCampus" DataType="22" Expression="[idCampus]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" Alias="gpoDatosGrales" DataType="System.Int32" Enabled="true" SelectCommand="EXEC frConcentradoCalifOrd11_gpoDatosGrales @ID_Grupo">
+        <Column Name="NumSem" DataType="System.String"/>
+        <Column Name="NumeroEspecialidad" DataType="System.Int32"/>
+        <Column Name="ID_Especialidad" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="Clave" DataType="System.String"/>
+        <Column Name="Nombre_Corto" DataType="System.String"/>
+        <Column Name="Medida" DataType="System.String"/>
+        <Column Name="Semestres" DataType="System.Int32"/>
+        <Column Name="TipoUniv" DataType="System.String"/>
+        <Column Name="ID_Campus" DataType="System.String"/>
+        <Column Name="Turno" DataType="System.String"/>
+        <Column Name="Director" DataType="System.String"/>
+        <Column Name="CalificacionMinima" DataType="System.Double"/>
+        <Column Name="Sinodal1" DataType="System.String"/>
+        <Column Name="Sinodal2" DataType="System.String"/>
+        <Column Name="Activada" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CostoHora" DataType="System.Decimal"/>
+        <Column Name="TroncoComun" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Antecedentes" DataType="System.String"/>
+        <Column Name="Modular" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CalificacionExentar" DataType="System.Double"/>
+        <Column Name="Fecha_Inicio" DataType="System.DateTime"/>
+        <Column Name="Fecha_Fin" DataType="System.DateTime"/>
+        <Column Name="Id_CEscolar" DataType="System.String"/>
+        <Column Name="Descripcion1" DataType="System.String"/>
+        <Column Name="Id_CAnterior" DataType="System.String"/>
+        <Column Name="Id_Campus1" DataType="System.String"/>
+        <Column Name="TipoUniv1" DataType="System.String"/>
+        <Column Name="Activo" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="MKT" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ADM" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ClaveContable" DataType="System.String"/>
+        <Column Name="Promedio" DataType="System.String"/>
+        <Column Name="CCT" DataType="System.String"/>
+        <Column Name="ID_NivelEsp" DataType="System.Int32"/>
+        <Column Name="Duracion_Anio" DataType="System.String"/>
+        <Column Name="Duracion_Meses" DataType="System.String"/>
+        <Column Name="Num_Inscripciones" DataType="System.String"/>
+        <Column Name="Num_Colegiaturas" DataType="System.String"/>
+        <Column Name="DGP" DataType="System.String"/>
+        <Column Name="ID_Calificacion" DataType="System.Int32"/>
+        <Column Name="ID_Gpo_Alumnos" DataType="System.Int32"/>
+        <Column Name="ID_Alumno" DataType="System.String"/>
+        <Column Name="ID_Materia" DataType="System.Int32"/>
+        <Column Name="Unidad1" DataType="System.Double"/>
+        <Column Name="Faltas1" DataType="System.Int32"/>
+        <Column Name="Unidad2" DataType="System.Double"/>
+        <Column Name="Faltas2" DataType="System.Int32"/>
+        <Column Name="Unidad3" DataType="System.Double"/>
+        <Column Name="Faltas3" DataType="System.Int32"/>
+        <Column Name="Ordinario" DataType="System.Double"/>
+        <Column Name="FolioOrdinario" DataType="System.String"/>
+        <Column Name="FechaOrdinario" DataType="System.DateTime"/>
+        <Column Name="Extraordinario" DataType="System.Double"/>
+        <Column Name="FolioExtraordinario" DataType="System.String"/>
+        <Column Name="FechaExtraordinario" DataType="System.DateTime"/>
+        <Column Name="Titulo" DataType="System.Double"/>
+        <Column Name="FolioTitulo" DataType="System.String"/>
+        <Column Name="FechaTitulo" DataType="System.DateTime"/>
+        <Column Name="Repeticion" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Revalida" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Equivalencia" DataType="System.Double"/>
+        <Column Name="FechaEquivalencia" DataType="System.DateTime"/>
+        <Column Name="FolioEquivalencia" DataType="System.String"/>
+        <Column Name="PosicionActaOrd" DataType="System.String"/>
+        <Column Name="PosicionActaExt" DataType="System.String"/>
+        <Column Name="PosicionActaTit" DataType="System.String"/>
+        <Column Name="Extraordinario2" DataType="System.Double"/>
+        <Column Name="FolioExtraordinario2" DataType="System.String"/>
+        <Column Name="FechaExtraordinario2" DataType="System.DateTime"/>
+        <Column Name="FechaParcial1" DataType="System.DateTime"/>
+        <Column Name="FechaParcial2" DataType="System.DateTime"/>
+        <Column Name="FechaParcial3" DataType="System.DateTime"/>
+        <Column Name="FechaFinal" DataType="System.DateTime"/>
+        <Column Name="FechaExtra" DataType="System.DateTime"/>
+        <Column Name="Origen" DataType="System.String"/>
+        <Column Name="Actualizo" DataType="System.String"/>
+        <Column Name="FechaCreacion" DataType="System.DateTime"/>
+        <Column Name="Posicion" DataType="System.String"/>
+        <Column Name="Id_Cat_Estatus_MateriaAlumno" DataType="System.Int32"/>
+        <Column Name="FechaEquivalenciaTermino" DataType="System.DateTime"/>
+        <Column Name="TipoEquivalencia" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="MostrarCardex" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="FaltasT" DataType="System.Int32"/>
+        <Column Name="Encabezado" DataType="System.String"/>
+        <CommandParameter Name="@ID_Grupo" DataType="22" Expression="[pGrupo]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="pGrupo" DataType="System.String" Expression="&quot;85566&quot;" Description="Grupo"/>
+    <Parameter Name="idCampus" DataType="System.String" Expression="&quot;11&quot;"/>
+    <Parameter Name="idEspecialidad" DataType="System.String" Expression="&quot;072&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="355.6" RawPaperSize="5" TopMargin="15" RightMargin="5" BottomMargin="20" FirstPageSource="15" OtherPagesSource="15" Guides="18.9,708.75" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="759.4" Height="160.65">
+      <TextObject Name="Text3" Left="18.9" Width="689.85" Height="37.8" Text="Universidad Autónoma de Durango" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 25pt, style=Bold"/>
+      <TextObject Name="Text1" Left="18.9" Top="56.7" Width="614.25" Height="66.15" Border.Lines="Bottom" Border.Color="White" BeforePrintEvent="Text1_BeforePrint" CanBreak="false" Text="[encabezado]" HorzAlign="Justify" Font="Arial Narrow, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="200.65" Width="759.4"/>
+    <DataBand Name="Data1" Top="220.65" Width="759.4" Height="252.48">
+      <MatrixObject Name="Matrix1" Left="18.9" Top="66.15" Width="408.33" Height="176.88" BeforePrintEvent="Matrix1_BeforePrint" AfterPrintEvent="Matrix1_AfterPrint" AfterDataEvent="Matrix1_AfterData" FixedRows="1" FixedColumns="1" AutoSize="false" DataSource="Table" Style="White">
+        <MatrixColumns>
+          <Header Expression="[CalificacionesXGpo.Descripcion Materia]" Sort="None"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[CalificacionesXGpo.Alumno]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[CalificacionesXGpo.Extraordinario]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="262.09"/>
+        <TableColumn Name="Column2" Width="35.75"/>
+        <TableColumn Name="Column3" Width="110.49"/>
+        <TableRow Name="Row1" Height="157.32">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Nombre&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold">
+            <LineObject Left="37.8" Top="24.57" Height="153.09" Diagonal="true"/>
+            <LineObject Top="24.57" Width="261.95" Diagonal="true"/>
+            <TextObject Top="74.15" Width="37.8" Height="18.9" Text="N°" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TextObject Name="Text22" Width="261.95" Height="23.81" Border.Lines="Left, Top" Border.Color="White" BeforePrintEvent="Text2_BeforePrint" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text2" Width="261.95" Height="24.57" Border.Lines="Top" Border.Color="Transparent" BeforePrintEvent="Text2_BeforePrint" Text="MATERIAS" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell2" BeforePrintEvent="Cell2_BeforePrint" Text="[Descripcion Materia]" Padding="2, 20, 2, 2" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Calibri, 7pt, style=Bold">
+            <TextObject Width="35.91" Height="24.57" Border.Lines="Top, Bottom" HorzAlign="Center"/>
+            <LineObject Name="Line1" Left="18.9" Top="24.95" Height="141.75" BeforePrintEvent="Line1_BeforePrint" Diagonal="true"/>
+          </TableCell>
+          <TableCell Name="Cell7" Border.Lines="All" Text="Observaciones&#13;&#10;" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="19.56">
+          <TableCell Name="Cell3" Border.Lines="All" BeforePrintEvent="Cell3_BeforePrint" Text="[Alumno]" AutoShrink="FontSize" VertAlign="Center" Font="Arial Narrow, 8pt, style=Bold" FirstTabOffset="45.36" ParagraphOffset="45.36">
+            <TextObject Name="txtRenglon" Width="37.8" Height="18.9" Border.Lines="Right" Bookmark="txtRenglon" Text="0" Format="Custom" Format.Format="##." HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[Extraordinario]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell8" Border.Lines="All" HorzAlign="Right" VertAlign="Center" TextFill.Color="Transparent"/>
+        </TableRow>
+      </MatrixObject>
+      <TextObject Name="Text12" Left="463.05" Top="47.25" Width="103.95" Height="18.9" Text="Folio: EXT/" HorzAlign="Right" Font="Calibri, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="56.7" Top="18.9" Width="340.2" Height="18.9" Text="Ciclo: ([Year([gpoDatosGrales.Fecha_Inicio])] -" HorzAlign="Right" Font="Calibri, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="18.9" Width="689.85" Height="18.9" Text="CONCENTRADO DE CALIFICACIONES EXTRAORDINARIAS" HorzAlign="Center" Font="Calibri, 11pt, style=Bold"/>
+      <TextObject Name="Text10" Left="396.9" Top="18.9" Width="264.6" Height="18.9" BeforePrintEvent="Text10_BeforePrint" Text=" " Font="Calibri, 11pt, style=Bold"/>
+      <TextObject Name="Text15" Left="567" Top="47.25" Width="94.5" Height="18.9" BeforePrintEvent="Text15_BeforePrint" Font="Calibri, 8pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="493.13" Width="759.4" Height="209.79" CanShrink="true">
+        <TextObject Name="Text5" Left="18.9" Top="97.95" Width="132.3" Height="18.9" Text="Número de alumnos: " Font="Arial, 9pt, style=Bold"/>
+        <TextObject Name="Text9" Left="18.9" Top="66.15" Width="417.5" Height="28.35" Text="Victoria de Durango, Dgo., a &lt;u&gt;  [Day([Date])]  &lt;/u&gt; de &lt;u&gt;   [MonthName(Month([Date]))]   &lt;/u&gt; de &lt;u&gt;[Year([Date])]&lt;/u&gt;." Font="Arial, 9pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text11" Left="162.54" Top="97.5" Width="26.46" Height="15.12" Border.Lines="Bottom" Text="0" VertAlign="Center" Font="Arial, 9pt, style=Bold" HtmlTags="true"/>
+        <LineObject Name="Line2" Left="18.9" Top="179.55" Width="321.3" Diagonal="true"/>
+        <LineObject Name="Line3" Left="406.35" Top="179.55" Width="321.3" Diagonal="true"/>
+        <TextObject Name="Text13" Left="406.35" Top="181.44" Width="302.4" Height="28.35" Text="LA. ROSA GARCÍA ESCOBEDO&#13;&#10;ENCARGADA DE CONTROL ESCOLAR" HorzAlign="Center" Font="Arial, 9pt, style=Bold"/>
+        <TextObject Name="Text14" Left="18.9" Top="181.44" Width="321.3" Height="28.35" Text="M.C. ALEJANDRA MARGARITA PÁEZ PICHARDO&#13;&#10;DIRECTORA" HorzAlign="Center" Font="Arial, 9pt, style=Bold"/>
+        <TextObject Name="Text21" Left="176.53" Top="97.5" Width="28.35" Height="18.9" Font="Arial, 9pt, style=Bold"/>
+      </ChildBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="722.92" Width="759.4"/>
+  </ReportPage>
+</Report>
