@@ -29,21 +29,23 @@ namespace NewReportesControlEscolar
 
         #endregion
 
-        private Clase_ReportesCE clase_reportes;
-        private Clase_ReportesCE ReportCE;
-        private Clase_ReportesGenericos gn= new Clase_ReportesGenericos();
+        #region VARIABLES
+            private Clase_ReportesCE clase_reportes;
+            private Clase_ReportesCE ReportCE;
+            private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+        #endregion
+
         public FrmAniadirEspecifiacionesReporte()
         {
             InitializeComponent();
         }
-
-       
 
         private void FrmAniadirEspecifiacionesReporte_Load(object sender, EventArgs e)
         {
             gn.cargarCampus(lvCampus);
             gn.cargarRoles(lvRoles);
             cargarReportes();
+            
         }
 
         private void cargarReportes()
@@ -52,16 +54,21 @@ namespace NewReportesControlEscolar
             clase_reportes.GetReportesTodos();
             if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
-                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
-                gn.llenarlistview(lvReportes, dt);
+              //  DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
+              //  gn.llenarlistview(lvReportes, dt);
+                DGV_Reportes.DataSource = clase_reportes.Lector.Tables[0];
+
+                DGV_Reportes.Columns[0].HeaderText = "ID"; 
+               DGV_Reportes.AutoResizeColumns();
+                DGV_Reportes.Columns[0].Width = 50;
             }
         }
-        private void lvReportes_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+         
+        private void DGV_Reportes_SelectionChanged(object sender, EventArgs e)
         {
-            if (lvReportes.SelectedItems.Count > 0)
+            if(DGV_Reportes.SelectedRows.Count > 0 )
             {
-                cargarCampusReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
-                
+                cargarCampusReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
                 lvRVOE.Items.Clear();
                 lvRoles.Enabled = false;
                 btnGuardarRoles.Enabled = false;
@@ -103,7 +110,8 @@ namespace NewReportesControlEscolar
                 lvRoles.Enabled = true;
                 btnGuardarRoles.Enabled = true;
                 btnGuardarRVOE.Enabled = true;
-                cargarRolesReportes(lvReportes.SelectedItems[0].SubItems[0].Text);
+                 cargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+                cargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
             }
             catch
             {
@@ -120,7 +128,7 @@ namespace NewReportesControlEscolar
                 gn.llenarlistview(lvRVOE, dt);
             }
             clase_reportes = new Clase_ReportesCE();
-            if(clase_reportes.MostrarRVOECampusReporte(lvReportes.SelectedItems[0].SubItems[0].Text, lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
+            if(clase_reportes.MostrarRVOECampusReporte(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString(), lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
             {
                 DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
                 gn.marcarnodos(lvRVOE, dt);
@@ -132,30 +140,33 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                ReportCE = new Clase_ReportesCE();
-                string id = lvReportes.SelectedItems[0].SubItems[0].Text;
-                ReportCE.GetCampusReportes(id);
-                clase_reportes = new Clase_ReportesCE();
-            
-                for (int i = 0; i < lvCampus.Items.Count; i++)
+                if (DGV_Reportes.SelectedRows[0] != null)
                 {
-                    string reporte = lvReportes.SelectedItems[0].SubItems[0].Text;
-                    string campus = lvCampus.Items[i].Text;
-                    if (lvCampus.Items[i].Checked == true)
+                    ReportCE = new Clase_ReportesCE();
+                    string id = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                    ReportCE.GetCampusReportes(id);
+                    clase_reportes = new Clase_ReportesCE();
+
+                    for (int i = 0; i < lvCampus.Items.Count; i++)
                     {
-                        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
-                            clase_reportes.AgregarRelCampusReporte(reporte, campus);
+                        string reporte = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                        string campus = lvCampus.Items[i].Text;
+                        if (lvCampus.Items[i].Checked == true)
+                        {
+                            DataView dv = new DataView(ReportCE.Lector.Tables[0]);
+                            if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
+                                clase_reportes.AgregarRelCampusReporte(reporte, campus);
+                        }
+                        else
+                            clase_reportes.EliminarRelCampusReporte(reporte, campus);
+
                     }
-                    else
-                        clase_reportes.EliminarRelCampusReporte(reporte, campus);
-                    
-                }
-                MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
-                cargarCampusReportes(id);
-                lvRoles.Enabled = false;
-                btnGuardarRoles.Enabled = false;
-                btnGuardarRVOE.Enabled = false;
+                    MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
+                    cargarCampusReportes(id);
+                    lvRoles.Enabled = false;
+                    btnGuardarRoles.Enabled = false;
+                    btnGuardarRVOE.Enabled = false;
+                }else MessageBox.Show("Selecciona un Reporte", "Alto", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             catch(Exception ex)
             {
@@ -169,7 +180,7 @@ namespace NewReportesControlEscolar
             {
                 ReportCE = new Clase_ReportesCE();
                 string id = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
-                string repo = lvReportes.SelectedItems[0].SubItems[0].Text;
+                string repo = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
                 ReportCE.MostrarRelRolesReportes(repo,id);
                 clase_reportes = new Clase_ReportesCE();
                 
@@ -203,7 +214,7 @@ namespace NewReportesControlEscolar
             try
             {
                 ReportCE = new Clase_ReportesCE();
-                string id = lvReportes.SelectedItems[0].SubItems[0].Text;
+                string id = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
                 string campus = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 ReportCE.MostrarRVOECampusReporte(id, campus);
                 clase_reportes = new Clase_ReportesCE();
@@ -254,6 +265,20 @@ namespace NewReportesControlEscolar
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", textBox1.Text);
+            }
+            catch (System.Data.SyntaxErrorException error) { }
         }
     }
 }

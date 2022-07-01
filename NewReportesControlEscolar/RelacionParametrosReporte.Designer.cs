@@ -44,9 +44,9 @@ namespace NewReportesControlEscolar
             this.listViewParametros = new System.Windows.Forms.ListView();
             this.DGVNombreParametro = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.GridViewDetalles = new System.Windows.Forms.DataGridView();
+            this.DGV_DetalleReporte = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DGVNombreParametro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_DetalleReporte)).BeginInit();
             this.SuspendLayout();
             // 
             // lbltitulo
@@ -57,7 +57,7 @@ namespace NewReportesControlEscolar
             this.lbltitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbltitulo.Location = new System.Drawing.Point(0, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(545, 32);
+            this.lbltitulo.Size = new System.Drawing.Size(721, 32);
             this.lbltitulo.TabIndex = 19;
             this.lbltitulo.Text = "Relación de Parámetros de Reportes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +67,7 @@ namespace NewReportesControlEscolar
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.Location = new System.Drawing.Point(520, 0);
+            this.label8.Location = new System.Drawing.Point(696, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 32);
             this.label8.TabIndex = 20;
@@ -91,7 +91,7 @@ namespace NewReportesControlEscolar
             this.txtNombreReporte.Location = new System.Drawing.Point(15, 61);
             this.txtNombreReporte.Name = "txtNombreReporte";
             this.txtNombreReporte.ReadOnly = true;
-            this.txtNombreReporte.Size = new System.Drawing.Size(436, 38);
+            this.txtNombreReporte.Size = new System.Drawing.Size(368, 38);
             this.txtNombreReporte.TabIndex = 22;
             this.txtNombreReporte.Text = "";
             // 
@@ -102,7 +102,7 @@ namespace NewReportesControlEscolar
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardar.Location = new System.Drawing.Point(177, 554);
+            this.btnGuardar.Location = new System.Drawing.Point(286, 765);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 38);
             this.btnGuardar.TabIndex = 24;
@@ -116,7 +116,7 @@ namespace NewReportesControlEscolar
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(449, 42);
+            this.label1.Location = new System.Drawing.Point(428, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 66;
@@ -126,7 +126,7 @@ namespace NewReportesControlEscolar
             // 
             this.txtIDReporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDReporte.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDReporte.Location = new System.Drawing.Point(457, 62);
+            this.txtIDReporte.Location = new System.Drawing.Point(431, 62);
             this.txtIDReporte.Name = "txtIDReporte";
             this.txtIDReporte.ReadOnly = true;
             this.txtIDReporte.Size = new System.Drawing.Size(64, 38);
@@ -152,9 +152,9 @@ namespace NewReportesControlEscolar
             this.ID_Parametro,
             this.Nombre});
             this.listViewParametros.HideSelection = false;
-            this.listViewParametros.Location = new System.Drawing.Point(287, 118);
+            this.listViewParametros.Location = new System.Drawing.Point(431, 118);
             this.listViewParametros.Name = "listViewParametros";
-            this.listViewParametros.Size = new System.Drawing.Size(234, 422);
+            this.listViewParametros.Size = new System.Drawing.Size(258, 550);
             this.listViewParametros.TabIndex = 76;
             this.listViewParametros.UseCompatibleStateImageBehavior = false;
             this.listViewParametros.View = System.Windows.Forms.View.Details;
@@ -163,11 +163,11 @@ namespace NewReportesControlEscolar
             // 
             this.DGVNombreParametro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVNombreParametro.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.DGVNombreParametro.Location = new System.Drawing.Point(287, 118);
+            this.DGVNombreParametro.Location = new System.Drawing.Point(431, 118);
             this.DGVNombreParametro.Name = "DGVNombreParametro";
             this.DGVNombreParametro.ReadOnly = true;
             this.DGVNombreParametro.RowHeadersVisible = false;
-            this.DGVNombreParametro.Size = new System.Drawing.Size(234, 422);
+            this.DGVNombreParametro.Size = new System.Drawing.Size(258, 550);
             this.DGVNombreParametro.TabIndex = 77;
             // 
             // btnModificar
@@ -177,7 +177,7 @@ namespace NewReportesControlEscolar
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnModificar.Location = new System.Drawing.Point(287, 555);
+            this.btnModificar.Location = new System.Drawing.Point(412, 766);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(83, 37);
             this.btnModificar.TabIndex = 78;
@@ -185,48 +185,49 @@ namespace NewReportesControlEscolar
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // GridViewDetalles
+            // DGV_DetalleReporte
             // 
-            this.GridViewDetalles.AllowUserToAddRows = false;
-            this.GridViewDetalles.AllowUserToDeleteRows = false;
-            this.GridViewDetalles.BackgroundColor = System.Drawing.Color.White;
+            this.DGV_DetalleReporte.AllowUserToAddRows = false;
+            this.DGV_DetalleReporte.AllowUserToDeleteRows = false;
+            this.DGV_DetalleReporte.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.GridViewDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewDetalles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGV_DetalleReporte.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_DetalleReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_DetalleReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewDetalles.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridViewDetalles.GridColor = System.Drawing.Color.Black;
-            this.GridViewDetalles.Location = new System.Drawing.Point(15, 118);
-            this.GridViewDetalles.MultiSelect = false;
-            this.GridViewDetalles.Name = "GridViewDetalles";
-            this.GridViewDetalles.ReadOnly = true;
-            this.GridViewDetalles.RowHeadersVisible = false;
-            this.GridViewDetalles.Size = new System.Drawing.Size(234, 422);
-            this.GridViewDetalles.TabIndex = 65;
-            this.GridViewDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewDetalles_CellContentClick);
+            this.DGV_DetalleReporte.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_DetalleReporte.GridColor = System.Drawing.Color.Black;
+            this.DGV_DetalleReporte.Location = new System.Drawing.Point(15, 118);
+            this.DGV_DetalleReporte.MultiSelect = false;
+            this.DGV_DetalleReporte.Name = "DGV_DetalleReporte";
+            this.DGV_DetalleReporte.ReadOnly = true;
+            this.DGV_DetalleReporte.RowHeadersVisible = false;
+            this.DGV_DetalleReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_DetalleReporte.Size = new System.Drawing.Size(368, 550);
+            this.DGV_DetalleReporte.TabIndex = 65;
+            this.DGV_DetalleReporte.SelectionChanged += new System.EventHandler(this.DGV_DetalleReporte_SelectionChanged);
             // 
             // RelacionParametrosReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(545, 604);
+            this.ClientSize = new System.Drawing.Size(721, 815);
             this.Controls.Add(this.listViewParametros);
             this.Controls.Add(this.DGVNombreParametro);
-            this.Controls.Add(this.GridViewDetalles);
+            this.Controls.Add(this.DGV_DetalleReporte);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtIDReporte);
             this.Controls.Add(this.label1);
@@ -242,7 +243,7 @@ namespace NewReportesControlEscolar
             this.Load += new System.EventHandler(this.RelacionParametrosReporte_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RelacionParametrosReporte_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.DGVNombreParametro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_DetalleReporte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,6 +263,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.ListView listViewParametros;
         private System.Windows.Forms.DataGridView DGVNombreParametro;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.DataGridView GridViewDetalles;
+        private System.Windows.Forms.DataGridView DGV_DetalleReporte;
     }
 }

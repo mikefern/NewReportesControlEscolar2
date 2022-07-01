@@ -29,8 +29,8 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
@@ -97,7 +97,7 @@ namespace ProyectoLoboSostenido
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_MostrarReporte = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.crystalReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.preview_Crystal = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -143,11 +143,11 @@ namespace ProyectoLoboSostenido
             this.previewReportes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.previewReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.previewReportes.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previewReportes.Location = new System.Drawing.Point(192, 65);
+            this.previewReportes.Location = new System.Drawing.Point(15, 65);
             this.previewReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.previewReportes.Name = "previewReportes";
             this.previewReportes.PageOffset = new System.Drawing.Point(10, 10);
-            this.previewReportes.Size = new System.Drawing.Size(822, 323);
+            this.previewReportes.Size = new System.Drawing.Size(999, 323);
             this.previewReportes.TabIndex = 57;
             this.previewReportes.UseBackColor = true;
             // 
@@ -430,24 +430,24 @@ namespace ProyectoLoboSostenido
             this.DGV_Reportes.AllowUserToAddRows = false;
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle10;
             this.DGV_Reportes.GridColor = System.Drawing.Color.Black;
             this.DGV_Reportes.Location = new System.Drawing.Point(15, 22);
             this.DGV_Reportes.MultiSelect = false;
@@ -975,7 +975,7 @@ namespace ProyectoLoboSostenido
             this.groupBox2.Controls.Add(this.btn_MostrarReporte);
             this.groupBox2.Controls.Add(this.listBox1);
             this.groupBox2.Controls.Add(this.previewReportes);
-            this.groupBox2.Controls.Add(this.crystalReport);
+            this.groupBox2.Controls.Add(this.preview_Crystal);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(20, 401);
             this.groupBox2.Name = "groupBox2";
@@ -986,9 +986,9 @@ namespace ProyectoLoboSostenido
             // 
             // btn_MostrarReporte
             // 
-            this.btn_MostrarReporte.Location = new System.Drawing.Point(192, 20);
+            this.btn_MostrarReporte.Location = new System.Drawing.Point(15, 20);
             this.btn_MostrarReporte.Name = "btn_MostrarReporte";
-            this.btn_MostrarReporte.Size = new System.Drawing.Size(207, 38);
+            this.btn_MostrarReporte.Size = new System.Drawing.Size(999, 38);
             this.btn_MostrarReporte.TabIndex = 78;
             this.btn_MostrarReporte.Text = "Visualizar Reporte";
             this.btn_MostrarReporte.UseVisualStyleBackColor = true;
@@ -996,22 +996,23 @@ namespace ProyectoLoboSostenido
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.Info;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(15, 30);
+            this.listBox1.Location = new System.Drawing.Point(15, 94);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(152, 349);
+            this.listBox1.Size = new System.Drawing.Size(199, 94);
             this.listBox1.TabIndex = 77;
             // 
-            // crystalReport
+            // preview_Crystal
             // 
-            this.crystalReport.ActiveViewIndex = -1;
-            this.crystalReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReport.Location = new System.Drawing.Point(192, 65);
-            this.crystalReport.Name = "crystalReport";
-            this.crystalReport.Size = new System.Drawing.Size(796, 323);
-            this.crystalReport.TabIndex = 76;
+            this.preview_Crystal.ActiveViewIndex = -1;
+            this.preview_Crystal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.preview_Crystal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.preview_Crystal.Location = new System.Drawing.Point(15, 65);
+            this.preview_Crystal.Name = "preview_Crystal";
+            this.preview_Crystal.Size = new System.Drawing.Size(973, 323);
+            this.preview_Crystal.TabIndex = 76;
             // 
             // textBox1
             // 
@@ -1182,7 +1183,7 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.PictureBox PB_AbrirDirectorioRutas;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btn_AbrirArchivoEdicion;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReport;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer preview_Crystal;
         private System.Windows.Forms.Button btnCopiar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
