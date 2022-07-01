@@ -773,7 +773,7 @@ namespace ProyectoLoboSostenido
             // 
             this.pictureIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureIcono.InitialImage = null;
-            this.pictureIcono.Location = new System.Drawing.Point(36, 12);
+            this.pictureIcono.Location = new System.Drawing.Point(36, 13);
             this.pictureIcono.Margin = new System.Windows.Forms.Padding(0);
             this.pictureIcono.Name = "pictureIcono";
             this.pictureIcono.Size = new System.Drawing.Size(142, 152);
@@ -1088,7 +1088,7 @@ namespace ProyectoLoboSostenido
             this.lblCerrar.TabIndex = 63;
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
-            // FrmDatosReportes
+            // FrmRPT_ArchivosReportes
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,7 +1102,7 @@ namespace ProyectoLoboSostenido
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmDatosReportes";
+            this.Name = "FrmRPT_ArchivosReportes";
             this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos del Reporte";
