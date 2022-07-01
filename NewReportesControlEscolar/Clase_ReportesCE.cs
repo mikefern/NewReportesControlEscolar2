@@ -1047,7 +1047,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetReportesTodos()
         {
-            string nomStore = "RptGetReportesTodos";
+            string nomStore = "Reports_GetReportesTodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
             };
