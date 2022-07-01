@@ -13,7 +13,7 @@ using CrystalDecisions.CrystalReports.Engine;
 
 namespace ProyectoLoboSostenido
 {
-    public partial class FrmDatosReportes : Form
+    public partial class FrmRPT_ArchivosReportes : Form
     {
         #region VARIABLES
         Clase_ReportesCE claseParametros;
@@ -113,7 +113,7 @@ namespace ProyectoLoboSostenido
         }
         #endregion
 
-        public FrmDatosReportes() 
+        public FrmRPT_ArchivosReportes() 
         {
             InitializeComponent();
             Tootip();

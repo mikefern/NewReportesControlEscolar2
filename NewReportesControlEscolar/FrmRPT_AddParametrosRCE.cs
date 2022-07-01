@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
-    public partial class FrmAdministrarParametrosRCE : Form
+    public partial class FrmRPT_AddParametrosRCE : Form
     {
         #region MoverFORM
         //--------- MOVER FORMS
@@ -44,7 +44,7 @@ namespace NewReportesControlEscolar
         Keys LastKeyPressed;
         #endregion 
 
-        public FrmAdministrarParametrosRCE()
+        public FrmRPT_AddParametrosRCE()
         {
             FlagInsertar = false;
             InitializeComponent();

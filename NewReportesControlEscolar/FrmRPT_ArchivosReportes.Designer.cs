@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoLoboSostenido
 {
-    partial class FrmDatosReportes
+    partial class FrmRPT_ArchivosReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace ProyectoLoboSostenido
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_ArchivosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();

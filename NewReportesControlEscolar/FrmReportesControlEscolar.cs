@@ -41930,7 +41930,7 @@ namespace ProyectoLoboSostenido
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmRPTPermisosRol pr = new FrmRPTPermisosRol();
+            FrmRPT_PermisosBotonReportes pr = new FrmRPT_PermisosBotonReportes();
             pr.Show();
         }
 

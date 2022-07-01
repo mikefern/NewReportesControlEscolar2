@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
-    public partial class FrmEnlazarReportesNodos : Form
+    public partial class FrmRPT_EnlazarReporteNodos : Form
     {
-        public FrmEnlazarReportesNodos()
+        public FrmRPT_EnlazarReporteNodos()
         {
             InitializeComponent();
         }

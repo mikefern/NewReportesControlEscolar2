@@ -1,7 +1,7 @@
 ﻿
 namespace NewReportesControlEscolar
 {
-    partial class RelacionReportes
+    partial class FrmRPT_RelacionarReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace NewReportesControlEscolar
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelacionReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_RelacionarReportes));
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnRelacionar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();

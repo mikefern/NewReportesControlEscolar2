@@ -1,7 +1,7 @@
 ﻿
 namespace NewReportesControlEscolar
 {
-    partial class FrmGestionNodos
+    partial class FrmRPT_ControlNodos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionNodos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_ControlNodos));
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
             this.btn_EliminarNodo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();

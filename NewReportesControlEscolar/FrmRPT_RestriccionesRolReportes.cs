@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
-    public partial class FrmRestriccionesRolesReportes : Form
+    public partial class FrmRPT_RestriccionesRolReportes : Form
     {
-        public FrmRestriccionesRolesReportes()
+        public FrmRPT_RestriccionesRolReportes()
         {
             InitializeComponent();
         }

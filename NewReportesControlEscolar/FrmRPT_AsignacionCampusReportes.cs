@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
-    public partial class FrmAniadirEspecifiacionesReporte : Form
+    public partial class FrmRPT_AsignacionCampusReportes : Form
 
     {
         #region MoverFORM
@@ -35,7 +35,7 @@ namespace NewReportesControlEscolar
             private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
         #endregion
 
-        public FrmAniadirEspecifiacionesReporte()
+        public FrmRPT_AsignacionCampusReportes()
         {
             InitializeComponent();
         }
@@ -242,7 +242,7 @@ namespace NewReportesControlEscolar
 
         private void btnUsuariosReportesw_Click(object sender, EventArgs e)
         {
-            FrmRestriccionesRolesReportes rr = new FrmRestriccionesRolesReportes();
+            FrmRPT_RestriccionesRolReportes rr = new FrmRPT_RestriccionesRolReportes();
             rr.Show();
         }
 

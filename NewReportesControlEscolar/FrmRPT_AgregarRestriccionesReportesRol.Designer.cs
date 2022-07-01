@@ -82,6 +82,7 @@ namespace ProyectoLoboSostenido
             this.Controls.Add(this.cBoxUsuarios);
             this.Controls.Add(this.tvPermisos);
             this.Name = "FrmAgregarRestriccionesReportesRol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarRestriccionesReportesRol";
             this.Load += new System.EventHandler(this.FrmAgregarRestriccionesReportesRol_Load);
             this.ResumeLayout(false);

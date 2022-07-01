@@ -12,7 +12,7 @@ using ProyectoLoboSostenido;
 
 namespace NewReportesControlEscolar
 {
-    public partial class RelacionParametrosReporte : Form
+    public partial class FrmRPT_AsignacionParametrosReporte : Form
     {
         string idparametro = "";
         #region MoverFORM
@@ -28,7 +28,7 @@ namespace NewReportesControlEscolar
         }
         #endregion
 
-        public RelacionParametrosReporte()
+        public FrmRPT_AsignacionParametrosReporte()
         {
             InitializeComponent();
         }
