@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace ProyectoLoboSostenido
 {
-    public partial class FrmRPTPermisosRol : Form
+    public partial class FrmRPT_PermisosBotonReportes : Form
     {
 
         #region MoverFORM
@@ -29,7 +29,7 @@ namespace ProyectoLoboSostenido
 
         #endregion
 
-        public FrmRPTPermisosRol()
+        public FrmRPT_PermisosBotonReportes()
         {
             InitializeComponent();
         }

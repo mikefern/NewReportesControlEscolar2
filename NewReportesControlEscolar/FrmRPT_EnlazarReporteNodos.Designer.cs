@@ -1,7 +1,7 @@
 ﻿
 namespace NewReportesControlEscolar
 {
-    partial class FrmEnlazarReportesNodos
+    partial class FrmRPT_EnlazarReporteNodos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEnlazarReportesNodos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_EnlazarReporteNodos));
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
             this.lvReportes = new System.Windows.Forms.ListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));

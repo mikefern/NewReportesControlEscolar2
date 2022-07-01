@@ -1,7 +1,7 @@
 ﻿
 namespace NewReportesControlEscolar
 {
-    partial class FrmRestriccionesRolesReportes
+    partial class FrmRPT_RestriccionesRolReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRestriccionesRolesReportes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_RestriccionesRolReportes));
             this.cbUsuarios = new System.Windows.Forms.ComboBox();
             this.cbCampus = new System.Windows.Forms.ComboBox();
             this.lvReportes = new System.Windows.Forms.ListView();
@@ -215,14 +215,15 @@ namespace NewReportesControlEscolar
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
             // 
-            // FrmRestriccionesRolesReportes
+            // FrmRPT_RestriccionesRolReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 543);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmRestriccionesRolesReportes";
+            this.Name = "FrmRPT_RestriccionesRolReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRestriccionesRolesReportes";
             this.Load += new System.EventHandler(this.FrmRestriccionesRolesReportes_Load);
             this.panel1.ResumeLayout(false);

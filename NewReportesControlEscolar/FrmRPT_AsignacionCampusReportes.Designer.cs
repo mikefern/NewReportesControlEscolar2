@@ -1,7 +1,7 @@
 ﻿
 namespace NewReportesControlEscolar
 {
-    partial class FrmAniadirEspecifiacionesReporte
+    partial class FrmRPT_AsignacionCampusReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,10 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAniadirEspecifiacionesReporte));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionCampusReportes));
             this.lvCampus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,10 +50,9 @@ namespace NewReportesControlEscolar
             this.btnGuardarRVOE = new System.Windows.Forms.Button();
             this.btnUsuariosReportesw = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.lvReportes = new System.Windows.Forms.ListView();
-            this.ID_Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@ namespace NewReportesControlEscolar
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -113,7 +114,7 @@ namespace NewReportesControlEscolar
             this.lvCampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem1});
             this.lvCampusEspecificos.Location = new System.Drawing.Point(318, 22);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
             this.lvCampusEspecificos.Size = new System.Drawing.Size(382, 366);
@@ -240,8 +241,9 @@ namespace NewReportesControlEscolar
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.DGV_Reportes);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.lvReportes);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
@@ -257,53 +259,68 @@ namespace NewReportesControlEscolar
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1098, 912);
-            this.panel1.TabIndex = 9; 
+            this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(42, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(286, 20);
+            this.textBox1.TabIndex = 85;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // DGV_Reportes
+            // 
+            this.DGV_Reportes.AllowUserToAddRows = false;
+            this.DGV_Reportes.AllowUserToDeleteRows = false;
+            this.DGV_Reportes.AllowUserToResizeRows = false;
+            this.DGV_Reportes.BackgroundColor = System.Drawing.Color.MintCream;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Reportes.Location = new System.Drawing.Point(42, 146);
+            this.DGV_Reportes.MultiSelect = false;
+            this.DGV_Reportes.Name = "DGV_Reportes";
+            this.DGV_Reportes.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Reportes.RowHeadersVisible = false;
+            this.DGV_Reportes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Reportes.Size = new System.Drawing.Size(286, 493);
+            this.DGV_Reportes.TabIndex = 84;
+            this.DGV_Reportes.SelectionChanged += new System.EventHandler(this.DGV_Reportes_SelectionChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label9.Location = new System.Drawing.Point(105, 92);
+            this.label9.Location = new System.Drawing.Point(114, 89);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 17);
             this.label9.TabIndex = 83;
             this.label9.Text = "Reportes Existentes ";
             // 
-            // lvReportes
-            // 
-            this.lvReportes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID_Reporte,
-            this.Reporte});
-            this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.lvReportes.HideSelection = false;
-            listViewItem6.StateImageIndex = 0;
-            this.lvReportes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
-            this.lvReportes.Location = new System.Drawing.Point(42, 125);
-            this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(283, 523);
-            this.lvReportes.TabIndex = 0;
-            this.lvReportes.UseCompatibleStateImageBehavior = false;
-            this.lvReportes.View = System.Windows.Forms.View.Details;
-            this.lvReportes.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvReportes_ItemSelectionChanged);
-            // 
-            // ID_Reporte
-            // 
-            this.ID_Reporte.Text = "ID";
-            // 
-            // Reporte
-            // 
-            this.Reporte.Text = "Nombre";
-            this.Reporte.Width = 221;
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 5;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(33, 112);
+            this.button1.Location = new System.Drawing.Point(33, 135);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(304, 543);
+            this.button1.Size = new System.Drawing.Size(304, 520);
             this.button1.TabIndex = 82;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -494,18 +511,20 @@ namespace NewReportesControlEscolar
             this.label2.Text = "Asignación de Campus y Roles a Reportes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmAniadirEspecifiacionesReporte
+            // FrmRPT_AsignacionCampusReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 912);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAniadirEspecifiacionesReporte";
+            this.Name = "FrmRPT_AsignacionCampusReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAniadirEspecifiacionesReporte";
             this.Load += new System.EventHandler(this.FrmAniadirEspecifiacionesReporte_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -553,9 +572,8 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListView lvReportes;
-        private System.Windows.Forms.ColumnHeader ID_Reporte;
-        private System.Windows.Forms.ColumnHeader Reporte;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView DGV_Reportes;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

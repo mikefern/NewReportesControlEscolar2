@@ -41736,6 +41736,39 @@ namespace ProyectoLoboSostenido
                                 CRViewer.ShowZoomButton = true;
                                 FrView.Buttons = FrView.Buttons | PreviewButtons.Zoom;
                                 break;
+                            case 12:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.None;
+                                break;
+                            case 13:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Open;
+                                break;
+                            case 14:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Save;
+                                break;
+                            case 15:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Email;
+                                break;
+                            case 16:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Find;
+                                break;
+                            case 17:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Zoom;
+                                break;
+                            case 18:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Find;
+                                break;
+                            case 20:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Edit;
+                                break;
+                            case 21:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Watermark;
+                                break;
+                            case 22:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.Zoom;
+                                break;
+                            case 24:
+                                FrView.Buttons = FrView.Buttons | PreviewButtons.All;
+                                break;
                         }
                                               
                     }
@@ -41809,6 +41842,7 @@ namespace ProyectoLoboSostenido
                                             string tipo = pr.Lector.Tables[0].Rows[0][3].ToString();
                                             string id = pr.Lector.Tables[0].Rows[0][0].ToString();
                                             string ruta = pr.Lector.Tables[0].Rows[0][2].ToString();
+                                            
 
                                             string alumno = "";
                                             if (gridViewAlumnos.Rows[ro].Cells[0].Value != null)
@@ -41822,10 +41856,13 @@ namespace ProyectoLoboSostenido
                                             string grupo = "";
                                             if (cBoxGrupo.SelectedValue != null)
                                                 grupo = cBoxGrupo.SelectedValue.ToString();
+                                            string rvoe = "";
+                                            if (cBoxRVOE.SelectedValue != null)
+                                                rvoe = cBoxRVOE.SelectedValue.ToString();
 
                                             string[,] vecExtParametros = { {"1", alumno},  {"2", ciclo}, { "3", Clase_Sesion.campus },{"4",especialidad},
                                             {"5", ciclo }, {"6",grupo }, {"7","" },{ "8","" }, {"9",grupo }, {"10", alumno },
-                                            {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },{"15","" },{"16","" } };
+                                            {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },{"15","" },{"16","" },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""} };
                                             cd = new Clase_ReportesCE();
                                             cd.GetParametros_Reportes(id);
                                             int tamVector = cd.Lector.Tables[0].Rows.Count;
@@ -41930,7 +41967,7 @@ namespace ProyectoLoboSostenido
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmRPTPermisosRol pr = new FrmRPTPermisosRol();
+            FrmRPT_PermisosBotonReportes pr = new FrmRPT_PermisosBotonReportes();
             pr.Show();
         }
 

@@ -209,38 +209,32 @@
     <Compile Include="Clase_ReportesCE.cs" />
     <Compile Include="Clase_ReportesGenericos.cs" />
     <Compile Include="Clase_Sesion.cs" />
-    <Compile Include="FrmAdministrarParametrosRCE.cs">
+    <Compile Include="FrmRPT_AddParametrosRCE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAdministrarParametrosRCE.Designer.cs">
-      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
+    <Compile Include="FrmRPT_AddParametrosRCE.Designer.cs">
+      <DependentUpon>FrmRPT_AddParametrosRCE.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEnlazarReportesNodos.cs">
+    <Compile Include="FrmRPT_EnlazarReporteNodos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEnlazarReportesNodos.Designer.cs">
-      <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
+    <Compile Include="FrmRPT_EnlazarReporteNodos.Designer.cs">
+      <DependentUpon>FrmRPT_EnlazarReporteNodos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRPTPermisosRol.designer.cs">
-      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
+    <Compile Include="FrmRPT_PermisosBotonReportes.designer.cs">
+      <DependentUpon>FrmRPT_PermisosBotonReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="FrmRPT_Principal_RCE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="FrmRPT_Principal_RCE.Designer.cs">
+      <DependentUpon>FrmRPT_Principal_RCE.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDatosReportes.cs">
+    <Compile Include="FrmRPT_ArchivosReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nodos2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDatosReportes.Designer.cs">
-      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Nodos2.Designer.cs">
-      <DependentUpon>Nodos2.cs</DependentUpon>
+    <Compile Include="FrmRPT_ArchivosReportes.Designer.cs">
+      <DependentUpon>FrmRPT_ArchivosReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBusquedas.cs">
       <SubType>Form</SubType>
@@ -254,45 +248,45 @@
     <Compile Include="frmFRVisor.designer.cs">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionNodos.cs">
+    <Compile Include="FrmRPT_ControlNodos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionNodos.Designer.cs">
-      <DependentUpon>FrmGestionNodos.cs</DependentUpon>
+    <Compile Include="FrmRPT_ControlNodos.Designer.cs">
+      <DependentUpon>FrmRPT_ControlNodos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAniadirEspecifiacionesReporte.cs">
+    <Compile Include="FrmRPT_AsignacionCampusReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAniadirEspecifiacionesReporte.Designer.cs">
-      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
+    <Compile Include="FrmRPT_AsignacionCampusReportes.Designer.cs">
+      <DependentUpon>FrmRPT_AsignacionCampusReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRestriccionesRolesReportes.cs">
+    <Compile Include="FrmRPT_RestriccionesRolReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRestriccionesRolesReportes.Designer.cs">
-      <DependentUpon>FrmRestriccionesRolesReportes.cs</DependentUpon>
+    <Compile Include="FrmRPT_RestriccionesRolReportes.Designer.cs">
+      <DependentUpon>FrmRPT_RestriccionesRolReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRPTPermisosRol.cs">
+    <Compile Include="FrmRPT_PermisosBotonReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelacionParametrosReporte.cs">
+    <Compile Include="FrmRPT_AsignacionParametrosReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelacionParametrosReporte.Designer.cs">
-      <DependentUpon>RelacionParametrosReporte.cs</DependentUpon>
+    <Compile Include="FrmRPT_AsignacionParametrosReporte.Designer.cs">
+      <DependentUpon>FrmRPT_AsignacionParametrosReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarRestriccionesReportesRol.cs">
+    <Compile Include="FrmRPT_AgregarRestriccionesReportesRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="FrmAgregarRestriccionesReportesRol.Designer.cs">
-      <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
+    <Compile Include="FrmRPT_AgregarRestriccionesReportesRol.Designer.cs">
+      <DependentUpon>FrmRPT_AgregarRestriccionesReportesRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="RelacionReportes.cs">
+    <Compile Include="FrmRPT_RelacionarReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelacionReportes.Designer.cs">
-      <DependentUpon>RelacionReportes.cs</DependentUpon>
+    <Compile Include="FrmRPT_RelacionarReportes.Designer.cs">
+      <DependentUpon>FrmRPT_RelacionarReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReportesControlEscolar.cs">
       <SubType>Form</SubType>
@@ -300,41 +294,38 @@
     <Compile Include="FrmReportesControlEscolar.Designer.cs">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmEnlazarReportesNodos.resx">
-      <DependentUpon>FrmEnlazarReportesNodos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_EnlazarReporteNodos.resx">
+      <DependentUpon>FrmRPT_EnlazarReporteNodos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAdministrarParametrosRCE.resx">
-      <DependentUpon>FrmAdministrarParametrosRCE.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_AddParametrosRCE.resx">
+      <DependentUpon>FrmRPT_AddParametrosRCE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDatosReportes.resx">
-      <DependentUpon>FrmDatosReportes.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_ArchivosReportes.resx">
+      <DependentUpon>FrmRPT_ArchivosReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAniadirEspecifiacionesReporte.resx">
-      <DependentUpon>FrmAniadirEspecifiacionesReporte.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_AsignacionCampusReportes.resx">
+      <DependentUpon>FrmRPT_AsignacionCampusReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarRestriccionesReportesRol.resx">
-      <DependentUpon>FrmAgregarRestriccionesReportesRol.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_AgregarRestriccionesReportesRol.resx">
+      <DependentUpon>FrmRPT_AgregarRestriccionesReportesRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesControlEscolar.resx">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nodos2.resx">
-      <DependentUpon>Nodos2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_Principal_RCE.resx">
+      <DependentUpon>FrmRPT_Principal_RCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFRVisor.resx">
       <DependentUpon>frmFRVisor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionNodos.resx">
-      <DependentUpon>FrmGestionNodos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_ControlNodos.resx">
+      <DependentUpon>FrmRPT_ControlNodos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRestriccionesRolesReportes.resx">
-      <DependentUpon>FrmRestriccionesRolesReportes.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_RestriccionesRolReportes.resx">
+      <DependentUpon>FrmRPT_RestriccionesRolReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRPTPermisosRol.resx">
-      <DependentUpon>FrmRPTPermisosRol.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_PermisosBotonReportes.resx">
+      <DependentUpon>FrmRPT_PermisosBotonReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -346,13 +337,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RelacionParametrosReporte.resx">
-      <DependentUpon>RelacionParametrosReporte.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_AsignacionParametrosReporte.resx">
+      <DependentUpon>FrmRPT_AsignacionParametrosReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RelacionReportes.resx">
-      <DependentUpon>RelacionReportes.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_RelacionarReportes.resx">
+      <DependentUpon>FrmRPT_RelacionarReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="LoboOne\Reportes\ActaAdmin.frx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1730,6 +1720,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Fast Report Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LoboOne\Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

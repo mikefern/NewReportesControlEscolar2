@@ -12,7 +12,7 @@ using ProyectoLoboSostenido;
 
 namespace NewReportesControlEscolar
 {
-    public partial class FrmGestionNodos : Form
+    public partial class FrmRPT_ControlNodos : Form
     {
         #region MoverFORM
         //--------- MOVER FORMS
@@ -255,7 +255,7 @@ namespace NewReportesControlEscolar
       
         #endregion
 
-        public FrmGestionNodos()
+        public FrmRPT_ControlNodos()
         {
             InitializeComponent();
             LlenadoNodosReporte();
@@ -631,7 +631,7 @@ namespace NewReportesControlEscolar
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            FrmEnlazarReportesNodos ern = new FrmEnlazarReportesNodos();
+            FrmRPT_EnlazarReporteNodos ern = new FrmRPT_EnlazarReporteNodos();
             ern.Show();
         }
 

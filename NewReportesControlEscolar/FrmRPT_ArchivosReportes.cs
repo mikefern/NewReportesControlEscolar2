@@ -9,13 +9,16 @@ using System.Net;
 using NewReportesControlEscolar;
 using System.ComponentModel;
 using System.Drawing;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace ProyectoLoboSostenido
 {
-    public partial class FrmDatosReportes : Form
+    public partial class FrmRPT_ArchivosReportes : Form
     {
         #region VARIABLES
         Clase_ReportesCE claseParametros;
+        private readonly Reportes conrepor = new Reportes();
+        public ReportDocument CryRpt { get; } = new ReportDocument();
         string[,] vecParametros; 
         DateTime DT_FechaCreacion; //FechaCreacion
         DateTime DT_FechaModificacion; //FechaModificación
@@ -30,7 +33,7 @@ namespace ProyectoLoboSostenido
         const string TIPO_ELIMINACION = "3";
         string Descripcion_Creacion = "Creacion del Archivo Por parte de ";
         string Descripcion_modificacion = "Modificacion por parte de ";
-
+        bool flag_Visualizar = false;
         string V_IDReporte;
         string V_NombreArchivo;
         string V_Extension;
@@ -110,7 +113,7 @@ namespace ProyectoLoboSostenido
         }
         #endregion
 
-        public FrmDatosReportes() 
+        public FrmRPT_ArchivosReportes() 
         {
             InitializeComponent();
             Tootip();
@@ -323,73 +326,48 @@ namespace ProyectoLoboSostenido
             Process.Start("explorer.exe", soloRuta);
         }
 
+      
 
-        public void visualizarReporte()
+        public void visualizarReporte_Parametros()
         {
-            //label11.Visible = false;
             if (CB_Extension.SelectedItem.ToString() == ".frx")
             {
-                bool flag1 = false;
-                string miReporte = @"\Loboone\Reportes\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();// rptCertificadoNvo_18_251.frx";  //Loboone\Reportes\RPTCardexGenericoAlumno.frx
-                string thisFolder = Config.ApplicationFolder;
+                previewReportes.Visible = true;
+                preview_Crystal.Visible = false;
                 Report frxReport = new Report();
-                for (int i = 1; i < 6; i++)
+                if(File.Exists(V_Ruta))
                 {
-                    if (File.Exists(thisFolder + miReporte))
-                    {
+                    previewReportes.Buttons = PreviewButtons.All;
+                    previewReportes.ZoomPageWidth();
+                    frxReport.Preview = previewReportes;
+                    frxReport.Load(V_Ruta);
+                    listBox1.Items.Clear();
+                    if (frxReport.Parameters.Count > 0) for (int x = 0; x < frxReport.Parameters.Count; x++) listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
+                   
 
-                        previewReportes.Buttons = PreviewButtons.Print | PreviewButtons.Zoom | PreviewButtons.Navigator; //Print reporte 
-                        previewReportes.ZoomPageWidth();
-                        frxReport.Preview = previewReportes;
-                        frxReport.Load(thisFolder + miReporte);
-
-                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\RPTCardexGenerico.frx"
-                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\ActaAdmin.frx"
-                        //"C:\\Users\\migue\\source\\repos\\NewReportesControlEscolar2\\NewReportesControlEscolar\\bin\\Debug\\..\\..\\\\Loboone\\Reportes\\BecasEspecialidad.frx"
-                        //
-
-                        listBox1.Items.Clear();
-
-                        if (frxReport.Parameters.Count > 0)
-                        {
-                            for (int x = 0; x < frxReport.Parameters.Count; x++)
-                            {
-                                listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
-                            }
-                        }
-                        flag1 = true;
-                        //MessageBox.Show("lleva los siguientes")
-                        //for(int y= 0; y<vecParametros.Length;y++)
-                        //{
-                        //    string NombreParamtreo = vecParametros[y, 0].ToString().Trim();
-                        //    string valor = vecParametros[y, 1].ToString().Trim();
-
-                        // if(valor!="")
-                        //frxReport.SetParameterValue("@ID_Empleado", "1815251004");
-                        // MessageBox.Show(frxReport.Parameters[0].Name + frxReport.Parameters[0].Expression);//+ "" + frxReport.GetParameterValue());
-                        // frxReport.SetParameterValue("@x", "1815251004");
-
-                        //}
-
-                        // frxReport.Show();
-                        previewReportes.ZoomPageWidth();
-                        break;
-                    }
-                    thisFolder += @"..\";
-                }
-                if (!flag1)
-                {
-                    if (MessageBox.Show("Redeporte No Encontrado en el la carpeta del proyecto para visualizar\n" + "¿deseas Agregarlo?", "info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        string nombreArchivo = txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
-                        string rutaOriginal = txtRuta.Text.Replace("\\" + nombreArchivo, "");
-                        var RutaLocalReportes = System.Reflection.Assembly.GetExecutingAssembly().Location.ToString().Replace("bin\\Debug\\NewReportesControlEscolar.exe", "LoboOne\\Reportes");
-                        CopiarArchivo(nombreArchivo, rutaOriginal, RutaLocalReportes.ToString());
-                        visualizarReporte();
-                    }
+                    //if (flag_Visualizar) frxReport.Show();
+                    //flag_Visualizar = false;
                 }
             }
-            else MessageBox.Show("Parametros aun no disponible para Crystal");
+            else
+            {
+                if (File.Exists(V_Ruta))
+                {
+                    previewReportes.Visible = false;
+                    preview_Crystal.Visible = true;
+                    conrepor.ReporteRPT(V_NombreArchivo + CB_Extension); CryRpt.Load(V_Ruta);
+                    //CryRpt.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
+                    CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
+                    preview_Crystal.ReuseParameterValuesOnRefresh = true;
+                    preview_Crystal.ShowGroupTreeButton = false; 
+                    if (flag_Visualizar) preview_Crystal.ReportSource = CryRpt;
+                    flag_Visualizar = false;
+
+                    listBox1.Items.Clear();
+                    if (preview_Crystal.ParameterFieldInfo.Count > 0) for (int x = 0; x < preview_Crystal.ParameterFieldInfo.Count; x++) listBox1.Items.Add(preview_Crystal.ParameterFieldInfo[x].Name.ToString());
+                
+                }
+            }
         }
 
         public void NuevoArchivo()
@@ -944,7 +922,11 @@ namespace ProyectoLoboSostenido
                 
                 if(txtExistencia.Text=="SI")
                 {
-
+                    if (V_Extension == ".frx")
+                    {
+                        visualizarReporte_Parametros();
+                    }
+                    else listBox1.Items.Clear();
                 }
 
 
@@ -1020,12 +1002,12 @@ namespace ProyectoLoboSostenido
             if (CB_Extension.SelectedItem.ToString() == ".frx")
             {
                 previewReportes.Visible = true;
-                crystalReport.Visible = false;
+                preview_Crystal.Visible = false;
             }
             else
             {
                 previewReportes.Visible = false;
-                crystalReport.Visible = true;
+                preview_Crystal.Visible = true;
             }
 
             if (txtIDReporte.Text != "")
@@ -1051,14 +1033,14 @@ namespace ProyectoLoboSostenido
 
                     Console.WriteLine(vecParametros);
 
-                    visualizarReporte();
+                    visualizarReporte_Parametros();
                 }
                 else
                 {
                     if (MessageBox.Show("El reporte guardado en BD no tiene parametros relacionados , ve a la pantalla de relacion de parametros para asignar uno al reporte \n " +
                       "o deseas abrir el reporte con sus datos precargados ", "espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        visualizarReporte();
+                        visualizarReporte_Parametros();
                     }
 
                 }
@@ -1190,7 +1172,7 @@ namespace ProyectoLoboSostenido
             if(txtExistencia.Text=="SI")
             {
 
-                visualizarReporte();
+                visualizarReporte_Parametros();
 
             }
         }
@@ -1228,6 +1210,12 @@ namespace ProyectoLoboSostenido
         {
             cambioRadioButton = true;
             MostrarReportes();
+        }
+
+        private void btn_MostrarReporte_Click(object sender, EventArgs e)
+        {
+            flag_Visualizar = true;
+            visualizarReporte_Parametros();
         }
     }
 

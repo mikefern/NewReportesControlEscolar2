@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoLoboSostenido
 {
-    partial class FrmRPTPermisosRol
+    partial class FrmRPT_PermisosBotonReportes
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ProyectoLoboSostenido
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPTPermisosRol));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_PermisosBotonReportes));
             this.cbRoles = new System.Windows.Forms.ComboBox();
             this.cbCampus = new System.Windows.Forms.ComboBox();
             this.lvPermisos = new System.Windows.Forms.ListView();
@@ -272,7 +272,7 @@ namespace ProyectoLoboSostenido
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
             // 
-            // FrmRPTPermisosRol
+            // FrmRPT_PermisosBotonReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,7 +282,8 @@ namespace ProyectoLoboSostenido
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Name = "FrmRPTPermisosRol";
+            this.Name = "FrmRPT_PermisosBotonReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FmrRPTPermisosRol";
             this.Load += new System.EventHandler(this.FmrRPTPermisosRol_Load);
             this.panel3.ResumeLayout(false);

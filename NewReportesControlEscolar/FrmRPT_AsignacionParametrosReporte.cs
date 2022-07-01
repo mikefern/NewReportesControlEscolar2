@@ -12,7 +12,7 @@ using ProyectoLoboSostenido;
 
 namespace NewReportesControlEscolar
 {
-    public partial class RelacionParametrosReporte : Form
+    public partial class FrmRPT_AsignacionParametrosReporte : Form
     {
         string idparametro = "";
         #region MoverFORM
@@ -27,7 +27,8 @@ namespace NewReportesControlEscolar
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-        public RelacionParametrosReporte()
+
+        public FrmRPT_AsignacionParametrosReporte()
         {
             InitializeComponent();
         }
@@ -41,49 +42,36 @@ namespace NewReportesControlEscolar
         {
             Clase_ReportesCE mostrar = new Clase_ReportesCE();
             mostrar.GetNombreReporte();
-            GridViewDetalles.DataSource = mostrar.Lector.Tables[0];
-            GridViewDetalles.AllowUserToResizeRows = false;
-            GridViewDetalles.AllowUserToAddRows = false;
-            foreach (DataGridViewColumn column in GridViewDetalles.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            GridViewDetalles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            GridViewDetalles.AutoResizeColumns();
+            DGV_DetalleReporte.DataSource = mostrar.Lector.Tables[0];
+            DGV_DetalleReporte.AllowUserToResizeRows = false;
+            DGV_DetalleReporte.AllowUserToAddRows = false;
+            foreach (DataGridViewColumn column in DGV_DetalleReporte.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            DGV_DetalleReporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DGV_DetalleReporte.AutoResizeColumns();
 
-            GridViewDetalles.Columns[0].Visible = false;
-            GridViewDetalles.Columns[2].Visible = false;
-            GridViewDetalles.Columns[3].Visible = false;
-            GridViewDetalles.Columns[4].Visible = false;
-            GridViewDetalles.Columns[5].Visible = false;
-            GridViewDetalles.Columns[6].Visible = false;
-            GridViewDetalles.Columns[7].Visible = false;
-            GridViewDetalles.Columns[8].Visible = false;
-            
+            DGV_DetalleReporte.Columns[0].Visible = false;
+            DGV_DetalleReporte.Columns[2].Visible = false;
+            DGV_DetalleReporte.Columns[3].Visible = false;
+            DGV_DetalleReporte.Columns[4].Visible = false;
+            DGV_DetalleReporte.Columns[5].Visible = false;
+            DGV_DetalleReporte.Columns[6].Visible = false;
+            DGV_DetalleReporte.Columns[7].Visible = false;
+            DGV_DetalleReporte.Columns[8].Visible = false;
+            DGV_DetalleReporte.Columns[9].Visible = false;
 
-            if (GridViewDetalles.RowCount > 0)
+            if (DGV_DetalleReporte.RowCount > 0)
             {
-                // MessageBox.Show("Reportes en DB");
-                GridViewDetalles.Rows[0].Selected = true;
-                txtIDReporte.Text = GridViewDetalles.Rows[0].Cells[0].Value.ToString();
-                txtNombreReporte.Text = GridViewDetalles.Rows[0].Cells[1].Value.ToString();
+                DGV_DetalleReporte.Rows[0].Selected = true;
+                txtIDReporte.Text = DGV_DetalleReporte.Rows[0].Cells[0].Value.ToString();
+                txtNombreReporte.Text = DGV_DetalleReporte.Rows[0].Cells[1].Value.ToString();
                 getParametros();
                 Guardados();
             }
-            else
-            {
-                //MessageBox.Show("No se puede mostrar la información");
-            }
-
-
         }
 
         private void RelacionParametrosReporte_Load(object sender, EventArgs e)
         {
-            
-            
-            
-            
             MostrarReportesDetalle();
-            //getParametros();
-            //getNombreParametro();
             checkbox();
             listViewParametros.Visible = false;
             btnGuardar.Enabled = false;
@@ -91,15 +79,7 @@ namespace NewReportesControlEscolar
 
         }
 
-        private void GridViewDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtIDReporte.Text = GridViewDetalles.CurrentRow.Cells[0].Value.ToString();
-            txtNombreReporte.Text = GridViewDetalles.CurrentRow.Cells[1].Value.ToString();
-            Guardados();
-            listViewParametros.Visible = false;
-
-           
-        }
+       
 
         private void getParametros()
         {
@@ -213,6 +193,7 @@ namespace NewReportesControlEscolar
                             
                         }
                     }
+                     
                 }
                 catch (Exception ex)
                 {
@@ -226,6 +207,20 @@ namespace NewReportesControlEscolar
             listViewParametros.Visible = true;
             btnGuardar.Enabled = true;
             btnModificar.Enabled = false;
+        }
+
+        private void DGV_DetalleReporte_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGV_DetalleReporte.SelectedRows.Count > 0)
+            {
+                if (DGV_DetalleReporte.CurrentRow != null)
+                {
+                    txtIDReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[0].Value.ToString();
+                    txtNombreReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[1].Value.ToString();
+                    Guardados();
+                    listViewParametros.Visible = false;
+                }
+            }
         }
     }
 }

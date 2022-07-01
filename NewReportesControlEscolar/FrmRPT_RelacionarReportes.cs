@@ -13,7 +13,7 @@ using NewReportesControlEscolar;
 
 namespace NewReportesControlEscolar
 {
-    public partial class RelacionReportes : Form
+    public partial class FrmRPT_RelacionarReportes : Form
     {
 
         #region MoverFORM
@@ -30,7 +30,7 @@ namespace NewReportesControlEscolar
 
         #endregion
 
-        public RelacionReportes()
+        public FrmRPT_RelacionarReportes()
         {
             InitializeComponent();
         }
