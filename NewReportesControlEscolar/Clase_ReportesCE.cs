@@ -533,7 +533,7 @@ namespace ProyectoLoboSostenido
         }
         public bool updatepositionwhenInsert(string NodoPadre, string Nodo)
         {
-            string nomProce = "Reports_OrdenamientoNodosW";
+            string nomProce = "Reports_OrdenamientoNodos_Insert";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("NodoPadre", NodoPadre),

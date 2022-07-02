@@ -39120,7 +39120,7 @@ namespace ProyectoLoboSostenido
                 if (validar != null)
                 {
                     crearNodo cn = new crearNodo();
-                    cn.dt = new DataView(cd.Lector.Tables[0]);
+                    cn.dataview_Nodo = new DataView(cd.Lector.Tables[0]);
                     cn.CrearNodos(0, null, treeView);
                 }
                 else

@@ -56,7 +56,7 @@ namespace NewReportesControlEscolar
             this.btnGuardarRoles = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -71,6 +71,7 @@ namespace NewReportesControlEscolar
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txt_PosicionBD = new System.Windows.Forms.TextBox();
             this.btn_igualarPosicion = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,7 +93,6 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.TreeViewNodos_ItemDrag);
             this.TreeViewNodos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewNodos_AfterSelect);
             this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
-            this.TreeViewNodos.Click += new System.EventHandler(this.TreeViewNodos_Click);
             this.TreeViewNodos.DragDrop += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragDrop);
             this.TreeViewNodos.DragEnter += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragEnter);
             this.TreeViewNodos.DragOver += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragOver);
@@ -178,7 +178,6 @@ namespace NewReportesControlEscolar
             this.txt_NodoPadre.ReadOnly = true;
             this.txt_NodoPadre.Size = new System.Drawing.Size(192, 30);
             this.txt_NodoPadre.TabIndex = 45;
-            this.txt_NodoPadre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -230,9 +229,8 @@ namespace NewReportesControlEscolar
             this.txt_NombreNodo.Multiline = true;
             this.txt_NombreNodo.Name = "txt_NombreNodo";
             this.txt_NombreNodo.ReadOnly = true;
-            this.txt_NombreNodo.Size = new System.Drawing.Size(435, 30);
+            this.txt_NombreNodo.Size = new System.Drawing.Size(389, 30);
             this.txt_NombreNodo.TabIndex = 40;
-            this.txt_NombreNodo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_AñadirNodoRaiz
             // 
@@ -257,9 +255,9 @@ namespace NewReportesControlEscolar
             this.lvCampus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lvCampus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvCampus.HideSelection = false;
-            this.lvCampus.Location = new System.Drawing.Point(372, 294);
+            this.lvCampus.Location = new System.Drawing.Point(372, 305);
             this.lvCampus.Name = "lvCampus";
-            this.lvCampus.Size = new System.Drawing.Size(244, 405);
+            this.lvCampus.Size = new System.Drawing.Size(244, 394);
             this.lvCampus.TabIndex = 55;
             this.lvCampus.UseCompatibleStateImageBehavior = false;
             this.lvCampus.View = System.Windows.Forms.View.Details;
@@ -281,9 +279,9 @@ namespace NewReportesControlEscolar
             this.lvSeleccionarCampus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lvSeleccionarCampus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvSeleccionarCampus.HideSelection = false;
-            this.lvSeleccionarCampus.Location = new System.Drawing.Point(659, 294);
+            this.lvSeleccionarCampus.Location = new System.Drawing.Point(659, 305);
             this.lvSeleccionarCampus.Name = "lvSeleccionarCampus";
-            this.lvSeleccionarCampus.Size = new System.Drawing.Size(244, 405);
+            this.lvSeleccionarCampus.Size = new System.Drawing.Size(244, 394);
             this.lvSeleccionarCampus.TabIndex = 56;
             this.lvSeleccionarCampus.UseCompatibleStateImageBehavior = false;
             this.lvSeleccionarCampus.View = System.Windows.Forms.View.Details;
@@ -308,9 +306,9 @@ namespace NewReportesControlEscolar
             this.lvRoles.Enabled = false;
             this.lvRoles.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvRoles.HideSelection = false;
-            this.lvRoles.Location = new System.Drawing.Point(950, 294);
+            this.lvRoles.Location = new System.Drawing.Point(950, 305);
             this.lvRoles.Name = "lvRoles";
-            this.lvRoles.Size = new System.Drawing.Size(244, 405);
+            this.lvRoles.Size = new System.Drawing.Size(244, 394);
             this.lvRoles.TabIndex = 57;
             this.lvRoles.UseCompatibleStateImageBehavior = false;
             this.lvRoles.View = System.Windows.Forms.View.Details;
@@ -367,18 +365,19 @@ namespace NewReportesControlEscolar
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
-            // label1
+            // lbl_Titulo
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1214, 32);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Control de Nodos ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.lbl_Titulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_Titulo.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(1214, 32);
+            this.lbl_Titulo.TabIndex = 61;
+            this.lbl_Titulo.Text = "Control de Nodos ";
+            this.lbl_Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Titulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Titulo_MouseDown);
             // 
             // panel1
             // 
@@ -533,12 +532,23 @@ namespace NewReportesControlEscolar
             this.btn_igualarPosicion.Visible = false;
             this.btn_igualarPosicion.Click += new System.EventHandler(this.btn_igualarPosicion_Click);
             // 
-            // FrmGestionNodos
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(656, 285);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 16);
+            this.label1.TabIndex = 80;
+            this.label1.Text = "Campus Actuales para el nodo seleccionado";
+            // 
+            // FrmRPT_ControlNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1214, 780);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_igualarPosicion);
             this.Controls.Add(this.txt_PosicionBD);
             this.Controls.Add(this.pictureBox7);
@@ -550,7 +560,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnGuardarRoles);
@@ -572,10 +582,10 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.txt_NombreNodo);
             this.Controls.Add(this.btn_AñadirNodoRaiz);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmGestionNodos";
+            this.Name = "FrmRPT_ControlNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Nodos de Reporte Escolar";
-            this.Load += new System.EventHandler(this.FrmGestionNodos_Load);
+            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGestionNodos_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -619,7 +629,7 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Button btnGuardarRoles;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnReportes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Titulo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -634,5 +644,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.TextBox txt_PosicionBD;
         private System.Windows.Forms.Button btn_igualarPosicion;
+        private System.Windows.Forms.Label label1;
     }
 }

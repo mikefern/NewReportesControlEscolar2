@@ -715,7 +715,7 @@ namespace ProyectoLoboSostenido
             this.btn_CambiarSoloRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CambiarSoloRutaBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CambiarSoloRutaBD.ForeColor = System.Drawing.Color.Black;
-            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 436);
+            this.btn_CambiarSoloRutaBD.Location = new System.Drawing.Point(54, 373);
             this.btn_CambiarSoloRutaBD.Name = "btn_CambiarSoloRutaBD";
             this.btn_CambiarSoloRutaBD.Size = new System.Drawing.Size(147, 52);
             this.btn_CambiarSoloRutaBD.TabIndex = 75;
@@ -771,9 +771,10 @@ namespace ProyectoLoboSostenido
             // 
             // pictureIcono
             // 
+            this.pictureIcono.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureIcono.InitialImage = null;
-            this.pictureIcono.Location = new System.Drawing.Point(36, 12);
+            this.pictureIcono.Location = new System.Drawing.Point(36, 13);
             this.pictureIcono.Margin = new System.Windows.Forms.Padding(0);
             this.pictureIcono.Name = "pictureIcono";
             this.pictureIcono.Size = new System.Drawing.Size(142, 152);

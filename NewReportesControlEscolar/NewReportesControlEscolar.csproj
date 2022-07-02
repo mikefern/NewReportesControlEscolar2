@@ -1720,6 +1720,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Fast Report Icon.png" />
+    <Content Include="Resources\icono_crystal.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LoboOne\Reportes\" />

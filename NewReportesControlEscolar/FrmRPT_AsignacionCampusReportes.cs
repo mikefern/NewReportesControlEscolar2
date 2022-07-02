@@ -68,6 +68,9 @@ namespace NewReportesControlEscolar
         {
             if(DGV_Reportes.SelectedRows.Count > 0 )
             {
+                lvCampus.Enabled = true;
+                lvRVOE.Enabled = true;
+                lvCampusEspecificos.Enabled = true;
                 cargarCampusReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
                 lvRVOE.Items.Clear();
                 lvRoles.Enabled = false;
@@ -277,6 +280,28 @@ namespace NewReportesControlEscolar
             try
             {
                 (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", textBox1.Text);
+                if (DGV_Reportes.SelectedRows.Count == 0)
+                {
+                    btnGuardarCampus.Enabled = false;
+                    btnGuardarRoles.Enabled = false
+                        ;
+                    for (int i = 0; i < lvCampus.Items.Count; i++)
+                        lvCampus.Items[i].Checked = false;
+                    lvCampus.Enabled = false;
+
+                    for (int i = 0; i < lvRVOE.Items.Count; i++) 
+                        lvRVOE.Items[i].Checked = false;
+                    lvRVOE.Enabled = false;
+
+                    lvCampusEspecificos.Enabled = false;
+                    lvCampusEspecificos.Items.Clear();
+                }
+                else
+                {
+                    btnGuardarCampus.Enabled = true;
+                    btnGuardarRoles.Enabled = true;
+                }
+
             }
             catch (System.Data.SyntaxErrorException error) { }
         }

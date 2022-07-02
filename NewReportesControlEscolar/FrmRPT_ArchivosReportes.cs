@@ -44,6 +44,7 @@ namespace ProyectoLoboSostenido
         string V_Descripcion;
         string V_Peso;
         #endregion
+
         #region Tootips
         private void Tootip()
         {
@@ -359,13 +360,14 @@ namespace ProyectoLoboSostenido
                     //CryRpt.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
                     CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
                     preview_Crystal.ReuseParameterValuesOnRefresh = true;
-                    preview_Crystal.ShowGroupTreeButton = false; 
-                    if (flag_Visualizar) preview_Crystal.ReportSource = CryRpt;
-                    flag_Visualizar = false;
-
+                    preview_Crystal.ShowGroupTreeButton = false;
                     listBox1.Items.Clear();
+
+                    //if (flag_Visualizar) 
+                        preview_Crystal.ReportSource = CryRpt;
                     if (preview_Crystal.ParameterFieldInfo.Count > 0) for (int x = 0; x < preview_Crystal.ParameterFieldInfo.Count; x++) listBox1.Items.Add(preview_Crystal.ParameterFieldInfo[x].Name.ToString());
-                
+                    preview_Crystal.ReportSource = null;
+                    flag_Visualizar = false;
                 }
             }
         }
@@ -896,7 +898,14 @@ namespace ProyectoLoboSostenido
                 txtDescripcionModificaciones.Text = V_Descripcion;
                 
 
-                if (V_Extension == ".frx") { pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon; }
+                if (V_Extension == ".frx")
+                { 
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon; 
+                }
+                else if (V_Extension == ".rpt")
+                {
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.icono_crystal;
+                }
                 else pictureIcono.Image = null;
 
                 ExistenciaArchivo(V_Ruta);
@@ -920,14 +929,7 @@ namespace ProyectoLoboSostenido
                 }
                 //--------------------------------------------------
                 
-                if(txtExistencia.Text=="SI")
-                {
-                    if (V_Extension == ".frx")
-                    {
-                        visualizarReporte_Parametros();
-                    }
-                    else listBox1.Items.Clear();
-                }
+                
 
 
                 //Clase_ReportesCE getruta = new Clase_ReportesCE();
