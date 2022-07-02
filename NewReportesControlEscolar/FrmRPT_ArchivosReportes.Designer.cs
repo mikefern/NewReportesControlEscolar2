@@ -29,8 +29,8 @@ namespace ProyectoLoboSostenido
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_ArchivosReportes));
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.previewReportes = new FastReport.Preview.PreviewControl();
@@ -430,24 +430,24 @@ namespace ProyectoLoboSostenido
             this.DGV_Reportes.AllowUserToAddRows = false;
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Reportes.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Reportes.GridColor = System.Drawing.Color.Black;
             this.DGV_Reportes.Location = new System.Drawing.Point(15, 22);
             this.DGV_Reportes.MultiSelect = false;
@@ -479,10 +479,10 @@ namespace ProyectoLoboSostenido
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.btn_AbrirArchivoEdicion);
             this.panel2.Controls.Add(this.pictureCambiar);
+            this.panel2.Controls.Add(this.btnCopiar);
             this.panel2.Controls.Add(this.pictureAbrirArchivo);
             this.panel2.Controls.Add(this.pictureAbrirCarpeta);
             this.panel2.Controls.Add(this.btn_CambiarSoloRutaBD);
-            this.panel2.Controls.Add(this.btnCopiar);
             this.panel2.Controls.Add(this.btn_Abrircarpeta);
             this.panel2.Controls.Add(this.btn_AbrirArchivo);
             this.panel2.Controls.Add(this.pictureIcono);
@@ -562,7 +562,7 @@ namespace ProyectoLoboSostenido
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button4.Location = new System.Drawing.Point(54, 636);
+            this.button4.Location = new System.Drawing.Point(54, 582);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 45);
             this.button4.TabIndex = 82;
@@ -729,7 +729,7 @@ namespace ProyectoLoboSostenido
             this.btnCopiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCopiar.Location = new System.Drawing.Point(54, 446);
+            this.btnCopiar.Location = new System.Drawing.Point(54, 373);
             this.btnCopiar.Name = "btnCopiar";
             this.btnCopiar.Size = new System.Drawing.Size(147, 42);
             this.btnCopiar.TabIndex = 81;
@@ -881,6 +881,7 @@ namespace ProyectoLoboSostenido
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1092, 867);
             this.panel3.TabIndex = 66;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
             // pictureBox10
@@ -1088,7 +1089,7 @@ namespace ProyectoLoboSostenido
             this.lblCerrar.TabIndex = 63;
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
-            // FrmDatosReportes
+            // FrmRPT_ArchivosReportes
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,7 +1103,7 @@ namespace ProyectoLoboSostenido
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmDatosReportes";
+            this.Name = "FrmRPT_ArchivosReportes";
             this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos del Reporte";

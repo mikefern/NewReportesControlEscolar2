@@ -1141,6 +1141,8 @@ namespace ProyectoLoboSostenido
 
                     if(CB_Extension.SelectedItem.ToString()==".rpt")
                     {
+
+
                         if(File.Exists(rutaOrigen.Replace(".rpt",".cs")))
                         {
                             File.Copy(rutaOrigen.Replace(".rpt", ".cs"), rutaDestino.Replace(".rpt", ".cs"), true);
@@ -1216,6 +1218,11 @@ namespace ProyectoLoboSostenido
         {
             flag_Visualizar = true;
             visualizarReporte_Parametros();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
