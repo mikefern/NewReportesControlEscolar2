@@ -20,6 +20,11 @@ namespace NewReportesControlEscolar
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void lbl_Titulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
         #endregion
         #region VARIABLES
@@ -32,9 +37,9 @@ namespace NewReportesControlEscolar
         string nodopadre = "";
 
         //Varibales Fausto
-        Clase_ReportesCE n;
+        Clase_ReportesCE reporteCE;
         Clase_ReportesCE np;
-        private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+        private Clase_ReportesGenericos reporteGenerico = new Clase_ReportesGenericos();
 
         #endregion
         #region TreeViewNodos Events
@@ -87,20 +92,21 @@ namespace NewReportesControlEscolar
                         {
                             if (targetNode == draggedNode.PrevNode)
                             {
-                                MessageBox.Show("si elije este nodo no pasara nada, necesita mover uno arriba");
+                                MessageBox.Show("Si elije este Nodo no pasara nada, necesita mover uno arriba","Nodo",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                                 return;
                             }
                             else if (targetNode.Parent != null)
                             {
                                 if (draggedNode.Parent != targetNode.Parent)
                                 {
-                                    MessageBox.Show("SOLO PUEDE MOVER Nodo de un mismo nodo padre , no se puede exceder de uno");
+                                    MessageBox.Show("SOLO PUEDE MOVER EL Nodo de un mismo nodo PADRE , no se puede exceder de uno","Nodo",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                                     return;
                                 }
                             }
                             if (targetNode.Parent == null)
                             {
-                                MessageBox.Show("SOLO PUEDE MOVER Nodo de un mismo nodo padre , no se puede exceder de uno"); return;
+                                MessageBox.Show("SOLO PUEDE MOVER EL Nodo de un mismo nodo PADRE , no se puede exceder de uno", "Nodo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
                             }
                             Mode = "Mover";
                         }
@@ -169,7 +175,7 @@ namespace NewReportesControlEscolar
                 {
                     if (draggedNode.Parent == targetNode)
                     {
-                        MessageBox.Show("mueve el nodo dentro del nodo padre");
+                        MessageBox.Show("Mueve el nodo dentro del nodo padre","Nodo",MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -177,8 +183,8 @@ namespace NewReportesControlEscolar
                         {
                             if (targetNode.Parent != draggedNode.Parent)
                             {
-                                if (targetNode.Parent != null) MessageBox.Show("primero ingresa el noodo dentro de " + targetNode.Parent.Text);
-                                else MessageBox.Show("primero ingresa el noodo dentro de " + targetNode.Text);
+                                if (targetNode.Parent != null) MessageBox.Show("Primero ingresa el nodo dentro de " + targetNode.Parent.Text,"Nodo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                                else MessageBox.Show("Primero ingresa el nodo dentro de " + targetNode.Text,"Nodo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                             }
                             else
                             {
@@ -234,22 +240,49 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Message, "Error en treeNodos_AfterSelect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void TreeViewNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            try
+            {
+                reporteCE = new Clase_ReportesCE();
+                string nodo = e.Node.Name;
+                btnGuardar.Enabled = true;
+                lvCampus.Enabled = true;
+
+                if (reporteCE.GetCampusNodos(nodo))
+                {
+                    reporteGenerico = new Clase_ReportesGenericos();
+                    DataView dt = new DataView(reporteCE.Lector.Tables[0]);
+                    reporteGenerico.marcarnodos(lvCampus, dt);
+                }
+                cargarCampusSeleccion(nodo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
+            }
+        }
+
         #endregion
 
         public FrmRPT_ControlNodos()
         {
             InitializeComponent();
-            LlenadoNodosReporte();
         }
 
         private void FrmRPT_ControlNodos_Load(object sender, EventArgs e)
         {
+            LlenadoNodosReporte();
             Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
             gn.cargarRoles(lvRoles);
             gn.cargarCampus(lvCampus);
+            btnGuardar.Enabled = false;
+            lvCampus.Enabled = false;
+
         }
 
-        public void LlenadoNodosReporte()
+        private void LlenadoNodosReporte()
         {
             TreeViewNodos.Nodes.Clear();
             clase_ReportesCE = new Clase_ReportesCE();
@@ -257,9 +290,9 @@ namespace NewReportesControlEscolar
             {
                 if (clase_ReportesCE.Lector.Tables[0].Rows.Count > 0)
                 {
-                    crearNodo cn = new crearNodo();
-                    cn.dt = new DataView(clase_ReportesCE.Lector.Tables[0]);
-                    cn.CrearNodos(0, null, TreeViewNodos);
+                    crearNodo crearnodo = new crearNodo();
+                    crearnodo.dataview_Nodo = new DataView(clase_ReportesCE.Lector.Tables[0]);
+                    crearnodo.CrearNodos(0, null, TreeViewNodos);
                 }
                 else MessageBox.Show("No tiene Ningun Nodo Asingado" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
@@ -313,7 +346,7 @@ namespace NewReportesControlEscolar
             }
         }
 
-        public void ExpandirNodoenInsercion(TreeNode nodo)
+        private void ExpandirNodoenInsercion(TreeNode nodo)
         {
             nodo.Expand();
             if (nodo.Parent != null)
@@ -322,9 +355,127 @@ namespace NewReportesControlEscolar
             }
         }
 
-        public void ExpandirNodoenPosicion(TreeNode tn)
+        private void ExpandirNodoenPosicion(TreeNode tn)
         {
             if (tn.Level == 0) tn.Expand();
+        }
+
+        private string recuperaindiceNodo(TreeNode nodo)
+        {
+            try
+            {
+                //Recuperamos la posición del nodo añadido
+                TreeNode Tnodo = new TreeNode();
+                string indice = TreeViewNodos.SelectedNode.Index.ToString();
+                Tnodo = TreeViewNodos.SelectedNode.Parent;
+                while (Tnodo != null)
+                {
+                    indice = Tnodo.Index.ToString() + TreeViewNodos.PathSeparator + indice;
+                    Tnodo = Tnodo.Parent;
+                }
+                return indice;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Source + "\n" + ex.Message, "Error en recuperaindiceNodo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+        }
+
+        private void btn_AñadirNodo_Click(object sender, EventArgs e)
+        {
+            if (txtNombreNuevoNodo.Text.Trim() != "")
+            {
+                string indice;
+                TreeNode NuevoNodo = new TreeNode(txtNombreNuevoNodo.Text.Trim());
+
+                //Si no hay lo añade al nodo raíz
+                if (TreeViewNodos.Nodes.Count == 0)
+                {
+                    TreeViewNodos.Nodes.Add(NuevoNodo);
+                }
+                else
+                {
+                    if (TreeViewNodos.SelectedNode != null)
+                    {
+                        //Añadimos el nodo al treeView
+                        TreeViewNodos.SelectedNode.Nodes.Add(NuevoNodo);
+                        //Guardamos la posición del nodo añadido
+                        indice = recuperaindiceNodo(TreeViewNodos.SelectedNode);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecciona el nodo donde quieres insertar el nuevo subnodo");
+                        return;
+                    }
+                }
+
+                //metodo para insertar
+                if (clase_ReportesCE.DMLNodo("1", NNodo, txtNombreNuevoNodo.Text.Trim()))
+                {
+                    MessageBox.Show("Nodo Insertado");
+                }
+                else
+                {
+                    MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //Actualizar y expander el actual nodo
+                LlenadoNodosReporte();
+                TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
+                ExpandirNodoenInsercion(NodoaExpandir[0]);
+            }
+            else
+            {
+                MessageBox.Show("No se puede ingresar un nombre al nodo, porfavor ingrese un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btn_AñadirNodoRaiz_Click(object sender, EventArgs e)
+        {
+            if(txtNombreNuevoNodo.Text.Trim() != "")
+            {
+                string nodopadre = "0"; 
+                if (clase_ReportesCE.DMLNodo("1", nodopadre, txtNombreNuevoNodo.Text.Trim()))
+                {
+                    MessageBox.Show("Nodo Insertado con exito","Nodo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    LlenadoNodosReporte();
+                    txtNombreNuevoNodo.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Existre un error en el procedimiento con ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe teclear un Nodo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btn_CambiarNombreNodo_Click(object sender, EventArgs e)
+        {
+            if (txtNombreNuevoNodo.Text.Trim() != "")
+            {
+                if (TreeViewNodos.SelectedNode != null) { 
+                    if (MessageBox.Show("Esta seguro de cambiar de nombre al nodo '" + TreeViewNodos.SelectedNode + "'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        string nodo = TreeViewNodos.SelectedNode.Name.ToString();
+                        if (clase_ReportesCE.DMLNodo("2", nodo, txtNombreNuevoNodo.Text.Trim()))
+                        {
+                            MessageBox.Show("Nodo Modificado con Exito");
+                            LlenadoNodosReporte();
+                            txtNombreNuevoNodo.Text = "";
+                        }
+                        else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    }
+                }
+                else MessageBox.Show("Seleccione un Nodo \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("ingresa un nombre en la caja de NUEVO NOMBRE NODO \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
         private void btn_EliminarNodo_Click(object sender, EventArgs e)
@@ -358,151 +509,13 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void btn_AñadirNodo_Click(object sender, EventArgs e)
-        {
-            string indice = "";
-
-            if (txtNombreNuevoNodo.Text.Trim() == "")
-            {
-                MessageBox.Show("No se puede ingresar un nombre al nodo, porfavor ingrese un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            TreeNode NuevoNodo = new TreeNode(txtNombreNuevoNodo.Text.Trim());
-
-            //Si no hay lo añade al nodo raíz
-            if (TreeViewNodos.Nodes.Count == 0)
-            {   
-                TreeViewNodos.Nodes.Add(NuevoNodo);
-            }
-            else
-            {
-                if (TreeViewNodos.SelectedNode != null)
-                {
-                    //Añadimos el nodo al treeView
-                    TreeViewNodos.SelectedNode.Nodes.Add(NuevoNodo);
-                    //Guardamos la posición del nodo añadido
-                    indice = recuperaindiceNodo(TreeViewNodos.SelectedNode);
-                }
-                else
-                {
-                    MessageBox.Show("Selecciona el nodo donde quieres insertar el nuevo subnodo");
-                    return;
-                }
-            }
-
-            //metodo para insertar
-            if(clase_ReportesCE.DMLNodo("1",NNodo, txtNombreNuevoNodo.Text.Trim()))
-            {
-                MessageBox.Show("Nodo Insertado");
-            }
-            else
-            {
-                MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            LlenadoNodosReporte();
-
-            TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
-            ExpandirNodoenInsercion(NodoaExpandir[0]); 
-        }
-
-        private string recuperaindiceNodo(TreeNode nodo)
-        {
-            try
-            {
-                //Recuperamos la posición del nodo añadido
-                TreeNode Tnodo = new TreeNode();
-                string indice = TreeViewNodos.SelectedNode.Index.ToString();
-                Tnodo = TreeViewNodos.SelectedNode.Parent;
-                while (Tnodo != null)
-                {
-                    indice = Tnodo.Index.ToString() + TreeViewNodos.PathSeparator + indice;
-                    Tnodo = Tnodo.Parent;
-                }
-                return indice;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Source + "\n" + ex.Message, "Error en recuperaindiceNodo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "";
-            }
-        }
-
-        private void btn_AñadirNodoRaiz_Click(object sender, EventArgs e)
-        {
-            if(txtNombreNuevoNodo.Text.Trim() != "")
-            {
-                string nodopadre = "0"; 
-                if (clase_ReportesCE.DMLNodo("1", nodopadre, txtNombreNuevoNodo.Text.Trim()))
-                {
-                    MessageBox.Show("Nodo Insertado");
-                    LlenadoNodosReporte();
-                    txtNombreNuevoNodo.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Existre un error en el procedimiento con ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe teclear un Nodo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-        }
-
-        private void btn_CambiarNombreNodo_Click(object sender, EventArgs e)
-        {
-            if (txtNombreNuevoNodo.Text.Trim() != "")
-            {
-                if (TreeViewNodos.SelectedNode != null) { 
-                    if (MessageBox.Show("Esta seguro de cambiar de nombre al nodo '" + TreeViewNodos.SelectedNode + "'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        string nodo = TreeViewNodos.SelectedNode.Name.ToString();
-                        if (clase_ReportesCE.DMLNodo("2", nodo, txtNombreNuevoNodo.Text.Trim()))
-                        {
-                            MessageBox.Show("Nodo Modificado con Exito");
-                            LlenadoNodosReporte();
-                            txtNombreNuevoNodo.Text = "";
-                        }
-                        else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                    }
-                }
-                else MessageBox.Show("Seleccione un Nodo \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else MessageBox.Show("ingresa un nombre en la caja de NUEVO NOMBRE NODO \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-        }
-
-        private void TreeViewNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            try
-            {
-                n = new Clase_ReportesCE();
-                string nodo = e.Node.Name;
-                if (n.GetCampusNodos(nodo))
-                {
-                    gn = new Clase_ReportesGenericos();
-                    DataView dt = new DataView(n.Lector.Tables[0]);
-                    gn.marcarnodos(lvCampus, dt);
-                }
-                cargarCampusSeleccion(nodo);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-            }
-        }
-
         private void cargarCampusSeleccion(string nodo)
         {
-            n = new Clase_ReportesCE();
-            if (n.GetCampusNodos(nodo))
+            reporteCE = new Clase_ReportesCE();
+            if (reporteCE.GetCampusNodos(nodo))
             {
-                DataView dt = new DataView(n.Lector.Tables[0]);
-                gn.llenarlistview(lvSeleccionarCampus, dt);
+                DataView dt = new DataView(reporteCE.Lector.Tables[0]);
+                reporteGenerico.llenarlistview(lvSeleccionarCampus, dt);
             }
             btnGuardarRoles.Enabled = false;
             lvRoles.Enabled = false;
@@ -512,26 +525,34 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                n = new Clase_ReportesCE();
-                string nodo = TreeViewNodos.SelectedNode.Name.ToString();
-                n.GetCampusNodos(nodo);
-                np = new Clase_ReportesCE();
-
-                for (int x = 0; x < lvCampus.Items.Count; x++)
+                if (TreeViewNodos.SelectedNode != null)
                 {
-                    string tvName = TreeViewNodos.SelectedNode.Name.ToString();
-                    string lvItem = lvCampus.Items[x].Text.ToString();
-                    if (lvCampus.Items[x].Checked == true)
+                    reporteCE = new Clase_ReportesCE();
+                    string nodo = TreeViewNodos.SelectedNode.Name.ToString();
+                    reporteCE.GetCampusNodos(nodo);
+                    np = new Clase_ReportesCE();
+
+                    for (int x = 0; x < lvCampus.Items.Count; x++)
                     {
-                        DataView dv = new DataView(n.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(lvItem)))
-                            np.AgregarPermisosverReportes(tvName, lvItem);
+                        string tvName = TreeViewNodos.SelectedNode.Name.ToString();
+                        string lvItem = lvCampus.Items[x].Text.ToString();
+                        if (lvCampus.Items[x].Checked == true)
+                        {
+                            DataView dv = new DataView(reporteCE.Lector.Tables[0]);
+                            if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(lvItem)))
+                                np.AgregarPermisosverReportes(tvName, lvItem);
+                        }
+                        else
+                            np.DeleteCampusNodos(lvItem, tvName);
                     }
-                    else
-                        np.DeleteCampusNodos(lvItem, tvName);
+                    MessageBox.Show("Se han guardado los campus que pueden ver el nodo " + TreeViewNodos.SelectedNode.Text, "Confirmar", MessageBoxButtons.OK);
+                    cargarCampusSeleccion(TreeViewNodos.SelectedNode.Name);
+
                 }
-                MessageBox.Show("Se han guardado los campus que pueden ver el nodo " + TreeViewNodos.SelectedNode.Text, "Confirmar", MessageBoxButtons.OK);
-                cargarCampusSeleccion(TreeViewNodos.SelectedNode.Name);
+                else
+                {
+                    MessageBox.Show("Selecciona un Nodo \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
             catch (Exception ex)
             {
@@ -546,11 +567,11 @@ namespace NewReportesControlEscolar
                 for (int i = 0; i < lvRoles.Items.Count; i++)
                     lvRoles.Items[i].Checked = false;
 
-                n = new Clase_ReportesCE();
-                if (lvSeleccionarCampus.SelectedItems.Count > 0 && n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name))
+                reporteCE = new Clase_ReportesCE();
+                if (lvSeleccionarCampus.SelectedItems.Count > 0 && reporteCE.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name))
                 {
-                    DataView dt = new DataView(n.Lector.Tables[0]);
-                    gn.marcarnodos(lvRoles, dt);
+                    DataView dt = new DataView(reporteCE.Lector.Tables[0]);
+                    reporteGenerico.marcarnodos(lvRoles, dt);
                 }
                 btnGuardarRoles.Enabled = true;
                 lvRoles.Enabled = true;
@@ -565,9 +586,9 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                n = new Clase_ReportesCE();
+                reporteCE = new Clase_ReportesCE();
                 np = new Clase_ReportesCE();
-                n.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name);
+                reporteCE.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name);
                 for (int x = 0; x < lvRoles.Items.Count; x++)
                 {
                     string campus = lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text;
@@ -578,8 +599,8 @@ namespace NewReportesControlEscolar
 
                     if (lvRoles.Items[x].Checked == true)
                     {
-                        DataView dv = new DataView(n.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
+                        DataView dv = new DataView(reporteCE.Lector.Tables[0]);
+                        if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(rol)))
                             np.InsertarRolesCampusNodos(campus, nodo, rol);
                     }
                     else
@@ -604,7 +625,7 @@ namespace NewReportesControlEscolar
             this.Close();
         }
 
-        public void ComprobarPosicionNodo()
+        private void ComprobarPosicionNodo()
         {
             if (txt_Posicion.Text != txt_PosicionBD.Text)
             {
@@ -633,5 +654,6 @@ namespace NewReportesControlEscolar
             }
         }
 
+        
     }//fin de clase
 }

@@ -78,13 +78,12 @@ namespace NewReportesControlEscolar
 
     public class crearNodo
     {
-        public DataView dt = new DataView();
-
+        public DataView dataview_Nodo = new DataView();
 
         public void CrearNodos(int indicePadre, TreeNode nodePadre, TreeView treeView)
         {
-            DataView dataViewHijos = new DataView(dt.Table);
-            dataViewHijos.RowFilter = dt.Table.Columns["NodoPadre"].ColumnName + " = " + indicePadre;
+            DataView dataViewHijos = new DataView(dataview_Nodo.Table);
+            dataViewHijos.RowFilter = dataview_Nodo.Table.Columns["NodoPadre"].ColumnName + " = " + indicePadre;
             foreach (DataRowView dataRowCurrent in dataViewHijos)
             {
                 TreeNode nuevoNodo = new TreeNode();
@@ -95,7 +94,6 @@ namespace NewReportesControlEscolar
                     treeView.Nodes.Add(nuevoNodo);
                 else
                     nodePadre.Nodes.Add(nuevoNodo);
-
 
                 CrearNodos(Int32.Parse(dataRowCurrent["nodo"].ToString()), nuevoNodo, treeView);
             }

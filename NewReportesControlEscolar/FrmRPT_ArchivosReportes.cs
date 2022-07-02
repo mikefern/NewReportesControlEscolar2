@@ -360,13 +360,14 @@ namespace ProyectoLoboSostenido
                     //CryRpt.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
                     CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
                     preview_Crystal.ReuseParameterValuesOnRefresh = true;
-                    preview_Crystal.ShowGroupTreeButton = false; 
-                    if (flag_Visualizar) preview_Crystal.ReportSource = CryRpt;
-                    flag_Visualizar = false;
-
+                    preview_Crystal.ShowGroupTreeButton = false;
                     listBox1.Items.Clear();
+
+                    //if (flag_Visualizar) 
+                        preview_Crystal.ReportSource = CryRpt;
                     if (preview_Crystal.ParameterFieldInfo.Count > 0) for (int x = 0; x < preview_Crystal.ParameterFieldInfo.Count; x++) listBox1.Items.Add(preview_Crystal.ParameterFieldInfo[x].Name.ToString());
-                
+                    preview_Crystal.ReportSource = null;
+                    flag_Visualizar = false;
                 }
             }
         }
@@ -928,14 +929,7 @@ namespace ProyectoLoboSostenido
                 }
                 //--------------------------------------------------
                 
-                if(txtExistencia.Text=="SI")
-                {
-                    if (V_Extension == ".frx")
-                    {
-                        visualizarReporte_Parametros();
-                    }
-                    else listBox1.Items.Clear();
-                }
+                
 
 
                 //Clase_ReportesCE getruta = new Clase_ReportesCE();

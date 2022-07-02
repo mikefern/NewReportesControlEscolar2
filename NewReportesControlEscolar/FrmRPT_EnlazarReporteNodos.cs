@@ -46,7 +46,7 @@ namespace NewReportesControlEscolar
                 if (clase_ReportesCE.Lector.Tables.Count > 0)
                 {
                     crearNodo cn = new crearNodo();
-                    cn.dt = new DataView(clase_ReportesCE.Lector.Tables[0]);
+                    cn.dataview_Nodo = new DataView(clase_ReportesCE.Lector.Tables[0]);
                     cn.CrearNodos(0, null, TreeViewNodos);
                     
                 }
