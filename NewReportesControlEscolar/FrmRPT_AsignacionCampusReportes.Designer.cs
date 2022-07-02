@@ -29,9 +29,9 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionCampusReportes));
             this.lvCampus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -114,7 +114,7 @@ namespace NewReportesControlEscolar
             this.lvCampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvCampusEspecificos.HideSelection = false;
             this.lvCampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.lvCampusEspecificos.Location = new System.Drawing.Point(318, 22);
             this.lvCampusEspecificos.Name = "lvCampusEspecificos";
             this.lvCampusEspecificos.Size = new System.Drawing.Size(382, 366);
@@ -230,7 +230,7 @@ namespace NewReportesControlEscolar
             this.btnUsuariosReportesw.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnUsuariosReportesw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuariosReportesw.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnUsuariosReportesw.Location = new System.Drawing.Point(69, 38);
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(69, 61);
             this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
             this.btnUsuariosReportesw.Size = new System.Drawing.Size(268, 30);
             this.btnUsuariosReportesw.TabIndex = 8;
@@ -258,13 +258,13 @@ namespace NewReportesControlEscolar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1098, 912);
+            this.panel1.Size = new System.Drawing.Size(1107, 976);
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 109);
+            this.textBox1.Location = new System.Drawing.Point(42, 132);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(286, 20);
             this.textBox1.TabIndex = 85;
@@ -276,27 +276,27 @@ namespace NewReportesControlEscolar
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.AllowUserToResizeRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.MintCream;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Reportes.Location = new System.Drawing.Point(42, 146);
+            this.DGV_Reportes.Location = new System.Drawing.Point(42, 169);
             this.DGV_Reportes.MultiSelect = false;
             this.DGV_Reportes.Name = "DGV_Reportes";
             this.DGV_Reportes.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Reportes.RowHeadersVisible = false;
             this.DGV_Reportes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -308,7 +308,7 @@ namespace NewReportesControlEscolar
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label9.Location = new System.Drawing.Point(114, 89);
+            this.label9.Location = new System.Drawing.Point(114, 112);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 17);
             this.label9.TabIndex = 83;
@@ -318,7 +318,7 @@ namespace NewReportesControlEscolar
             // 
             this.button1.FlatAppearance.BorderSize = 5;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(33, 135);
+            this.button1.Location = new System.Drawing.Point(33, 158);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(304, 520);
             this.button1.TabIndex = 82;
@@ -329,7 +329,7 @@ namespace NewReportesControlEscolar
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(33, 818);
+            this.label7.Location = new System.Drawing.Point(33, 847);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(304, 36);
             this.label7.TabIndex = 81;
@@ -341,7 +341,7 @@ namespace NewReportesControlEscolar
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(33, 773);
+            this.label5.Location = new System.Drawing.Point(33, 796);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(304, 36);
             this.label5.TabIndex = 80;
@@ -353,7 +353,7 @@ namespace NewReportesControlEscolar
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(33, 721);
+            this.label4.Location = new System.Drawing.Point(33, 744);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(304, 36);
             this.label4.TabIndex = 79;
@@ -364,7 +364,7 @@ namespace NewReportesControlEscolar
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(33, 672);
+            this.label3.Location = new System.Drawing.Point(33, 695);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(304, 36);
             this.label3.TabIndex = 78;
@@ -376,7 +376,7 @@ namespace NewReportesControlEscolar
             this.groupBox4.Controls.Add(this.btnGuardarRVOE);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.groupBox4.Location = new System.Drawing.Point(674, 472);
+            this.groupBox4.Location = new System.Drawing.Point(674, 498);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(398, 438);
             this.groupBox4.TabIndex = 64;
@@ -398,7 +398,7 @@ namespace NewReportesControlEscolar
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(33, 35);
+            this.pictureBox3.Location = new System.Drawing.Point(33, 58);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -411,7 +411,7 @@ namespace NewReportesControlEscolar
             this.groupBox3.Controls.Add(this.btnGuardarRoles);
             this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.groupBox3.Location = new System.Drawing.Point(362, 472);
+            this.groupBox3.Location = new System.Drawing.Point(362, 498);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(306, 438);
             this.groupBox3.TabIndex = 63;
@@ -436,7 +436,7 @@ namespace NewReportesControlEscolar
             this.groupBox2.Controls.Add(this.lvCampusEspecificos);
             this.groupBox2.Controls.Add(this.btnGuardarCampus);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.groupBox2.Location = new System.Drawing.Point(362, 38);
+            this.groupBox2.Location = new System.Drawing.Point(362, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(710, 428);
             this.groupBox2.TabIndex = 62;
@@ -463,7 +463,7 @@ namespace NewReportesControlEscolar
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1098, 32);
+            this.panel4.Size = new System.Drawing.Size(1107, 32);
             this.panel4.TabIndex = 60;
             // 
             // label6
@@ -506,7 +506,7 @@ namespace NewReportesControlEscolar
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1098, 32);
+            this.label2.Size = new System.Drawing.Size(1107, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Asignación de Campus y Roles a Reportes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,7 +515,7 @@ namespace NewReportesControlEscolar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 912);
+            this.ClientSize = new System.Drawing.Size(1107, 976);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRPT_AsignacionCampusReportes";

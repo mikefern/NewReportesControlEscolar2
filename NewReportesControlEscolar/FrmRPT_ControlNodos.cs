@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;  
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing; 
+using System.Runtime.InteropServices; 
 using System.Windows.Forms;
 using ProyectoLoboSostenido;
 
@@ -42,7 +37,6 @@ namespace NewReportesControlEscolar
         private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         #endregion
-
         #region TreeViewNodos Events
         private void TreeViewNodos_MouseDown(object sender, MouseEventArgs e)
         {
@@ -60,12 +54,10 @@ namespace NewReportesControlEscolar
             if (e.Button == MouseButtons.Left)
             {
                 DoDragDrop(e.Item, DragDropEffects.Move);
-
             }
             if (e.Button == MouseButtons.Right)
             {
                 DoDragDrop(e.Item, DragDropEffects.Move);
-
             }
         }
         private void TreeViewNodos_DragEnter(object sender, DragEventArgs e)
@@ -82,7 +74,6 @@ namespace NewReportesControlEscolar
         {
             if (LadoClick == 0) //si es con CLIC IZQUIERDO
             {
-
                 String Mode;
                 Point targetPoint = TreeViewNodos.PointToClient(new Point(e.X, e.Y));
                 TreeNode targetNode = TreeViewNodos.GetNodeAt(targetPoint);
@@ -196,9 +187,6 @@ namespace NewReportesControlEscolar
                                 string posnew = targetNode.Index.ToString();
                                 int posparent = 0;
 
-
-
-
                                 if (draggedNode.Parent == null)
                                 {
                                     draggedNode.Nodes.Insert(targetNode.Index, draggedNode.Text);
@@ -207,12 +195,8 @@ namespace NewReportesControlEscolar
                                 else
                                 {
                                     nodopadre = draggedNode.Parent.Name;
-                                    //draggedNode.Parent.Nodes.Insert(targetNode.Index, draggedNode.Text);
                                     posparent = draggedNode.Parent.Index;
                                 }
-
-                                // draggedNode.Remove();
-
 
                                 if (clase_ReportesCE.UpdatePosicionesNodos(nodopadre, nodo, posold, posnew))
                                 {
@@ -229,7 +213,6 @@ namespace NewReportesControlEscolar
         }
         private void TreeViewNodos_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            // btn_Cambiarnombre.Text = "Cambiar Nombre Nodo";
             txt_NombreNodo.ReadOnly = true;
 
             try
@@ -251,8 +234,6 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Message, "Error en treeNodos_AfterSelect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-      
         #endregion
 
         public FrmRPT_ControlNodos()
@@ -261,7 +242,12 @@ namespace NewReportesControlEscolar
             LlenadoNodosReporte();
         }
 
-        
+        private void FrmRPT_ControlNodos_Load(object sender, EventArgs e)
+        {
+            Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+            gn.cargarRoles(lvRoles);
+            gn.cargarCampus(lvCampus);
+        }
 
         public void LlenadoNodosReporte()
         {
@@ -274,7 +260,6 @@ namespace NewReportesControlEscolar
                     crearNodo cn = new crearNodo();
                     cn.dt = new DataView(clase_ReportesCE.Lector.Tables[0]);
                     cn.CrearNodos(0, null, TreeViewNodos);
-                    //CrearNodos(0, null);
                 }
                 else MessageBox.Show("No tiene Ningun Nodo Asingado" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
@@ -318,7 +303,6 @@ namespace NewReportesControlEscolar
 
         private void InsertarNodos(String NodoPadre, String Nodo)
         {
-             
             if (clase_ReportesCE.updatepositionwhenInsert(NodoPadre, Nodo))
             {
                 MessageBox.Show("Nodo Actualizado", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -336,8 +320,6 @@ namespace NewReportesControlEscolar
             {
                 ExpandirNodoenInsercion(nodo.Parent);
             }
-
-            
         }
 
         public void ExpandirNodoenPosicion(TreeNode tn)
@@ -391,8 +373,6 @@ namespace NewReportesControlEscolar
             //Si no hay lo añade al nodo raíz
             if (TreeViewNodos.Nodes.Count == 0)
             {   
-               // nodoP = "";
-               // nodo = NuevoNodo.Text;
                 TreeViewNodos.Nodes.Add(NuevoNodo);
             }
             else
@@ -418,7 +398,7 @@ namespace NewReportesControlEscolar
             }
             else
             {
-                 MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -426,8 +406,6 @@ namespace NewReportesControlEscolar
 
             TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
             ExpandirNodoenInsercion(NodoaExpandir[0]); 
-
-
         }
 
         private string recuperaindiceNodo(TreeNode nodo)
@@ -443,7 +421,6 @@ namespace NewReportesControlEscolar
                     indice = Tnodo.Index.ToString() + TreeViewNodos.PathSeparator + indice;
                     Tnodo = Tnodo.Parent;
                 }
-
                 return indice;
             }
             catch (Exception ex)
@@ -451,11 +428,6 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Source + "\n" + ex.Message, "Error en recuperaindiceNodo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
             }
-        }
-
-        private void TreeViewNodos_Click(object sender, EventArgs e)
-        {
-          
         }
 
         private void btn_AñadirNodoRaiz_Click(object sender, EventArgs e)
@@ -508,7 +480,6 @@ namespace NewReportesControlEscolar
         {
             try
             {
-
                 n = new Clase_ReportesCE();
                 string nodo = e.Node.Name;
                 if (n.GetCampusNodos(nodo))
@@ -622,13 +593,6 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void FrmGestionNodos_Load(object sender, EventArgs e)
-        {
-            Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
-            gn.cargarRoles(lvRoles);
-            gn.cargarCampus(lvCampus);
-        }
-
         private void btnReportes_Click(object sender, EventArgs e)
         {
             FrmRPT_EnlazarReporteNodos ern = new FrmRPT_EnlazarReporteNodos();
@@ -662,12 +626,12 @@ namespace NewReportesControlEscolar
                 ExpandirNodoenInsercion(NodoaExpandir[0]);
                 btn_igualarPosicion.Visible = false;
                 txt_PosicionBD.Text = txt_Posicion.Text;
-                // txt_PosicionBD.Text = txt_Posicion.Text;
             }
             else 
             { 
                 MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }//fin de clase
 }

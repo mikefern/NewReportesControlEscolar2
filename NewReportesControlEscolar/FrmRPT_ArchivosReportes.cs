@@ -44,6 +44,7 @@ namespace ProyectoLoboSostenido
         string V_Descripcion;
         string V_Peso;
         #endregion
+
         #region Tootips
         private void Tootip()
         {
@@ -896,7 +897,14 @@ namespace ProyectoLoboSostenido
                 txtDescripcionModificaciones.Text = V_Descripcion;
                 
 
-                if (V_Extension == ".frx") { pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon; }
+                if (V_Extension == ".frx")
+                { 
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon; 
+                }
+                else if (V_Extension == ".rpt")
+                {
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.icono_crystal;
+                }
                 else pictureIcono.Image = null;
 
                 ExistenciaArchivo(V_Ruta);

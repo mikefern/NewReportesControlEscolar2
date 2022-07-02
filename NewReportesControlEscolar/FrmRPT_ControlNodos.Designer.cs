@@ -91,8 +91,7 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.TabIndex = 0;
             this.TreeViewNodos.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.TreeViewNodos_ItemDrag);
             this.TreeViewNodos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewNodos_AfterSelect);
-            this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
-            this.TreeViewNodos.Click += new System.EventHandler(this.TreeViewNodos_Click);
+            this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick); 
             this.TreeViewNodos.DragDrop += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragDrop);
             this.TreeViewNodos.DragEnter += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragEnter);
             this.TreeViewNodos.DragOver += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragOver);
@@ -575,7 +574,7 @@ namespace NewReportesControlEscolar
             this.Name = "FrmGestionNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Nodos de Reporte Escolar";
-            this.Load += new System.EventHandler(this.FrmGestionNodos_Load);
+            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGestionNodos_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

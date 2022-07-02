@@ -2363,6 +2363,16 @@ namespace NewReportesControlEscolar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icono_crystal {
+            get {
+                object obj = ResourceManager.GetObject("icono_crystal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_fotos {
             get {
                 object obj = ResourceManager.GetObject("icono_fotos", resourceCulture);

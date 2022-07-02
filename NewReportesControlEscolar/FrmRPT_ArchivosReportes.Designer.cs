@@ -771,6 +771,7 @@ namespace ProyectoLoboSostenido
             // 
             // pictureIcono
             // 
+            this.pictureIcono.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureIcono.InitialImage = null;
             this.pictureIcono.Location = new System.Drawing.Point(36, 13);
