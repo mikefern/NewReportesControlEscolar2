@@ -55,7 +55,7 @@ namespace ProyectoLoboSostenido
             ToolTip TTbtnAbrircarpeta = new ToolTip();
             TTbtnAbrircarpeta.SetToolTip(btn_Abrircarpeta, "Abrir carpeta contenedora de reportes");
             ToolTip TTbtnCopiar = new ToolTip();
-            TTbtnCopiar.SetToolTip(btnCopiar, "Copiar archivo de reporte a la ruta local");
+            TTbtnCopiar.SetToolTip(btnCopiarRutaLocal, "Copiar archivo de reporte a la ruta local");
             ToolTip TTbtn_ReemplazarCarpeta = new ToolTip();
             TTbtn_ReemplazarCarpeta.SetToolTip(btn_ReemplazarCarpeta, "Cambiar la ruta local por la ruta remota");
             ToolTip TTbtnCrearCopia = new ToolTip();
@@ -69,7 +69,7 @@ namespace ProyectoLoboSostenido
             ToolTip TTbutton6 = new ToolTip();
             TTbutton6.SetToolTip(button6, "Actualizar reportes agregados a la base de datos");
             ToolTip TTbutton2 = new ToolTip();
-            TTbutton2.SetToolTip(button2, "Crear nuevo archivo inexistente");
+            TTbutton2.SetToolTip(btn_NuevoArchivoCero, "Crear nuevo archivo inexistente");
             ToolTip TTbtnModificar = new ToolTip();
             ToolTip TTbtnCrearArchivo = new ToolTip();
             TTbtnCrearArchivo.SetToolTip(btnCrearArchivo, "Crear archivo que no existe en la maquina");
@@ -135,6 +135,84 @@ namespace ProyectoLoboSostenido
             MostrarReportes();
         }
 
+        private void MostrarReportes()
+        {
+            Clase_ReportesCE clase_reportes = new Clase_ReportesCE();
+            clase_reportes.GetNombreReporte();
+
+            DGV_Reportes.DataSource = clase_reportes.Lector.Tables[0];
+            DGV_Reportes.AllowUserToResizeRows = false;
+            DGV_Reportes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DGV_Reportes.AllowUserToAddRows = false;
+            DGV_Reportes.AutoResizeColumns();
+            foreach (DataGridViewColumn column in DGV_Reportes.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            DGV_Reportes.Columns[0].Visible = false;//ID
+            DGV_Reportes.Columns[1].Visible = true; //NombreArchivo
+            DGV_Reportes.Columns[2].Visible = false;//Extension
+            DGV_Reportes.Columns[3].Visible = false;//ruta
+            DGV_Reportes.Columns[4].Visible = false;//Peso Kb
+            DGV_Reportes.Columns[5].Visible = false;//FechaUltimamodificacion
+            DGV_Reportes.Columns[6].Visible = false;//FechaCreacion
+            DGV_Reportes.Columns[7].Visible = false;//FechaUltimoAcceso
+            DGV_Reportes.Columns[8].Visible = false;//DescripcionModificaciones
+            DGV_Reportes.Columns[9].Visible = false;//Id_Empleado 
+        }
+
+        private void DGV_Reportes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (!cambioRadioButton)
+            {
+                V_IDReporte = DGV_Reportes.CurrentRow.Cells[0].Value.ToString().Trim();
+                V_NombreArchivo = DGV_Reportes.CurrentRow.Cells[1].Value.ToString().Trim();
+                V_Extension = DGV_Reportes.CurrentRow.Cells[2].Value.ToString().Trim();
+                V_Ruta = DGV_Reportes.CurrentRow.Cells[3].Value.ToString().Trim();
+                V_Peso = DGV_Reportes.CurrentRow.Cells[4].Value.ToString().Trim();
+                V_Fecha_UltimaMod = DGV_Reportes.CurrentRow.Cells[5].Value.ToString().Trim();
+                V_Fecha_Creacion = DGV_Reportes.CurrentRow.Cells[6].Value.ToString().Trim();
+                V_Acceso = DGV_Reportes.CurrentRow.Cells[7].Value.ToString().Trim();
+                V_Descripcion = DGV_Reportes.CurrentRow.Cells[8].Value.ToString().Trim();
+
+                txtIDReporte.Text = V_IDReporte;
+                txtNombreArchivo.Text = V_NombreArchivo;
+                CB_Extension.SelectedItem = V_Extension;
+                if (V_Peso == "" || V_Peso == "0") V_Peso = PesoArchivo(V_Ruta);
+                txtPeso.Text = V_Peso;
+                txtRuta.Text = V_Ruta;
+                txtUltima_Mod.Text = V_Fecha_UltimaMod;
+                txtCreacion.Text = V_Fecha_Creacion;
+                txtAcceso.Text = V_Acceso;
+                txtDescripcionModificaciones.Text = V_Descripcion;
+
+
+                if (V_Extension == ".frx")
+                {
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon;
+                }
+                else if (V_Extension == ".rpt")
+                {
+                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.icono_crystal;
+                }
+                else pictureIcono.Image = null;
+
+                ExistenciaArchivo(V_Ruta);
+
+
+                Habilitar_Boton(btn_CambiarSoloRutaBD);
+                Habilitar_Boton(btnModificar);
+                 
+                if (V_IDReporte == "")
+                {
+                    Habilitar_Boton(btnGuardar);
+                }
+                else
+                {
+                    DesHabilitar_Boton(btnGuardar);
+                }
+            }
+            else cambioRadioButton = false;
+        }
+
         public void Habilitar()
         {
             foreach (Control ctrl1 in groupBox1.Controls)
@@ -182,13 +260,6 @@ namespace ProyectoLoboSostenido
                     {
                         if (getid.Lector.Tables[0].Rows.Count > 0)
                         {
-                            btnGuardar.Enabled = false;
-                            btnGuardar.BackColor = Color.LightGray;
-                            btnGuardar.ForeColor = Color.Gray;
-
-                            //btnModificar.Enabled = true;
-                            btnModificar.ForeColor = Color.Black;
-                            btnModificar.BackColor = Color.White;
 
                             V_IDReporte     = getid.Lector.Tables[0].Rows[0]["ID"].ToString();
                             V_NombreArchivo = txtNombreArchivo.Text.Trim();
@@ -197,13 +268,11 @@ namespace ProyectoLoboSostenido
                             V_Fecha_UltimaMod = getid.Lector.Tables[0].Rows[0]["FechaUltimaModificacion"].ToString();
                             V_Fecha_Creacion = getid.Lector.Tables[0].Rows[0]["FechaCreacion"].ToString();
                             V_Acceso        = getid.Lector.Tables[0].Rows[0]["FechaUltimoAcceso"].ToString();
-                            V_Descripcion = getid.Lector.Tables[0].Rows[0]["DescripcionModificaciones"].ToString();
+                            V_Descripcion   = getid.Lector.Tables[0].Rows[0]["DescripcionModificaciones"].ToString();
                             V_Peso          = getid.Lector.Tables[0].Rows[0]["pesoKb"].ToString();
-
                             if (V_Peso == "" || V_Peso == "0") V_Peso = PesoArchivo(V_Ruta); 
 
                             txtIDReporte.Text = V_IDReporte;
-
                             CB_Extension.SelectedItem = V_Extension;
                             txtRuta.Text = V_Ruta;
                             txtUltima_Mod.Text = V_Fecha_UltimaMod;
@@ -211,21 +280,23 @@ namespace ProyectoLoboSostenido
                             txtAcceso.Text = V_Acceso;
                             txtDescripcionModificaciones.Text = V_Descripcion;
                             txtPeso.Text = V_Peso;
-                            //Deshabilitar Boton 'Cambiar solo Ruta BD'--------
-                            Habilitar_Boton(btn_CambiarSoloRutaBD);
-                            //-------------------------------------------------
+                             
+                            Habilitar_Boton(btn_CambiarSoloRutaBD); 
+                            Habilitar_Boton(btnModificar);
+                            DesHabilitar_Boton(btnGuardar);
+
                         }
                         else
                         {
-                            btnModificar.ForeColor = Color.Gray;
-                            btnModificar.BackColor = Color.LightGray;
-                            btnModificar.Enabled = false;
-                            btnGuardar.BackColor = Color.White;
-                            btnGuardar.ForeColor = Color.Black;
-                            btnGuardar.Enabled = true;
-                            txtIDReporte.Text = String.Empty;
+
+                            DesHabilitar_Boton(btnModificar);
+                            Habilitar_Boton(btnGuardar);
+                            DesHabilitar_Boton(btn_CambiarSoloRutaBD);
+
                             V_Ruta = rutaArchivo;
                             V_NombreArchivo = txtNombreArchivo.Text.Trim();
+
+                            txtIDReporte.Text = String.Empty;
                             CB_Extension.SelectedItem = Path.GetExtension(rutaArchivo);
                             txtRuta.Text = rutaArchivo;
                             txtPeso.Text = PesoArchivo(rutaArchivo);//TamañoArchivo
@@ -235,22 +306,21 @@ namespace ProyectoLoboSostenido
                             txtUltima_Mod.Text = DT_FechaCreacion.ToString();
                             txtCreacion.Text = DT_FechaModificacion.ToString();
                             txtAcceso.Text = DT_FechaUltimoAcceso.ToString();
-                            txtDescripcionModificaciones.Text = "";
-                            //Deshabilitar Boton 'Cambiar solo Ruta BD'--------
-                            DesHabilitar_Boton(btn_CambiarSoloRutaBD);
-                            //-------------------------------------------------
+                            txtDescripcionModificaciones.Text = ""; 
                         }
                     }
                     else
                     {
-                        btnModificar.Enabled = false;
-                        btnGuardar.Enabled = true;
-                        txtIDReporte.Text = String.Empty;
+                        DesHabilitar_Boton(btnModificar);
+                        Habilitar_Boton(btnGuardar);
+                        DesHabilitar_Boton(btn_CambiarSoloRutaBD);
 
-                        CB_Extension.SelectedItem = Path.GetExtension(rutaArchivo);
-                        txtRuta.Text = rutaArchivo;
                         V_Ruta = rutaArchivo;
                         V_NombreArchivo = txtNombreArchivo.Text.Trim();
+
+                        txtIDReporte.Text = String.Empty;
+                        txtRuta.Text = rutaArchivo;
+                        CB_Extension.SelectedItem = Path.GetExtension(rutaArchivo);
                         txtPeso.Text = PesoArchivo(rutaArchivo);
                         DT_FechaCreacion = File.GetLastWriteTime(rutaArchivo);//Ultimamodificación
                         DT_FechaModificacion = File.GetCreationTime(rutaArchivo);//CreacionArchivo
@@ -258,18 +328,13 @@ namespace ProyectoLoboSostenido
                         txtUltima_Mod.Text = DT_FechaCreacion.ToString();
                         txtCreacion.Text = DT_FechaModificacion.ToString();
                         txtAcceso.Text = DT_FechaUltimoAcceso.ToString();
-                        txtDescripcionModificaciones.Text = "";
-
-                        //Deshabilitar Boton 'Cambiar solo Ruta BD'--------
-                        DesHabilitar_Boton(btn_CambiarSoloRutaBD);
-                        //-------------------------------------------------
-
+                        txtDescripcionModificaciones.Text = ""; 
                     }
                     ExistenciaArchivo(txtRuta.Text);
                 }
                 else
                 {
-                    MessageBox.Show("Falla en el procedimiento", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Falla en el procedimiento GetIDReporte", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             } 
         }
@@ -280,13 +345,13 @@ namespace ProyectoLoboSostenido
             button.ForeColor = Color.Black;
             button.Enabled = true;
         }
+
         public void DesHabilitar_Boton(Button button)
         {
             button.BackColor = Color.LightGray;
             button.ForeColor = Color.Gray;
             button.Enabled = false;
         }
-
 
         public string PesoArchivo(string ruta)
         {
@@ -327,59 +392,6 @@ namespace ProyectoLoboSostenido
             Process.Start("explorer.exe", soloRuta);
         }
 
-      
-
-        public void visualizarReporte_Parametros()
-        {
-            if (CB_Extension.SelectedItem.ToString() == ".frx")
-            {
-                previewReportes.Visible = true;
-                preview_Crystal.Visible = false;
-                Report frxReport = new Report();
-                if(File.Exists(V_Ruta))
-                {
-                    previewReportes.Buttons = PreviewButtons.All;
-                    previewReportes.ZoomPageWidth();
-                    frxReport.Preview = previewReportes;
-                    frxReport.Load(V_Ruta);
-                    listBox1.Items.Clear();
-                    if (frxReport.Parameters.Count > 0) for (int x = 0; x < frxReport.Parameters.Count; x++) listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
-                   
-
-                    //if (flag_Visualizar) frxReport.Show();
-                    //flag_Visualizar = false;
-                }
-            }
-            else
-            {
-                if (File.Exists(V_Ruta))
-                {
-                    previewReportes.Visible = false;
-                    preview_Crystal.Visible = true;
-                    conrepor.ReporteRPT(V_NombreArchivo + CB_Extension); CryRpt.Load(V_Ruta);
-                    //CryRpt.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
-                    CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
-                    preview_Crystal.ReuseParameterValuesOnRefresh = true;
-                    preview_Crystal.ShowGroupTreeButton = false;
-                    listBox1.Items.Clear();
-
-                    //if (flag_Visualizar) 
-                        preview_Crystal.ReportSource = CryRpt;
-                    if (preview_Crystal.ParameterFieldInfo.Count > 0) for (int x = 0; x < preview_Crystal.ParameterFieldInfo.Count; x++) listBox1.Items.Add(preview_Crystal.ParameterFieldInfo[x].Name.ToString());
-                    preview_Crystal.ReportSource = null;
-                    flag_Visualizar = false;
-                }
-            }
-        }
-
-        public void NuevoArchivo()
-        {
-            Limpiar();
-            btnModificar.Enabled = false;
-            btnModificar.BackColor = Color.LightGray;
-            btnModificar.ForeColor = Color.Gray;
-
-        }
         private void btnCrearArchivo_Click(object sender, EventArgs e)
         {
             //--------------------------------------------------------------------------------------------------------------
@@ -476,7 +488,7 @@ namespace ProyectoLoboSostenido
                                 CrearArchivo(path);
                             }
 
-                            btnModificar.Enabled = true;
+                            Habilitar_Boton(btnModificar);
                             cambioRadioButton = true;
                             MostrarReportes();
                         }
@@ -493,7 +505,7 @@ namespace ProyectoLoboSostenido
         {
             string sourceFile;
 
-            if(CB_Extension.SelectedItem == ".rpt")
+            if(CB_Extension.SelectedItem.ToString() == ".rpt")
             {
                 sourceFile = @"\\189.197.190.214\Sistemas\ReportesCE\ReportesBase\Informe_Cristal.rpt";
             }
@@ -501,33 +513,19 @@ namespace ProyectoLoboSostenido
             {
                 sourceFile = @"\\189.197.190.214\Sistemas\ReportesCE\ReportesBase\informe.frx";
             }
+            
+            File.Copy(sourceFile, path, true);
 
-
-
-                File.Copy(sourceFile, path, true);
-
-
-
-
-            //string destinationFile =   Path.GetDirectoryName(path);
-
-             
-
-            //File.Move(string oldFile, string newFile);
-
-
-            //File.Create(path);
             txtCreacion.Text = File.GetCreationTime(path).ToString();
             txtUltima_Mod.Text = File.GetLastWriteTime(path).ToString();
             txtAcceso.Text = File.GetLastAccessTime(path).ToString();
             txtPeso.Text = path.Length.ToString();
             txtExistencia.Text = "SI";
 
-
             MessageBox.Show("El archivo fue creado exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnGuardarDB(object sender, EventArgs e) //Tabla DetalleArchivoReporte
+        private void btnGuardar_Click(object sender, EventArgs e) //Tabla DetalleArchivoReporte
         {
             Clase_ReportesCE reportes = new Clase_ReportesCE();
             if (txtNombreArchivo.Text == null || txtNombreArchivo.Text == "")
@@ -543,12 +541,11 @@ namespace ProyectoLoboSostenido
 
                 if (VerificarDifectorio(txtRuta.Text.Trim()))
                 {
-
                     if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, txtUltima_Mod.Text, txtCreacion.Text, txtAcceso.Text,  txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado,txtPeso.Text ) == true)
                     {
                         if (reportes.Lector.Tables.Count > 0)
                         {
-                            MessageBox.Show("El registro ya Existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("El Registro ya Existe", "REGISTRO EXISTENTE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -560,7 +557,7 @@ namespace ProyectoLoboSostenido
                         MessageBox.Show("Favor de revisar los datos registrados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    btnModificar.Enabled = true;
+                    Habilitar_Boton(btnModificar);
                     cambioRadioButton = true;
                     MostrarReportes();
                 }
@@ -576,20 +573,14 @@ namespace ProyectoLoboSostenido
         { 
             string soloRuta = Path.GetDirectoryName(ruta);
 
-            //ruta = ruta.Trim().Replace(V_NombreArchivo+V_Extension,"");
             if (Directory.Exists(soloRuta))
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
-        private void btnGuardarCambios(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtNombreArchivo.Text) || string.IsNullOrEmpty(txtRuta.Text) || string.IsNullOrEmpty(CB_Extension.SelectedItem.ToString().ToString()))
             {
                 MessageBox.Show("Favor de llenar los campos Nombre Archivo & Ruta", "Creacion de Archivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -630,7 +621,6 @@ namespace ProyectoLoboSostenido
                                     {
                                         MessageBox.Show("No se pudo actualizar el registro, contacte al departamento de sistemas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
-
                                 }
                                     cambioRadioButton = true;
                                     MostrarReportes();
@@ -693,33 +683,8 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        private void MostrarReportes()
-        {
-            Clase_ReportesCE clase_reportes = new Clase_ReportesCE();
-            clase_reportes.GetNombreReporte();
-
-            DGV_Reportes.DataSource = clase_reportes.Lector.Tables[0];
-            DGV_Reportes.AllowUserToResizeRows = false;
-            DGV_Reportes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DGV_Reportes.AllowUserToAddRows = false;
-            DGV_Reportes.AutoResizeColumns();
-            foreach (DataGridViewColumn column in DGV_Reportes.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            DGV_Reportes.Columns[0].Visible = false;//ID
-            DGV_Reportes.Columns[2].Visible = false;//Ruta
-            DGV_Reportes.Columns[3].Visible = false;//FechaUltimaModificacion
-            DGV_Reportes.Columns[4].Visible = false;//FechaCreacion
-            DGV_Reportes.Columns[5].Visible = false;//FechaUltimoAcceso
-            DGV_Reportes.Columns[6].Visible = false;//Extension
-            DGV_Reportes.Columns[7].Visible = false;//Descripcion
-            DGV_Reportes.Columns[8].Visible = false;//Id_Empleado
-            DGV_Reportes.Columns[9].Visible = false;//Id_Empleado 
-
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
             if (txtNombreArchivo.Text != null || txtNombreArchivo.Text != "")
             { 
                 if (MessageBox.Show("¿Estás seguro de eliminar el reporte?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -792,12 +757,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-      
-
-      
-
-        
-
         private void PB_AbrirDirectorioRutas_Click(object sender, EventArgs e)
         {
             bool modoOpen = false;
@@ -816,201 +775,91 @@ namespace ProyectoLoboSostenido
                         {
                             if (modoOpen)
                             {
-                                btnGuardar.Enabled = false;
-                                btnGuardar.BackColor = Color.LightGray;
-                                btnGuardar.ForeColor = Color.Gray;
+                                DesHabilitar_Boton(btnGuardar);
                             }
                             else
                             {
-                                btnGuardar.Enabled = true;
-                                btnGuardar.BackColor = Color.White;
-                                btnGuardar.ForeColor = Color.Black;
+                                Habilitar_Boton(btnGuardar);
                             }
-
                         }
                         else
                         {
                             if (modoOpen)
                             {
-                                btnGuardar.Enabled = true;
-                                btnGuardar.BackColor = Color.White;
-                                btnGuardar.ForeColor = Color.Black;
-                            }else
-                            {
-                                btnGuardar.Enabled = false;
-                                btnGuardar.BackColor = Color.LightGray;
-                                btnGuardar.ForeColor = Color.Gray;
+                                Habilitar_Boton(btnGuardar);
                             }
-
+                            else
+                            {
+                                DesHabilitar_Boton(btnGuardar);
+                            }
                         }
                     }
                     else
                     {
                         if(txtIDReporte.Text=="")
                         {
-                            btnGuardar.Enabled = true;
-                            btnGuardar.BackColor = Color.White;
-                            btnGuardar.ForeColor = Color.Black;
+                            Habilitar_Boton(btnGuardar);
                         }
-
                     }
                 }
-
-               
             }
             else
             {
                 MessageBox.Show("Debes Ingresar un Nombre de Archivo", "Alto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private void btnLimpiar(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-
-     
-
-        private void DGV_Reportes_SelectionChanged(object sender, EventArgs e)
-        {
-            if (!cambioRadioButton)
-            {
-                V_IDReporte = DGV_Reportes.CurrentRow.Cells[0].Value.ToString().Trim();
-                V_NombreArchivo = DGV_Reportes.CurrentRow.Cells[1].Value.ToString().Trim();
-                V_Extension = DGV_Reportes.CurrentRow.Cells[2].Value.ToString().Trim();
-                V_Ruta = DGV_Reportes.CurrentRow.Cells[3].Value.ToString().Trim();
-                V_Peso = DGV_Reportes.CurrentRow.Cells[4].Value.ToString().Trim(); 
-                V_Fecha_UltimaMod = DGV_Reportes.CurrentRow.Cells[5].Value.ToString().Trim();
-                V_Fecha_Creacion = DGV_Reportes.CurrentRow.Cells[6].Value.ToString().Trim();
-                V_Acceso = DGV_Reportes.CurrentRow.Cells[7].Value.ToString().Trim();
-                V_Descripcion = DGV_Reportes.CurrentRow.Cells[8].Value.ToString().Trim();
-
-                txtIDReporte.Text = V_IDReporte;
-                txtNombreArchivo.Text = V_NombreArchivo;
-                CB_Extension.SelectedItem = V_Extension;
-                if (V_Peso == "" || V_Peso == "0") V_Peso = PesoArchivo(V_Ruta);
-                txtPeso.Text = V_Peso;
-                txtRuta.Text = V_Ruta;
-                txtUltima_Mod.Text = V_Fecha_UltimaMod;
-                txtCreacion.Text = V_Fecha_Creacion;
-                txtAcceso.Text = V_Acceso;
-                txtDescripcionModificaciones.Text = V_Descripcion;
-                
-
-                if (V_Extension == ".frx")
-                { 
-                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.Fast_Report_Icon; 
-                }
-                else if (V_Extension == ".rpt")
-                {
-                    pictureIcono.Image = NewReportesControlEscolar.Properties.Resources.icono_crystal;
-                }
-                else pictureIcono.Image = null;
-
-                ExistenciaArchivo(V_Ruta);
-
-
-                Habilitar_Boton(btn_CambiarSoloRutaBD);
-                Habilitar_Boton(btnModificar);
-                 
-                //--------------------------------------------------
-                if (V_IDReporte == "")
-                {
-                    btnGuardar.ForeColor = Color.Black;
-                    btnGuardar.BackColor = Color.White;
-                    btnGuardar.Enabled = true;
-                }
-                else
-                {
-                    btnGuardar.ForeColor = Color.Gray;
-                    btnGuardar.BackColor = Color.LightGray;
-                    btnGuardar.Enabled = false;
-                }
-                //--------------------------------------------------
-                
-                
-
-
-                //Clase_ReportesCE getruta = new Clase_ReportesCE();
-
-                //if (getruta.GetRuta(txtNombreArchivo.Text))
-                //{
-
-                //    if (getruta.Lector.Tables.Count > 0)
-                //    {
-                //        if (getruta.Lector.Tables[0].Rows.Count > 0)
-                //        {
-                //            rutaBD = getruta.Lector.Tables[0].Rows[0]["Ruta"].ToString();
-                //            txtRuta.Text = rutaBD;
-                //        }
-                //    }
-                //}
-            }
-            else cambioRadioButton = false;
-        }
+       
         public bool ExistenciaArchivo(string Ruta)
         {
             bool result = File.Exists(Ruta);
             if (result == true)
             {
                 txtExistencia.Text = "SI";
-                btnCrearArchivo.BackColor = Color.LightGray;
-                btnCrearArchivo.ForeColor = Color.Gray;
-                btnCrearArchivo.Enabled = false; 
+                DesHabilitar_Boton(btnCrearArchivo);
                 return result;
             }
             else
             {
                 txtExistencia.Text = "NO";
-                btnCrearArchivo.BackColor = Color.White;
-                btnCrearArchivo.ForeColor = Color.Black;
-                btnCrearArchivo.Enabled = true; 
+                Habilitar_Boton(btnCrearArchivo);
                 return result;
             }
         }
-        private void btnCopiar_Click(object sender, EventArgs e)
+        private void btnCopiarRutaLocal_Click(object sender, EventArgs e)
         {
             string nombreArchivo = txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
             string rutaOriginal = txtRuta.Text.Replace("\\"+nombreArchivo,"");
             var RutaLocalReportes = System.Reflection.Assembly.GetExecutingAssembly().Location.ToString().Replace("bin\\Debug\\NewReportesControlEscolar.exe", "LoboOne\\Reportes"); 
-            CopiarArchivo(nombreArchivo, rutaOriginal, RutaLocalReportes.ToString());
-        }
+            
 
-        public void CopiarArchivo(string fileName, string sourcePath, string targetPath)
-        {
-            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-            string destFile = System.IO.Path.Combine(targetPath, fileName);
+            string sourceFile = System.IO.Path.Combine(rutaOriginal, nombreArchivo);
+            string destFile = System.IO.Path.Combine(RutaLocalReportes.ToString(), nombreArchivo);
 
-            System.IO.Directory.CreateDirectory(targetPath);
+            System.IO.Directory.CreateDirectory(RutaLocalReportes.ToString());
 
-            if (System.IO.Directory.Exists(sourcePath))
+            if (System.IO.Directory.Exists(rutaOriginal))
             {
                 System.IO.File.Copy(sourceFile, destFile, true);
                 MessageBox.Show("Archivo Copiado a la ruta de proyecto Reportes");
             }
             else
             {
-                MessageBox.Show("Error no se encontro la ruta \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Error no se encontro la ruta \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public string networkPath = @"\\10.11.10.230";
-        NetworkCredential credentials = new NetworkCredential(@"{sistemas}", "{Kp91S!NPBt0U}");
-        public string myNetworkPath = string.Empty;
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (CB_Extension.SelectedItem.ToString() == ".frx")
-            {
-                previewReportes.Visible = true;
-                preview_Crystal.Visible = false;
-            }
-            else
-            {
-                previewReportes.Visible = false;
-                preview_Crystal.Visible = true;
-            }
+            //if (CB_Extension.SelectedItem.ToString() == ".frx")
+            //{
+            //    previewReportes.Visible = true;
+            //    preview_Crystal.Visible = false;
+            //}
+            //else
+            //{
+            //    previewReportes.Visible = false;
+            //    preview_Crystal.Visible = true;
+            //}
 
             if (txtIDReporte.Text != "")
             {
@@ -1021,21 +870,61 @@ namespace ProyectoLoboSostenido
                 if (claseParametros.Lector.Tables[0].Rows.Count > 0)
                 {
 
-
                     int tamVector = claseParametros.Lector.Tables[0].Rows.Count;
                     vecParametros = new string[tamVector, 2];
 
-                    Clase_ReportesCE getruta = new Clase_ReportesCE();
-
-                    for (int i = 0; i < tamVector; i++)
+                    if (File.Exists(V_Ruta))
                     {
-                        vecParametros[i, 0] = claseParametros.Lector.Tables[0].Rows[i][1].ToString();
-                        vecParametros[i, 1] = claseParametros.Lector.Tables[0].Rows[i][2].ToString();
+                        if (CB_Extension.SelectedItem.ToString() == ".frx")
+                        {
+                            previewReportes.Visible = true;
+                            preview_Crystal.Visible = false;
+                       
+                            Report frxReport = new Report();
+                            previewReportes.OutlineVisible = false;
+                            previewReportes.ZoomPageWidth();
+                            frxReport.Preview = previewReportes;
+                            frxReport.Load(V_Ruta);
+
+                            int parametrosInternosReporte = frxReport.Parameters.Count;
+                            int parametrosAsignadosenBD = tamVector;
+
+                            if (parametrosInternosReporte == parametrosAsignadosenBD)
+                            {
+                                //llenamos la lista de los parametros internos del Archivo fast
+                                if (frxReport.Parameters.Count > 0) for (int x = 0; x < frxReport.Parameters.Count; x++) listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
+
+
+                                for (int i = 0; i < tamVector; i++)  //para sacar los parametros relacionados en BD
+                                {
+
+                                    vecParametros[i, 0] = claseParametros.Lector.Tables[0].Rows[i][1].ToString(); //esto es para el nombre del parametros
+                                    vecParametros[i, 1] = claseParametros.Lector.Tables[0].Rows[i][2].ToString(); // esto es para el valor 
+                                    //si el parametro relacionado de la BD esta dentro de la lista de los parametros internos del archivo entonces
+                                    if(listBox1.Items.Contains(vecParametros[i, 0]))
+                                    {   //lo agrega
+                                        frxReport.SetParameterValue(vecParametros[i, 0], vecParametros[i, 1]);
+                                    }
+                                    else // de lo contrario se producira un error al no coincidir los nombres - entonces rompemos el metodo y enviamos un mensaje 
+                                    {
+                                        MessageBox.Show("El parametros relacionado en la BD No se encuentra dentro de los que pide el Reporte , porfavor Relaciona correctamente los parametros,\n" +
+                                            "Nota: Los paratros que deben estar relacionados deben de ser los mismos que estan en la lista amarrilla","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                }
+                                frxReport.Show();
+                                flag_Visualizar = false;
+
+                            }
+                            else MessageBox.Show("Los parametros del reporte no coincide con el numero de parametros relacionado en la bd , porfavor comprueba la relacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                          
+                        }
+                        else //reportes cristal
+                        {
+                            Console.WriteLine("cristal");
+                        }
                     }
-
-                    Console.WriteLine(vecParametros);
-
-                    visualizarReporte_Parametros();
+                    else MessageBox.Show("El Archivo no existe \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
                 else
                 {
@@ -1050,6 +939,7 @@ namespace ProyectoLoboSostenido
             else
             {
                 label11.Visible = true;
+                MessageBox.Show("El Reporte no se encuentra registrado en la base de datos , puede registrarlo ya sea en crear archivo o guardar reporte", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
          
@@ -1080,11 +970,12 @@ namespace ProyectoLoboSostenido
             this.DGV_Reportes.Sort(this.DGV_Reportes.Columns["NombreArchivo"], ListSortDirection.Ascending);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_NuevoArchivoCero_Click(object sender, EventArgs e)
         {
-            NuevoArchivo();
+            Limpiar();
+            DesHabilitar_Boton(btnModificar); 
         }
-
+         
         private void btnCrearCopia_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrEmpty(txtNombreArchivo.Text.Trim()))
@@ -1218,6 +1109,47 @@ namespace ProyectoLoboSostenido
         {
             flag_Visualizar = true;
             visualizarReporte_Parametros();
+        }
+
+        public void visualizarReporte_Parametros()
+        {
+            if (CB_Extension.SelectedItem.ToString() == ".frx")
+            {
+                previewReportes.Visible = true;
+                preview_Crystal.Visible = false;
+                Report frxReport = new Report();
+                if (File.Exists(V_Ruta))
+                {
+                    previewReportes.OutlineVisible = false;
+                    previewReportes.ZoomPageWidth();
+                    frxReport.Preview = previewReportes;
+                    frxReport.Load(V_Ruta);
+                    listBox1.Items.Clear();
+                    if (frxReport.Parameters.Count > 0) for (int x = 0; x < frxReport.Parameters.Count; x++) listBox1.Items.Add(frxReport.Parameters[x].Name.ToString());
+                    if (flag_Visualizar) frxReport.Show();
+                    flag_Visualizar = false;
+                }
+            }
+            else
+            {
+                if (File.Exists(V_Ruta))
+                {
+                    previewReportes.Visible = false;
+                    preview_Crystal.Visible = true;
+                    conrepor.ReporteRPT(V_NombreArchivo + CB_Extension); CryRpt.Load(V_Ruta);
+                    //CryRpt.SetParameterValue("@ID_Alumno", gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
+                    CryRpt.SetDatabaseLogon("5265193FDE7C660", "B2B8C6721ACFD01E5AD3047A468FEF66A9234E5D7D5BA373A47E85A3E64BC5B");
+                    preview_Crystal.ReuseParameterValuesOnRefresh = true;
+                    preview_Crystal.ShowGroupTreeButton = false;
+                    listBox1.Items.Clear();
+
+                    //if (flag_Visualizar) 
+                    preview_Crystal.ReportSource = CryRpt;
+                    if (preview_Crystal.ParameterFieldInfo.Count > 0) for (int x = 0; x < preview_Crystal.ParameterFieldInfo.Count; x++) listBox1.Items.Add(preview_Crystal.ParameterFieldInfo[x].Name.ToString());
+                    preview_Crystal.ReportSource = null;
+                    flag_Visualizar = false;
+                }
+            }
         }
     }
 

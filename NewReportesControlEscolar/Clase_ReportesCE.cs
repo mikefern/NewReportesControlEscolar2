@@ -385,7 +385,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetParametros_Reportes(string id)
         {
-            string nomStore = "GetParmetros_Reportes";
+            string nomStore = "Reports_GetParametros_Reportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id_Reporte",id)

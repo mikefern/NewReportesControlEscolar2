@@ -58,7 +58,6 @@ namespace ProyectoLoboSostenido
             this.txtRuta = new System.Windows.Forms.RichTextBox();
             this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -70,14 +69,13 @@ namespace ProyectoLoboSostenido
             this.button3 = new System.Windows.Forms.Button();
             this.btnCrearCopia = new System.Windows.Forms.Button();
             this.btn_ReemplazarCarpeta = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_AbrirArchivoEdicion = new System.Windows.Forms.Button();
             this.pictureCambiar = new System.Windows.Forms.PictureBox();
             this.pictureAbrirArchivo = new System.Windows.Forms.PictureBox();
             this.pictureAbrirCarpeta = new System.Windows.Forms.PictureBox();
             this.btn_CambiarSoloRutaBD = new System.Windows.Forms.Button();
-            this.btnCopiar = new System.Windows.Forms.Button();
+            this.btnCopiarRutaLocal = new System.Windows.Forms.Button();
             this.btn_Abrircarpeta = new System.Windows.Forms.Button();
             this.btn_AbrirArchivo = new System.Windows.Forms.Button();
             this.pictureIcono = new System.Windows.Forms.PictureBox();
@@ -89,7 +87,7 @@ namespace ProyectoLoboSostenido
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_NuevoArchivoCero = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -105,12 +103,13 @@ namespace ProyectoLoboSostenido
             this.pictureModificar = new System.Windows.Forms.PictureBox();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AbrirDirectorioRutas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -130,6 +129,7 @@ namespace ProyectoLoboSostenido
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -482,7 +482,7 @@ namespace ProyectoLoboSostenido
             this.panel2.Controls.Add(this.pictureAbrirArchivo);
             this.panel2.Controls.Add(this.pictureAbrirCarpeta);
             this.panel2.Controls.Add(this.btn_CambiarSoloRutaBD);
-            this.panel2.Controls.Add(this.btnCopiar);
+            this.panel2.Controls.Add(this.btnCopiarRutaLocal);
             this.panel2.Controls.Add(this.btn_Abrircarpeta);
             this.panel2.Controls.Add(this.btn_AbrirArchivo);
             this.panel2.Controls.Add(this.pictureIcono);
@@ -491,16 +491,6 @@ namespace ProyectoLoboSostenido
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(217, 880);
             this.panel2.TabIndex = 65;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(17, 776);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(31, 35);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 91;
-            this.pictureBox8.TabStop = false;
             // 
             // pictureBox7
             // 
@@ -636,20 +626,6 @@ namespace ProyectoLoboSostenido
             this.btn_ReemplazarCarpeta.UseVisualStyleBackColor = true;
             this.btn_ReemplazarCarpeta.Click += new System.EventHandler(this.btn_ReemplazarCarpeta_Click);
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button1.Location = new System.Drawing.Point(54, 765);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 46);
-            this.button1.TabIndex = 82;
-            this.button1.Text = "Ver prototipo visualizador";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -723,19 +699,19 @@ namespace ProyectoLoboSostenido
             this.btn_CambiarSoloRutaBD.UseVisualStyleBackColor = true;
             this.btn_CambiarSoloRutaBD.Click += new System.EventHandler(this.btn_CambiarSoloRutaBD_Click);
             // 
-            // btnCopiar
+            // btnCopiarRutaLocal
             // 
-            this.btnCopiar.FlatAppearance.BorderSize = 0;
-            this.btnCopiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCopiar.Location = new System.Drawing.Point(54, 446);
-            this.btnCopiar.Name = "btnCopiar";
-            this.btnCopiar.Size = new System.Drawing.Size(147, 42);
-            this.btnCopiar.TabIndex = 81;
-            this.btnCopiar.Text = "Copiar reporte a ruta local";
-            this.btnCopiar.UseVisualStyleBackColor = true;
-            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
+            this.btnCopiarRutaLocal.FlatAppearance.BorderSize = 0;
+            this.btnCopiarRutaLocal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnCopiarRutaLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopiarRutaLocal.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCopiarRutaLocal.Location = new System.Drawing.Point(54, 446);
+            this.btnCopiarRutaLocal.Name = "btnCopiarRutaLocal";
+            this.btnCopiarRutaLocal.Size = new System.Drawing.Size(147, 42);
+            this.btnCopiarRutaLocal.TabIndex = 81;
+            this.btnCopiarRutaLocal.Text = "Copiar reporte a ruta local";
+            this.btnCopiarRutaLocal.UseVisualStyleBackColor = true;
+            this.btnCopiarRutaLocal.Click += new System.EventHandler(this.btnCopiarRutaLocal_Click);
             // 
             // btn_Abrircarpeta
             // 
@@ -840,7 +816,7 @@ namespace ProyectoLoboSostenido
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar Reporte en DB";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardarDB);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnModificar
             // 
@@ -857,14 +833,14 @@ namespace ProyectoLoboSostenido
             this.btnModificar.TabIndex = 17;
             this.btnModificar.Text = "Modificar Datos Reporte";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnGuardarCambios);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.pictureBox10);
             this.panel3.Controls.Add(this.pictureBox9);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btn_NuevoArchivoCero);
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.textBox1);
@@ -904,22 +880,22 @@ namespace ProyectoLoboSostenido
             this.pictureBox9.TabIndex = 81;
             this.pictureBox9.TabStop = false;
             // 
-            // button2
+            // btn_NuevoArchivoCero
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.Location = new System.Drawing.Point(66, 811);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 47);
-            this.button2.TabIndex = 80;
-            this.button2.Text = "Nuevo Archivo de Cero";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_NuevoArchivoCero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NuevoArchivoCero.FlatAppearance.BorderSize = 0;
+            this.btn_NuevoArchivoCero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btn_NuevoArchivoCero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_NuevoArchivoCero.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NuevoArchivoCero.ForeColor = System.Drawing.Color.Black;
+            this.btn_NuevoArchivoCero.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_NuevoArchivoCero.Location = new System.Drawing.Point(66, 811);
+            this.btn_NuevoArchivoCero.Name = "btn_NuevoArchivoCero";
+            this.btn_NuevoArchivoCero.Size = new System.Drawing.Size(151, 47);
+            this.btn_NuevoArchivoCero.TabIndex = 80;
+            this.btn_NuevoArchivoCero.Text = "Nuevo Archivo de Cero";
+            this.btn_NuevoArchivoCero.UseVisualStyleBackColor = true;
+            this.btn_NuevoArchivoCero.Click += new System.EventHandler(this.btn_NuevoArchivoCero_Click);
             // 
             // groupBox3
             // 
@@ -1089,6 +1065,30 @@ namespace ProyectoLoboSostenido
             this.lblCerrar.TabIndex = 63;
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(17, 776);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(31, 35);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 91;
+            this.pictureBox8.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button1.Location = new System.Drawing.Point(54, 765);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 46);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "Ver prototipo visualizador";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmRPT_ArchivosReportes
             // 
             this.AllowDrop = true;
@@ -1115,7 +1115,6 @@ namespace ProyectoLoboSostenido
             ((System.ComponentModel.ISupportInitialize)(this.PB_AbrirDirectorioRutas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1137,6 +1136,7 @@ namespace ProyectoLoboSostenido
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureModificar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1185,9 +1185,8 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btn_AbrirArchivoEdicion;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer preview_Crystal;
-        private System.Windows.Forms.Button btnCopiar;
+        private System.Windows.Forms.Button btnCopiarRutaLocal;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1199,14 +1198,13 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_NuevoArchivoCero;
         private System.Windows.Forms.Button btnCrearCopia;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -1215,5 +1213,7 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Button btn_MostrarReporte;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Button button1;
     }
 }
