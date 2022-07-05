@@ -30,8 +30,8 @@ namespace NewReportesControlEscolar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionParametrosReporte));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@ namespace NewReportesControlEscolar
             // txtNombreReporte
             // 
             this.txtNombreReporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreReporte.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtNombreReporte.Location = new System.Drawing.Point(15, 61);
             this.txtNombreReporte.Name = "txtNombreReporte";
             this.txtNombreReporte.ReadOnly = true;
@@ -125,7 +126,7 @@ namespace NewReportesControlEscolar
             // txtIDReporte
             // 
             this.txtIDReporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIDReporte.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDReporte.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtIDReporte.Location = new System.Drawing.Point(431, 62);
             this.txtIDReporte.Name = "txtIDReporte";
             this.txtIDReporte.ReadOnly = true;
@@ -151,6 +152,7 @@ namespace NewReportesControlEscolar
             this.listViewParametros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_Parametro,
             this.Nombre});
+            this.listViewParametros.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.listViewParametros.HideSelection = false;
             this.listViewParametros.Location = new System.Drawing.Point(431, 118);
             this.listViewParametros.Name = "listViewParametros";
@@ -190,24 +192,24 @@ namespace NewReportesControlEscolar
             this.DGV_DetalleReporte.AllowUserToAddRows = false;
             this.DGV_DetalleReporte.AllowUserToDeleteRows = false;
             this.DGV_DetalleReporte.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_DetalleReporte.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_DetalleReporte.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_DetalleReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DetalleReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_DetalleReporte.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_DetalleReporte.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_DetalleReporte.GridColor = System.Drawing.Color.Black;
             this.DGV_DetalleReporte.Location = new System.Drawing.Point(15, 118);
             this.DGV_DetalleReporte.MultiSelect = false;
@@ -219,7 +221,7 @@ namespace NewReportesControlEscolar
             this.DGV_DetalleReporte.TabIndex = 65;
             this.DGV_DetalleReporte.SelectionChanged += new System.EventHandler(this.DGV_DetalleReporte_SelectionChanged);
             // 
-            // RelacionParametrosReporte
+            // FrmRPT_AsignacionParametrosReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -237,7 +239,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RelacionParametrosReporte";
+            this.Name = "FrmRPT_AsignacionParametrosReporte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                                      ";
             this.Load += new System.EventHandler(this.RelacionParametrosReporte_Load);
