@@ -50,6 +50,7 @@ namespace ProyectoLoboSostenido
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -83,7 +84,8 @@ namespace ProyectoLoboSostenido
             this.lvPermisos.CheckBoxes = true;
             this.lvPermisos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID_PermisosReporte,
-            this.Nombre});
+            this.Nombre,
+            this.Tipo});
             this.lvPermisos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvPermisos.HideSelection = false;
             listViewItem1.StateImageIndex = 0;
@@ -104,7 +106,7 @@ namespace ProyectoLoboSostenido
             // Nombre
             // 
             this.Nombre.Text = "Nombre";
-            this.Nombre.Width = 201;
+            this.Nombre.Width = 190;
             // 
             // btnGuardar
             // 
@@ -273,6 +275,11 @@ namespace ProyectoLoboSostenido
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
+            // Tipo
+            // 
+            this.Tipo.Text = "Tipo";
+            this.Tipo.Width = 72;
+            // 
             // FrmRPT_PermisosBotonReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -319,5 +326,6 @@ namespace ProyectoLoboSostenido
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader Tipo;
     }
 }

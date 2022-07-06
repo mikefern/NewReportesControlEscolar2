@@ -41804,7 +41804,7 @@ namespace ProyectoLoboSostenido
                         if (cd.GetReporte(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
                         {
                             DataView dt = new DataView(cd.Lector.Tables[0]);
-                            if (cd.Lector.Tables[0].Rows.Count > 0)
+                            if (cd.Lector.Tables[0].Rows.Count > 1)
                             {
                                 c.GetReporteRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus, rvoe_alumno);
                                 if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count > 0)

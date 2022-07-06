@@ -351,7 +351,7 @@ namespace ProyectoLoboSostenido
         //Verificar
         public bool OpcionesReporteControlEscolar(string ID_Campus, string rol, string Empleado)
         {
-            string nomStore = "RPTGetNodos";
+            string nomStore = "Reports_GetNodosCampusRol";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("Campus", ID_Campus),
@@ -857,30 +857,12 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool EliminarRelCampusReporte(string reporte, string campus)
-        {
-            string nomStore = "Reports_EliminarRelCampusReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRelCampusReporte(string reporte, string campus)
+        public bool AgregarRelCampusReporte(string tipo,string reporte, string campus)
         {
             string nomStore = "Reports_AddRelCampusReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("reporte",reporte),
                 new Clase_Parametros("campus",campus)
             };
@@ -933,34 +915,15 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool AgregarRelRolesReportes(string rol, string campus, string reporte)
+        public bool AgregarRelRolesReportes(string tipo,string rol, string campus, string reporte)
         {
             string nomStore = "Reports_AddRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("rol",rol),
                 new Clase_Parametros("campus", campus),
                 new Clase_Parametros("reporte", reporte)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool EliminarRelRolesReportes(string rol, string campus, string reporte)
-        {
-            string nomStore = "Reports_DeleteRelRolesReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus", campus),
-                new Clase_Parametros("reporte",reporte)
             };
 
             if (Ejecuta(nomStore, par))
@@ -991,11 +954,12 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool AgregarRVOEReportes(string reporte, string RVOE)
+        public bool AgregarRVOEReportes(string tipo, string reporte, string RVOE)
         {
             string nomStore = "Reports_AgregarRVOEReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("reporte",reporte),
                 new Clase_Parametros("RVOE", RVOE)
             };
@@ -1010,24 +974,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool EliminarRVOEReportes(string reporte, string RVOE)
-        {
-            string nomStore = "Reports_EliminarRVOEReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("RVOE", RVOE)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmEnlazarReportesNodos

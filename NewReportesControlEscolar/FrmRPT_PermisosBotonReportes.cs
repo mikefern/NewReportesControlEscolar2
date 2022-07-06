@@ -92,7 +92,16 @@ namespace ProyectoLoboSostenido
             if (pr.Lector.Tables[0].Rows.Count>0)
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
-                gn.llenarlistview(lvPermisos, dt);
+                lvPermisos.Items.Clear();
+                foreach (DataRowView drv in dt)
+                {
+                    var item = new ListViewItem();
+                    item.Text = drv.Row[0].ToString();
+                    item.SubItems.Add(drv.Row[1].ToString());
+                    item.SubItems.Add(drv.Row[2].ToString());
+                    // item.SubItems.Add(drv.Row[2].ToString());
+                    lvPermisos.Items.Add(item);
+                }
             }
 
         }

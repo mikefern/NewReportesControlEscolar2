@@ -163,10 +163,10 @@ namespace NewReportesControlEscolar
                         {
                             DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                             if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
-                                clase_reportes.AgregarRelCampusReporte(reporte, campus);
+                                clase_reportes.AgregarRelCampusReporte("1",reporte, campus);
                         }
                         else
-                            clase_reportes.EliminarRelCampusReporte(reporte, campus);
+                            clase_reportes.AgregarRelCampusReporte("2",reporte, campus);
 
                     }
                     MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
@@ -204,10 +204,10 @@ namespace NewReportesControlEscolar
                     {
                         DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
-                            clase_reportes.AgregarRelRolesReportes(rol, id, repo);
+                            clase_reportes.AgregarRelRolesReportes("1",rol, id, repo);
                     }
                     else
-                        clase_reportes.EliminarRelRolesReportes(rol, id, repo);
+                        clase_reportes.AgregarRelRolesReportes("2", rol, id, repo);
                 }
                 MessageBox.Show("Se han guardado los roles del reporte", "Completado", MessageBoxButtons.OK);
             }
@@ -234,10 +234,10 @@ namespace NewReportesControlEscolar
                     {
                         DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                         if (gn.checarPermiso(dv, Convert.ToInt32(rvoe)))
-                            clase_reportes.AgregarRVOEReportes(id, rvoe);
+                            clase_reportes.AgregarRVOEReportes("1",id, rvoe);
                     }
                     else
-                        clase_reportes.EliminarRVOEReportes(id, rvoe);
+                        clase_reportes.AgregarRVOEReportes("2", id, rvoe);
                 }
                 MessageBox.Show("Se han guardado los RVOE del reporte", "Completado", MessageBoxButtons.OK);
 
