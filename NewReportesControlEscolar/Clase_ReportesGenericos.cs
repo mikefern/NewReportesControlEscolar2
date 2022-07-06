@@ -60,7 +60,8 @@ namespace NewReportesControlEscolar
             {
                 var item = new ListViewItem();
                 item.Text = drv.Row[0].ToString();
-                item.SubItems.Add(drv.Row[1].ToString()); 
+                item.SubItems.Add(drv.Row[1].ToString());
+               // item.SubItems.Add(drv.Row[2].ToString());
                 lv.Items.Add(item);
             }
         }

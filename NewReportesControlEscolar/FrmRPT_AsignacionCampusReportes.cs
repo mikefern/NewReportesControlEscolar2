@@ -26,11 +26,16 @@ namespace NewReportesControlEscolar
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void label2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
         #endregion
 
         #region VARIABLES
-            private Clase_ReportesCE clase_reportes;
+        private Clase_ReportesCE clase_reportes;
             private Clase_ReportesCE ReportCE;
             private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
         #endregion
@@ -280,6 +285,7 @@ namespace NewReportesControlEscolar
             try
             {
                 (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", textBox1.Text);
+
                 if (DGV_Reportes.SelectedRows.Count == 0)
                 {
                     btnGuardarCampus.Enabled = false;
@@ -305,5 +311,7 @@ namespace NewReportesControlEscolar
             }
             catch (System.Data.SyntaxErrorException error) { }
         }
+
+        
     }
 }

@@ -163,6 +163,7 @@ namespace ProyectoLoboSostenido
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(917, 610);
             this.panel3.TabIndex = 8;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
             // label5
             // 
@@ -270,7 +271,7 @@ namespace ProyectoLoboSostenido
             this.label2.TabIndex = 9;
             this.label2.Text = "Gestionar Permisos de los Usuarios para Manipular los Reportes ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
             // FrmRPT_PermisosBotonReportes
             // 

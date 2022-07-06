@@ -26,6 +26,11 @@ namespace NewReportesControlEscolar
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void lbltitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
         #endregion
 
         public FrmRPT_AsignacionParametrosReporte()
@@ -111,22 +116,7 @@ namespace NewReportesControlEscolar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Clase_ReportesCE agregar = new Clase_ReportesCE();
-            //if(agregar.AsignarParametros(txtIDReporte.Text, idparametro) == true)
-            //{
-            //    if(agregar.Lector.Tables.Count > 0)
-            //    {
-            //        MessageBox.Show("El parametro ya esta asignado al reporte");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Parametro agregado");
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Favor de revisar el procedimiento");
-            //}
-
+             
             if (txtIDReporte != null && txtNombreReporte != null)
             {
 
@@ -152,12 +142,14 @@ namespace NewReportesControlEscolar
                 }
                 idparametro = "";
 
-                //MessageBox.Show(idparametro);
-               
                 listViewParametros.Visible = false;
                 Guardados();
                 btnGuardar.Enabled = false;
                 btnModificar.Enabled = true;
+                (DGV_DetalleReporte.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreArchivo LIKE '%{0}%'", "");
+                txt_Buscador.Text = "Buscador...";
+                txt_Buscador.ForeColor = Color.Silver;
+
             }
         }
        
@@ -175,8 +167,6 @@ namespace NewReportesControlEscolar
                         DGVNombreParametro.Columns[0].Visible = false;
                         DGVNombreParametro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
-
                         for (int i = 0; i < listViewParametros.Items.Count; i++)
                             listViewParametros.Items[i].Checked = false;
 
@@ -189,11 +179,8 @@ namespace NewReportesControlEscolar
                                     listViewParametros.Items[i].Checked = true;
                                 }
                             }
-                               
-                            
                         }
                     }
-                     
                 }
                 catch (Exception ex)
                 {
@@ -213,15 +200,50 @@ namespace NewReportesControlEscolar
         {
             if (DGV_DetalleReporte.SelectedRows.Count > 0)
             {
-                if (DGV_DetalleReporte.CurrentRow != null)
-                {
-                    txtIDReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[0].Value.ToString();
-                    txtNombreReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[1].Value.ToString();
-                    Guardados();
-                    listViewParametros.Visible = false;
-                }
+                btnModificar.Enabled = true;
+                 txtIDReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[0].Value.ToString();
+                 txtNombreReporte.Text = DGV_DetalleReporte.CurrentRow.Cells[1].Value.ToString();
+                 Guardados();
+                 listViewParametros.Visible = false;
+            }
+            else
+            {
+                DGVNombreParametro.DataSource = null;
+                btnModificar.Enabled = false;
+                txtNombreReporte.Text = "";
+                txtIDReporte.Text = "";
             }
         }
+
+        private void txt_Buscador_Click(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text.Trim() == "" || txt_Buscador.Text.Trim() == "Buscador...")
+            {
+                txt_Buscador.Text = "";
+            }
+        }
+
+        private void txt_Buscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txt_Buscador.ForeColor = Color.Black;
+        }
+
+        private void txt_Buscador_Leave(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text.Trim() == "" || txt_Buscador.Text.Trim() == "Buscador...")
+            {
+                txt_Buscador.Text = "Buscador...";
+                txt_Buscador.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txt_Buscador_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text.Trim() != "Buscador...")
+                (DGV_DetalleReporte.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreArchivo LIKE '%{0}%'", txt_Buscador.Text);
+        }
+
+        
     }
 }
 

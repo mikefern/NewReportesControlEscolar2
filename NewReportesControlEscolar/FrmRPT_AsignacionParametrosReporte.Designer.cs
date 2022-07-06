@@ -30,8 +30,8 @@ namespace NewReportesControlEscolar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionParametrosReporte));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@ namespace NewReportesControlEscolar
             this.DGVNombreParametro = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.DGV_DetalleReporte = new System.Windows.Forms.DataGridView();
+            this.txt_Buscador = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVNombreParametro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DetalleReporte)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@ namespace NewReportesControlEscolar
             this.lbltitulo.TabIndex = 19;
             this.lbltitulo.Text = "Relación de Parámetros de Reportes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitulo_MouseDown);
             // 
             // label8
             // 
@@ -103,7 +105,7 @@ namespace NewReportesControlEscolar
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardar.Location = new System.Drawing.Point(286, 765);
+            this.btnGuardar.Location = new System.Drawing.Point(271, 766);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 38);
             this.btnGuardar.TabIndex = 24;
@@ -154,9 +156,9 @@ namespace NewReportesControlEscolar
             this.Nombre});
             this.listViewParametros.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.listViewParametros.HideSelection = false;
-            this.listViewParametros.Location = new System.Drawing.Point(431, 118);
+            this.listViewParametros.Location = new System.Drawing.Point(431, 159);
             this.listViewParametros.Name = "listViewParametros";
-            this.listViewParametros.Size = new System.Drawing.Size(258, 550);
+            this.listViewParametros.Size = new System.Drawing.Size(258, 581);
             this.listViewParametros.TabIndex = 76;
             this.listViewParametros.UseCompatibleStateImageBehavior = false;
             this.listViewParametros.View = System.Windows.Forms.View.Details;
@@ -165,11 +167,11 @@ namespace NewReportesControlEscolar
             // 
             this.DGVNombreParametro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVNombreParametro.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.DGVNombreParametro.Location = new System.Drawing.Point(431, 118);
+            this.DGVNombreParametro.Location = new System.Drawing.Point(431, 159);
             this.DGVNombreParametro.Name = "DGVNombreParametro";
             this.DGVNombreParametro.ReadOnly = true;
             this.DGVNombreParametro.RowHeadersVisible = false;
-            this.DGVNombreParametro.Size = new System.Drawing.Size(258, 550);
+            this.DGVNombreParametro.Size = new System.Drawing.Size(258, 581);
             this.DGVNombreParametro.TabIndex = 77;
             // 
             // btnModificar
@@ -192,34 +194,48 @@ namespace NewReportesControlEscolar
             this.DGV_DetalleReporte.AllowUserToAddRows = false;
             this.DGV_DetalleReporte.AllowUserToDeleteRows = false;
             this.DGV_DetalleReporte.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_DetalleReporte.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_DetalleReporte.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_DetalleReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_DetalleReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_DetalleReporte.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_DetalleReporte.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_DetalleReporte.GridColor = System.Drawing.Color.Black;
-            this.DGV_DetalleReporte.Location = new System.Drawing.Point(15, 118);
+            this.DGV_DetalleReporte.Location = new System.Drawing.Point(15, 159);
             this.DGV_DetalleReporte.MultiSelect = false;
             this.DGV_DetalleReporte.Name = "DGV_DetalleReporte";
             this.DGV_DetalleReporte.ReadOnly = true;
             this.DGV_DetalleReporte.RowHeadersVisible = false;
             this.DGV_DetalleReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_DetalleReporte.Size = new System.Drawing.Size(368, 550);
+            this.DGV_DetalleReporte.Size = new System.Drawing.Size(368, 581);
             this.DGV_DetalleReporte.TabIndex = 65;
             this.DGV_DetalleReporte.SelectionChanged += new System.EventHandler(this.DGV_DetalleReporte_SelectionChanged);
+            // 
+            // txt_Buscador
+            // 
+            this.txt_Buscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Buscador.ForeColor = System.Drawing.Color.Silver;
+            this.txt_Buscador.Location = new System.Drawing.Point(15, 122);
+            this.txt_Buscador.Name = "txt_Buscador";
+            this.txt_Buscador.Size = new System.Drawing.Size(368, 22);
+            this.txt_Buscador.TabIndex = 79;
+            this.txt_Buscador.Text = "Buscador...";
+            this.txt_Buscador.Click += new System.EventHandler(this.txt_Buscador_Click);
+            this.txt_Buscador.TextChanged += new System.EventHandler(this.txt_Buscador_TextChanged);
+            this.txt_Buscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Buscador_KeyPress);
+            this.txt_Buscador.Leave += new System.EventHandler(this.txt_Buscador_Leave);
             // 
             // FrmRPT_AsignacionParametrosReporte
             // 
@@ -227,6 +243,7 @@ namespace NewReportesControlEscolar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(721, 815);
+            this.Controls.Add(this.txt_Buscador);
             this.Controls.Add(this.listViewParametros);
             this.Controls.Add(this.DGVNombreParametro);
             this.Controls.Add(this.DGV_DetalleReporte);
@@ -266,5 +283,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.DataGridView DGVNombreParametro;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DataGridView DGV_DetalleReporte;
+        private System.Windows.Forms.TextBox txt_Buscador;
     }
 }

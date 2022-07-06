@@ -93,26 +93,11 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        //public bool GetRuta(string nombre)
-        //{
-        //    string nomStore = "GetRuta";
-        //    List<Clase_Parametros> par = new List<Clase_Parametros>
-        //    {
-        //        new Clase_Parametros("NombreArchivo", nombre),
-        //    };
-        //    if (ConsultarParametros(nomStore, par))
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+         
 
         public bool GetIDReporte(string nombre)
         {
-            string nomStore = "GetIDReporte";
+            string nomStore = "Reports_GetIDReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("NombreArchivo", nombre),
@@ -145,7 +130,7 @@ namespace ProyectoLoboSostenido
         #region RelacionParametrosReporte
         public bool AsignarParametros(string ID, string ID_Parametro)
         {
-            string nomStore = "AsignarParametros";
+            string nomStore = "Reports_AsignarParametros";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("ID_Reporte",ID),
@@ -162,7 +147,7 @@ namespace ProyectoLoboSostenido
         }
         public bool GetParametrosOK(string ID)
         {
-            string nomStore = "GetParametrosOK";
+            string nomStore = "Reports_GetParametrosOK";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("ID",ID)
@@ -182,7 +167,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetNombreReporteControl()
         {
-            string nomProce = "GetNombreReporteControl";
+            string nomProce = "Reports_GetNombreReporteControl";
             if (Consultar(nomProce))
             {
                 return true;
@@ -195,7 +180,7 @@ namespace ProyectoLoboSostenido
 
         public bool IDRelacionado(string opt, string ID_Reporte, string ID_Archivo)
         {
-            string nomStore = "GetIDRepRel";
+            string nomStore = "Reports_GetIDRepRel";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("Opt",opt),
@@ -213,7 +198,7 @@ namespace ProyectoLoboSostenido
         }
         public bool GetIDRelacionado(string ID)
         {
-            string nomStore = "GetIDReporteRel";
+            string nomStore = "Reports_GetIDReporteRel";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("ID",ID)
@@ -234,7 +219,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarNodosRolCampus(string ID_Campus, string rol) 
         {
-            string nomStore = "MostrarNodosRolCampus";
+            string nomStore = "Reports_MostrarNodosRolCampus";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("Campus", ID_Campus),
@@ -253,7 +238,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetRestriccionesUsuarioReportes(string ID)
         {
-            string nomStore = "GetRestriccionesUsuarioReportes";
+            string nomStore = "Reports_GetRestriccionesUsuarioReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id_empleado",ID)
@@ -271,7 +256,7 @@ namespace ProyectoLoboSostenido
 
         public bool getRol(string id)
         {
-            string nomStore = "getRolUsuario";
+            string nomStore = "Reports_getRolUsuario";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id",id)
@@ -289,7 +274,7 @@ namespace ProyectoLoboSostenido
 
         public bool LimpiarRestriccionesNodos(string id)
         {
-            string nomStore = "LimpiarRestriccionesNodos";
+            string nomStore = "Reports_LimpiarRestriccionesNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id",id)
@@ -307,7 +292,7 @@ namespace ProyectoLoboSostenido
 
         public bool Agregar_RestriccionReportesNodos(string id, string nodo)
         {
-            string nomStore = "Agregar_RestriccionReportesNodos";
+            string nomStore = "Reports_Add_RestriccionReportesNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id",id),
@@ -326,7 +311,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetUsuarios(string Campus_ID)
         {
-            string nomStore = "GetUsuariosResttriccionNodos";
+            string nomStore = "Reports_GetUsuariosRestriccionNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id_Campus",Campus_ID)
@@ -363,6 +348,7 @@ namespace ProyectoLoboSostenido
         //---------------------------------------------------------------------------------------------------------------------------
         #region FrmReportesControlEscolar
 
+        //Verificar
         public bool OpcionesReporteControlEscolar(string ID_Campus, string rol, string Empleado)
         {
             string nomStore = "RPTGetNodos";
@@ -403,7 +389,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetReportesconRVOE(string nodo, string campus)
         {
-            string nomStore = "RptGetReportesconRVOE";
+            string nomStore = "Reports_GetReportesconRVOE";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
@@ -420,6 +406,7 @@ namespace ProyectoLoboSostenido
             }
         }
 
+        //verificar
         public bool GetReporte(string nodo, string campus)
         {
             string nomStore = "GetReporte";
@@ -441,7 +428,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetReporteRVOE(string nodo, string campus, string rvoe)
         {
-            string nomStore = "RPTGetReporteRVOE";
+            string nomStore = "Reports_GetReporteRVOE";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
@@ -461,7 +448,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetDetallesReporte(string reporte)
         {
-            string nomStore = "GetDetallesReporte";
+            string nomStore = "Reports_GetDetallesReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("reporte",reporte)
@@ -479,7 +466,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetPermisoRolReporteAbrir(string reporte, string rol, string campus)
         {
-            string nomStore = "RptGetPermisoRolReporteAbrir";
+            string nomStore = "Reports_GetPermisoRolReporteAbrir";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -498,7 +485,7 @@ namespace ProyectoLoboSostenido
 
         public bool RptGetRestriccionReporteEmpledo(string reporte, string empleado)
         {
-            string nomStore = "RptGetRestriccionReporteEmpledo";
+            string nomStore = "Reports_GetRestriccionReporteEmpledo";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("reporte",reporte),
@@ -587,7 +574,7 @@ namespace ProyectoLoboSostenido
         }
         public bool GetCampusNodos(string nodo)
         {
-            string nomStore = "RPTGetCampusNodos";
+            string nomStore = "Reports_GetCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("nodo",nodo),
@@ -604,7 +591,7 @@ namespace ProyectoLoboSostenido
         }
         public bool AgregarPermisosverReportes(string CampusNodo, string campus)
         {
-            string nomStore = "RPTInsertarCampusNodos";
+            string nomStore = "Reports_InsertarCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("CampusNodo",CampusNodo),
@@ -622,7 +609,7 @@ namespace ProyectoLoboSostenido
         }
         public bool DeleteCampusNodos(string campus, string CampusNodo)
         {
-            string nomStore = "RptDeleteCampusNodos";
+            string nomStore = "Reports_DeleteCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("campus",campus),
@@ -640,7 +627,7 @@ namespace ProyectoLoboSostenido
         }
         public bool GetRolesCampusNodos(string campus, string CampusNodo)
         {
-            string nomStore = "RPTGetRolesCampusNodos";
+            string nomStore = "Reports_GetRolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("campus",campus),
@@ -658,7 +645,7 @@ namespace ProyectoLoboSostenido
         }
         public bool InsertarRolesCampusNodos(string campus, string CampusNodo, string rol)
         {
-            string nomStore = "RPTInsertarRolesCampusNodos";
+            string nomStore = "Reports_AddRolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("campus",campus),
@@ -679,7 +666,7 @@ namespace ProyectoLoboSostenido
         }
         public bool DeleteRolesCampusNodos(string campus, string CampusNodo, string rol)
         {
-            string nomStore = "RptDeleteRolesCampusNodos";
+            string nomStore = "Reports_DeleteRolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("campus",campus),
@@ -721,7 +708,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarPermisosReportes()
         {
-            string nomStore = "RptMostrarPermisosReportes";
+            string nomStore = "Reports_MostrarPermisosReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
             };
@@ -738,7 +725,7 @@ namespace ProyectoLoboSostenido
        
         public bool AgregarIndicePermisosReportes(string nombre)
         {
-            string nomStore = "RPTAgregarIndicePermisosReportes";
+            string nomStore = "Reports_AddIndicePermisosReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nombre",nombre)
@@ -756,7 +743,7 @@ namespace ProyectoLoboSostenido
 
         public bool LimpiarPermisos(string rol, string campus)
         {
-            string nomStore = "RPTLimpiarPermisos";
+            string nomStore = "Reports_LimpiarPermisos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("rol",rol),
@@ -775,7 +762,7 @@ namespace ProyectoLoboSostenido
 
         public bool AgregarPermisosverReportes(string permiso, string rol, string campus)
         {
-            string nomStore = "RptAgregarPermisosverReportes";
+            string nomStore = "Reports_AddPermisosverReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("permiso",permiso),
@@ -811,7 +798,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetPermisosRol(string rol, string campus)
         {
-            string nomStore = "RptGetPermisosRol";
+            string nomStore = "Reports_GetPermisosRol";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("rol",rol),
@@ -836,7 +823,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetCampusReportes(string idreporte)
         {
-            string nomStore = "RptGetCampusReportes";
+            string nomStore = "Reports_GetCampusReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("idreporte",idreporte)
@@ -854,7 +841,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarRVOESCampusReportes(string campus)
         {
-            string nomStore = "RptMostrarRVOECampusReportes";
+            string nomStore = "Reports_MostrarRVOECampusReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("campus",campus)
@@ -872,7 +859,7 @@ namespace ProyectoLoboSostenido
 
         public bool EliminarRelCampusReporte(string reporte, string campus)
         {
-            string nomStore = "RptEliminarRelCampusReporte";
+            string nomStore = "Reports_EliminarRelCampusReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -891,7 +878,7 @@ namespace ProyectoLoboSostenido
 
         public bool AgregarRelCampusReporte(string reporte, string campus)
         {
-            string nomStore = "RptAgregarRelCampusReporte";
+            string nomStore = "Reports_AddRelCampusReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -910,7 +897,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarRelRolesReportes(string reporte, string campus)
         {
-            string nomStore = "RptMostrarRelRolesReportes";
+            string nomStore = "Reports_MostrarRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -928,7 +915,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetRelRolesReportes(string reporte, string rol, string campus)
         {
-            string nomStore = "RptGetRelRolesReporte";
+            string nomStore = "Reports_GetRelRolesReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -948,7 +935,7 @@ namespace ProyectoLoboSostenido
 
         public bool AgregarRelRolesReportes(string rol, string campus, string reporte)
         {
-            string nomStore = "RptAgregarRelRolesReportes";
+            string nomStore = "Reports_AddRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("rol",rol),
@@ -968,7 +955,7 @@ namespace ProyectoLoboSostenido
 
         public bool EliminarRelRolesReportes(string rol, string campus, string reporte)
         {
-            string nomStore = "RptEliminarRelRolesReportes";
+            string nomStore = "Reports_DeleteRelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("rol",rol),
@@ -988,7 +975,7 @@ namespace ProyectoLoboSostenido
 
         public bool MostrarRVOECampusReporte(string reporte, string campus)
         {
-            string nomStore = "RptMostrarRVOECampusReporte";
+            string nomStore = "Reports_MostrarRVOECampusReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -1006,7 +993,7 @@ namespace ProyectoLoboSostenido
 
         public bool AgregarRVOEReportes(string reporte, string RVOE)
         {
-            string nomStore = "RptAgregarRVOEReportes";
+            string nomStore = "Reports_AgregarRVOEReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -1025,7 +1012,7 @@ namespace ProyectoLoboSostenido
 
         public bool EliminarRVOEReportes(string reporte, string RVOE)
         {
-            string nomStore = "RptEliminarRVOEReportes";
+            string nomStore = "Reports_EliminarRVOEReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -1064,7 +1051,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetReportesNodo(string nodo)
         {
-            string nomStore = "RptGetReportesNodo";
+            string nomStore = "Reports_GetReportesNodo";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("nodo",nodo)
@@ -1082,7 +1069,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetNodoPadre(string nodo)
         {
-            string nomStore = "RPTGetNodoPadre";
+            string nomStore = "Reports_GetNodoPadre";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("nodo",nodo)
@@ -1100,7 +1087,7 @@ namespace ProyectoLoboSostenido
 
         public bool ActualizarNodoReporte(string nodo, string reporte)
         {
-            string nomStore = "RptActualizarNodoReporte";
+            string nomStore = "Reports_ActualizarNodoReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
@@ -1122,7 +1109,7 @@ namespace ProyectoLoboSostenido
 
         public bool GetRestriccionesReportesEmpleado(string empleado)
         {
-            string nomStore = "RptGetRestriccionesReportesEmpleado";
+            string nomStore = "Reports_getRestriccionesReportesEmpleado";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                  new Clase_Parametros("empleado",empleado)
@@ -1139,7 +1126,7 @@ namespace ProyectoLoboSostenido
         }
         public bool EliminarRestriccionesReportesEmpleado(string reporte, string usuario)
         {
-            string nomStore = "RptEliminarRestriccionesReportesEmpleado";
+            string nomStore = "Reports_EliminarRestriccionesReportesEmpleado";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
@@ -1158,7 +1145,7 @@ namespace ProyectoLoboSostenido
 
         public bool AgregarRestriccionesReportesEmpleado(string reporte, string empleado)
         {
-            string nomStore = "RptAgregarRestriccionesReportesEmpleado";
+            string nomStore = "Reports_AgregarRestriccionesReportesEmpleado";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("reporte",reporte),
