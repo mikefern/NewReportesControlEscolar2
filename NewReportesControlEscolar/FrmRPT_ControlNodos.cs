@@ -540,10 +540,10 @@ namespace NewReportesControlEscolar
                         {
                             DataView dv = new DataView(reporteCE.Lector.Tables[0]);
                             if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(lvItem)))
-                                np.AgregarPermisosverReportes(tvName, lvItem);
+                                np.AgregarPermisosNodosCampus("1",tvName, lvItem);
                         }
                         else
-                            np.DeleteCampusNodos(lvItem, tvName);
+                            np.AgregarPermisosNodosCampus("2", tvName, lvItem);
                     }
                     MessageBox.Show("Se han guardado los campus que pueden ver el nodo " + TreeViewNodos.SelectedNode.Text, "Confirmar", MessageBoxButtons.OK);
                     cargarCampusSeleccion(TreeViewNodos.SelectedNode.Name);
@@ -601,10 +601,10 @@ namespace NewReportesControlEscolar
                     {
                         DataView dv = new DataView(reporteCE.Lector.Tables[0]);
                         if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(rol)))
-                            np.InsertarRolesCampusNodos(campus, nodo, rol);
+                            np.RolesCampusNodos("1",campus, nodo, rol);
                     }
                     else
-                        np.DeleteRolesCampusNodos(campus, nodo, rol);
+                        np.RolesCampusNodos("2",campus, nodo, rol);
                 }
                 MessageBox.Show("Se han guardados los roles del campus " + lvSeleccionarCampus.SelectedItems[0].SubItems[1].Text + " en el nodo " + TreeViewNodos.SelectedNode.Text, "Completado", MessageBoxButtons.OK);
             }

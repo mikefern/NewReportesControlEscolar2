@@ -274,7 +274,7 @@ namespace ProyectoLoboSostenido
 
         public bool LimpiarRestriccionesNodos(string id)
         {
-            string nomStore = "Reports_LimpiarRestriccionesNodos";
+            string nomStore = "Reports_DelRestriccionesNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("id",id)
@@ -589,31 +589,14 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool AgregarPermisosverReportes(string CampusNodo, string campus)
+        public bool AgregarPermisosNodosCampus(string tipo, string CampusNodo, string campus)
         {
-            string nomStore = "Reports_InsertarCampusNodos";
+            string nomStore = "Reports_CampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("CampusNodo",CampusNodo),
                 new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool DeleteCampusNodos(string campus, string CampusNodo)
-        {
-            string nomStore = "Reports_DeleteCampusNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("campus",campus),
-                new Clase_Parametros("CampusNodo",CampusNodo)
             };
 
             if (Ejecuta(nomStore, par))
@@ -643,11 +626,12 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool InsertarRolesCampusNodos(string campus, string CampusNodo, string rol)
+        public bool RolesCampusNodos(string tipo,string campus, string CampusNodo, string rol)
         {
-            string nomStore = "Reports_AddRolesCampusNodos";
+            string nomStore = "Reports_RolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("campus",campus),
                 new Clase_Parametros("CampusNodo",CampusNodo),
                new Clase_Parametros("rol",rol)
@@ -662,25 +646,6 @@ namespace ProyectoLoboSostenido
                 return false;
 
 
-            }
-        }
-        public bool DeleteRolesCampusNodos(string campus, string CampusNodo, string rol)
-        {
-            string nomStore = "Reports_DeleteRolesCampusNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("campus",campus),
-                new Clase_Parametros("CampusNodo",CampusNodo),
-                new Clase_Parametros("rol",rol)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
         public bool IgualarPosicionNodo(string nodoPadre)
