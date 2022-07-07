@@ -78,8 +78,7 @@ namespace NewReportesControlEscolar
             this.lvReportes.Size = new System.Drawing.Size(437, 396);
             this.lvReportes.TabIndex = 1;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
-            this.lvReportes.View = System.Windows.Forms.View.Details;
-            this.lvReportes.SelectedIndexChanged += new System.EventHandler(this.lvReportes_SelectedIndexChanged);
+            this.lvReportes.View = System.Windows.Forms.View.Details; 
             // 
             // id
             // 
@@ -156,8 +155,7 @@ namespace NewReportesControlEscolar
             this.label3.Size = new System.Drawing.Size(450, 38);
             this.label3.TabIndex = 77;
             this.label3.Text = "*Solo se pueden relacionar nodos hijo con los reportes,  de preferencia elija un " +
-    "reporte por nodo.";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+    "reporte por nodo."; 
             // 
             // pictureBox5
             // 
@@ -188,8 +186,7 @@ namespace NewReportesControlEscolar
             this.groupBox2.Size = new System.Drawing.Size(449, 185);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Reportes relacionados al nodo seleccionado";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBox2.Text = "Reportes relacionados al nodo seleccionado"; 
             // 
             // groupBox1
             // 
@@ -246,7 +243,7 @@ namespace NewReportesControlEscolar
             this.label2.TabIndex = 9;
             this.label2.Text = "Relación de nodo con el reporte";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // button2
             // 

@@ -1,13 +1,6 @@
 ﻿using ProyectoLoboSostenido;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System; 
+using System.Runtime.InteropServices; 
 using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
@@ -31,7 +24,6 @@ namespace NewReportesControlEscolar
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-
         #region VARIABLES
         Clase_ReportesCE clase_reportesCE;
         string valorAlEscribir = "";
@@ -150,10 +142,7 @@ namespace NewReportesControlEscolar
                                     MessageBox.Show("Parametro Modificado", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     FlagInsertar = false;
                                     flagInicio = true;
-                                    flagModificarNoSelection = false;
-                                    //llenadoListaParametros();
-                                    //DGV_parametros.FirstDisplayedScrollingRowIndex = DGV_parametros.RowCount - 1;
-                                    //flagInicio = true;
+                                    flagModificarNoSelection = false; 
                                 }
                                 else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -208,7 +197,7 @@ namespace NewReportesControlEscolar
         {
             if (FlagInsertar)
             {
-                if (flag2==false)
+                if (flag2 == false)
                 {
                      string nombre = DGV_parametros.Rows[posicioncuandoescribe].Cells[1].EditedFormattedValue.ToString().Trim();
                     if (nombre != "")
@@ -305,6 +294,7 @@ namespace NewReportesControlEscolar
 
         private void lblCerrar_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             this.Close();
         }
 

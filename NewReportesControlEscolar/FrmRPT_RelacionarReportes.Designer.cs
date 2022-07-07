@@ -61,7 +61,7 @@ namespace NewReportesControlEscolar
             this.lbltitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbltitulo.Location = new System.Drawing.Point(0, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(661, 32);
+            this.lbltitulo.Size = new System.Drawing.Size(677, 32);
             this.lbltitulo.TabIndex = 0;
             this.lbltitulo.Text = "Relación de Reportes ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,7 +168,7 @@ namespace NewReportesControlEscolar
             this.GridViewControl.ReadOnly = true;
             this.GridViewControl.RowHeadersVisible = false;
             this.GridViewControl.ShowEditingIcon = false;
-            this.GridViewControl.Size = new System.Drawing.Size(245, 419);
+            this.GridViewControl.Size = new System.Drawing.Size(245, 618);
             this.GridViewControl.TabIndex = 63;
             this.GridViewControl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewControl_CellContentClick);
             // 
@@ -223,7 +223,7 @@ namespace NewReportesControlEscolar
             this.GridViewDetalles.Name = "GridViewDetalles";
             this.GridViewDetalles.ReadOnly = true;
             this.GridViewDetalles.RowHeadersVisible = false;
-            this.GridViewDetalles.Size = new System.Drawing.Size(245, 419);
+            this.GridViewDetalles.Size = new System.Drawing.Size(245, 618);
             this.GridViewDetalles.TabIndex = 64;
             this.GridViewDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewDetalles_CellContentClick);
             // 
@@ -276,12 +276,12 @@ namespace NewReportesControlEscolar
             this.btnEliminarRelacion.UseVisualStyleBackColor = false;
             this.btnEliminarRelacion.Click += new System.EventHandler(this.btnEliminarRelacion_Click);
             // 
-            // RelacionReportes
+            // FrmRPT_RelacionarReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(661, 503);
+            this.ClientSize = new System.Drawing.Size(677, 702);
             this.Controls.Add(this.btnEliminarRelacion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtRelacionado);
@@ -298,7 +298,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RelacionReportes";
+            this.Name = "FrmRPT_RelacionarReportes";
             this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RelacionReportes";

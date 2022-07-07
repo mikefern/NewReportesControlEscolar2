@@ -279,7 +279,6 @@ namespace NewReportesControlEscolar
             gn.cargarCampus(lvCampus);
             btnGuardar.Enabled = false;
             lvCampus.Enabled = false;
-
         }
 
         private void LlenadoNodosReporte()

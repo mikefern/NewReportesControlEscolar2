@@ -1,20 +1,17 @@
 ﻿using NewReportesControlEscolar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System; 
+using System.Data; 
+using System.Runtime.InteropServices; 
 using System.Windows.Forms;
 
 namespace ProyectoLoboSostenido
 {
     public partial class FrmRPT_PermisosBotonReportes : Form
     {
-
+        #region VARIABLES
+        Clase_ReportesCE pr;
+        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+        #endregion
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -37,8 +34,6 @@ namespace ProyectoLoboSostenido
         {
             InitializeComponent();
         }
-        private Clase_ReportesCE pr;
-        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
 
         private void FmrRPTPermisosRol_Load(object sender, EventArgs e)
         {
@@ -56,6 +51,7 @@ namespace ProyectoLoboSostenido
         {
             marcarpuntos();
         }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             pr = new Clase_ReportesCE();
@@ -84,6 +80,7 @@ namespace ProyectoLoboSostenido
             cbRoles.ValueMember = "ID_Rol";
             cbRoles.SelectedItem = null;
         }
+
         private void getPermisos()
         {
             pr = new Clase_ReportesCE();
@@ -99,12 +96,11 @@ namespace ProyectoLoboSostenido
                     item.Text = drv.Row[0].ToString();
                     item.SubItems.Add(drv.Row[1].ToString());
                     item.SubItems.Add(drv.Row[2].ToString());
-                    // item.SubItems.Add(drv.Row[2].ToString());
                     lvPermisos.Items.Add(item);
                 }
             }
-
         }
+
         private void getCampus()
         {
             Clase_ReportesCE ur =  new Clase_ReportesCE();
@@ -115,7 +111,6 @@ namespace ProyectoLoboSostenido
             cbCampus.SelectedItem = null;
         }
 
-        
         private void marcarpuntos()
         {
             if (cbRoles.SelectedItem != null && cbCampus.SelectedItem != null)
@@ -131,7 +126,7 @@ namespace ProyectoLoboSostenido
                 }
                 catch (Exception ex)
                 {
-                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -144,22 +139,11 @@ namespace ProyectoLoboSostenido
             getPermisos();
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void label8_Click(object sender, EventArgs e)
         {
             Dispose();
             Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
