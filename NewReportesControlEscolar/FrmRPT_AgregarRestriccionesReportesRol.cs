@@ -119,12 +119,12 @@ namespace ProyectoLoboSostenido
         }
         private void agregarRestriccion(string nodo)
         {
-            rn.Agregar_RestriccionReportesNodos(cBoxUsuarios.SelectedValue.ToString(), nodo);
+            rn.Agregar_RestriccionReportesNodos("1",cBoxUsuarios.SelectedValue.ToString(), nodo);
         }
         private void limpiarRestricciones()
         {
             rn = new Clase_ReportesCE();
-            rn.LimpiarRestriccionesNodos(cBoxUsuarios.SelectedValue.ToString());
+            rn.Agregar_RestriccionReportesNodos("2", cBoxUsuarios.SelectedValue.ToString(), "");
         }
         private void VerificacionNodosRecursiva(TreeNode treeNode)
         { 

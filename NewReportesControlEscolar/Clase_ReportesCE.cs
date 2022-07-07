@@ -253,29 +253,13 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool LimpiarRestriccionesNodos(string id)
+
+        public bool Agregar_RestriccionReportesNodos(string tipo,string id, string nodo)
         {
-            string nomStore = "Reports_DelRestriccionesNodos";
+            string nomStore = "Reports_RestriccionReportesNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("id",id)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool Agregar_RestriccionReportesNodos(string id, string nodo)
-        {
-            string nomStore = "Reports_Add_RestriccionReportesNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("id",id),
                 new Clase_Parametros("nodo",nodo)
             };
@@ -687,30 +671,12 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool LimpiarPermisos(string rol, string campus)
+        public bool AgregarPermisosverReportes(string tipo, string permiso, string rol, string campus)
         {
-            string nomStore = "Reports_LimpiarPermisos";
+            string nomStore = "Reports_PermisosverReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarPermisosverReportes(string permiso, string rol, string campus)
-        {
-            string nomStore = "Reports_AddPermisosverReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("permiso",permiso),
                 new Clase_Parametros("rol",rol),
                 new Clase_Parametros("campus",campus)
@@ -1016,30 +982,13 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool EliminarRestriccionesReportesEmpleado(string reporte, string usuario)
+
+        public bool AgregarRestriccionesReportesEmpleado(string tipo,string reporte, string empleado)
         {
-            string nomStore = "Reports_EliminarRestriccionesReportesEmpleado";
+            string nomStore = "Reports_RestriccionesReportesEmpleado";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("empleado",usuario)
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRestriccionesReportesEmpleado(string reporte, string empleado)
-        {
-            string nomStore = "Reports_AgregarRestriccionesReportesEmpleado";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
+                new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("reporte",reporte),
                 new Clase_Parametros("empleado",empleado)
             };

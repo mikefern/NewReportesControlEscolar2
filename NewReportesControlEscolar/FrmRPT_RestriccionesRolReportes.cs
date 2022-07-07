@@ -123,10 +123,10 @@ namespace NewReportesControlEscolar
                     {
                         DataView dv = new DataView(ReportesCE.Lector.Tables[0]);
                         if (ReportesGenerico.checarPermiso(dv, Convert.ToInt32(reporte)))
-                            pr.AgregarRestriccionesReportesEmpleado(reporte, empleado);
+                            pr.AgregarRestriccionesReportesEmpleado("1",reporte, empleado);
                     }
                     else
-                        pr.EliminarRestriccionesReportesEmpleado(reporte, empleado);
+                        pr.AgregarRestriccionesReportesEmpleado("2", reporte, empleado);
                 }
                 MessageBox.Show("Se han guardado las restricciones al usuario ", "Completado", MessageBoxButtons.OK);
             }catch(Exception ex)
