@@ -39,6 +39,9 @@ namespace NewReportesControlEscolar
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_parametros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +67,7 @@ namespace NewReportesControlEscolar
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV_parametros.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGV_parametros.Location = new System.Drawing.Point(5, 47);
+            this.DGV_parametros.Location = new System.Drawing.Point(17, 203);
             this.DGV_parametros.Name = "DGV_parametros";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -74,7 +77,7 @@ namespace NewReportesControlEscolar
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV_parametros.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DGV_parametros.Size = new System.Drawing.Size(378, 837);
+            this.DGV_parametros.Size = new System.Drawing.Size(382, 660);
             this.DGV_parametros.TabIndex = 0;
             this.DGV_parametros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_parametros_CellEndEdit);
             this.DGV_parametros.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DGV_parametros_EditingControlShowing);
@@ -91,7 +94,7 @@ namespace NewReportesControlEscolar
             this.lbltitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbltitulo.Location = new System.Drawing.Point(0, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(611, 32);
+            this.lbltitulo.Size = new System.Drawing.Size(417, 32);
             this.lbltitulo.TabIndex = 62;
             this.lbltitulo.Text = "Agregar Parametros ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -102,7 +105,7 @@ namespace NewReportesControlEscolar
             this.lblCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCerrar.Image = ((System.Drawing.Image)(resources.GetObject("lblCerrar.Image")));
-            this.lblCerrar.Location = new System.Drawing.Point(576, 0);
+            this.lblCerrar.Location = new System.Drawing.Point(369, 0);
             this.lblCerrar.Name = "lblCerrar";
             this.lblCerrar.Size = new System.Drawing.Size(25, 32);
             this.lblCerrar.TabIndex = 71;
@@ -110,11 +113,12 @@ namespace NewReportesControlEscolar
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.Lavender;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(389, 47);
+            this.label3.Location = new System.Drawing.Point(17, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 90);
+            this.label3.Size = new System.Drawing.Size(382, 49);
             this.label3.TabIndex = 73;
             this.label3.Text = "1. Para insertar un nuevo parametro, haga doble click en el ultimo renglon vacío " +
     "(Columna Nombre) escriba el nombre del parametro y presione la tecla Enter.";
@@ -122,11 +126,12 @@ namespace NewReportesControlEscolar
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.Lavender;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(389, 147);
+            this.label2.Location = new System.Drawing.Point(17, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 75);
+            this.label2.Size = new System.Drawing.Size(382, 32);
             this.label2.TabIndex = 74;
             this.label2.Text = "2. Para modificar un parametro, haga doble click en el renglon, modifique la colu" +
     "mna que desee y presione la tecla Enter.";
@@ -134,22 +139,50 @@ namespace NewReportesControlEscolar
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.Lavender;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(389, 231);
+            this.label4.Location = new System.Drawing.Point(17, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 83);
+            this.label4.Size = new System.Drawing.Size(382, 39);
             this.label4.TabIndex = 75;
             this.label4.Text = "3. Para eliminar un renglon o registro, seleccione el renglón completo (presionan" +
     "do la flecha de la izq) y presione la tecla Suprimir.";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label1.Location = new System.Drawing.Point(411, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 867);
+            this.label1.TabIndex = 76;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label5.Location = new System.Drawing.Point(-4, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(10, 880);
+            this.label5.TabIndex = 77;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.label6.Location = new System.Drawing.Point(2, 888);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(416, 10);
+            this.label6.TabIndex = 78;
             // 
             // FrmRPT_AddParametrosRCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(611, 896);
+            this.ClientSize = new System.Drawing.Size(417, 896);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -175,5 +208,8 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

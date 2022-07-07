@@ -248,7 +248,7 @@ namespace NewReportesControlEscolar
             this.btn8_NuevosParametros.Name = "btn8_NuevosParametros";
             this.btn8_NuevosParametros.Size = new System.Drawing.Size(250, 40);
             this.btn8_NuevosParametros.TabIndex = 64;
-            this.btn8_NuevosParametros.Text = "Gestión de Nuevos Parametros";
+            this.btn8_NuevosParametros.Text = "Añadir Nuevos Parametros";
             this.btn8_NuevosParametros.UseVisualStyleBackColor = true;
             this.btn8_NuevosParametros.Click += new System.EventHandler(this.btn8_NuevosParametros_Click);
             // 
@@ -437,7 +437,7 @@ namespace NewReportesControlEscolar
             this.CB_Roles.Text = "14";
             this.CB_Roles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CB_Roles_KeyPress);
             // 
-            // Principal
+            // FrmRPT_Principal_RCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -455,7 +455,7 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Principal";
+            this.Name = "FrmRPT_Principal_RCE";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

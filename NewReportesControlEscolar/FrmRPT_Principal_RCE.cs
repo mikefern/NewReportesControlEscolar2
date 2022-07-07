@@ -87,8 +87,18 @@ namespace NewReportesControlEscolar
 
         private void btn8_NuevosParametros_Click(object sender, EventArgs e)
         {
-            FrmRPT_AddParametrosRCE frmAdministrarParametrosRCE = new FrmRPT_AddParametrosRCE();
-            frmAdministrarParametrosRCE.Show();
+            if (Application.OpenForms["FrmRPT_AddParametrosRCE"] == null)
+            {
+                FrmRPT_AddParametrosRCE frmAdministrarParametrosRCE = new FrmRPT_AddParametrosRCE();
+                frmAdministrarParametrosRCE.Show();
+            }
+            else 
+            { 
+                Application.OpenForms["FrmRPT_AddParametrosRCE"].Show();
+                Application.OpenForms["FrmRPT_AddParametrosRCE"].BringToFront();
+            }
+
+            
         }
 
         private void btn9_RelacionNodoReporte_Click(object sender, EventArgs e)

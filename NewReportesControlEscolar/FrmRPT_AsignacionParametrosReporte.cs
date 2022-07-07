@@ -89,7 +89,7 @@ namespace NewReportesControlEscolar
         private void getParametros()
         {
             Clase_ReportesCE parametros = new Clase_ReportesCE();
-            parametros.MostrarParametros();
+            parametros.DML_ParametrosFijosRCE("0","", "", ""); //devuelve el puro select Parametros_ReportesCE
             listViewParametros.Items.Clear();
             if (parametros.Lector.Tables[0].Rows.Count > 0)
             {

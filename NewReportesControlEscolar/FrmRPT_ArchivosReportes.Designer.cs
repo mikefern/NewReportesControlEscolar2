@@ -1072,7 +1072,7 @@ namespace ProyectoLoboSostenido
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(1327, 35);
             this.lbltitulo.TabIndex = 67;
-            this.lbltitulo.Text = "Datos Archivo Reportes";
+            this.lbltitulo.Text = "Gestion y Creación de Archivo de Reportes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbltitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitulo_MouseDown);
             // 

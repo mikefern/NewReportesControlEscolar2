@@ -255,7 +255,7 @@ namespace ProyectoLoboSostenido
                 {
 
                     error = ex.ToString();
-                   // MessageBox.Show(error);
+                    MessageBox.Show(error);
                     return false;
                 }
             }
