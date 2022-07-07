@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic; 
 using System.Threading;
 using FastReport; 
 using FastReport.Utils;  
@@ -27,7 +24,7 @@ namespace ProyectoLoboSostenido
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
-        #region FrmAdministrarParametrosRCE
+        #region FrmRPT_AddParametrosRCE
 
         public bool MostrarParametros() 
         {
@@ -63,11 +60,10 @@ namespace ProyectoLoboSostenido
         }
         #endregion
         //---------------------------------------------------------------------------------------------------------------------------
-        #region FrmDatosReportes
+        #region FrmRPT_ArchivosReportes
 
         public bool DetalleArchivoReporte(string opt, string id, string nombre, string extension, string ruta,  string ultimamodificacion, string creacion, string ultimoacceso,  string descripcionModificaciones, string id_Empleado,string peso)
         {
-
             string nomStore = "Reports_RegistroReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
@@ -92,8 +88,6 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-
-         
 
         public bool GetIDReporte(string nombre)
         {
@@ -127,7 +121,7 @@ namespace ProyectoLoboSostenido
         }
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
-        #region RelacionParametrosReporte
+        #region FrmRPT_AsignacionParametrosReporte
         public bool AsignarParametros(string ID, string ID_Parametro)
         {
             string nomStore = "Reports_AsignarParametros";
@@ -163,20 +157,7 @@ namespace ProyectoLoboSostenido
         }
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
-        #region RelacionReportes
-
-        public bool GetNombreReporteControl()
-        {
-            string nomProce = "Reports_GetNombreReporteControl";
-            if (Consultar(nomProce))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        #region FrmRPT_RelacionarReportes
 
         public bool IDRelacionado(string opt, string ID_Reporte, string ID_Archivo)
         {
@@ -215,7 +196,7 @@ namespace ProyectoLoboSostenido
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
-        #region FrmAgregarRestriccionesReportesRol
+        #region FrmRPT_AgregarRestriccionesReportesRol
 
         public bool MostrarNodosRolCampus(string ID_Campus, string rol) 
         {
@@ -700,11 +681,11 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-       
+
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
-        #region FrmRPTPermisosRol
+        #region FrmRPT_PermisosBotonReportes
 
         public bool MostrarPermisosReportes()
         {
@@ -1051,7 +1032,7 @@ namespace ProyectoLoboSostenido
         }
         #endregion
         //-------------------------------------------------------------------------------------------------------------------
-        #region FrmRestriccionesRolesReportes
+        #region FrmRPT_RestriccionesRolReportes
 
         public bool GetRestriccionesReportesEmpleado(string empleado)
         {

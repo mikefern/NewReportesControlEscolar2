@@ -60,19 +60,12 @@ namespace NewReportesControlEscolar
             GridViewDetalles.Columns[7].Visible = false;
             GridViewDetalles.Columns[8].Visible = false; 
 
-            if (GridViewControl.RowCount > 0)
-            {
-                // MessageBox.Show("Reportes en DB");
-            }
-            else
-            {
-                //MessageBox.Show("No se puede mostrar la información");
-            }
+           
         }
         private void MostrarReportesControl()
         {
             Clase_ReportesCE mostrar1 = new Clase_ReportesCE();
-            mostrar1.GetNombreReporteControl();
+            mostrar1.GetReportesTodos();
             GridViewControl.DataSource = mostrar1.Lector.Tables[0];
             GridViewControl.AllowUserToResizeRows = false;
             GridViewControl.AllowUserToAddRows = false;
@@ -80,12 +73,14 @@ namespace NewReportesControlEscolar
             GridViewControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             GridViewControl.AutoResizeColumns();
             GridViewControl.Columns[0].Visible = false;
-            GridViewControl.Columns[1].Visible = false;
-            GridViewControl.Columns[3].Visible = false;
-            GridViewControl.Columns[4].Visible = false;
-            GridViewControl.Columns[5].Visible = false;
-            GridViewControl.Columns[6].Visible = false;
-            
+
+            /* GridViewControl.Columns[0].Visible = false;
+             GridViewControl.Columns[1].Visible = false;
+             GridViewControl.Columns[3].Visible = false;
+             GridViewControl.Columns[4].Visible = false;
+             GridViewControl.Columns[5].Visible = false;
+             GridViewControl.Columns[6].Visible = false;*/
+
 
             if (GridViewControl.RowCount > 0)
             {

@@ -237,8 +237,7 @@ namespace ProyectoLoboSostenido
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Seleccionar Rol";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Text = "Seleccionar Rol"; 
             // 
             // panel4
             // 

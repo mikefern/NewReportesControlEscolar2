@@ -1,27 +1,17 @@
 ﻿using ProyectoLoboSostenido;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System; 
+using System.Data; 
+using System.Runtime.InteropServices; 
 using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
     public partial class FrmRPT_RestriccionesRolReportes : Form
     {
-        public FrmRPT_RestriccionesRolReportes()
-        {
-            InitializeComponent();
-        }
-
-        private Clase_ReportesCE p;
-        Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
-
+        #region VARIABLES
+        Clase_ReportesCE ReportesCE;
+        Clase_ReportesGenericos ReportesGenerico = new Clase_ReportesGenericos();
+        #endregion
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -33,17 +23,16 @@ namespace NewReportesControlEscolar
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        private void lblCerrar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Close();
+        }
         #endregion
 
-        private void cbCampus_SelectionChangeCommitted(object sender, EventArgs e)
+        public FrmRPT_RestriccionesRolReportes()
         {
-            if (cbCampus.SelectedValue != null)
-            {
-                GetUsuarios(cbCampus.SelectedValue.ToString());
-                cbUsuarios.Enabled = true;
-                lvReportes.Enabled = false;
-            }
+            InitializeComponent();
         }
 
         private void FrmRestriccionesRolesReportes_Load(object sender, EventArgs e)
@@ -61,35 +50,14 @@ namespace NewReportesControlEscolar
             cbCampus.ValueMember = "ID_Campus";
             cbCampus.SelectedItem = null;
         }
-        private void cargarReportes()
-        {
-            Clase_ReportesCE pr = new Clase_ReportesCE();
-            pr.GetReportesTodos();
-            if (pr.Lector.Tables[0].Rows.Count > 0)
-            {
-                DataView dt = new DataView(pr.Lector.Tables[0]);
-                gn.llenarlistview(lvReportes, dt);
-            }
-        }
 
-        private void cbUsuarios_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cbCampus_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            try
+            if (cbCampus.SelectedValue != null)
             {
-                if (cbUsuarios.SelectedValue != null)
-                {
-                    lvReportes.Enabled = true;
-                    p = new Clase_ReportesCE();
-                    if (p.GetRestriccionesReportesEmpleado(cbUsuarios.SelectedValue.ToString()))
-                    {
-                        DataView dt = new DataView(p.Lector.Tables[0]);
-                        gn.marcarnodos(lvReportes, dt);
-                    }
-                }
-
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GetUsuarios(cbCampus.SelectedValue.ToString());
+                cbUsuarios.Enabled = true;
+                lvReportes.Enabled = false;
             }
         }
 
@@ -109,6 +77,38 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+       
+        private void cbUsuarios_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbUsuarios.SelectedValue != null)
+                {
+                    lvReportes.Enabled = true;
+                    ReportesCE = new Clase_ReportesCE();
+                    if (ReportesCE.GetRestriccionesReportesEmpleado(cbUsuarios.SelectedValue.ToString()))
+                    {
+                        DataView dt = new DataView(ReportesCE.Lector.Tables[0]);
+                        ReportesGenerico.marcarnodos(lvReportes, dt);
+                    }
+                }
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void cargarReportes()
+        {
+            Clase_ReportesCE pr = new Clase_ReportesCE();
+            pr.GetReportesTodos();
+            if (pr.Lector.Tables[0].Rows.Count > 0)
+            {
+                DataView dt = new DataView(pr.Lector.Tables[0]);
+                ReportesGenerico.llenarlistview(lvReportes, dt);
+            }
+        }
 
         private void btGuardar_Click(object sender, EventArgs e)
         {
@@ -121,8 +121,8 @@ namespace NewReportesControlEscolar
                     string reporte = lvReportes.Items[i].Text;
                     if (lvReportes.Items[i].Checked == true)
                     {
-                        DataView dv = new DataView(p.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(reporte)))
+                        DataView dv = new DataView(ReportesCE.Lector.Tables[0]);
+                        if (ReportesGenerico.checarPermiso(dv, Convert.ToInt32(reporte)))
                             pr.AgregarRestriccionesReportesEmpleado(reporte, empleado);
                     }
                     else
@@ -134,16 +134,6 @@ namespace NewReportesControlEscolar
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Dispose();
-            Close();
-        }
+        
     }
 }

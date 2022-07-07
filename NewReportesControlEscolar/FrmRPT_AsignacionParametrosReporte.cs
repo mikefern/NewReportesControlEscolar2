@@ -14,7 +14,9 @@ namespace NewReportesControlEscolar
 {
     public partial class FrmRPT_AsignacionParametrosReporte : Form
     {
-        string idparametro = "";
+        #region VARIABLES
+            string idparametro = "";
+        #endregion
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -36,6 +38,16 @@ namespace NewReportesControlEscolar
         public FrmRPT_AsignacionParametrosReporte()
         {
             InitializeComponent();
+        }
+
+        private void RelacionParametrosReporte_Load(object sender, EventArgs e)
+        {
+            MostrarReportesDetalle();
+            checkbox();
+            listViewParametros.Visible = false;
+            btnGuardar.Enabled = false;
+            btnModificar.Enabled = true;
+
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -74,18 +86,6 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void RelacionParametrosReporte_Load(object sender, EventArgs e)
-        {
-            MostrarReportesDetalle();
-            checkbox();
-            listViewParametros.Visible = false;
-            btnGuardar.Enabled = false;
-            btnModificar.Enabled = true;
-
-        }
-
-       
-
         private void getParametros()
         {
             Clase_ReportesCE parametros = new Clase_ReportesCE();
@@ -99,8 +99,6 @@ namespace NewReportesControlEscolar
                     item.Text = parametros.Lector.Tables[0].Rows[i][0].ToString();
                     item.SubItems.Add(parametros.Lector.Tables[0].Rows[i][1].ToString()); // 1st column text
                     listViewParametros.Items.Add(item);
-                    
-
                 }
             }
         }
@@ -119,18 +117,14 @@ namespace NewReportesControlEscolar
              
             if (txtIDReporte != null && txtNombreReporte != null)
             {
-
                 for (int i = 0; i < listViewParametros.Items.Count; i++)
                 {
-
                     if (listViewParametros.Items[i].Checked)
                     {
                         idparametro = idparametro + "," + listViewParametros.Items[i].Text;
                     }
                 }
                 if (idparametro != "") idparametro = idparametro.Substring(1);
-
-                
 
                 if (agregar.AsignarParametros(txtIDReporte.Text, idparametro))
                 {
@@ -140,6 +134,7 @@ namespace NewReportesControlEscolar
                 {
                     MessageBox.Show("Error en el procedimiento", "ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
+
                 idparametro = "";
 
                 listViewParametros.Visible = false;
@@ -149,11 +144,9 @@ namespace NewReportesControlEscolar
                 (DGV_DetalleReporte.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreArchivo LIKE '%{0}%'", "");
                 txt_Buscador.Text = "Buscador...";
                 txt_Buscador.ForeColor = Color.Silver;
-
             }
         }
        
-
         private void Guardados() //Tabla RelParametroReporte
         {
             if (txtIDReporte != null)
@@ -243,7 +236,6 @@ namespace NewReportesControlEscolar
                 (DGV_DetalleReporte.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreArchivo LIKE '%{0}%'", txt_Buscador.Text);
         }
 
-        
     }
 }
 

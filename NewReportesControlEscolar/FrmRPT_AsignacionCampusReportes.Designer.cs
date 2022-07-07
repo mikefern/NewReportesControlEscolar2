@@ -50,7 +50,7 @@ namespace NewReportesControlEscolar
             this.btnGuardarRVOE = new System.Windows.Forms.Button();
             this.btnUsuariosReportesw = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -241,7 +241,7 @@ namespace NewReportesControlEscolar
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_Buscador);
             this.panel1.Controls.Add(this.DGV_Reportes);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.button1);
@@ -262,13 +262,13 @@ namespace NewReportesControlEscolar
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // textBox1
+            // txt_Buscador
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 132);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 20);
-            this.textBox1.TabIndex = 85;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.txt_Buscador.Location = new System.Drawing.Point(42, 132);
+            this.txt_Buscador.Name = "txt_Buscador";
+            this.txt_Buscador.Size = new System.Drawing.Size(286, 20);
+            this.txt_Buscador.TabIndex = 85;
+            this.txt_Buscador.TextChanged += new System.EventHandler(this.txt_Buscador_TextChanged_1);
             // 
             // DGV_Reportes
             // 
@@ -575,6 +575,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DGV_Reportes;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Buscador;
     }
 }

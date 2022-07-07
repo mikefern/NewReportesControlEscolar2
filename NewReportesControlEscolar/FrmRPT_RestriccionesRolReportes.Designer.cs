@@ -42,7 +42,7 @@ namespace NewReportesControlEscolar
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCerrar = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@ namespace NewReportesControlEscolar
             this.lvReportes.HideSelection = false;
             this.lvReportes.Location = new System.Drawing.Point(432, 39);
             this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(309, 441);
+            this.lvReportes.Size = new System.Drawing.Size(309, 595);
             this.lvReportes.TabIndex = 2;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
             this.lvReportes.View = System.Windows.Forms.View.Details;
@@ -101,9 +101,9 @@ namespace NewReportesControlEscolar
             this.btGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btGuardar.Location = new System.Drawing.Point(148, 356);
+            this.btGuardar.Location = new System.Drawing.Point(20, 352);
             this.btGuardar.Name = "btGuardar";
-            this.btGuardar.Size = new System.Drawing.Size(75, 30);
+            this.btGuardar.Size = new System.Drawing.Size(130, 30);
             this.btGuardar.TabIndex = 3;
             this.btGuardar.Text = "Guardar";
             this.btGuardar.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@ namespace NewReportesControlEscolar
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 543);
+            this.panel1.Size = new System.Drawing.Size(778, 772);
             this.panel1.TabIndex = 4;
             // 
             // groupBox1
@@ -131,7 +131,7 @@ namespace NewReportesControlEscolar
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(18, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 486);
+            this.groupBox1.Size = new System.Drawing.Size(749, 648);
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selección de campus y usuario";
@@ -171,7 +171,7 @@ namespace NewReportesControlEscolar
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lblCerrar);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -180,16 +180,16 @@ namespace NewReportesControlEscolar
             this.panel4.Size = new System.Drawing.Size(778, 39);
             this.panel4.TabIndex = 60;
             // 
-            // label1
+            // lblCerrar
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(750, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 23);
-            this.label1.TabIndex = 61;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCerrar.Image = ((System.Drawing.Image)(resources.GetObject("lblCerrar.Image")));
+            this.lblCerrar.Location = new System.Drawing.Point(750, 9);
+            this.lblCerrar.Name = "lblCerrar";
+            this.lblCerrar.Size = new System.Drawing.Size(25, 23);
+            this.lblCerrar.TabIndex = 61;
+            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
             // label8
             // 
@@ -219,7 +219,7 @@ namespace NewReportesControlEscolar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 543);
+            this.ClientSize = new System.Drawing.Size(779, 705);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRPT_RestriccionesRolReportes";
@@ -246,7 +246,7 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCerrar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

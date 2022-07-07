@@ -42,7 +42,6 @@ namespace ProyectoLoboSostenido
         string V_Descripcion;
         string V_Peso;
         #endregion
-
         #region Tootips
         private void Tootip()
         {
@@ -84,7 +83,6 @@ namespace ProyectoLoboSostenido
 
         }
         #endregion
-
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

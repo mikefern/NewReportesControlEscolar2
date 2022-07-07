@@ -14,29 +14,38 @@ namespace NewReportesControlEscolar
 {
     public partial class FrmRPT_EnlazarReporteNodos : Form
     {
-        public FrmRPT_EnlazarReporteNodos()
-        {
-            InitializeComponent();
-        }
 
-        private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
-        Clase_ReportesCE clase_ReportesCE;
-        Clase_ReportesCE pr;
-        Clase_ReportesCE p;
-
+        #region VARIABLES
+            Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+            Clase_ReportesCE clase_ReportesCE;
+            Clase_ReportesCE pr;
+            Clase_ReportesCE p;
+        #endregion
         #region MoverFORM
         //--------- MOVER FORMS
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void Principal_MouseDown(object sender, MouseEventArgs e)
+        private void label1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         #endregion
+
+        public FrmRPT_EnlazarReporteNodos()
+        {
+            InitializeComponent();
+        }
+       
+        private void FrmEnlazarReportesNodos_Load(object sender, EventArgs e)
+        {
+            LlenadoNodosReporte();
+            cargarReportes();
+        }
+
         public void LlenadoNodosReporte()
         {
             TreeViewNodos.Nodes.Clear();
@@ -48,9 +57,9 @@ namespace NewReportesControlEscolar
                     crearNodo cn = new crearNodo();
                     cn.dataview_Nodo = new DataView(clase_ReportesCE.Lector.Tables[0]);
                     cn.CrearNodos(0, null, TreeViewNodos);
-                    
                 }
-                else MessageBox.Show("No tiene Ningun Nodo Asingado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else 
+                    MessageBox.Show("No tiene Ningun Nodo Asingado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -77,33 +86,30 @@ namespace NewReportesControlEscolar
                             for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
                             {
                                 int valortable = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
-                                if(valortable == Convert.ToInt32(reporte)){
+                                if (valortable == Convert.ToInt32(reporte))
+                                {
                                     check = true;
                                     break;
                                 }
                             }
                             if (check)
+                            {
                                 pr.ActualizarNodoReporte("0", reporte);
-
+                            }
                         }
                     }
                     cargarReportesnodos(tree);
                 }
                 else
+                {
                     MessageBox.Show("Favor de seleccionar otro nodo, ya que este es un nodo padre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-         
-
+                }
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error SQL", MessageBoxButtons.OK);
             }
         }
 
-        private void FrmEnlazarReportesNodos_Load(object sender, EventArgs e)
-        {
-            LlenadoNodosReporte();
-            cargarReportes();
-        }
         private void cargarReportes()
         {
             pr = new Clase_ReportesCE();
@@ -119,6 +125,7 @@ namespace NewReportesControlEscolar
         {
             cargarReportesnodos(e.Node.Name);
         }
+
         private void cargarReportesnodos(string nodo)
         {
             try
@@ -143,26 +150,7 @@ namespace NewReportesControlEscolar
         {
             Dispose();
             Close();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void lvReportes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        } 
+        
     }
 }

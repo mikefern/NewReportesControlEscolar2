@@ -1,19 +1,12 @@
 ﻿using ProyectoLoboSostenido;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System; 
+using System.Data; 
+using System.Runtime.InteropServices; 
 using System.Windows.Forms;
 
 namespace NewReportesControlEscolar
 {
     public partial class FrmRPT_AsignacionCampusReportes : Form
-
     {
         #region MoverFORM
         //--------- MOVER FORMS
@@ -33,7 +26,6 @@ namespace NewReportesControlEscolar
         }
 
         #endregion
-
         #region VARIABLES
         private Clase_ReportesCE clase_reportes;
             private Clase_ReportesCE ReportCE;
@@ -126,6 +118,7 @@ namespace NewReportesControlEscolar
 
             }
         }
+
         private void cargarRVOE()
         {
             clase_reportes = new Clase_ReportesCE();
@@ -259,38 +252,23 @@ namespace NewReportesControlEscolar
             Dispose();
             Close();
         }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
+         
         private void label6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void txt_Buscador_TextChanged_1(object sender, EventArgs e)
         {
             try
             {
-                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", textBox1.Text);
+                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", txt_Buscador.Text);
 
                 if (DGV_Reportes.SelectedRows.Count == 0)
                 {
                     btnGuardarCampus.Enabled = false;
-                    btnGuardarRoles.Enabled = false
-                        ;
+                    btnGuardarRoles.Enabled = false;
+
                     for (int i = 0; i < lvCampus.Items.Count; i++)
                         lvCampus.Items[i].Checked = false;
                     lvCampus.Enabled = false;
@@ -307,9 +285,8 @@ namespace NewReportesControlEscolar
                     btnGuardarCampus.Enabled = true;
                     btnGuardarRoles.Enabled = true;
                 }
-
             }
-            catch (System.Data.SyntaxErrorException error) { }
+            catch (System.Data.SyntaxErrorException error) { error.ToString(); }
         }
 
         
