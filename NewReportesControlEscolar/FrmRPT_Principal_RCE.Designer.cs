@@ -38,6 +38,8 @@ namespace NewReportesControlEscolar
             this.btn3_ControlArchivos = new System.Windows.Forms.Button();
             this.btn7_RelacionIDReportes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.Restricciones = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btn9_RelacionNodoReporte = new System.Windows.Forms.Button();
@@ -59,6 +61,7 @@ namespace NewReportesControlEscolar
             this.CB_Campus = new System.Windows.Forms.ComboBox();
             this.CB_Roles = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -93,7 +96,7 @@ namespace NewReportesControlEscolar
             this.btn5_AsignacionBotones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5_AsignacionBotones.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn5_AsignacionBotones.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn5_AsignacionBotones.Location = new System.Drawing.Point(56, 295);
+            this.btn5_AsignacionBotones.Location = new System.Drawing.Point(56, 491);
             this.btn5_AsignacionBotones.Name = "btn5_AsignacionBotones";
             this.btn5_AsignacionBotones.Size = new System.Drawing.Size(250, 43);
             this.btn5_AsignacionBotones.TabIndex = 51;
@@ -108,7 +111,7 @@ namespace NewReportesControlEscolar
             this.btn6_RestriccionesUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6_RestriccionesUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn6_RestriccionesUsuarios.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn6_RestriccionesUsuarios.Location = new System.Drawing.Point(56, 363);
+            this.btn6_RestriccionesUsuarios.Location = new System.Drawing.Point(56, 561);
             this.btn6_RestriccionesUsuarios.Name = "btn6_RestriccionesUsuarios";
             this.btn6_RestriccionesUsuarios.Size = new System.Drawing.Size(250, 40);
             this.btn6_RestriccionesUsuarios.TabIndex = 52;
@@ -167,7 +170,7 @@ namespace NewReportesControlEscolar
             this.btn7_RelacionIDReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7_RelacionIDReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn7_RelacionIDReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn7_RelacionIDReportes.Location = new System.Drawing.Point(56, 438);
+            this.btn7_RelacionIDReportes.Location = new System.Drawing.Point(56, 358);
             this.btn7_RelacionIDReportes.Name = "btn7_RelacionIDReportes";
             this.btn7_RelacionIDReportes.Size = new System.Drawing.Size(250, 40);
             this.btn7_RelacionIDReportes.TabIndex = 56;
@@ -178,6 +181,8 @@ namespace NewReportesControlEscolar
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Controls.Add(this.Restricciones);
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.pictureBox9);
             this.panel1.Controls.Add(this.btn9_RelacionNodoReporte);
@@ -199,13 +204,38 @@ namespace NewReportesControlEscolar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 625);
+            this.panel1.Size = new System.Drawing.Size(312, 686);
             this.panel1.TabIndex = 57;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(12, 637);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 70;
+            this.pictureBox7.TabStop = false;
+            // 
+            // Restricciones
+            // 
+            this.Restricciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Restricciones.FlatAppearance.BorderSize = 0;
+            this.Restricciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Restricciones.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.Restricciones.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Restricciones.Location = new System.Drawing.Point(56, 634);
+            this.Restricciones.Name = "Restricciones";
+            this.Restricciones.Size = new System.Drawing.Size(253, 40);
+            this.Restricciones.TabIndex = 69;
+            this.Restricciones.Text = "Restriccion de Nodos a Empleados";
+            this.Restricciones.UseVisualStyleBackColor = true;
+            this.Restricciones.Click += new System.EventHandler(this.Restricciones_Click);
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(12, 509);
+            this.pictureBox10.Location = new System.Drawing.Point(12, 291);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(38, 37);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -215,7 +245,7 @@ namespace NewReportesControlEscolar
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(12, 576);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 428);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(38, 37);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +259,7 @@ namespace NewReportesControlEscolar
             this.btn9_RelacionNodoReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9_RelacionNodoReporte.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn9_RelacionNodoReporte.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn9_RelacionNodoReporte.Location = new System.Drawing.Point(59, 573);
+            this.btn9_RelacionNodoReporte.Location = new System.Drawing.Point(56, 425);
             this.btn9_RelacionNodoReporte.Name = "btn9_RelacionNodoReporte";
             this.btn9_RelacionNodoReporte.Size = new System.Drawing.Size(250, 40);
             this.btn9_RelacionNodoReporte.TabIndex = 66;
@@ -244,7 +274,7 @@ namespace NewReportesControlEscolar
             this.btn8_NuevosParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8_NuevosParametros.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn8_NuevosParametros.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn8_NuevosParametros.Location = new System.Drawing.Point(59, 506);
+            this.btn8_NuevosParametros.Location = new System.Drawing.Point(56, 291);
             this.btn8_NuevosParametros.Name = "btn8_NuevosParametros";
             this.btn8_NuevosParametros.Size = new System.Drawing.Size(250, 40);
             this.btn8_NuevosParametros.TabIndex = 64;
@@ -255,7 +285,7 @@ namespace NewReportesControlEscolar
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(12, 438);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 358);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(38, 37);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -265,7 +295,7 @@ namespace NewReportesControlEscolar
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 363);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 564);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(38, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +305,7 @@ namespace NewReportesControlEscolar
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 295);
+            this.pictureBox5.Location = new System.Drawing.Point(12, 497);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(38, 37);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -390,7 +420,7 @@ namespace NewReportesControlEscolar
             // 
             this.PB_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PB_Salir.Image = ((System.Drawing.Image)(resources.GetObject("PB_Salir.Image")));
-            this.PB_Salir.Location = new System.Drawing.Point(829, 579);
+            this.PB_Salir.Location = new System.Drawing.Point(829, 640);
             this.PB_Salir.Name = "PB_Salir";
             this.PB_Salir.Size = new System.Drawing.Size(30, 34);
             this.PB_Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -442,7 +472,7 @@ namespace NewReportesControlEscolar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(871, 625);
+            this.ClientSize = new System.Drawing.Size(871, 686);
             this.Controls.Add(this.CB_Roles);
             this.Controls.Add(this.CB_Campus);
             this.Controls.Add(this.label1);
@@ -462,6 +492,7 @@ namespace NewReportesControlEscolar
             this.Load += new System.EventHandler(this.Principal_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -506,6 +537,8 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.ComboBox CB_Campus;
         private System.Windows.Forms.ComboBox CB_Roles;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button Restricciones;
     }
 }
 

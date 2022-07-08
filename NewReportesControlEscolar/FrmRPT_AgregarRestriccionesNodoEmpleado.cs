@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,20 @@ namespace ProyectoLoboSostenido
         private Clase_ReportesCE cd;
         private Clase_ReportesCE cu;
         private Clase_ReportesCE rn;
+
+        #region MoverFORM
+        //--------- MOVER FORMS
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void FrmAgregarRestriccionesReportesRol_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        #endregion
         public FrmAgregarRestriccionesReportesRol()
         {
             InitializeComponent();
@@ -177,5 +192,12 @@ namespace ProyectoLoboSostenido
             if (cbCampus.SelectedValue != null)
             GetUsuarios(cbCampus.SelectedValue.ToString());
         }
+
+        private void lblCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

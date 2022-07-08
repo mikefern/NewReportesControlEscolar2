@@ -135,6 +135,14 @@ namespace NewReportesControlEscolar
             {
                 e.Handled = true;
             }
+
+    }
+
+        private void Restricciones_Click(object sender, EventArgs e)
+        {
+            FrmAgregarRestriccionesReportesRol frmAgregarRestricciones = new FrmAgregarRestriccionesReportesRol();
+            frmAgregarRestricciones.Show();
         }
     }
 }
+
