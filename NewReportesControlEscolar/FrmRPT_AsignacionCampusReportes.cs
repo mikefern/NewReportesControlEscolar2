@@ -81,7 +81,7 @@ namespace NewReportesControlEscolar
         {
             lvCampusEspecificos.Items.Clear();
             clase_reportes = new Clase_ReportesCE();
-            clase_reportes.GetCampusReportes(id);
+            clase_reportes.DMLRelCampusReporte("0",id,"0");
             if (clase_reportes.Lector.Tables.Count > 0)
             {
                 DataView dt1 = new DataView(clase_reportes.Lector.Tables[0]);
@@ -145,7 +145,7 @@ namespace NewReportesControlEscolar
                 {
                     ReportCE = new Clase_ReportesCE();
                     string id = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
-                    ReportCE.GetCampusReportes(id);
+                    ReportCE.DMLRelCampusReporte("0",id,"0");
                     clase_reportes = new Clase_ReportesCE();
 
                     for (int i = 0; i < lvCampus.Items.Count; i++)
@@ -156,10 +156,10 @@ namespace NewReportesControlEscolar
                         {
                             DataView dv = new DataView(ReportCE.Lector.Tables[0]);
                             if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
-                                clase_reportes.AgregarRelCampusReporte("1",reporte, campus);
+                                clase_reportes.DMLRelCampusReporte("1",reporte, campus);
                         }
                         else
-                            clase_reportes.AgregarRelCampusReporte("2",reporte, campus);
+                            clase_reportes.DMLRelCampusReporte("2",reporte, campus);
 
                     }
                     MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);

@@ -74,7 +74,7 @@ namespace ProyectoLoboSostenido
                 if (!validar.Equals("-1"))
                 {
                     cu = new Clase_ReportesCE();
-                    cu.GetRestriccionesUsuarioReportes(cBoxUsuarios.SelectedValue.ToString());
+                    cu.DML_RestriccionReportesNodos("0",cBoxUsuarios.SelectedValue.ToString(),"0");
                     CrearNodosDelPadre(0, null, treeView);
                     btnAgregar.Enabled = true;
                 }
@@ -119,12 +119,12 @@ namespace ProyectoLoboSostenido
         }
         private void agregarRestriccion(string nodo)
         {
-            rn.Agregar_RestriccionReportesNodos("1",cBoxUsuarios.SelectedValue.ToString(), nodo);
+            rn.DML_RestriccionReportesNodos("1",cBoxUsuarios.SelectedValue.ToString(), nodo);
         }
         private void limpiarRestricciones()
         {
             rn = new Clase_ReportesCE();
-            rn.Agregar_RestriccionReportesNodos("2", cBoxUsuarios.SelectedValue.ToString(), "");
+            rn.DML_RestriccionReportesNodos("2", cBoxUsuarios.SelectedValue.ToString(), "");
         }
         private void VerificacionNodosRecursiva(TreeNode treeNode)
         { 

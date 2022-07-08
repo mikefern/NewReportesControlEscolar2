@@ -72,24 +72,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetRestriccionesUsuarioReportes(string ID)
-        {
-            string nomStore = "Reports_GetRestriccionesUsuarioReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("id_empleado",ID)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public bool getRol(string id)
         {
             string nomStore = "Reports_getRolUsuario";
@@ -108,23 +90,36 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool Agregar_RestriccionReportesNodos(string tipo,string id, string nodo)
+        public bool DML_RestriccionReportesNodos(string tipo,string id, string nodo)
         {
-            string nomStore = "Reports_RestriccionReportesNodos";
+            string nomStore = "Reports_DML_RestriccionReportesNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("id",id),
                 new Clase_Parametros("nodo",nodo)
             };
-
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -211,23 +206,6 @@ namespace ProyectoLoboSostenido
         #region FrmRPT_AsignacionCampusReportes
 
 
-        public bool GetCampusReportes(string idreporte)
-        {
-            string nomStore = "Reports_GetCampusReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("idreporte",idreporte)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public bool MostrarRVOESCampusReportes(string campus)
         {
@@ -247,23 +225,36 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool AgregarRelCampusReporte(string tipo, string reporte, string campus)
+        public bool DMLRelCampusReporte(string tipo, string reporte, string campus)
         {
-            string nomStore = "Reports_AddRelCampusReporte";
+            string nomStore = "Reports_DML_RelCampusReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("reporte",reporte),
                 new Clase_Parametros("campus",campus)
             };
-
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 

@@ -275,12 +275,12 @@
     <Compile Include="FrmRPT_AsignacionParametrosReporte.Designer.cs">
       <DependentUpon>FrmRPT_AsignacionParametrosReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRPT_AgregarRestriccionesReportesRol.cs">
+    <Compile Include="FrmRPT_AgregarRestriccionesNodoEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="FrmRPT_AgregarRestriccionesReportesRol.Designer.cs">
-      <DependentUpon>FrmRPT_AgregarRestriccionesReportesRol.cs</DependentUpon>
+    <Compile Include="FrmRPT_AgregarRestriccionesNodoEmpleado.Designer.cs">
+      <DependentUpon>FrmRPT_AgregarRestriccionesNodoEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRPT_RelacionarReportes.cs">
       <SubType>Form</SubType>
@@ -306,8 +306,8 @@
     <EmbeddedResource Include="FrmRPT_AsignacionCampusReportes.resx">
       <DependentUpon>FrmRPT_AsignacionCampusReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRPT_AgregarRestriccionesReportesRol.resx">
-      <DependentUpon>FrmRPT_AgregarRestriccionesReportesRol.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRPT_AgregarRestriccionesNodoEmpleado.resx">
+      <DependentUpon>FrmRPT_AgregarRestriccionesNodoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesControlEscolar.resx">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
