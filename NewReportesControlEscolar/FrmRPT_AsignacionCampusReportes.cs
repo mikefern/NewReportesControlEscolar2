@@ -48,7 +48,7 @@ namespace NewReportesControlEscolar
         private void cargarReportes()
         {
             clase_reportes = new Clase_ReportesCE();
-            clase_reportes.GetReportesTodos();
+            clase_reportes.GetReportesNodo("");
             if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
               //  DataView dt = new DataView(clase_reportes.Lector.Tables[0]);

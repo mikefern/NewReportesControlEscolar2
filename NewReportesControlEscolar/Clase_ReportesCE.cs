@@ -192,29 +192,11 @@ namespace ProyectoLoboSostenido
             {
                 return false;
             }
-        }
-
-        public bool GetIDReporte(string nombre)
-        {
-            string nomStore = "Reports_GetIDReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("NombreArchivo", nombre),
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        } 
 
         public bool GetNombreReporte()
         {
             string nomProce = "Reports_GetNombreReporte";
-
             if (Consultar(nomProce))
             {
                 return true;
@@ -586,24 +568,7 @@ namespace ProyectoLoboSostenido
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_EnlazarReporteNodos
-
-        public bool GetReportesTodos()
-        {
-            string nomStore = "Reports_GetReportesTodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+        
         public bool GetReportesNodo(string nodo)
         {
             string nomStore = "Reports_GetReportesNodo";
@@ -697,9 +662,10 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool AgregarPermisosverReportes(string tipo, string permiso, string rol, string campus)
+        //se puede combinar con Reports_GetPermisosRol
+        public bool DML_PermisosVerReportes(string tipo, string permiso, string rol, string campus)
         {
-            string nomStore = "Reports_PermisosverReportes";
+            string nomStore = "Reports_DML_PermisosVerReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
@@ -708,19 +674,24 @@ namespace ProyectoLoboSostenido
                 new Clase_Parametros("campus",campus)
             };
 
-            if (Ejecuta(nomStore, par))
+            if (string.IsNullOrEmpty(tipo) || tipo == "0") //si es tipo cero hace consulta a puro Select
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                    return true;
+                else return false;
             }
-            else
+            else  // de lo contrario hace ejecucion de (inser,update,delete) 
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                    return true;
+                else return false;
             }
+            
         }
-
+         
         public bool GetRoles()
         {
-            string nomStore = "GetRoles";
+            string nomStore = "Reports_GetRoles";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
             };
@@ -734,36 +705,18 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool GetPermisosRol(string rol, string campus)
-        {
-            string nomStore = "Reports_GetPermisosRol";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("rol",rol),
-                 new Clase_Parametros("campus",campus)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+         
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_RelacionarReportes
-
-        public bool IDRelacionado(string opt, string ID_Reporte, string ID_Archivo)
+         
+        public bool DML_ReportesControlEscolar(string opt, string ID_Reporte, string ID_Archivo)
         {
-            string nomStore = "Reports_GetIDRepRel";
+            string nomStore = "Reports_DML_ReportesControlEscolar";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("Opt",opt),
+                new Clase_Parametros("Tipo",opt),
                 new Clase_Parametros("ID_Reporte",ID_Reporte),
                 new Clase_Parametros("ID_Archivo",ID_Archivo)
             };
@@ -776,27 +729,14 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool GetIDRelacionado(string ID)
-        {
-            string nomStore = "Reports_GetIDReporteRel";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("ID",ID)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+         
+        
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_RestriccionesRolReportes
 
+        //se pueden combinar estos 2  y cambiar a DML
         public bool GetRestriccionesReportesEmpleado(string empleado)
         {
             string nomStore = "Reports_getRestriccionesReportesEmpleado";

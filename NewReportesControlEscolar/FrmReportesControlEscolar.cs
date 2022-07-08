@@ -41691,7 +41691,7 @@ namespace ProyectoLoboSostenido
                 CRViewer.ShowZoomButton = false;
                 Clase_ReportesCE pr;
                 pr = new Clase_ReportesCE();
-                if (pr.GetPermisosRol(Clase_Sesion.Rol, Clase_Sesion.Campus))
+                if (pr.DML_PermisosVerReportes("0","0",Clase_Sesion.Rol, Clase_Sesion.Campus))
                 {
                     for (int i = 0; i < pr.Lector.Tables[0].Rows.Count; i++)
                     {

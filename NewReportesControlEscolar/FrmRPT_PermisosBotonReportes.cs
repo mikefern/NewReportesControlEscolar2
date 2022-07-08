@@ -59,12 +59,12 @@ namespace ProyectoLoboSostenido
             {
                 string rol = cbRoles.SelectedValue.ToString();
                 string campus = cbCampus.SelectedValue.ToString();
-                pr.AgregarPermisosverReportes("2", "", rol, campus);
+                pr.DML_PermisosVerReportes("2", "", rol, campus);
                 for (int i=0; i < lvPermisos.Items.Count; i++)
                 {
                     if (lvPermisos.Items[i].Checked)
                     {
-                        pr.AgregarPermisosverReportes("1",lvPermisos.Items[i].Text.ToString(), rol, campus);
+                        pr.DML_PermisosVerReportes("1",lvPermisos.Items[i].Text.ToString(), rol, campus);
                     }
                 }
                 MessageBox.Show("Se han agregado los permisos", "Confirmado", MessageBoxButtons.OK);
@@ -118,7 +118,7 @@ namespace ProyectoLoboSostenido
                 try
                 {
                     pr = new Clase_ReportesCE();
-                    if (pr.GetPermisosRol(cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
+                    if (pr.DML_PermisosVerReportes("0","0,",cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
                     {
                         DataView dt = new DataView(pr.Lector.Tables[0]);
                         gn.marcarnodos(lvPermisos, dt);

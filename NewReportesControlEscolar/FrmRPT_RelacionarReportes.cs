@@ -65,7 +65,7 @@ namespace NewReportesControlEscolar
         private void MostrarReportesControl()
         {
             Clase_ReportesCE mostrar1 = new Clase_ReportesCE();
-            mostrar1.GetReportesTodos();
+            mostrar1.GetReportesNodo("");
             GridViewControl.DataSource = mostrar1.Lector.Tables[0];
             GridViewControl.AllowUserToResizeRows = false;
             GridViewControl.AllowUserToAddRows = false;
@@ -115,7 +115,7 @@ namespace NewReportesControlEscolar
         {
             Clase_ReportesCE relaciona = new Clase_ReportesCE();
 
-            if (relaciona.IDRelacionado("1",txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
+            if (relaciona.DML_ReportesControlEscolar("1",txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
 
                 MessageBox.Show("Se ha guardado el ID", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -130,7 +130,7 @@ namespace NewReportesControlEscolar
         {
             Clase_ReportesCE relaciona = new Clase_ReportesCE();
 
-            if (relaciona.IDRelacionado("2", txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
+            if (relaciona.DML_ReportesControlEscolar("2", txtIDControl.Text, txtIDDetalle.Text) == true)//GetIDRepRel
             {
 
                 MessageBox.Show("Se ha eliminado la relación", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -158,7 +158,7 @@ namespace NewReportesControlEscolar
             txtIDControl.Text = GridViewControl.CurrentRow.Cells[0].Value.ToString();
             Clase_ReportesCE getID = new Clase_ReportesCE(); //Procedimiento para obtener el IDReporte 
 
-            if (getID.GetIDRelacionado(txtIDControl.Text))
+            if (getID.DML_ReportesControlEscolar("0",txtIDControl.Text,""))
             {
 
                 if (getID.Lector.Tables.Count > 0)

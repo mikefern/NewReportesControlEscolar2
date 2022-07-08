@@ -272,7 +272,7 @@ namespace ProyectoLoboSostenido
 
                 Clase_ReportesCE getid = new Clase_ReportesCE();  
 
-                if (getid.GetIDReporte(txtNombreArchivo.Text))
+                if (getid.DetalleArchivoReporte("0","",txtNombreArchivo.Text.Trim(),"","","","","","","",""))//Tipo Checar Id
                 {
                     //Obtener los datos si esque esta en BD
                     if (getid.Lector.Tables.Count > 0)

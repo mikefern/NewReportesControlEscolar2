@@ -102,7 +102,7 @@ namespace NewReportesControlEscolar
         private void cargarReportes()
         {
             Clase_ReportesCE pr = new Clase_ReportesCE();
-            pr.GetReportesTodos();
+            pr.GetReportesNodo("");
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
