@@ -736,7 +736,7 @@ namespace ProyectoLoboSostenido
         #region FrmReportesControlEscolar
 
         //Verificar
-        public bool OpcionesReporteControlEscolar(string ID_Campus, string rol, string Empleado)
+        public bool GetNodosControlEscolar(string ID_Campus, string rol, string Empleado)
         {
             string nomStore = "Reports_GetNodosCampusRol";
             List<Clase_Parametros> par = new List<Clase_Parametros>
@@ -796,7 +796,7 @@ namespace ProyectoLoboSostenido
         //verificar
         public bool GetReporte(string nodo, string campus)
         {
-            string nomStore = "GetReporte";
+            string nomStore = "Reports_GetReporte";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
