@@ -258,47 +258,10 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        public bool MostrarRelRolesReportes(string reporte, string campus)
-        {
-            string nomStore = "Reports_MostrarRelRolesReportes";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
-        public bool GetRelRolesReportes(string reporte, string rol, string campus)
+        public bool DMLRelRolesReportes(string tipo, string rol, string campus, string reporte)
         {
-            string nomStore = "Reports_GetRelRolesReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("rol",rol),
-                new Clase_Parametros("campus",campus)
-
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRelRolesReportes(string tipo, string rol, string campus, string reporte)
-        {
-            string nomStore = "Reports_AddRelRolesReportes";
+            string nomStore = "Reports_DML_RelRolesReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
@@ -307,51 +270,62 @@ namespace ProyectoLoboSostenido
                 new Clase_Parametros("reporte", reporte)
             };
 
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
-        public bool MostrarRVOECampusReporte(string reporte, string campus)
+        public bool DMLRVOEReportes(string tipo, string reporte, string RVOE, string campus)
         {
-            string nomStore = "Reports_MostrarRVOECampusReporte";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("campus",campus)
-            };
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool AgregarRVOEReportes(string tipo, string reporte, string RVOE)
-        {
-            string nomStore = "Reports_AgregarRVOEReportes";
+            string nomStore = "Reports_DML_RVOEReportes";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("reporte",reporte),
-                new Clase_Parametros("RVOE", RVOE)
+                new Clase_Parametros("RVOE", RVOE),
+                new Clase_Parametros("campus",campus)
             };
 
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -461,80 +435,72 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
-        public bool GetCampusNodos(string nodo)
+        public bool DMLPermisosNodosCampus(string tipo, string CampusNodo, string campus, string nodo)
         {
-            string nomStore = "Reports_GetCampusNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("nodo",nodo),
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool AgregarPermisosNodosCampus(string tipo, string CampusNodo, string campus)
-        {
-            string nomStore = "Reports_CampusNodos";
+            string nomStore = "Reports_DML_CampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("CampusNodo",CampusNodo),
-                new Clase_Parametros("campus",campus)
+                new Clase_Parametros("campus",campus),
+                new Clase_Parametros("nodo",nodo)
             };
 
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
-        public bool GetRolesCampusNodos(string campus, string CampusNodo)
+        public bool DMLRolesCampusNodos(string tipo,string campus, string CampusNodo, string rol)
         {
-            string nomStore = "Reports_GetRolesCampusNodos";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                 new Clase_Parametros("campus",campus),
-                 new Clase_Parametros("CampusNodo",CampusNodo)
-            };
-
-            if (ConsultarParametros(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool RolesCampusNodos(string tipo,string campus, string CampusNodo, string rol)
-        {
-            string nomStore = "Reports_RolesCampusNodos";
+            string nomStore = "Reports_DML_RolesCampusNodos";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("tipo",tipo),
                 new Clase_Parametros("campus",campus),
                 new Clase_Parametros("CampusNodo",CampusNodo),
-               new Clase_Parametros("rol",rol)
+                new Clase_Parametros("rol",rol)
             };
 
-            if (Ejecuta(nomStore, par))
+            if (tipo.Equals("0"))
             {
-                return true;
+                if (ConsultarParametros(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
-
-
+                if (Ejecuta(nomStore, par))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
         public bool IgualarPosicionNodo(string nodoPadre)

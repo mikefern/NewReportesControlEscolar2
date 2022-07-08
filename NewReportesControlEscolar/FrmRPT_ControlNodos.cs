@@ -250,7 +250,7 @@ namespace NewReportesControlEscolar
                 btnGuardar.Enabled = true;
                 lvCampus.Enabled = true;
 
-                if (reporteCE.GetCampusNodos(nodo))
+                if (reporteCE.DMLPermisosNodosCampus("0","0","0",nodo))
                 {
                     reporteGenerico = new Clase_ReportesGenericos();
                     DataView dt = new DataView(reporteCE.Lector.Tables[0]);
@@ -511,7 +511,7 @@ namespace NewReportesControlEscolar
         private void cargarCampusSeleccion(string nodo)
         {
             reporteCE = new Clase_ReportesCE();
-            if (reporteCE.GetCampusNodos(nodo))
+            if (reporteCE.DMLPermisosNodosCampus("0","0","0",nodo))
             {
                 DataView dt = new DataView(reporteCE.Lector.Tables[0]);
                 reporteGenerico.llenarlistview(lvSeleccionarCampus, dt);
@@ -528,7 +528,7 @@ namespace NewReportesControlEscolar
                 {
                     reporteCE = new Clase_ReportesCE();
                     string nodo = TreeViewNodos.SelectedNode.Name.ToString();
-                    reporteCE.GetCampusNodos(nodo);
+                    reporteCE.DMLPermisosNodosCampus("0","0","0",nodo);
                     np = new Clase_ReportesCE();
 
                     for (int x = 0; x < lvCampus.Items.Count; x++)
@@ -539,10 +539,10 @@ namespace NewReportesControlEscolar
                         {
                             DataView dv = new DataView(reporteCE.Lector.Tables[0]);
                             if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(lvItem)))
-                                np.AgregarPermisosNodosCampus("1",tvName, lvItem);
+                                np.DMLPermisosNodosCampus("1",tvName, lvItem,"0");
                         }
                         else
-                            np.AgregarPermisosNodosCampus("2", tvName, lvItem);
+                            np.DMLPermisosNodosCampus("2", tvName, lvItem,"0");
                     }
                     MessageBox.Show("Se han guardado los campus que pueden ver el nodo " + TreeViewNodos.SelectedNode.Text, "Confirmar", MessageBoxButtons.OK);
                     cargarCampusSeleccion(TreeViewNodos.SelectedNode.Name);
@@ -567,7 +567,7 @@ namespace NewReportesControlEscolar
                     lvRoles.Items[i].Checked = false;
 
                 reporteCE = new Clase_ReportesCE();
-                if (lvSeleccionarCampus.SelectedItems.Count > 0 && reporteCE.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name))
+                if (lvSeleccionarCampus.SelectedItems.Count > 0 && reporteCE.DMLRolesCampusNodos("0",lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name,"0"))
                 {
                     DataView dt = new DataView(reporteCE.Lector.Tables[0]);
                     reporteGenerico.marcarnodos(lvRoles, dt);
@@ -587,7 +587,7 @@ namespace NewReportesControlEscolar
             {
                 reporteCE = new Clase_ReportesCE();
                 np = new Clase_ReportesCE();
-                reporteCE.GetRolesCampusNodos(lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name);
+                reporteCE.DMLRolesCampusNodos("0",lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text, TreeViewNodos.SelectedNode.Name,"0");
                 for (int x = 0; x < lvRoles.Items.Count; x++)
                 {
                     string campus = lvSeleccionarCampus.SelectedItems[0].SubItems[0].Text;
@@ -600,10 +600,10 @@ namespace NewReportesControlEscolar
                     {
                         DataView dv = new DataView(reporteCE.Lector.Tables[0]);
                         if (reporteGenerico.checarPermiso(dv, Convert.ToInt32(rol)))
-                            np.RolesCampusNodos("1",campus, nodo, rol);
+                            np.DMLRolesCampusNodos("1",campus, nodo, rol);
                     }
                     else
-                        np.RolesCampusNodos("2",campus, nodo, rol);
+                        np.DMLRolesCampusNodos("2",campus, nodo, rol);
                 }
                 MessageBox.Show("Se han guardados los roles del campus " + lvSeleccionarCampus.SelectedItems[0].SubItems[1].Text + " en el nodo " + TreeViewNodos.SelectedNode.Text, "Completado", MessageBoxButtons.OK);
             }
