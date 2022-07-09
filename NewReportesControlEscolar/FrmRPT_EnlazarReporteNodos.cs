@@ -92,7 +92,7 @@ namespace NewReportesControlEscolar
         {
             TreeViewNodos.Nodes.Clear();
             clase_ReportesCE = new Clase_ReportesCE();
-            if (clase_ReportesCE.LlenadoNodosReporteEscolar())
+            if (clase_ReportesCE.LlenadoNodosRCE())
             {
                 if (clase_ReportesCE.Lector.Tables.Count > 0)
                 {

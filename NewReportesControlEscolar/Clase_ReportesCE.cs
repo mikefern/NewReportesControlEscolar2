@@ -13,7 +13,6 @@ namespace ProyectoLoboSostenido
 {
     public class Clase_ReportesCE : Clase_Conecta
     {
-
         #region VARIABLES_INICIO
 
         #endregion
@@ -25,17 +24,18 @@ namespace ProyectoLoboSostenido
 
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_AddParametrosRCE
-        public bool DML_ParametrosFijosRCE(string tipo, string Id, string nombre, string valor) 
+
+        public bool DML_ParametrosFijosRCE(string Tipo, string Id, string Nombre, string Valor) 
         {
             string nomStore = "Reports_DML_ParametrosFijosRCE";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                new Clase_Parametros("Tipo",tipo),
+                new Clase_Parametros("Tipo",Tipo),
                 new Clase_Parametros("Id_parametro",Id),
-                new Clase_Parametros("Nombre",nombre),
-                new Clase_Parametros("Valor",valor),
+                new Clase_Parametros("Nombre",Nombre),
+                new Clase_Parametros("Valor",Valor),
             };
-            if (string.IsNullOrEmpty(tipo) || tipo == "0") //si es tipo cero hace consulta a puro Select
+            if (string.IsNullOrEmpty(Tipo) || Tipo == "0") //si es tipo cero hace consulta a puro Select
             {
                 if (ConsultarParametros(nomStore, par))
                     return true;
@@ -47,7 +47,6 @@ namespace ProyectoLoboSostenido
                     return true;
                 else return false;
             }
-             
         }
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
@@ -206,7 +205,6 @@ namespace ProyectoLoboSostenido
         #region FrmRPT_AsignacionCampusReportes
 
 
-
         public bool MostrarRVOESCampusReportes(string campus)
         {
             string nomStore = "Reports_MostrarRVOECampusReportes";
@@ -257,7 +255,6 @@ namespace ProyectoLoboSostenido
                 }
             }
         }
-
 
         public bool DMLRelRolesReportes(string tipo, string rol, string campus, string reporte)
         {
@@ -332,6 +329,8 @@ namespace ProyectoLoboSostenido
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_AsignacionParametrosReporte
+
+
         public bool AsignarParametros(string ID, string ID_Parametro)
         {
             string nomStore = "Reports_AsignarParametros";
@@ -349,6 +348,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool GetParametrosOK(string ID)
         {
             string nomStore = "Reports_GetParametrosOK";
@@ -365,10 +365,13 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_ControlNodos
-        public bool LlenadoNodosReporteEscolar()
+
+
+        public bool LlenadoNodosRCE()
         {
             string nomStore = "Reports_GetNodos";
              
@@ -381,6 +384,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool updatepositionwhenInsert(string NodoPadre, string Nodo)
         {
             string nomProce = "Reports_OrdenamientoNodos_Insert";
@@ -398,6 +402,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool UpdatePosicionesNodos(string NodoPadre, string Nodo, string posicionOld, string posicionnew)
         {
             string nomProce = "Reports_OrdenamientoNodos";
@@ -417,6 +422,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         public bool DMLNodo(string tipo, string nodopadre, string texto)
         {
             string nomProce = "Reports_DMLNodos";
@@ -435,6 +441,25 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
+        public bool IgualarPosicionNodo(string nodoPadre)
+        {
+            string nomStore = "Reports_IgualarPosicionNodo";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                new Clase_Parametros("NodoPadre",nodoPadre)
+            };
+
+            if (Ejecuta(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool DMLPermisosNodosCampus(string tipo, string CampusNodo, string campus, string nodo)
         {
             string nomStore = "Reports_DML_CampusNodos";
@@ -469,6 +494,7 @@ namespace ProyectoLoboSostenido
                 }
             }
         }
+
         public bool DMLRolesCampusNodos(string tipo,string campus, string CampusNodo, string rol)
         {
             string nomStore = "Reports_DML_RolesCampusNodos";
@@ -503,24 +529,6 @@ namespace ProyectoLoboSostenido
                 }
             }
         }
-        public bool IgualarPosicionNodo(string nodoPadre)
-        {
-            string nomStore = "Reports_IgualarPosicionNodo";
-            List<Clase_Parametros> par = new List<Clase_Parametros>
-            {
-                new Clase_Parametros("NodoPadre",nodoPadre) 
-            };
-
-            if (Ejecuta(nomStore, par))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
@@ -580,6 +588,7 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_PermisosBotonReportes
@@ -619,7 +628,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        //se puede combinar con Reports_GetPermisosRol
         public bool DML_PermisosVerReportes(string tipo, string permiso, string rol, string campus)
         {
             string nomStore = "Reports_DML_PermisosVerReportes";
@@ -662,8 +670,6 @@ namespace ProyectoLoboSostenido
             }
         }
 
-         
-
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_RelacionarReportes
@@ -687,13 +693,11 @@ namespace ProyectoLoboSostenido
             }
         }
          
-        
-
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmRPT_RestriccionesRolReportes
+         
 
-        //se pueden combinar estos 2  y cambiar a DML
         public bool GetRestriccionesReportesEmpleado(string empleado)
         {
             string nomStore = "Reports_getRestriccionesReportesEmpleado";
@@ -731,11 +735,11 @@ namespace ProyectoLoboSostenido
                 return false;
             }
         }
+
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
         #region FrmReportesControlEscolar
 
-        //Verificar
         public bool GetNodosControlEscolar(string ID_Campus, string rol, string Empleado)
         {
             string nomStore = "Reports_GetNodosCampusRol";
@@ -793,10 +797,9 @@ namespace ProyectoLoboSostenido
             }
         }
 
-        //verificar
-        public bool GetReporte(string nodo, string campus)
+        public bool GetReporteCampus(string nodo, string campus)
         {
-            string nomStore = "Reports_GetReporte";
+            string nomStore = "Reports_GetReporteCampus";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
                 new Clase_Parametros("nodo",nodo),
@@ -893,7 +896,7 @@ namespace ProyectoLoboSostenido
         //----------------------------------------------------------------------------------------------------------------------------
     }
      
-    public class Reportes : Clase_Conecta
+    public class Reportes: Clase_Conecta
     {
         #region Constructores
 

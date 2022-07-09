@@ -41801,7 +41801,7 @@ namespace ProyectoLoboSostenido
                         string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
                         cd = new Clase_ReportesCE();
                         Clase_ReportesCE c = new Clase_ReportesCE();
-                        if (cd.GetReporte(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
+                        if (cd.GetReporteCampus(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
                         {
                             DataView dt = new DataView(cd.Lector.Tables[0]);
                             if (cd.Lector.Tables[0].Rows.Count > 1)
