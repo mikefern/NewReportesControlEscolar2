@@ -31,9 +31,6 @@ namespace NewReportesControlEscolar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_EnlazarReporteNodos));
             this.TreeViewNodos = new System.Windows.Forms.TreeView();
-            this.lvReportes = new System.Windows.Forms.ListView();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvReportesNodo = new System.Windows.Forms.ListView();
             this.ID_reporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NombreReporte = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,19 +41,19 @@ namespace NewReportesControlEscolar
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // TreeViewNodos
@@ -67,30 +64,6 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.Size = new System.Drawing.Size(320, 686);
             this.TreeViewNodos.TabIndex = 0;
             this.TreeViewNodos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeViewNodos_NodeMouseClick);
-            // 
-            // lvReportes
-            // 
-            this.lvReportes.CheckBoxes = true;
-            this.lvReportes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.id,
-            this.Reporte});
-            this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.lvReportes.HideSelection = false;
-            this.lvReportes.Location = new System.Drawing.Point(6, 55);
-            this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(437, 136);
-            this.lvReportes.TabIndex = 1;
-            this.lvReportes.UseCompatibleStateImageBehavior = false;
-            this.lvReportes.View = System.Windows.Forms.View.Details;
-            // 
-            // id
-            // 
-            this.id.Text = "ID";
-            // 
-            // Reporte
-            // 
-            this.Reporte.Text = "Reporte";
-            this.Reporte.Width = 270;
             // 
             // lvReportesNodo
             // 
@@ -195,7 +168,6 @@ namespace NewReportesControlEscolar
             // 
             this.groupBox1.Controls.Add(this.DGV_Reportes);
             this.groupBox1.Controls.Add(this.txt_Buscador);
-            this.groupBox1.Controls.Add(this.lvReportes);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(390, 61);
             this.groupBox1.Name = "groupBox1";
@@ -203,6 +175,21 @@ namespace NewReportesControlEscolar
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reportes existentes para relacionar";
+            // 
+            // DGV_Reportes
+            // 
+            this.DGV_Reportes.AllowUserToAddRows = false;
+            this.DGV_Reportes.AllowUserToDeleteRows = false;
+            this.DGV_Reportes.AllowUserToResizeColumns = false;
+            this.DGV_Reportes.AllowUserToResizeRows = false;
+            this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Reportes.Location = new System.Drawing.Point(6, 55);
+            this.DGV_Reportes.Name = "DGV_Reportes";
+            this.DGV_Reportes.RowHeadersVisible = false;
+            this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Reportes.Size = new System.Drawing.Size(437, 337);
+            this.DGV_Reportes.TabIndex = 87;
+            this.DGV_Reportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Reportes_CellContentClick);
             // 
             // txt_Buscador
             // 
@@ -274,21 +261,6 @@ namespace NewReportesControlEscolar
             this.button2.TabIndex = 73;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // DGV_Reportes
-            // 
-            this.DGV_Reportes.AllowUserToAddRows = false;
-            this.DGV_Reportes.AllowUserToDeleteRows = false;
-            this.DGV_Reportes.AllowUserToResizeColumns = false;
-            this.DGV_Reportes.AllowUserToResizeRows = false;
-            this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Reportes.Location = new System.Drawing.Point(6, 231);
-            this.DGV_Reportes.Name = "DGV_Reportes";
-            this.DGV_Reportes.RowHeadersVisible = false;
-            this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_Reportes.Size = new System.Drawing.Size(437, 161);
-            this.DGV_Reportes.TabIndex = 87;
-            this.DGV_Reportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Reportes_CellContentClick);
-            // 
             // FrmRPT_EnlazarReporteNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,8 +278,8 @@ namespace NewReportesControlEscolar
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -315,11 +287,8 @@ namespace NewReportesControlEscolar
         #endregion
 
         private System.Windows.Forms.TreeView TreeViewNodos;
-        private System.Windows.Forms.ListView lvReportes;
         private System.Windows.Forms.ListView lvReportesNodo;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.ColumnHeader id;
-        private System.Windows.Forms.ColumnHeader Reporte;
         private System.Windows.Forms.ColumnHeader ID_reporte;
         private System.Windows.Forms.ColumnHeader NombreReporte;
         private System.Windows.Forms.Panel panel1;

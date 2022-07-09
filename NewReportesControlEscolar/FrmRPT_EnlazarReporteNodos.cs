@@ -19,7 +19,7 @@ namespace NewReportesControlEscolar
             Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
             Clase_ReportesCE clase_ReportesCE;
             Clase_ReportesCE pr;
-            Clase_ReportesCE p;
+            Clase_ReportesCE ReportesCe_NombresReportes;
         #endregion
         #region MoverFORM
         //--------- MOVER FORMS
@@ -46,6 +46,13 @@ namespace NewReportesControlEscolar
             cargarReportes();
 
             cargarReportesDataGriw();
+            foreach (DataGridViewRow row in DGV_Reportes.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
+                chk.Value = chk.FalseValue;
+                row.DefaultCellStyle.BackColor = Color.White;
+
+            }
         }
 
 
@@ -106,22 +113,53 @@ namespace NewReportesControlEscolar
                 string tree = TreeViewNodos.SelectedNode.Name;
                 pr = new Clase_ReportesCE();
                 pr.GetNodoPadre(tree);
+
                 if (pr.Lector.Tables[0].Rows.Count > 0 && Convert.ToInt32(pr.Lector.Tables[0].Rows[0][0]) > 0)
                 {
-                    for (int i = 0; i < lvReportes.Items.Count; i++)
+                    //for (int i = 0; i < lvReportes.Items.Count; i++)
+                    //    {
+                    //        string reporte = lvReportes.Items[i].Text;
+                    //        if (lvReportes.Items[i].Checked == true)
+                    //        {
+                    //            //pr.ActualizarNodoReporte(tree, reporte);
+                    //        }
+                    //        else
+                    //        {
+                    //    //        bool check = false;
+                    //    //        for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
+                    //    //        {
+                    //    //            int valortable = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
+                    //    //            if (valortable == Convert.ToInt32(reporte))
+                    //    //            {
+                    //    //                check = true;
+                    //    //                break;
+                    //    //            }
+                    //    //        }
+                    //    //        if (check)
+                    //    //        {
+                    //    //            pr.ActualizarNodoReporte("0", reporte);
+                    //    //        }
+                    //            Console.WriteLine("");
+                    //        }
+                    //}
+
+                    for(int i = 0; i < DGV_Reportes.RowCount; i++)
                     {
-                        string reporte = lvReportes.Items[i].Text;
-                        if (lvReportes.Items[i].Checked == true)
+                        string id_reporte = DGV_Reportes.Rows[i].Cells[1].Value.ToString().Trim();
+
+                        DataGridViewCheckBoxCell celda_Check = (DataGridViewCheckBoxCell)DGV_Reportes.Rows[i].Cells[0];
+
+                        if(celda_Check.Value == celda_Check.TrueValue)
                         {
-                            pr.ActualizarNodoReporte(tree, reporte);
+                            pr.ActualizarNodoReporte(tree, id_reporte);
                         }
                         else
                         {
                             bool check = false;
-                            for (int x = 0; x < p.Lector.Tables[0].Rows.Count; x++)
+                            for (int x = 0; x < ReportesCe_NombresReportes.Lector.Tables[0].Rows.Count; x++)
                             {
-                                int valortable = Convert.ToInt32(p.Lector.Tables[0].Rows[x][0]);
-                                if (valortable == Convert.ToInt32(reporte))
+                                int valortable = Convert.ToInt32(ReportesCe_NombresReportes.Lector.Tables[0].Rows[x][0]);
+                                if (valortable == Convert.ToInt32(id_reporte))
                                 {
                                     check = true;
                                     break;
@@ -129,10 +167,13 @@ namespace NewReportesControlEscolar
                             }
                             if (check)
                             {
-                                pr.ActualizarNodoReporte("0", reporte);
+                                pr.ActualizarNodoReporte("0", id_reporte);
                             }
+                            
                         }
                     }
+
+                    MessageBox.Show("Reportes Enlazados Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarReportesnodos(tree);
                 }
                 else
@@ -149,10 +190,11 @@ namespace NewReportesControlEscolar
         {
             pr = new Clase_ReportesCE();
             pr.GetReportesNodo("");
+
             if (pr.Lector.Tables[0].Rows.Count > 0)
             {
                 DataView dt = new DataView(pr.Lector.Tables[0]);
-                gn.llenarlistview(lvReportes, dt);
+                //gn.llenarlistview(lvReportes, dt);
             }
         }
 
@@ -165,42 +207,32 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                p = new Clase_ReportesCE();
-                p.GetReportesNodo(nodo);
-                if (p.Lector.Tables.Count > 0)
+                ReportesCe_NombresReportes = new Clase_ReportesCE();
+                ReportesCe_NombresReportes.GetReportesNodo(nodo);
+                if (ReportesCe_NombresReportes.Lector.Tables.Count > 0)
                 {
-                    DataView dt = new DataView(p.Lector.Tables[0]);
-                    gn.llenarlistview(lvReportesNodo, dt);
-                    gn.marcarnodos(lvReportes, dt);
+                    DataView DataView_NombresReportes = new DataView(ReportesCe_NombresReportes.Lector.Tables[0]);
+                    gn.llenarlistview(lvReportesNodo, DataView_NombresReportes);
+
+                    //gn.marcarnodos(lvReportes, dt);
 
 
                     //---
-                    foreach(DataGridViewRow row in DGV_Reportes.Rows)
-                    {
-                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
-                        chk.Value = chk.FalseValue;
-                         
-                    }
+                    PonerTodoSinCheck();
 
-                    foreach (DataRowView drv in dt) //recorremos los nodos que devuelve la consulta para que traego los reportes que esta relacionado al nodo
+                    foreach (DataRowView dataRenglon in DataView_NombresReportes) //recorremos los nodos que devuelve la consulta para que traego los reportes que esta relacionado al nodo
                     {
-                        string id_reporte_consulta = drv.Row.ItemArray[0].ToString().Trim();
-
+                        string id_reporte_consulta = dataRenglon.Row.ItemArray[0].ToString().Trim();
                         for (int i = 0  ; i < DGV_Reportes.Rows.Count; i++)
                         {
-
-                            int cos = i;
                             string id_reporte_Datagrid = DGV_Reportes.Rows[i].Cells[1].Value.ToString();
-
                             if (id_reporte_consulta == id_reporte_Datagrid)
                             {
                                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)DGV_Reportes.Rows[i].Cells[0];
                                 chk.Value = chk.TrueValue;
                                 DGV_Reportes.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
                             }
-
                         }
-
                     }
                         //for (int i = 0; i < list.Items.Count; i++)
                         //{
@@ -234,6 +266,19 @@ namespace NewReportesControlEscolar
 
         }
 
+        public void PonerTodoSinCheck()
+        {
+            foreach (DataGridViewRow row in DGV_Reportes.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0]; //Convetimos la celda en DataGridViewCheckBoxCell
+                chk.Value = chk.FalseValue;
+                row.DefaultCellStyle.BackColor = Color.White;
+                //----------------------------------------------------------
+
+                
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
             Dispose();
@@ -242,7 +287,26 @@ namespace NewReportesControlEscolar
 
         private void txt_Buscador_TextChanged(object sender, EventArgs e)
         {
-           
+            if (txt_Buscador.Text.Trim() != "Buscador...")
+            {
+                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", txt_Buscador.Text);
+                PonerTodoSinCheck();
+                DataView DataView_NombresReportes = new DataView(ReportesCe_NombresReportes.Lector.Tables[0]);
+                foreach (DataRowView dataRenglon in DataView_NombresReportes)
+                {
+                    string id_reporte_consulta = dataRenglon.Row.ItemArray[0].ToString().Trim();
+                    for (int i = 0; i < DGV_Reportes.Rows.Count; i++)
+                    {
+                        string id_reporte_Datagrid = DGV_Reportes.Rows[i].Cells[1].Value.ToString();
+                        if (id_reporte_consulta == id_reporte_Datagrid)
+                        {
+                            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)DGV_Reportes.Rows[i].Cells[0];
+                            chk.Value = chk.TrueValue;
+                            DGV_Reportes.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                        }
+                    }
+                }
+            }
 
         }
 
@@ -290,10 +354,20 @@ namespace NewReportesControlEscolar
 
             if (cell != null && !cell.ReadOnly)
             {
-                cell.Value = cell.Value == null || !((bool)cell.Value);
-                MessageBox.Show("SS");
+                if(cell.Value == cell.TrueValue)
+                { 
+                    DGV_Reportes.CurrentRow.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                }
+                else
+                { 
+                    DGV_Reportes.CurrentRow.DefaultCellStyle.BackColor = Color.White;
+                }
+
+                 
                 this.DGV_Reportes.RefreshEdit();
                 this.DGV_Reportes.NotifyCurrentCellDirty(true);
+                
             }
         }
     }

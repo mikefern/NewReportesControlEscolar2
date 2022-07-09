@@ -549,7 +549,7 @@ namespace ProyectoLoboSostenido
             string nomStore = "Reports_GetNodoPadre";
             List<Clase_Parametros> par = new List<Clase_Parametros>
             {
-                 new Clase_Parametros("nodo",nodo)
+                 new Clase_Parametros("Nodo",nodo)
             };
 
             if (ConsultarParametros(nomStore, par))
