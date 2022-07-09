@@ -37,14 +37,18 @@ namespace NewReportesControlEscolar
         public void marcarnodos(ListView list, DataView dv)
         {
             for (int i = 0; i < list.Items.Count; i++)
+            {
                 list.Items[i].Checked = false;
+            }
 
             foreach(DataRowView drv in dv)
             {
                 int dato = Convert.ToInt32(drv.Row[0]);
+
                 for(int i=0; i<list.Items.Count; i++)
                 {
                     int lv = Convert.ToInt32(list.Items[i].Text);
+
                     if (lv == dato)
                     {
                         list.Items[i].Checked = true;

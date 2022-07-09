@@ -116,6 +116,8 @@ namespace ProyectoLoboSostenido
             Tootip();
         }
 
+
+
         private void DatosReportes_Load(object sender, EventArgs e)
         {
             Habilitar();

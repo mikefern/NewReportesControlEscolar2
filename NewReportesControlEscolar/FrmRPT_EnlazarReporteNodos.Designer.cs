@@ -44,16 +44,19 @@ namespace NewReportesControlEscolar
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
             this.SuspendLayout();
             // 
             // TreeViewNodos
@@ -73,12 +76,12 @@ namespace NewReportesControlEscolar
             this.Reporte});
             this.lvReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lvReportes.HideSelection = false;
-            this.lvReportes.Location = new System.Drawing.Point(6, 22);
+            this.lvReportes.Location = new System.Drawing.Point(6, 55);
             this.lvReportes.Name = "lvReportes";
-            this.lvReportes.Size = new System.Drawing.Size(437, 396);
+            this.lvReportes.Size = new System.Drawing.Size(437, 136);
             this.lvReportes.TabIndex = 1;
             this.lvReportes.UseCompatibleStateImageBehavior = false;
-            this.lvReportes.View = System.Windows.Forms.View.Details; 
+            this.lvReportes.View = System.Windows.Forms.View.Details;
             // 
             // id
             // 
@@ -155,7 +158,7 @@ namespace NewReportesControlEscolar
             this.label3.Size = new System.Drawing.Size(450, 38);
             this.label3.TabIndex = 77;
             this.label3.Text = "*Solo se pueden relacionar nodos hijo con los reportes,  de preferencia elija un " +
-    "reporte por nodo."; 
+    "reporte por nodo.";
             // 
             // pictureBox5
             // 
@@ -186,10 +189,12 @@ namespace NewReportesControlEscolar
             this.groupBox2.Size = new System.Drawing.Size(449, 185);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Reportes relacionados al nodo seleccionado"; 
+            this.groupBox2.Text = "Reportes relacionados al nodo seleccionado";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.DGV_Reportes);
+            this.groupBox1.Controls.Add(this.txt_Buscador);
             this.groupBox1.Controls.Add(this.lvReportes);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(390, 61);
@@ -198,6 +203,19 @@ namespace NewReportesControlEscolar
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reportes existentes para relacionar";
+            // 
+            // txt_Buscador
+            // 
+            this.txt_Buscador.ForeColor = System.Drawing.Color.Silver;
+            this.txt_Buscador.Location = new System.Drawing.Point(6, 26);
+            this.txt_Buscador.Name = "txt_Buscador";
+            this.txt_Buscador.Size = new System.Drawing.Size(437, 23);
+            this.txt_Buscador.TabIndex = 86;
+            this.txt_Buscador.Text = "Buscador...";
+            this.txt_Buscador.Click += new System.EventHandler(this.txt_Buscador_Click);
+            this.txt_Buscador.TextChanged += new System.EventHandler(this.txt_Buscador_TextChanged);
+            this.txt_Buscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Buscador_KeyPress);
+            this.txt_Buscador.Leave += new System.EventHandler(this.txt_Buscador_Leave);
             // 
             // panel4
             // 
@@ -256,14 +274,29 @@ namespace NewReportesControlEscolar
             this.button2.TabIndex = 73;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // FrmEnlazarReportesNodos
+            // DGV_Reportes
+            // 
+            this.DGV_Reportes.AllowUserToAddRows = false;
+            this.DGV_Reportes.AllowUserToDeleteRows = false;
+            this.DGV_Reportes.AllowUserToResizeColumns = false;
+            this.DGV_Reportes.AllowUserToResizeRows = false;
+            this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Reportes.Location = new System.Drawing.Point(6, 231);
+            this.DGV_Reportes.Name = "DGV_Reportes";
+            this.DGV_Reportes.RowHeadersVisible = false;
+            this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Reportes.Size = new System.Drawing.Size(437, 161);
+            this.DGV_Reportes.TabIndex = 87;
+            this.DGV_Reportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Reportes_CellContentClick);
+            // 
+            // FrmRPT_EnlazarReporteNodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 781);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmEnlazarReportesNodos";
+            this.Name = "FrmRPT_EnlazarReporteNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.FrmEnlazarReportesNodos_Load);
@@ -272,7 +305,9 @@ namespace NewReportesControlEscolar
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +333,7 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_Buscador;
+        private System.Windows.Forms.DataGridView DGV_Reportes;
     }
 }
