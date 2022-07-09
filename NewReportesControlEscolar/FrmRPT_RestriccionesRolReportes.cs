@@ -43,9 +43,9 @@ namespace NewReportesControlEscolar
 
         private void getCampus()
         {
-            Clase_ReportesCE ur = new Clase_ReportesCE();
-            ur.GetCampus();
-            cbCampus.DataSource = ur.Lector.Tables[0];
+            Clase_ReportesCE ReportesCE = new Clase_ReportesCE();
+            ReportesCE.GetCampus();
+            cbCampus.DataSource = ReportesCE.Lector.Tables[0];
             cbCampus.DisplayMember = "Campus";
             cbCampus.ValueMember = "ID_Campus";
             cbCampus.SelectedItem = null;
@@ -93,7 +93,8 @@ namespace NewReportesControlEscolar
                     }
                 }
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -129,7 +130,8 @@ namespace NewReportesControlEscolar
                         pr.AgregarRestriccionesReportesEmpleado("2", reporte, empleado);
                 }
                 MessageBox.Show("Se han guardado las restricciones al usuario ", "Completado", MessageBoxButtons.OK);
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en cargaDatosSQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
