@@ -41788,12 +41788,60 @@ namespace ProyectoLoboSostenido
 
         private void TreePrueba_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximizar.Visible = false;
+            btnRestaurar.Visible = true;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnMaximizar.Visible = true;
+            btnRestaurar.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmRPT_PermisosBotonReportes pr = new FrmRPT_PermisosBotonReportes();
+            pr.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
+            //rl.Show();
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
+            this.WindowState = FormWindowState.Normal;
+            btnMaximizar.Visible = true;
+            btnRestaurar.Visible = false;
+
+        }
+
+        private void TreePrueba_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
             TreePrueba.Enabled = false;
             if (gridViewAlumnos.Rows.Count > 0)
             {
                 try
                 {
-                    if (TreePrueba.SelectedNode.Nodes.Count == 0)
+
+                    if (e.Node.Nodes.Count == 0)
                     {
                         //Se preparan los datos y se cargan dentro de la aplicacion
                         ea = new Clase_Control_Escolar();
@@ -41801,18 +41849,18 @@ namespace ProyectoLoboSostenido
                         string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
                         cd = new Clase_ReportesCE();
                         Clase_ReportesCE c = new Clase_ReportesCE();
-                        if (cd.GetReporteCampus(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus))
+                        if (cd.GetReporteCampus(e.Node.Name, Clase_Sesion.Campus))
                         {
                             DataView dt = new DataView(cd.Lector.Tables[0]);
                             if (cd.Lector.Tables[0].Rows.Count > 1)
                             {
-                                c.GetReporteRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus, rvoe_alumno);
+                                c.GetReporteRVOE(e.Node.Name, Clase_Sesion.Campus, rvoe_alumno);
                                 if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count > 0)
                                     dt = new DataView(c.Lector.Tables[0]);
                                 else
                                 {
                                     c = new Clase_ReportesCE();
-                                    c.GetReportesconRVOE(TreePrueba.SelectedNode.Name, Clase_Sesion.Campus);
+                                    c.GetReportesconRVOE(e.Node.Name, Clase_Sesion.Campus);
                                     for (int x = 0; x < c.Lector.Tables[0].Rows.Count; x++)
                                     {
                                         for (int i = 0; i < dt.Table.Rows.Count; i++)
@@ -41842,7 +41890,7 @@ namespace ProyectoLoboSostenido
                                             string tipo = pr.Lector.Tables[0].Rows[0][3].ToString();
                                             string id = pr.Lector.Tables[0].Rows[0][0].ToString();
                                             string ruta = pr.Lector.Tables[0].Rows[0][2].ToString();
-                                            
+
 
                                             string alumno = "";
                                             if (gridViewAlumnos.Rows[ro].Cells[0].Value != null)
@@ -41887,15 +41935,15 @@ namespace ProyectoLoboSostenido
                                                             vec[i, 0] = cd.Lector.Tables[0].Rows[i][1].ToString();
                                                             if (vecExtParametros[x, 1].Equals(""))
                                                             {
-                                                                
-                                                                    string input = Interaction.InputBox("Falta informacion para ver el reporte, en este caso el prametro "+ vec[i,0]+ "Puede agregar en este campo ese valor", "Atencion", "", 80, 20);
+
+                                                                string input = Interaction.InputBox("Falta informacion para ver el reporte, en este caso el prametro " + vec[i, 0] + "Puede agregar en este campo ese valor", "Atencion", "", 80, 20);
                                                                 if (input.Equals(""))
-                                                                    input= cd.Lector.Tables[0].Rows[i][2].ToString();
+                                                                    input = cd.Lector.Tables[0].Rows[i][2].ToString();
                                                                 vec[i, 1] = input;
-                                                                
+
                                                             }
                                                             else
-                                                                vec[i , 1] = vecExtParametros[x, 1];
+                                                                vec[i, 1] = vecExtParametros[x, 1];
 
                                                             break;
                                                         }
@@ -41946,47 +41994,6 @@ namespace ProyectoLoboSostenido
                 }
             }
             TreePrueba.Enabled = true;
-        }
-
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnMaximizar.Visible = false;
-            btnRestaurar.Visible = true;
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnMaximizar.Visible = true;
-            btnRestaurar.Visible = false;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FrmRPT_PermisosBotonReportes pr = new FrmRPT_PermisosBotonReportes();
-            pr.Show();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            //FrmReportesLimitarNodos rl = new FrmReportesLimitarNodos();
-            //rl.Show();
-        }
-
-        private void label1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xf012, 0);
-            this.WindowState = FormWindowState.Normal;
-            btnMaximizar.Visible = true;
-            btnRestaurar.Visible = false;
-
         }
     }
 }
