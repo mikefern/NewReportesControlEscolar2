@@ -41911,7 +41911,7 @@ namespace ProyectoLoboSostenido
                                             string[,] vecExtParametros = { {"1", alumno},  {"2", ciclo}, { "3", Clase_Sesion.campus },{"4",especialidad},
                                             {"5", ciclo }, {"6",grupo }, {"7","" },{ "8","" }, {"9",grupo }, {"10", alumno },
                                             {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },
-                                            {"15","" },{"16","" },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""},{"129",grupo },{"130",grupo},{"134",grupo},
+                                            {"15","" },{"16","" },{"105",grupo },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""},{"129",grupo },{"130",grupo},{"134",grupo},
                                             {"137",grupo } };
                                             cd = new Clase_ReportesCE();
                                             cd.GetParametros_Reportes(id);
