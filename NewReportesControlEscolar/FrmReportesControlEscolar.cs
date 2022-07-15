@@ -41953,6 +41953,9 @@ namespace ProyectoLoboSostenido
                                             try
                                             {
                                                 cpr.MostrarRepos(vec, nomreporte, tipo, ruta);
+
+                                                //if(SolicitudExamenPOSNuevo) ValidaAdeudo
+
                                                 if (tipo.Equals(".rpt"))
                                                 {
                                                     CRViewer.Visible = true;

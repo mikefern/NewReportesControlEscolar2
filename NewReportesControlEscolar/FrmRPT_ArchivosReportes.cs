@@ -999,8 +999,17 @@ namespace ProyectoLoboSostenido
                 }
                 else
                 {
-                    if (MessageBox.Show("Esta Seguro de Crear una copia del Archivo ubicado en:\n" + V_Ruta + "'\n" + "" + "para que finalmente quede en la ubicacion :\n" + "'" + txtRuta.Text.Trim() + "'", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    string soloRuta = "";
+                    string rutaReal = "";
+                    if (File.Exists(V_Ruta))
                     {
+                        soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+                        rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+                    }
+                    else rutaReal = txtRuta.Text;
+
+                        if (MessageBox.Show("Esta Seguro de Crear una copia del Archivo ubicado en:\n" + V_Ruta + "'\n" + "" + "para que finalmente quede en la ubicacion :\n" + "'" + rutaReal + "'", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
                         if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
                         {
                             if (reportes.Lector.Tables[0].Rows.Count > 0)
@@ -1014,8 +1023,8 @@ namespace ProyectoLoboSostenido
                         }
                         if (File.Exists(V_Ruta))
                         {
-                            string soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
-                            string rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+                             soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+                             rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
                             if (V_Ruta != rutaReal) CopiarArchivo(V_Ruta, rutaReal);
                         }
                         else
