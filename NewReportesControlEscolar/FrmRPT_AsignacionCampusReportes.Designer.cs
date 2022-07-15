@@ -50,8 +50,6 @@ namespace NewReportesControlEscolar
             this.btnGuardarRVOE = new System.Windows.Forms.Button();
             this.btnUsuariosReportesw = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_BuscadorRVOE = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,6 +59,7 @@ namespace NewReportesControlEscolar
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_BuscadorRVOE = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -243,7 +242,6 @@ namespace NewReportesControlEscolar
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.txt_Buscador);
             this.panel1.Controls.Add(this.DGV_Reportes);
             this.panel1.Controls.Add(this.label9);
@@ -264,29 +262,6 @@ namespace NewReportesControlEscolar
             this.panel1.Size = new System.Drawing.Size(1036, 976);
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            // 
-            // txt_BuscadorRVOE
-            // 
-            this.txt_BuscadorRVOE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_BuscadorRVOE.ForeColor = System.Drawing.Color.Silver;
-            this.txt_BuscadorRVOE.Location = new System.Drawing.Point(6, 22);
-            this.txt_BuscadorRVOE.Name = "txt_BuscadorRVOE";
-            this.txt_BuscadorRVOE.Size = new System.Drawing.Size(272, 22);
-            this.txt_BuscadorRVOE.TabIndex = 80;
-            this.txt_BuscadorRVOE.Text = "Buscador...";
-            this.txt_BuscadorRVOE.Click += new System.EventHandler(this.textBox1_Click);
-            this.txt_BuscadorRVOE.TextChanged += new System.EventHandler(this.txt_BuscadorRVOE_TextChanged);
-            this.txt_BuscadorRVOE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_BuscadorRVOE_KeyPress);
-            this.txt_BuscadorRVOE.Leave += new System.EventHandler(this.txt_BuscadorRVOE_Leave);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 97);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 86;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // txt_Buscador
             // 
@@ -409,6 +384,20 @@ namespace NewReportesControlEscolar
             this.groupBox4.TabIndex = 64;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Asignación de RVOE según el Campus";
+            // 
+            // txt_BuscadorRVOE
+            // 
+            this.txt_BuscadorRVOE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BuscadorRVOE.ForeColor = System.Drawing.Color.Silver;
+            this.txt_BuscadorRVOE.Location = new System.Drawing.Point(6, 22);
+            this.txt_BuscadorRVOE.Name = "txt_BuscadorRVOE";
+            this.txt_BuscadorRVOE.Size = new System.Drawing.Size(272, 22);
+            this.txt_BuscadorRVOE.TabIndex = 80;
+            this.txt_BuscadorRVOE.Text = "Buscador...";
+            this.txt_BuscadorRVOE.Click += new System.EventHandler(this.textBox1_Click);
+            this.txt_BuscadorRVOE.TextChanged += new System.EventHandler(this.txt_BuscadorRVOE_TextChanged);
+            this.txt_BuscadorRVOE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_BuscadorRVOE_KeyPress);
+            this.txt_BuscadorRVOE.Leave += new System.EventHandler(this.txt_BuscadorRVOE_Leave);
             // 
             // pictureBox1
             // 
@@ -592,6 +581,5 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.DataGridView DGV_Reportes;
         private System.Windows.Forms.TextBox txt_Buscador;
         private System.Windows.Forms.TextBox txt_BuscadorRVOE;
-        private System.Windows.Forms.Button button2;
     }
 }

@@ -57,7 +57,6 @@ namespace NewReportesControlEscolar
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.lbl_Titulo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,7 +71,6 @@ namespace NewReportesControlEscolar
             this.txt_PosicionBD = new System.Windows.Forms.TextBox();
             this.btn_igualarPosicion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,9 +84,9 @@ namespace NewReportesControlEscolar
             // 
             this.TreeViewNodos.AllowDrop = true;
             this.TreeViewNodos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TreeViewNodos.Location = new System.Drawing.Point(12, 48);
+            this.TreeViewNodos.Location = new System.Drawing.Point(13, 91);
             this.TreeViewNodos.Name = "TreeViewNodos";
-            this.TreeViewNodos.Size = new System.Drawing.Size(324, 688);
+            this.TreeViewNodos.Size = new System.Drawing.Size(324, 758);
             this.TreeViewNodos.TabIndex = 0;
             this.TreeViewNodos.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.TreeViewNodos_ItemDrag);
             this.TreeViewNodos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewNodos_AfterSelect);
@@ -257,7 +255,7 @@ namespace NewReportesControlEscolar
             this.lvCampus.HideSelection = false;
             this.lvCampus.Location = new System.Drawing.Point(372, 305);
             this.lvCampus.Name = "lvCampus";
-            this.lvCampus.Size = new System.Drawing.Size(244, 394);
+            this.lvCampus.Size = new System.Drawing.Size(244, 554);
             this.lvCampus.TabIndex = 55;
             this.lvCampus.UseCompatibleStateImageBehavior = false;
             this.lvCampus.View = System.Windows.Forms.View.Details;
@@ -281,7 +279,7 @@ namespace NewReportesControlEscolar
             this.lvSeleccionarCampus.HideSelection = false;
             this.lvSeleccionarCampus.Location = new System.Drawing.Point(659, 305);
             this.lvSeleccionarCampus.Name = "lvSeleccionarCampus";
-            this.lvSeleccionarCampus.Size = new System.Drawing.Size(244, 394);
+            this.lvSeleccionarCampus.Size = new System.Drawing.Size(244, 554);
             this.lvSeleccionarCampus.TabIndex = 56;
             this.lvSeleccionarCampus.UseCompatibleStateImageBehavior = false;
             this.lvSeleccionarCampus.View = System.Windows.Forms.View.Details;
@@ -308,7 +306,7 @@ namespace NewReportesControlEscolar
             this.lvRoles.HideSelection = false;
             this.lvRoles.Location = new System.Drawing.Point(950, 305);
             this.lvRoles.Name = "lvRoles";
-            this.lvRoles.Size = new System.Drawing.Size(244, 394);
+            this.lvRoles.Size = new System.Drawing.Size(244, 554);
             this.lvRoles.TabIndex = 57;
             this.lvRoles.UseCompatibleStateImageBehavior = false;
             this.lvRoles.View = System.Windows.Forms.View.Details;
@@ -329,7 +327,7 @@ namespace NewReportesControlEscolar
             this.btnGuardarRoles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardarRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarRoles.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardarRoles.Location = new System.Drawing.Point(1008, 732);
+            this.btnGuardarRoles.Location = new System.Drawing.Point(1044, 874);
             this.btnGuardarRoles.Name = "btnGuardarRoles";
             this.btnGuardarRoles.Size = new System.Drawing.Size(150, 30);
             this.btnGuardarRoles.TabIndex = 58;
@@ -343,7 +341,7 @@ namespace NewReportesControlEscolar
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardar.Location = new System.Drawing.Point(416, 734);
+            this.btnGuardar.Location = new System.Drawing.Point(414, 876);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 30);
             this.btnGuardar.TabIndex = 59;
@@ -353,6 +351,7 @@ namespace NewReportesControlEscolar
             // 
             // btnReportes
             // 
+            this.btnReportes.BackColor = System.Drawing.Color.MintCream;
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -362,7 +361,7 @@ namespace NewReportesControlEscolar
             this.btnReportes.Size = new System.Drawing.Size(239, 30);
             this.btnReportes.TabIndex = 60;
             this.btnReportes.Text = "Conectar Reportes con los nodos";
-            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // lbl_Titulo
@@ -379,23 +378,11 @@ namespace NewReportesControlEscolar
             this.lbl_Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Titulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_Titulo_MouseDown);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.TreeViewNodos);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(347, 748);
-            this.panel1.TabIndex = 62;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label6.Location = new System.Drawing.Point(118, 9);
+            this.label6.Location = new System.Drawing.Point(123, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 17);
             this.label6.TabIndex = 1;
@@ -406,9 +393,9 @@ namespace NewReportesControlEscolar
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.BorderSize = 5;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(3, 39);
+            this.button2.Location = new System.Drawing.Point(3, 80);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(344, 708);
+            this.button2.Size = new System.Drawing.Size(344, 779);
             this.button2.TabIndex = 72;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -481,7 +468,7 @@ namespace NewReportesControlEscolar
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(380, 732);
+            this.pictureBox5.Location = new System.Drawing.Point(378, 874);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -501,7 +488,7 @@ namespace NewReportesControlEscolar
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(972, 730);
+            this.pictureBox7.Location = new System.Drawing.Point(1008, 872);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(30, 32);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -547,8 +534,11 @@ namespace NewReportesControlEscolar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1214, 780);
+            this.ClientSize = new System.Drawing.Size(1214, 926);
+            this.Controls.Add(this.TreeViewNodos);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_igualarPosicion);
             this.Controls.Add(this.txt_PosicionBD);
             this.Controls.Add(this.pictureBox7);
@@ -559,7 +549,6 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnGuardar);
@@ -587,8 +576,6 @@ namespace NewReportesControlEscolar
             this.Text = "Control de Nodos de Reporte Escolar";
             this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGestionNodos_MouseDown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -630,7 +617,6 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Label lbl_Titulo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_CambiarNombreNodo;

@@ -64,6 +64,7 @@ namespace NewReportesControlEscolar
             clase_reportesCE.DML_ParametrosFijosRCE("0","0","0","0");
             DGV_parametros.DataSource = clase_reportesCE.Lector.Tables[0];
             DGV_parametros.Rows[DGV_parametros.Rows.Count - 1].Cells[2].ReadOnly = true;
+            foreach (DataGridViewColumn column in DGV_parametros.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         //No borrar este metodo aunque tenga 0 referencias
