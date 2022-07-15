@@ -144,11 +144,7 @@ namespace NewReportesControlEscolar
             frmAgregarRestricciones.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PruebaListViewcs a = new PruebaListViewcs();
-            a.Show();
-        }
+         
     }
 }
 

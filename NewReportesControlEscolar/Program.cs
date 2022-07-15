@@ -17,7 +17,7 @@ namespace NewReportesControlEscolar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmRPT_AsignacionCampusReportes());
+            Application.Run(new FrmRPT_Principal_RCE());
         }
     }
     /*

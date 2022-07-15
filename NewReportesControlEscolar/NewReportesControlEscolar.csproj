@@ -294,12 +294,6 @@
     <Compile Include="FrmReportesControlEscolar.Designer.cs">
       <DependentUpon>FrmReportesControlEscolar.cs</DependentUpon>
     </Compile>
-    <Compile Include="PruebaListViewcs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaListViewcs.Designer.cs">
-      <DependentUpon>PruebaListViewcs.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmRPT_EnlazarReporteNodos.resx">
       <DependentUpon>FrmRPT_EnlazarReporteNodos.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,9 +342,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRPT_RelacionarReportes.resx">
       <DependentUpon>FrmRPT_RelacionarReportes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaListViewcs.resx">
-      <DependentUpon>PruebaListViewcs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
