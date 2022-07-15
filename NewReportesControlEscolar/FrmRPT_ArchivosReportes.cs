@@ -1010,7 +1010,7 @@ namespace ProyectoLoboSostenido
 
                         if (MessageBox.Show("Esta Seguro de Crear una copia del Archivo ubicado en:\n" + V_Ruta + "'\n" + "" + "para que finalmente quede en la ubicacion :\n" + "'" + rutaReal + "'", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                        if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
+                        if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), rutaReal, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
                         {
                             if (reportes.Lector.Tables[0].Rows.Count > 0)
                             {
