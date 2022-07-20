@@ -119,7 +119,7 @@ namespace NewReportesControlEscolar
                 btnGuardarRoles.Enabled = true;
                 btnGuardarRVOE.Enabled = true;
                 CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
-                CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+                //CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
             }
             catch
             {
@@ -510,6 +510,47 @@ namespace NewReportesControlEscolar
                     }
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < LV_CampusEspecificos.Items.Count; i++)
+            {
+                LV_CampusEspecificos.Items[i].Selected = true;
+
+                try
+                {
+                    ReportCE = new Clase_ReportesCE();
+                    string id = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
+                    string repo = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                    ReportCE.DMLRelRolesReportes("0", "0", id, repo);
+                    clase_reportes = new Clase_ReportesCE();
+
+                    for (int x = 0; x < LV_Roles.Items.Count; x++)
+                    {
+
+                        string rol = LV_Roles.Items[x].Text;
+
+                        if (Convert.ToInt32(rol) == 14 || Convert.ToInt32(rol) == 16)
+                            LV_Roles.Items[x].Checked = true;
+
+                        if (LV_Roles.Items[x].Checked == true)
+                        {
+                            DataView dv = new DataView(ReportCE.Lector.Tables[0]);
+                            if (Genericos.checarPermiso(dv, Convert.ToInt32(rol)))
+                                clase_reportes.DMLRelRolesReportes("1", rol, id, repo);
+                        }
+                        else
+                            clase_reportes.DMLRelRolesReportes("2", rol, id, repo);
+                    }
+                    MessageBox.Show("Se han guardado los roles del reporte", "Completado", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
         }
     }
 }

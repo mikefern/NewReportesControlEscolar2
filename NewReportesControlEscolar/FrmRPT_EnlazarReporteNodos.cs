@@ -20,6 +20,7 @@ namespace NewReportesControlEscolar
             Clase_ReportesCE clase_ReportesCE;
             Clase_ReportesCE pr;
             Clase_ReportesCE ReportesCe_NombresReportes;
+            string index;
         #endregion
         #region MoverFORM
         //--------- MOVER FORMS
@@ -39,7 +40,24 @@ namespace NewReportesControlEscolar
         {
             InitializeComponent();
         }
-       
+
+        public FrmRPT_EnlazarReporteNodos(string index)
+        {
+            InitializeComponent();
+            this.index = index;
+        }
+
+        IEnumerable<TreeNode> Collect(TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                yield return node;
+
+                foreach (var child in Collect(node.Nodes))
+                    yield return child;
+            }
+        }
+
         private void FrmEnlazarReportesNodos_Load(object sender, EventArgs e)
         {
             LlenadoNodosReporte();
@@ -53,6 +71,18 @@ namespace NewReportesControlEscolar
                 row.DefaultCellStyle.BackColor = Color.White;
 
             }
+
+            foreach (var node in Collect(TreeViewNodos.Nodes))
+            {
+                if (node.Name == index)
+                {
+                    TreeViewNodos.SelectedNode = node;
+                    cargarReportesnodos(node.Name);
+                    break;
+                }
+            }
+
+
         }
 
 
