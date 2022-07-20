@@ -41926,7 +41926,7 @@ namespace ProyectoLoboSostenido
                                             string[,] vecExtParametros = { {"1", alumno},  {"2", ciclo}, { "3", Clase_Sesion.campus },{"4",especialidad},
                                             {"5", ciclo }, {"6",grupo }, {"7","" },{ "8","" }, {"9",grupo }, {"10", alumno },
                                             {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },
-                                            {"15","" },{"16","" },{"105",grupo },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""},{"129",grupo },{"127",f_inicio},{"128",f_fin},{"130",grupo},{"134",grupo},
+                                            {"15","" },{"16","" },{"105",grupo },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""},{"129",grupo },{"127",f_inicio},{"128",f_fin},{"130",grupo},{"133",alumno},{"134",grupo},
                                             {"135", alumno},{"136","" }, {"137",grupo }, {"189",alumno }, { "193",nomgrupo} };
                                             cd = new Clase_ReportesCE();
                                             cd.GetParametros_Reportes(id);
@@ -41992,7 +41992,6 @@ namespace ProyectoLoboSostenido
                                             catch (Exception ex)
                                             {
                                                 MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK);
-                                                MessageBox.Show(ex.InnerException.Message, "aviso", MessageBoxButtons.OK);
                                             }
                                         }
                                     }
