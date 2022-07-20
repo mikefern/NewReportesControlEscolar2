@@ -349,36 +349,7 @@ namespace NewReportesControlEscolar
             rr.Show();
         }
                  
-        private void txt_Buscador_TextChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", txt_Buscador.Text);
-
-                if (DGV_Reportes.SelectedRows.Count == 0)
-                {
-                    btnGuardarCampus.Enabled = false;
-                    btnGuardarRoles.Enabled = false;
-
-                    for (int i = 0; i < LV_Campus.Items.Count; i++)
-                        LV_Campus.Items[i].Checked = false;
-                    LV_Campus.Enabled = false;
-
-                    for (int i = 0; i < LV_RVOE.Items.Count; i++) 
-                        LV_RVOE.Items[i].Checked = false;
-                    LV_RVOE.Enabled = false;
-
-                    LV_CampusEspecificos.Enabled = false;
-                    LV_CampusEspecificos.Items.Clear();
-                }
-                else
-                {
-                    btnGuardarCampus.Enabled = true;
-                    btnGuardarRoles.Enabled = true;
-                }
-            }
-            catch (System.Data.SyntaxErrorException error) { error.ToString(); }
-        }
+       
 
        
 
@@ -550,6 +521,69 @@ namespace NewReportesControlEscolar
                     MessageBox.Show(ex.Message);
                 }
             }
+
+        }
+
+        private void txt_Buscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txt_Buscador.ForeColor = Color.Black;
+        }
+
+        
+
+        private void txt_Buscador_Leave(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text.Trim() == "" || txt_Buscador.Text.Trim() == "Buscador...")
+            {
+                txt_Buscador.Text = "Buscador...";
+                txt_Buscador.ForeColor = Color.Silver;
+            }
+        }
+        private void txt_Buscador_Click(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text.Trim() == "" || txt_Buscador.Text.Trim() == "Buscador...")
+            {
+                txt_Buscador.Text = "";
+            }
+        }
+        private void txt_Buscador_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                (DGV_Reportes.DataSource as DataTable).DefaultView.RowFilter = string.Format("NombreReporte LIKE '%{0}%'", txt_Buscador.Text);
+
+                if (DGV_Reportes.SelectedRows.Count == 0)
+                {
+                    btnGuardarCampus.Enabled = false;
+                    btnGuardarRoles.Enabled = false;
+
+                    for (int i = 0; i < LV_Campus.Items.Count; i++)
+                        LV_Campus.Items[i].Checked = false;
+                    LV_Campus.Enabled = false;
+
+                    for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                        LV_RVOE.Items[i].Checked = false;
+                    LV_RVOE.Enabled = false;
+
+                    LV_CampusEspecificos.Enabled = false;
+                    LV_CampusEspecificos.Items.Clear();
+                }
+                else
+                {
+                    btnGuardarCampus.Enabled = true;
+                    btnGuardarRoles.Enabled = true;
+                }
+            }
+            catch (System.Data.SyntaxErrorException error) { error.ToString(); }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LV_RVOE_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

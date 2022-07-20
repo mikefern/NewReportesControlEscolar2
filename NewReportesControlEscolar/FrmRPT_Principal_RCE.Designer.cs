@@ -38,6 +38,8 @@ namespace NewReportesControlEscolar
             this.btn3_ControlArchivos = new System.Windows.Forms.Button();
             this.btn7_RelacionIDReportes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.btn_GestionRCE = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.Restricciones = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -60,9 +62,8 @@ namespace NewReportesControlEscolar
             this.label1 = new System.Windows.Forms.Label();
             this.CB_Campus = new System.Windows.Forms.ComboBox();
             this.CB_Roles = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -74,7 +75,6 @@ namespace NewReportesControlEscolar
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Salir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // btn2_GestionReportes
@@ -185,7 +185,7 @@ namespace NewReportesControlEscolar
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panel1.Controls.Add(this.pictureBox11);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_GestionRCE);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.Restricciones);
             this.panel1.Controls.Add(this.pictureBox10);
@@ -211,6 +211,30 @@ namespace NewReportesControlEscolar
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 787);
             this.panel1.TabIndex = 57;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(12, 234);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 71;
+            this.pictureBox11.TabStop = false;
+            // 
+            // btn_GestionRCE
+            // 
+            this.btn_GestionRCE.FlatAppearance.BorderSize = 0;
+            this.btn_GestionRCE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GestionRCE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btn_GestionRCE.ForeColor = System.Drawing.Color.White;
+            this.btn_GestionRCE.Location = new System.Drawing.Point(56, 234);
+            this.btn_GestionRCE.Name = "btn_GestionRCE";
+            this.btn_GestionRCE.Size = new System.Drawing.Size(253, 49);
+            this.btn_GestionRCE.TabIndex = 69;
+            this.btn_GestionRCE.Text = "Pantalla de control de archivos control escolar";
+            this.btn_GestionRCE.UseVisualStyleBackColor = true;
+            this.btn_GestionRCE.Click += new System.EventHandler(this.btn_GestionRCE_Click);
             // 
             // pictureBox7
             // 
@@ -472,30 +496,6 @@ namespace NewReportesControlEscolar
             this.CB_Roles.Text = "14";
             this.CB_Roles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CB_Roles_KeyPress);
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(56, 234);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(253, 49);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "Pantalla de control de archivos control escolar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(12, 234);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(38, 37);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 71;
-            this.pictureBox11.TabStop = false;
-            // 
             // FrmRPT_Principal_RCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,6 +521,7 @@ namespace NewReportesControlEscolar
             this.Load += new System.EventHandler(this.Principal_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Principal_MouseDown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -532,7 +533,6 @@ namespace NewReportesControlEscolar
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Salir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,7 +569,7 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.ComboBox CB_Roles;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button Restricciones;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_GestionRCE;
         private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

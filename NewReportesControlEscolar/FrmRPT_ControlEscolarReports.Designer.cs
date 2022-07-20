@@ -450,7 +450,7 @@ namespace NewReportesControlEscolar
             this.pictureBox2.TabIndex = 89;
             this.pictureBox2.TabStop = false;
             // 
-            // FrmRPTControlEscolarReports
+            // FrmRPT_ControlEscolarReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -471,9 +471,8 @@ namespace NewReportesControlEscolar
             this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmRPTControlEscolarReports";
+            this.Name = "FrmRPT_ControlEscolarReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ID_RelCampus";
             this.Load += new System.EventHandler(this.FrmRPTControlEscolarReports_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmRPTControlEscolarReports_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_ReportesCE)).EndInit();
