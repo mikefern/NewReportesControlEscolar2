@@ -143,6 +143,12 @@ namespace NewReportesControlEscolar
             FrmAgregarRestriccionesReportesRol frmAgregarRestricciones = new FrmAgregarRestriccionesReportesRol();
             frmAgregarRestricciones.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmRPT_ControlEscolarReports frmGestionarReportesControl = new FrmRPT_ControlEscolarReports();
+            frmGestionarReportesControl.Show();
+        }
     }
 }
 

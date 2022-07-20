@@ -60,6 +60,8 @@ namespace NewReportesControlEscolar
             this.label1 = new System.Windows.Forms.Label();
             this.CB_Campus = new System.Windows.Forms.ComboBox();
             this.CB_Roles = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -72,6 +74,7 @@ namespace NewReportesControlEscolar
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // btn2_GestionReportes
@@ -96,7 +99,7 @@ namespace NewReportesControlEscolar
             this.btn5_AsignacionBotones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5_AsignacionBotones.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn5_AsignacionBotones.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn5_AsignacionBotones.Location = new System.Drawing.Point(56, 491);
+            this.btn5_AsignacionBotones.Location = new System.Drawing.Point(56, 585);
             this.btn5_AsignacionBotones.Name = "btn5_AsignacionBotones";
             this.btn5_AsignacionBotones.Size = new System.Drawing.Size(250, 43);
             this.btn5_AsignacionBotones.TabIndex = 51;
@@ -111,7 +114,7 @@ namespace NewReportesControlEscolar
             this.btn6_RestriccionesUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6_RestriccionesUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn6_RestriccionesUsuarios.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn6_RestriccionesUsuarios.Location = new System.Drawing.Point(56, 561);
+            this.btn6_RestriccionesUsuarios.Location = new System.Drawing.Point(56, 660);
             this.btn6_RestriccionesUsuarios.Name = "btn6_RestriccionesUsuarios";
             this.btn6_RestriccionesUsuarios.Size = new System.Drawing.Size(250, 40);
             this.btn6_RestriccionesUsuarios.TabIndex = 52;
@@ -126,7 +129,7 @@ namespace NewReportesControlEscolar
             this.btn4_AsignacionParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4_AsignacionParametros.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn4_AsignacionParametros.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn4_AsignacionParametros.Location = new System.Drawing.Point(62, 236);
+            this.btn4_AsignacionParametros.Location = new System.Drawing.Point(56, 302);
             this.btn4_AsignacionParametros.Name = "btn4_AsignacionParametros";
             this.btn4_AsignacionParametros.Size = new System.Drawing.Size(250, 40);
             this.btn4_AsignacionParametros.TabIndex = 53;
@@ -170,7 +173,7 @@ namespace NewReportesControlEscolar
             this.btn7_RelacionIDReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7_RelacionIDReportes.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn7_RelacionIDReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn7_RelacionIDReportes.Location = new System.Drawing.Point(56, 358);
+            this.btn7_RelacionIDReportes.Location = new System.Drawing.Point(56, 446);
             this.btn7_RelacionIDReportes.Name = "btn7_RelacionIDReportes";
             this.btn7_RelacionIDReportes.Size = new System.Drawing.Size(250, 40);
             this.btn7_RelacionIDReportes.TabIndex = 56;
@@ -181,6 +184,8 @@ namespace NewReportesControlEscolar
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.Restricciones);
             this.panel1.Controls.Add(this.pictureBox10);
@@ -204,13 +209,13 @@ namespace NewReportesControlEscolar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 686);
+            this.panel1.Size = new System.Drawing.Size(312, 787);
             this.panel1.TabIndex = 57;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(12, 637);
+            this.pictureBox7.Location = new System.Drawing.Point(12, 735);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(38, 37);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +229,7 @@ namespace NewReportesControlEscolar
             this.Restricciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Restricciones.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.Restricciones.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Restricciones.Location = new System.Drawing.Point(56, 634);
+            this.Restricciones.Location = new System.Drawing.Point(56, 735);
             this.Restricciones.Name = "Restricciones";
             this.Restricciones.Size = new System.Drawing.Size(253, 40);
             this.Restricciones.TabIndex = 69;
@@ -235,7 +240,7 @@ namespace NewReportesControlEscolar
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(12, 291);
+            this.pictureBox10.Location = new System.Drawing.Point(12, 378);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(38, 37);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -245,7 +250,7 @@ namespace NewReportesControlEscolar
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(12, 428);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 519);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(38, 37);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,7 +264,7 @@ namespace NewReportesControlEscolar
             this.btn9_RelacionNodoReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9_RelacionNodoReporte.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn9_RelacionNodoReporte.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn9_RelacionNodoReporte.Location = new System.Drawing.Point(56, 425);
+            this.btn9_RelacionNodoReporte.Location = new System.Drawing.Point(56, 516);
             this.btn9_RelacionNodoReporte.Name = "btn9_RelacionNodoReporte";
             this.btn9_RelacionNodoReporte.Size = new System.Drawing.Size(250, 40);
             this.btn9_RelacionNodoReporte.TabIndex = 66;
@@ -274,7 +279,7 @@ namespace NewReportesControlEscolar
             this.btn8_NuevosParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8_NuevosParametros.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btn8_NuevosParametros.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn8_NuevosParametros.Location = new System.Drawing.Point(56, 291);
+            this.btn8_NuevosParametros.Location = new System.Drawing.Point(56, 375);
             this.btn8_NuevosParametros.Name = "btn8_NuevosParametros";
             this.btn8_NuevosParametros.Size = new System.Drawing.Size(250, 40);
             this.btn8_NuevosParametros.TabIndex = 64;
@@ -285,7 +290,7 @@ namespace NewReportesControlEscolar
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(12, 358);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 446);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(38, 37);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -295,7 +300,7 @@ namespace NewReportesControlEscolar
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 564);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 663);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(38, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -305,7 +310,7 @@ namespace NewReportesControlEscolar
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 497);
+            this.pictureBox5.Location = new System.Drawing.Point(12, 591);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(38, 37);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -315,7 +320,7 @@ namespace NewReportesControlEscolar
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(12, 228);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 302);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(38, 37);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -362,7 +367,7 @@ namespace NewReportesControlEscolar
             this.btn_Reporteador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reporteador.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Reporteador.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_Reporteador.Location = new System.Drawing.Point(466, 438);
+            this.btn_Reporteador.Location = new System.Drawing.Point(466, 483);
             this.btn_Reporteador.Name = "btn_Reporteador";
             this.btn_Reporteador.Size = new System.Drawing.Size(296, 30);
             this.btn_Reporteador.TabIndex = 58;
@@ -375,7 +380,7 @@ namespace NewReportesControlEscolar
             this.lbl_Rol.AutoSize = true;
             this.lbl_Rol.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lbl_Rol.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_Rol.Location = new System.Drawing.Point(390, 341);
+            this.lbl_Rol.Location = new System.Drawing.Point(390, 398);
             this.lbl_Rol.Name = "lbl_Rol";
             this.lbl_Rol.Size = new System.Drawing.Size(28, 17);
             this.lbl_Rol.TabIndex = 61;
@@ -386,7 +391,7 @@ namespace NewReportesControlEscolar
             this.lbl_Campus.AutoSize = true;
             this.lbl_Campus.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lbl_Campus.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_Campus.Location = new System.Drawing.Point(390, 294);
+            this.lbl_Campus.Location = new System.Drawing.Point(390, 351);
             this.lbl_Campus.Name = "lbl_Campus";
             this.lbl_Campus.Size = new System.Drawing.Size(63, 17);
             this.lbl_Campus.TabIndex = 60;
@@ -397,7 +402,7 @@ namespace NewReportesControlEscolar
             this.lbl_Usuario.AutoSize = true;
             this.lbl_Usuario.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lbl_Usuario.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_Usuario.Location = new System.Drawing.Point(390, 248);
+            this.lbl_Usuario.Location = new System.Drawing.Point(390, 305);
             this.lbl_Usuario.Name = "lbl_Usuario";
             this.lbl_Usuario.Size = new System.Drawing.Size(54, 17);
             this.lbl_Usuario.TabIndex = 59;
@@ -409,7 +414,7 @@ namespace NewReportesControlEscolar
             this.txt_Usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Usuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Usuario.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_Usuario.Location = new System.Drawing.Point(466, 245);
+            this.txt_Usuario.Location = new System.Drawing.Point(466, 302);
             this.txt_Usuario.Multiline = true;
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(296, 30);
@@ -420,7 +425,7 @@ namespace NewReportesControlEscolar
             // 
             this.PB_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PB_Salir.Image = ((System.Drawing.Image)(resources.GetObject("PB_Salir.Image")));
-            this.PB_Salir.Location = new System.Drawing.Point(829, 640);
+            this.PB_Salir.Location = new System.Drawing.Point(829, 741);
             this.PB_Salir.Name = "PB_Salir";
             this.PB_Salir.Size = new System.Drawing.Size(30, 34);
             this.PB_Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -445,7 +450,7 @@ namespace NewReportesControlEscolar
             this.CB_Campus.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.CB_Campus.ForeColor = System.Drawing.Color.White;
             this.CB_Campus.FormattingEnabled = true;
-            this.CB_Campus.Location = new System.Drawing.Point(466, 291);
+            this.CB_Campus.Location = new System.Drawing.Point(466, 348);
             this.CB_Campus.MaxLength = 2;
             this.CB_Campus.Name = "CB_Campus";
             this.CB_Campus.Size = new System.Drawing.Size(296, 25);
@@ -459,7 +464,7 @@ namespace NewReportesControlEscolar
             this.CB_Roles.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.CB_Roles.ForeColor = System.Drawing.Color.White;
             this.CB_Roles.FormattingEnabled = true;
-            this.CB_Roles.Location = new System.Drawing.Point(466, 333);
+            this.CB_Roles.Location = new System.Drawing.Point(466, 390);
             this.CB_Roles.MaxLength = 2;
             this.CB_Roles.Name = "CB_Roles";
             this.CB_Roles.Size = new System.Drawing.Size(296, 25);
@@ -467,12 +472,36 @@ namespace NewReportesControlEscolar
             this.CB_Roles.Text = "14";
             this.CB_Roles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CB_Roles_KeyPress);
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(56, 234);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(253, 49);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "Pantalla de control de archivos control escolar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(12, 234);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 71;
+            this.pictureBox11.TabStop = false;
+            // 
             // FrmRPT_Principal_RCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(871, 686);
+            this.ClientSize = new System.Drawing.Size(871, 787);
             this.Controls.Add(this.CB_Roles);
             this.Controls.Add(this.CB_Campus);
             this.Controls.Add(this.label1);
@@ -503,6 +532,7 @@ namespace NewReportesControlEscolar
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,6 +569,8 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.ComboBox CB_Roles;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button Restricciones;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }
 

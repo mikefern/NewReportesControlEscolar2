@@ -894,8 +894,44 @@ namespace ProyectoLoboSostenido
 
         #endregion
         //----------------------------------------------------------------------------------------------------------------------------
+        #region FrmRPTControlEscolarReports
+        public bool GetDatosReportesControl()
+        {
+            string nomProce = "Reports_GetDatosReportesControl";
+            if (Consultar(nomProce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ReportesControlEscolar(string opt, /*string id_reporte,*/ string nodo, string nombre_reporte, string ID_RelCampus, string ID_RelRvoe, string ID_RelArchivo )
+        {
+            string nomStore = "Reports_RegistroReportesControl";
+            List<Clase_Parametros> par = new List<Clase_Parametros>
+            {
+                 new Clase_Parametros("Opt", opt),
+                 new Clase_Parametros("Nodo", nodo),
+                 new Clase_Parametros("NombreReporte",nombre_reporte),
+                 new Clase_Parametros("ID_RelCampus",ID_RelCampus),
+                 new Clase_Parametros("ID_RelRVOE",ID_RelRvoe),
+                 new Clase_Parametros("ID_RelArchivoReporte",ID_RelArchivo)
+               
+            };
+            if (ConsultarParametros(nomStore, par))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
-     
+
     public class Reportes: Clase_Conecta
     {
         #region Constructores
