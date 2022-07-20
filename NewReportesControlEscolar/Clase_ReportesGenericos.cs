@@ -69,12 +69,12 @@ namespace NewReportesControlEscolar
                 lv.Items.Add(item);
             }
         }
-        public bool checarPermiso(DataView dv, int comparar)
+        public bool checarPermiso(DataView dataview, int dato)
         {
-            for (int x = 0; x < dv.Table.Rows.Count; x++)
+            for (int x = 0; x < dataview.Table.Rows.Count; x++)
             {
-                int comparador = Convert.ToInt32(dv.Table.Rows[x][0]);
-                if (comparar == comparador)
+                int comparador = Convert.ToInt32(dataview.Table.Rows[x][0]);
+                if (dato == comparador)
                     return false;
             }
             return true;

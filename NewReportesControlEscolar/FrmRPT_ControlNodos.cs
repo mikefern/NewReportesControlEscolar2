@@ -615,7 +615,7 @@ namespace NewReportesControlEscolar
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            FrmRPT_EnlazarReporteNodos ern = new FrmRPT_EnlazarReporteNodos();
+            FrmRPT_EnlazarReporteNodos ern = new FrmRPT_EnlazarReporteNodos(TreeViewNodos.SelectedNode.Name);
             ern.Show();
         }
 

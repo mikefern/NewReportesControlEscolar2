@@ -3,6 +3,12 @@ using System;
 using System.Data; 
 using System.Runtime.InteropServices; 
 using System.Windows.Forms;
+using System.Drawing; 
+using System.Collections.Generic;
+using System.ComponentModel; 
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;  
 
 namespace NewReportesControlEscolar
 {
@@ -24,80 +30,80 @@ namespace NewReportesControlEscolar
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void lblCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         #endregion
         #region VARIABLES
         private Clase_ReportesCE clase_reportes;
             private Clase_ReportesCE ReportCE;
-            private Clase_ReportesGenericos gn = new Clase_ReportesGenericos();
+            private Clase_ReportesGenericos Genericos = new Clase_ReportesGenericos();
         #endregion
+
+        int count;
+        int CCC;
+        string[] nodosGuardados;
+        bool ItemChecheck = true;
+
+        private  ListView LV_RVOE_Temporal;
+        private  Clase_LitViewRVOE[] ArrayRVOEListView;
 
         public FrmRPT_AsignacionCampusReportes()
         {
             InitializeComponent();
         }
 
-        private void FrmAniadirEspecifiacionesReporte_Load(object sender, EventArgs e)
+        private void FrmRPT_AsignacionCampusReportes_Load(object sender, EventArgs e)
         {
-            gn.cargarCampus(lvCampus);
-            gn.cargarRoles(lvRoles);
-            cargarReportes();
-            
+
+            Genericos.cargarCampus(LV_Campus);
+            Genericos.cargarRoles(LV_Roles);
+            CargarReportes();
         }
 
-        private void cargarReportes()
+        private void CargarReportes()
         {
             clase_reportes = new Clase_ReportesCE();
             clase_reportes.GetReportesNodo("");
             if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
-              //  DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
-              //  gn.llenarlistview(lvReportes, dt);
                 DGV_Reportes.DataSource = clase_reportes.Lector.Tables[0];
-
                 DGV_Reportes.Columns[0].HeaderText = "ID"; 
-               DGV_Reportes.AutoResizeColumns();
+                DGV_Reportes.AutoResizeColumns();
                 DGV_Reportes.Columns[0].Width = 50;
             }
         }
-         
+
         private void DGV_Reportes_SelectionChanged(object sender, EventArgs e)
         {
-            if(DGV_Reportes.SelectedRows.Count > 0 )
+            if (DGV_Reportes.SelectedRows.Count > 0)
             {
-                lvCampus.Enabled = true;
-                lvRVOE.Enabled = true;
-                lvCampusEspecificos.Enabled = true;
-                cargarCampusReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
-                lvRVOE.Items.Clear();
-                lvRoles.Enabled = false;
+                LV_Campus.Enabled = true;
+                LV_RVOE.Enabled = true;
+                LV_CampusEspecificos.Enabled = true;
+
+                CargarCampusReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+
+                LV_RVOE.Items.Clear();
+                LV_Roles.Enabled = false;
                 btnGuardarRoles.Enabled = false;
                 btnGuardarRVOE.Enabled = false;
                 btnGuardarCampus.Enabled = true;
             }
         }
 
-        private void cargarCampusReportes(string id)
+        private void CargarCampusReportes(string Id_Reporte)
         {
-            lvCampusEspecificos.Items.Clear();
+            LV_CampusEspecificos.Items.Clear();
             clase_reportes = new Clase_ReportesCE();
-            clase_reportes.DMLRelCampusReporte("0",id,"0");
+            clase_reportes.DMLRelCampusReporte("0",Id_Reporte,"0");//Select 
             if (clase_reportes.Lector.Tables.Count > 0)
             {
                 DataView dt1 = new DataView(clase_reportes.Lector.Tables[0]);
-                gn.marcarnodos(lvCampus, dt1);
-                gn.llenarlistview(lvCampusEspecificos, dt1);
-            }
-        }
-
-        private void cargarRolesReportes(string id)
-        {
-
-            clase_reportes = new Clase_ReportesCE();
-            if (clase_reportes.DMLRelRolesReportes("0","0",lvCampusEspecificos.SelectedItems[0].SubItems[0].Text, id))
-            {
-                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
-                gn.marcarnodos(lvRoles, dt);
+                Genericos.marcarnodos(LV_Campus, dt1);
+                Genericos.llenarlistview(LV_CampusEspecificos, dt1);
             }
         }
 
@@ -105,13 +111,15 @@ namespace NewReportesControlEscolar
         {
             try
             {
-                if (lvCampusEspecificos.SelectedItems.Count > 0)
+                if (LV_CampusEspecificos.SelectedItems.Count > 0)
+                {
                     cargarRVOE();
-                lvRoles.Enabled = true;
+                }
+                LV_Roles.Enabled = true;
                 btnGuardarRoles.Enabled = true;
                 btnGuardarRVOE.Enabled = true;
-                 cargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
-                cargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+                CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+                //CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
             }
             catch
             {
@@ -119,20 +127,82 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void cargarRVOE()
+        private void CargarRolesReportes(string id_reporte)
         {
             clase_reportes = new Clase_ReportesCE();
-            clase_reportes.MostrarRVOESCampusReportes(lvCampusEspecificos.SelectedItems[0].SubItems[0].Text);
+            string id_campus = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
+            if (clase_reportes.DMLRelRolesReportes("0","0", id_campus, id_reporte))
+            {
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
+                Genericos.marcarnodos(LV_Roles, dt);
+            }
+        }
+
+
+        private void cargarRVOE()
+        {
+            string id_reporte = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+            string id_campus = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
+
+            /*clase_reportes = new Clase_ReportesCE();
+            clase_reportes.MostrarRVOESCampusReportes(id_campus);
+
             if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
             {
                 DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
-                gn.llenarlistview(lvRVOE, dt);
+                Genericos.llenarlistview(LV_RVOE, dt);
             }
+
             clase_reportes = new Clase_ReportesCE();
-            if(clase_reportes.DMLRVOEReportes("0",DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString(),"0", lvCampusEspecificos.SelectedItems[0].SubItems[0].Text))
+            if(clase_reportes.DMLRVOEReportes("0", id_reporte, "0", id_campus)) //consultar
             {
                 DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
-                gn.marcarnodos(lvRVOE, dt);
+                Genericos.marcarnodos(LV_RVOE, dt);
+            }*/
+
+            Cargar_Lista_RVOE(id_campus);
+
+            clase_reportes = new Clase_ReportesCE();
+            if (clase_reportes.DMLRVOEReportes("0", id_reporte, "0", id_campus)) //consultar
+            {
+                DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
+                Genericos.marcarnodos(LV_RVOE, dt);
+            }
+
+        }
+        /**********************************************************************************************************************************************/
+        private void Cargar_Lista_RVOE(string id_campus)
+        {
+
+            clase_reportes = new Clase_ReportesCE();
+            clase_reportes.MostrarRVOESCampusReportes(id_campus);
+            if (clase_reportes.Lector.Tables[0].Rows.Count > 0)
+            {
+                nodosGuardados = new string[clase_reportes.Lector.Tables[0].Rows.Count];
+                DataView dataview_lector = new DataView(clase_reportes.Lector.Tables[0]);
+                //asignamos variables inicio
+                count = 0;
+                //limpiar la Lista
+                LV_RVOE.Items.Clear();
+                //Creacion y Definicion de Tamaño
+                ArrayRVOEListView = new Clase_LitViewRVOE[clase_reportes.Lector.Tables[0].Rows.Count];
+                //recorremos los renglones de la info que llenaremos en la lista
+                foreach (DataRowView renglon in dataview_lector)
+                {
+                    string ID = renglon.Row[0].ToString();
+                    string Rvoe = renglon.Row[1].ToString();
+                    //en cada posicion del array le asignamos dicha informacion instanciada con la ClaseParaLista
+                    ArrayRVOEListView[count] = new Clase_LitViewRVOE { V_ID = ID, V_RVOE = Rvoe, };
+                    //incrementamos el count
+                    count = count + 1;
+                }
+                //llenamos el listview
+                foreach (Clase_LitViewRVOE item in ArrayRVOEListView)
+                {
+                    LV_RVOE.Items.Add(new ListViewItem(new[] { item.V_ID, item.V_RVOE }));
+                }
+
+                LV_RVOE_Temporal = LV_RVOE;
 
             }
         }
@@ -144,18 +214,18 @@ namespace NewReportesControlEscolar
                 if (DGV_Reportes.SelectedRows[0] != null)
                 {
                     ReportCE = new Clase_ReportesCE();
-                    string id = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
-                    ReportCE.DMLRelCampusReporte("0",id,"0");
-                    clase_reportes = new Clase_ReportesCE();
+                    string id_reporte = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                    ReportCE.DMLRelCampusReporte("0",id_reporte,"0");
 
-                    for (int i = 0; i < lvCampus.Items.Count; i++)
+                    clase_reportes = new Clase_ReportesCE();
+                    for (int i = 0; i < LV_Campus.Items.Count; i++)
                     {
                         string reporte = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
-                        string campus = lvCampus.Items[i].Text;
-                        if (lvCampus.Items[i].Checked == true)
+                        string campus = LV_Campus.Items[i].Text;
+                        if (LV_Campus.Items[i].Checked == true)
                         {
                             DataView dv = new DataView(ReportCE.Lector.Tables[0]);
-                            if (gn.checarPermiso(dv, Convert.ToInt32(campus)))
+                            if (Genericos.checarPermiso(dv, Convert.ToInt32(campus)))
                                 clase_reportes.DMLRelCampusReporte("1",reporte, campus);
                         }
                         else
@@ -163,8 +233,8 @@ namespace NewReportesControlEscolar
 
                     }
                     MessageBox.Show("Se han guardado los campus del reporte", "Completado", MessageBoxButtons.OK);
-                    cargarCampusReportes(id);
-                    lvRoles.Enabled = false;
+                    CargarCampusReportes(id_reporte);
+                    LV_Roles.Enabled = false;
                     btnGuardarRoles.Enabled = false;
                     btnGuardarRVOE.Enabled = false;
                 }else MessageBox.Show("Selecciona un Reporte", "Alto", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -180,23 +250,23 @@ namespace NewReportesControlEscolar
             try
             {
                 ReportCE = new Clase_ReportesCE();
-                string id = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
+                string id = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 string repo = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
                 ReportCE.DMLRelRolesReportes("0","0",id,repo);
                 clase_reportes = new Clase_ReportesCE();
                 
-                for(int i=0;i<lvRoles.Items.Count; i++)
+                for(int i=0;i<LV_Roles.Items.Count; i++)
                 {
 
-                    string rol = lvRoles.Items[i].Text;
+                    string rol = LV_Roles.Items[i].Text;
 
                     if (Convert.ToInt32(rol) == 14 || Convert.ToInt32(rol) == 16)
-                        lvRoles.Items[i].Checked = true;
+                        LV_Roles.Items[i].Checked = true;
 
-                    if (lvRoles.Items[i].Checked == true)
+                    if (LV_Roles.Items[i].Checked == true)
                     {
                         DataView dv = new DataView(ReportCE.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(rol)))
+                        if (Genericos.checarPermiso(dv, Convert.ToInt32(rol)))
                             clase_reportes.DMLRelRolesReportes("1",rol, id, repo);
                     }
                     else
@@ -210,29 +280,61 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void btnGuardarRVOE_Click(object sender, EventArgs e)
+        private void btnGuardarRVOE_Click(object sender, EventArgs exx)
         {
             try
             {
+                string Id_Reporte = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                string id_campus = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
                 ReportCE = new Clase_ReportesCE();
-                string id = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
-                string campus = lvCampusEspecificos.SelectedItems[0].SubItems[0].Text;
-                ReportCE.DMLRVOEReportes("0",id,"0", campus);
-                clase_reportes = new Clase_ReportesCE();
+                ReportCE.DMLRVOEReportes("0",Id_Reporte,"0", id_campus);
 
-                for (int i = 0; i < lvRVOE.Items.Count; i++)
+                clase_reportes = new Clase_ReportesCE();
+ 
+                Anadir_Array_RVOE_Checados();
+
+                string cadena_Rvoes = "";
+                cadena_Rvoes = String.Join(",", nodosGuardados).Replace(",,","");
+                if (cadena_Rvoes.Length > 0)
                 {
-                    string rvoe = lvRVOE.Items[i].Text;
-                    if (lvRVOE.Items[i].Checked == true)
+                    if (cadena_Rvoes.Substring(cadena_Rvoes.Length - 1)== ",")
                     {
-                        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
-                        if (gn.checarPermiso(dv, Convert.ToInt32(rvoe)))
-                            clase_reportes.DMLRVOEReportes("1",id, rvoe,"0");
+                        cadena_Rvoes = cadena_Rvoes.Remove(cadena_Rvoes.Length - 1);
                     }
-                    else
-                        clase_reportes.DMLRVOEReportes("2", id, rvoe,"0");
                 }
+
+                clase_reportes.DMLRVOEReportes("1", Id_Reporte, cadena_Rvoes, "0");
+
+                //---------------------------------------------
+                //for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                //{
+                //    string rvoe = LV_RVOE.Items[i].Text;
+                //    if (LV_RVOE.Items[i].Checked == true)
+                //    {
+                //        DataView dv = new DataView(ReportCE.Lector.Tables[0]);
+                //        //if (Genericos.checarPermiso(dv, Convert.ToInt32(rvoe)))
+                //            //clase_reportes.DMLRVOEReportes("1",Id_Reportes, rvoe,"0"); //insert 
+                //    }
+                //    //aqui es donde voy a eliminar todos (sin filtro) excepto los que estan en el array
+                //    //else
+                //      //  clase_reportes.DMLRVOEReportes("2", Id_Reportes, rvoe,"0"); //Delete
+                //}
+
+
+
+
                 MessageBox.Show("Se han guardado los RVOE del reporte", "Completado", MessageBoxButtons.OK);
+                txt_BuscadorRVOE.Text = "";
+                txt_BuscadorRVOE.Text = "Buscador...";
+                txt_BuscadorRVOE.ForeColor = Color.Silver;
+
+                cargarRVOE();
+                //clase_reportes = new Clase_ReportesCE();
+                //if (clase_reportes.DMLRVOEReportes("0", Id_Reporte, "0", id_campus)) //consultar
+                //{
+                //    DataView dt = new DataView(clase_reportes.Lector.Tables[0]);
+                //    Genericos.marcarnodos(LV_RVOE, dt);
+                //}
 
             }
             catch (Exception ex)
@@ -246,18 +348,7 @@ namespace NewReportesControlEscolar
             FrmRPT_RestriccionesRolReportes rr = new FrmRPT_RestriccionesRolReportes();
             rr.Show();
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-            Dispose();
-            Close();
-        }
-         
-        private void label6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+                 
         private void txt_Buscador_TextChanged_1(object sender, EventArgs e)
         {
             try
@@ -269,16 +360,16 @@ namespace NewReportesControlEscolar
                     btnGuardarCampus.Enabled = false;
                     btnGuardarRoles.Enabled = false;
 
-                    for (int i = 0; i < lvCampus.Items.Count; i++)
-                        lvCampus.Items[i].Checked = false;
-                    lvCampus.Enabled = false;
+                    for (int i = 0; i < LV_Campus.Items.Count; i++)
+                        LV_Campus.Items[i].Checked = false;
+                    LV_Campus.Enabled = false;
 
-                    for (int i = 0; i < lvRVOE.Items.Count; i++) 
-                        lvRVOE.Items[i].Checked = false;
-                    lvRVOE.Enabled = false;
+                    for (int i = 0; i < LV_RVOE.Items.Count; i++) 
+                        LV_RVOE.Items[i].Checked = false;
+                    LV_RVOE.Enabled = false;
 
-                    lvCampusEspecificos.Enabled = false;
-                    lvCampusEspecificos.Items.Clear();
+                    LV_CampusEspecificos.Enabled = false;
+                    LV_CampusEspecificos.Items.Clear();
                 }
                 else
                 {
@@ -289,6 +380,177 @@ namespace NewReportesControlEscolar
             catch (System.Data.SyntaxErrorException error) { error.ToString(); }
         }
 
-        
+       
+
+        class Clase_LitViewRVOE
+        {
+            public string V_ID { get; set; }
+
+            public string V_RVOE { get; set; }
+        }
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (txt_BuscadorRVOE.Text.Trim() == "" || txt_BuscadorRVOE.Text.Trim() == "Buscador...")
+            {
+                txt_BuscadorRVOE.Text = "";
+            }
+        }
+
+        private void txt_BuscadorRVOE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txt_BuscadorRVOE.ForeColor = Color.Black;
+        }
+
+        private void txt_BuscadorRVOE_Leave(object sender, EventArgs e)
+        {
+            if (txt_BuscadorRVOE.Text.Trim() == "" || txt_BuscadorRVOE.Text.Trim() == "Buscador...")
+            {
+                txt_BuscadorRVOE.Text = "Buscador...";
+                txt_BuscadorRVOE.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txt_BuscadorRVOE_TextChanged(object sender, EventArgs e)
+        {
+            if (!txt_BuscadorRVOE.Text.Trim().Equals("Buscador...") )
+            {
+                if (nodosGuardados == null)
+                {
+                    nodosGuardados = new string[clase_reportes.Lector.Tables[0].Rows.Count];
+                }
+                CCC = 0;
+                //------------------------------------------
+                //1 - Guardamos Los Id que esten Chequeados
+                Anadir_Array_RVOE_Checados();
+                //---------------------------------------------
+                //2 - Ejecutamos la busqueda
+                ItemChecheck = false;
+                SearchData(txt_BuscadorRVOE.Text.Trim());
+                ItemChecheck = true;
+                //-------------------------------------------
+                //3 - poner los checks previamente guardados de nuevo en true o false
+                for (int x = 0; x < LV_RVOE.Items.Count; x++)
+                {
+                    string id_rvoe_actual = LV_RVOE.Items[x].Text;
+
+                    for (int y = 0; y < nodosGuardados.Length; y++)
+                    {
+                        if (nodosGuardados[y] != null)
+                        {
+                            string id_rvoe_guardado = nodosGuardados[y].ToString();
+
+                            if (id_rvoe_guardado == id_rvoe_actual)
+                            {
+                                LV_RVOE.Items[x].Checked = true;
+                            }
+                        }
+                    }
+                }
+                //----------------------------------------------------
+
+            }
+        }
+
+        public void Anadir_Array_RVOE_Checados()
+        {
+            for (int y = 0; y < LV_RVOE.Items.Count; y++)
+            {
+                if (LV_RVOE.Items[y].Checked)
+                {
+                    if (nodosGuardados[CCC] == null)
+                    {
+                        nodosGuardados[CCC] = LV_RVOE.Items[y].Text;
+                    }
+                    else
+                    {
+                        if (!nodosGuardados.Contains(LV_RVOE.Items[y].Text))
+                        {
+                            while (nodosGuardados[CCC] != null)
+                            {
+                                CCC = CCC + 1;
+                            }
+                            nodosGuardados[CCC] = LV_RVOE.Items[y].Text;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void SearchData(string texto)
+        {
+            LV_RVOE.Items.Clear();
+            if (ArrayRVOEListView != null)
+            {
+                foreach (Clase_LitViewRVOE item in ArrayRVOEListView)
+                {
+                    if (item.V_RVOE.ToLower().Contains(texto.ToLower()))
+                    {
+                        LV_RVOE.Items.Add(new ListViewItem(new[] { item.V_ID, item.V_RVOE }));
+                    }
+                }
+            }
+        }
+
+        private void LV_RVOE_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (ItemChecheck)
+            {
+                if (!e.Item.Checked)
+                {
+                    if (nodosGuardados != null)
+                    {
+                        string id_rvoe_Actual = e.Item.Text.ToString();
+                        for (int i = 0; i < nodosGuardados.Length; i++)
+                        {
+                            if (nodosGuardados[i] == id_rvoe_Actual)
+                            {
+                                nodosGuardados[i] = null;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < LV_CampusEspecificos.Items.Count; i++)
+            {
+                LV_CampusEspecificos.Items[i].Selected = true;
+
+                try
+                {
+                    ReportCE = new Clase_ReportesCE();
+                    string id = LV_CampusEspecificos.SelectedItems[0].SubItems[0].Text;
+                    string repo = DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString();
+                    ReportCE.DMLRelRolesReportes("0", "0", id, repo);
+                    clase_reportes = new Clase_ReportesCE();
+
+                    for (int x = 0; x < LV_Roles.Items.Count; x++)
+                    {
+
+                        string rol = LV_Roles.Items[x].Text;
+
+                        if (Convert.ToInt32(rol) == 14 || Convert.ToInt32(rol) == 16)
+                            LV_Roles.Items[x].Checked = true;
+
+                        if (LV_Roles.Items[x].Checked == true)
+                        {
+                            DataView dv = new DataView(ReportCE.Lector.Tables[0]);
+                            if (Genericos.checarPermiso(dv, Convert.ToInt32(rol)))
+                                clase_reportes.DMLRelRolesReportes("1", rol, id, repo);
+                        }
+                        else
+                            clase_reportes.DMLRelRolesReportes("2", rol, id, repo);
+                    }
+                    MessageBox.Show("Se han guardado los roles del reporte", "Completado", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
     }
 }

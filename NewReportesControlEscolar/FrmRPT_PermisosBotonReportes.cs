@@ -118,7 +118,7 @@ namespace ProyectoLoboSostenido
                 try
                 {
                     pr = new Clase_ReportesCE();
-                    if (pr.DML_PermisosVerReportes("0","0,",cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
+                    if (pr.DML_PermisosVerReportes("0","0",cbRoles.SelectedValue.ToString(), cbCampus.SelectedValue.ToString()))
                     {
                         DataView dt = new DataView(pr.Lector.Tables[0]);
                         gn.marcarnodos(lvPermisos, dt);

@@ -994,14 +994,49 @@ namespace ProyectoLoboSostenido
                 reportes.DetalleArchivoReporte(TIPO_EXISTE, "", txtNombreArchivo.Text.Trim(), "", "", "", "", "", "", "", "");
                 if (reportes.Lector.Tables[0].Rows.Count > 0 && V_NombreArchivo != txtNombreArchivo.Text.Trim())
                 {
-                    MessageBox.Show("Ya existe un archivo con el mismo Nombre en la base de datos, porfavor Cambie de nombre o modifique el archivo ya existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
+                    string soloRuta = "";
+                    string rutafinal = "";
+                    soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+                    rutafinal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+
+                    if (File.Exists(rutafinal))
+                    {
+                        string rutaOrigen = txtRuta.Text.Trim();
+                        if (MessageBox.Show("El Registro ya existe en BD pero puedes reemplazar el Archivo ubicado en : " + rutafinal + "\npor el archivo: " + rutaOrigen + "\n ¿deseas Sobreescribir el Archivo ? ", "Alto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            File.Copy(rutaOrigen, rutafinal, true);
+
+                        }
+                        else return;
+
+                    }
+                    else
+                    {
+                        string rutaOrigen = txtRuta.Text.Trim();
+
+                        if (MessageBox.Show("El Registro ya existe en BD pero puedes Copiar el Archivo:" + rutaOrigen + "\n para que quede en:" + rutafinal + "\n  ¿deseas Copiar el Archivo ? ", "Alto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            File.Copy(rutaOrigen, rutafinal, true);
+                        }
+                        else return;
+                    }
+                    //    MessageBox.Show("Ya existe un archivo con el mismo Nombre en la base de datos, porfavor Cambie de nombre o modifique el archivo ya existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    //return;
                 }
                 else
                 {
-                    if (MessageBox.Show("Esta Seguro de Crear una copia del Archivo ubicado en:\n" + V_Ruta + "'\n" + "" + "para que finalmente quede en la ubicacion :\n" + "'" + txtRuta.Text.Trim() + "'", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    string soloRuta = "";
+                    string rutaReal = "";
+                    if (File.Exists(V_Ruta))
                     {
-                        if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), txtRuta.Text, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
+                        soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+                        rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+                    }
+                    else rutaReal = txtRuta.Text;
+
+                        if (MessageBox.Show("Esta Seguro de Crear una copia del Archivo ubicado en:\n" + V_Ruta + "'\n" + "" + "para que finalmente quede en la ubicacion :\n" + "'" + rutaReal + "'", "Espera", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                        if (reportes.DetalleArchivoReporte(TIPO_INSERCION, txtIDReporte.Text, txtNombreArchivo.Text, CB_Extension.SelectedItem.ToString(), rutaReal, FechaActual.ToString(), FechaActual.ToString(), FechaActual.ToString(), txtDescripcionModificaciones.Text, Clase_Sesion.IDEmpleado, txtPeso.Text) == true)
                         {
                             if (reportes.Lector.Tables[0].Rows.Count > 0)
                             {
@@ -1014,8 +1049,8 @@ namespace ProyectoLoboSostenido
                         }
                         if (File.Exists(V_Ruta))
                         {
-                            string soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
-                            string rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
+                             soloRuta = Path.GetDirectoryName(txtRuta.Text.Trim());
+                             rutaReal = soloRuta + "\\" + txtNombreArchivo.Text + CB_Extension.SelectedItem.ToString();
                             if (V_Ruta != rutaReal) CopiarArchivo(V_Ruta, rutaReal);
                         }
                         else

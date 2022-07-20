@@ -1046,17 +1046,6 @@ namespace ProyectoLoboSostenido
             Reportes consu = new Reportes();
             consu.Consulta_Versiones_Reportes(reporte);
             report2 = consu.Lector.Tables[0].Rows[0][0].ToString();
-            if (report2 == reporte)
-            {
-                System.IO.File.Copy(@"\\189.197.190.214\Sistemas\Reportes\" + reporte + ".frx", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".frx", true);
-            }
-            else
-            {
-                if (!System.IO.File.Exists(@"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".frx"))
-                {
-                    System.IO.File.Copy(@"\\189.197.190.214\Sistemas\Reportes\" + reporte + ".frx", @"C:\LoboONE\LoboOne\LoboOne\Reportes\" + reporte + ".frx", true);
-                }
-            }
             Thread.Sleep(3000);
         }
         public void ReporteFRX2(string reporte2, string recibo2)
