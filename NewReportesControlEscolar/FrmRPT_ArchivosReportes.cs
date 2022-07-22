@@ -140,7 +140,7 @@ namespace ProyectoLoboSostenido
 
             DGV_Reportes.DataSource = clase_reportes.Lector.Tables[0];
             DGV_Reportes.AllowUserToResizeRows = false;
-            DGV_Reportes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+           // DGV_Reportes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_Reportes.AllowUserToAddRows = false;
             DGV_Reportes.AutoResizeColumns();
             foreach (DataGridViewColumn column in DGV_Reportes.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -158,7 +158,7 @@ namespace ProyectoLoboSostenido
 
             txt_Buscador.Text = "Buscador...";
             txt_Buscador.ForeColor = Color.Silver;
-          
+             
 
             cambioRadioButton = true;
             if (RB_Creacion.Checked)
@@ -689,6 +689,12 @@ namespace ProyectoLoboSostenido
             try
             {
                 File.Move(fullPath, nombreNuevo);
+                if(fullPath.Substring(fullPath.Length-3,3) =="rpt")
+                {
+                    File.Move(fullPath.Replace("rpt","cs"), nombreNuevo);
+                }
+                 
+
                 return true;
             }
             catch(System.IO.IOException error)

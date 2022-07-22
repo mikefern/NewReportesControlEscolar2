@@ -303,7 +303,7 @@ namespace NewReportesControlEscolar
                     }
                 }
 
-                clase_reportes.DMLRVOEReportes("1", Id_Reporte, cadena_Rvoes, "0");
+                clase_reportes.DMLRVOEReportes("1", Id_Reporte, cadena_Rvoes,LV_CampusEspecificos.SelectedItems[0].Text);
 
                 //---------------------------------------------
                 //for (int i = 0; i < LV_RVOE.Items.Count; i++)
