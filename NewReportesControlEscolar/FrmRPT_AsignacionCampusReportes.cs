@@ -1,14 +1,10 @@
-﻿using ProyectoLoboSostenido;
-using System; 
+﻿using System; 
 using System.Data; 
 using System.Runtime.InteropServices; 
 using System.Windows.Forms;
-using System.Drawing; 
-using System.Collections.Generic;
-using System.ComponentModel; 
+using System.Drawing;  
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;  
+using ProyectoLoboSostenido;
 
 namespace NewReportesControlEscolar
 {
@@ -118,7 +114,10 @@ namespace NewReportesControlEscolar
                 LV_Roles.Enabled = true;
                 btnGuardarRoles.Enabled = true;
                 btnGuardarRVOE.Enabled = true;
+                txt_BuscadorRVOE.Text = "Buscador...";
+                txt_BuscadorRVOE.ForeColor = Color.Silver;
                 CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
+
                 //CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
             }
             catch
@@ -294,7 +293,7 @@ namespace NewReportesControlEscolar
                 Anadir_Array_RVOE_Checados();
 
                 string cadena_Rvoes = "";
-                cadena_Rvoes = String.Join(",", nodosGuardados).Replace(",,","");
+                cadena_Rvoes = String.Join(",", nodosGuardados.Where(s => !string.IsNullOrEmpty(s))).Replace(",,","");
                 if (cadena_Rvoes.Length > 0)
                 {
                     if (cadena_Rvoes.Substring(cadena_Rvoes.Length - 1)== ",")
@@ -585,6 +584,19 @@ namespace NewReportesControlEscolar
         private void LV_RVOE_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CB_Maestria_CheckedChanged(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            for (int y = 0; y < LV_RVOE.Items.Count; y++)
+            {
+                LV_RVOE.Items[y].Checked = true;
+            }
         }
     }
 }
