@@ -44,7 +44,7 @@ namespace NewReportesControlEscolar
         public FrmRPT_EnlazarReporteNodos(string index)
         {
             InitializeComponent();
-            this.index = index;
+            this.index = index; 
         }
 
         IEnumerable<TreeNode> Collect(TreeNodeCollection nodes)
@@ -78,6 +78,7 @@ namespace NewReportesControlEscolar
                 {
                     TreeViewNodos.SelectedNode = node;
                     cargarReportesnodos(node.Name);
+                    txtNodoSeleccionado.Text =node.ToString().Replace("TreeNode: ", "");
                     break;
                 }
             }
@@ -231,23 +232,20 @@ namespace NewReportesControlEscolar
         private void TreeViewNodos_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             cargarReportesnodos(e.Node.Name);
+            txtNodoSeleccionado.Text = e.Node.ToString().Replace("TreeNode: ","");
         }
 
         private void cargarReportesnodos(string nodo)
         {
             try
             {
+                
                 ReportesCe_NombresReportes = new Clase_ReportesCE();
                 ReportesCe_NombresReportes.GetReportesNodo(nodo);
                 if (ReportesCe_NombresReportes.Lector.Tables.Count > 0)
                 {
                     DataView DataView_NombresReportes = new DataView(ReportesCe_NombresReportes.Lector.Tables[0]);
                     gn.llenarlistview(lvReportesNodo, DataView_NombresReportes);
-
-                    //gn.marcarnodos(lvReportes, dt);
-
-
-                    //---
                     PonerTodoSinCheck();
 
                     foreach (DataRowView dataRenglon in DataView_NombresReportes) //recorremos los nodos que devuelve la consulta para que traego los reportes que esta relacionado al nodo
@@ -284,16 +282,12 @@ namespace NewReportesControlEscolar
                         //        }
                         //    }
                         //}
-
-
-                        //-----
-                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error SQL", MessageBoxButtons.OK);
             }
-
         }
 
         public void PonerTodoSinCheck()
@@ -309,11 +303,7 @@ namespace NewReportesControlEscolar
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Dispose();
-            Close();
-        }
+         
 
         private void txt_Buscador_TextChanged(object sender, EventArgs e)
         {
@@ -399,6 +389,12 @@ namespace NewReportesControlEscolar
                 this.DGV_Reportes.NotifyCurrentCellDirty(true);
                 
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            this.Close();
         }
     }
 }

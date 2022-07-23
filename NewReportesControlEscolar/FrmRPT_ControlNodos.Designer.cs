@@ -598,8 +598,7 @@ namespace NewReportesControlEscolar
             this.Name = "FrmRPT_ControlNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Nodos de Reporte Escolar";
-            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGestionNodos_MouseDown);
+            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load); 
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

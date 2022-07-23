@@ -29,9 +29,9 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionCampusReportes));
             this.LV_Campus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -119,7 +119,7 @@ namespace NewReportesControlEscolar
             this.LV_CampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.LV_CampusEspecificos.HideSelection = false;
             this.LV_CampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.LV_CampusEspecificos.Location = new System.Drawing.Point(318, 22);
             this.LV_CampusEspecificos.Name = "LV_CampusEspecificos";
             this.LV_CampusEspecificos.Size = new System.Drawing.Size(373, 366);
@@ -193,16 +193,17 @@ namespace NewReportesControlEscolar
             // 
             // btnUsuariosReportesw
             // 
+            this.btnUsuariosReportesw.BackColor = System.Drawing.Color.Gold;
             this.btnUsuariosReportesw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsuariosReportesw.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnUsuariosReportesw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuariosReportesw.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnUsuariosReportesw.Location = new System.Drawing.Point(60, 934);
+            this.btnUsuariosReportesw.Location = new System.Drawing.Point(69, 901);
             this.btnUsuariosReportesw.Name = "btnUsuariosReportesw";
             this.btnUsuariosReportesw.Size = new System.Drawing.Size(268, 30);
             this.btnUsuariosReportesw.TabIndex = 8;
             this.btnUsuariosReportesw.Text = "Asignación de Restricciones al Usuario";
-            this.btnUsuariosReportesw.UseVisualStyleBackColor = true;
+            this.btnUsuariosReportesw.UseVisualStyleBackColor = false;
             this.btnUsuariosReportesw.Click += new System.EventHandler(this.btnUsuariosReportesw_Click);
             // 
             // panel1
@@ -259,27 +260,27 @@ namespace NewReportesControlEscolar
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.AllowUserToResizeRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.MintCream;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Location = new System.Drawing.Point(38, 101);
             this.DGV_Reportes.MultiSelect = false;
             this.DGV_Reportes.Name = "DGV_Reportes";
             this.DGV_Reportes.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Reportes.RowHeadersVisible = false;
             this.DGV_Reportes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -313,7 +314,7 @@ namespace NewReportesControlEscolar
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(33, 847);
+            this.label7.Location = new System.Drawing.Point(33, 823);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(304, 36);
             this.label7.TabIndex = 81;
@@ -326,7 +327,7 @@ namespace NewReportesControlEscolar
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(33, 796);
+            this.label5.Location = new System.Drawing.Point(33, 780);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(304, 36);
             this.label5.TabIndex = 80;
@@ -339,7 +340,7 @@ namespace NewReportesControlEscolar
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(33, 744);
+            this.label4.Location = new System.Drawing.Point(33, 737);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(304, 36);
             this.label4.TabIndex = 79;
@@ -445,7 +446,7 @@ namespace NewReportesControlEscolar
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(24, 931);
+            this.pictureBox3.Location = new System.Drawing.Point(33, 901);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
