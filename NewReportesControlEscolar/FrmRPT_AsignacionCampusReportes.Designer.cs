@@ -29,9 +29,9 @@ namespace NewReportesControlEscolar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPT_AsignacionCampusReportes));
             this.LV_Campus = new System.Windows.Forms.ListView();
             this.ID_Campus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,6 +55,13 @@ namespace NewReportesControlEscolar
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_BuscadorRVOE = new System.Windows.Forms.TextBox();
+            this.btnGuardarRVOE = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LV_RVOE = new System.Windows.Forms.ListView();
+            this.ID_RVOE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RVOE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -64,23 +71,20 @@ namespace NewReportesControlEscolar
             this.lblCerrar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.LV_RVOE = new System.Windows.Forms.ListView();
-            this.ID_RVOE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RVOE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnGuardarRVOE = new System.Windows.Forms.Button();
-            this.txt_BuscadorRVOE = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CB_Maestria = new System.Windows.Forms.CheckBox();
+            this.CB_Doctorado = new System.Windows.Forms.CheckBox();
+            this.CB_Other = new System.Windows.Forms.CheckBox();
+            this.CB_All_None = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // LV_Campus
@@ -115,7 +119,7 @@ namespace NewReportesControlEscolar
             this.LV_CampusEspecificos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.LV_CampusEspecificos.HideSelection = false;
             this.LV_CampusEspecificos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem2});
             this.LV_CampusEspecificos.Location = new System.Drawing.Point(318, 22);
             this.LV_CampusEspecificos.Name = "LV_CampusEspecificos";
             this.LV_CampusEspecificos.Size = new System.Drawing.Size(373, 366);
@@ -255,27 +259,27 @@ namespace NewReportesControlEscolar
             this.DGV_Reportes.AllowUserToDeleteRows = false;
             this.DGV_Reportes.AllowUserToResizeRows = false;
             this.DGV_Reportes.BackgroundColor = System.Drawing.Color.MintCream;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Reportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Reportes.Location = new System.Drawing.Point(38, 101);
             this.DGV_Reportes.MultiSelect = false;
             this.DGV_Reportes.Name = "DGV_Reportes";
             this.DGV_Reportes.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Reportes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Reportes.RowHeadersVisible = false;
             this.DGV_Reportes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -352,6 +356,90 @@ namespace NewReportesControlEscolar
             this.label3.Size = new System.Drawing.Size(304, 36);
             this.label3.TabIndex = 78;
             this.label3.Text = "Paso 1. Elija el reporte al que asignará el Campus y Rol.";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.CB_All_None);
+            this.groupBox4.Controls.Add(this.CB_Other);
+            this.groupBox4.Controls.Add(this.CB_Doctorado);
+            this.groupBox4.Controls.Add(this.CB_Maestria);
+            this.groupBox4.Controls.Add(this.txt_BuscadorRVOE);
+            this.groupBox4.Controls.Add(this.btnGuardarRVOE);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.LV_RVOE);
+            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.groupBox4.Location = new System.Drawing.Point(674, 498);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(386, 438);
+            this.groupBox4.TabIndex = 64;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Asignación de RVOE según el Campus";
+            // 
+            // txt_BuscadorRVOE
+            // 
+            this.txt_BuscadorRVOE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BuscadorRVOE.ForeColor = System.Drawing.Color.Silver;
+            this.txt_BuscadorRVOE.Location = new System.Drawing.Point(6, 22);
+            this.txt_BuscadorRVOE.Name = "txt_BuscadorRVOE";
+            this.txt_BuscadorRVOE.Size = new System.Drawing.Size(373, 22);
+            this.txt_BuscadorRVOE.TabIndex = 80;
+            this.txt_BuscadorRVOE.Text = "Buscador...";
+            this.txt_BuscadorRVOE.Click += new System.EventHandler(this.textBox1_Click);
+            this.txt_BuscadorRVOE.TextChanged += new System.EventHandler(this.txt_BuscadorRVOE_TextChanged);
+            this.txt_BuscadorRVOE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_BuscadorRVOE_KeyPress);
+            this.txt_BuscadorRVOE.Leave += new System.EventHandler(this.txt_BuscadorRVOE_Leave);
+            // 
+            // btnGuardarRVOE
+            // 
+            this.btnGuardarRVOE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarRVOE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnGuardarRVOE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarRVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardarRVOE.Location = new System.Drawing.Point(37, 402);
+            this.btnGuardarRVOE.Name = "btnGuardarRVOE";
+            this.btnGuardarRVOE.Size = new System.Drawing.Size(120, 30);
+            this.btnGuardarRVOE.TabIndex = 7;
+            this.btnGuardarRVOE.Text = "Guardar RVOE";
+            this.btnGuardarRVOE.UseVisualStyleBackColor = true;
+            this.btnGuardarRVOE.Click += new System.EventHandler(this.btnGuardarRVOE_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 405);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
+            // LV_RVOE
+            // 
+            this.LV_RVOE.CheckBoxes = true;
+            this.LV_RVOE.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID_RVOE,
+            this.RVOE});
+            this.LV_RVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.LV_RVOE.HideSelection = false;
+            this.LV_RVOE.Location = new System.Drawing.Point(6, 72);
+            this.LV_RVOE.Name = "LV_RVOE";
+            this.LV_RVOE.Size = new System.Drawing.Size(373, 328);
+            this.LV_RVOE.TabIndex = 3;
+            this.LV_RVOE.UseCompatibleStateImageBehavior = false;
+            this.LV_RVOE.View = System.Windows.Forms.View.Details;
+            this.LV_RVOE.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LV_RVOE_ItemChecked);
+            this.LV_RVOE.SelectedIndexChanged += new System.EventHandler(this.LV_RVOE_SelectedIndexChanged);
+            // 
+            // ID_RVOE
+            // 
+            this.ID_RVOE.Text = "ID";
+            this.ID_RVOE.Width = 65;
+            // 
+            // RVOE
+            // 
+            this.RVOE.Text = "RVOE";
+            this.RVOE.Width = 312;
             // 
             // pictureBox3
             // 
@@ -459,84 +547,53 @@ namespace NewReportesControlEscolar
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
-            // LV_RVOE
+            // CB_Maestria
             // 
-            this.LV_RVOE.CheckBoxes = true;
-            this.LV_RVOE.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID_RVOE,
-            this.RVOE});
-            this.LV_RVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.LV_RVOE.HideSelection = false;
-            this.LV_RVOE.Location = new System.Drawing.Point(6, 50);
-            this.LV_RVOE.Name = "LV_RVOE";
-            this.LV_RVOE.Size = new System.Drawing.Size(373, 350);
-            this.LV_RVOE.TabIndex = 3;
-            this.LV_RVOE.UseCompatibleStateImageBehavior = false;
-            this.LV_RVOE.View = System.Windows.Forms.View.Details;
-            this.LV_RVOE.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LV_RVOE_ItemChecked);
-            this.LV_RVOE.SelectedIndexChanged += new System.EventHandler(this.LV_RVOE_SelectedIndexChanged);
+            this.CB_Maestria.AutoSize = true;
+            this.CB_Maestria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_Maestria.Location = new System.Drawing.Point(7, 49);
+            this.CB_Maestria.Name = "CB_Maestria";
+            this.CB_Maestria.Size = new System.Drawing.Size(79, 21);
+            this.CB_Maestria.TabIndex = 81;
+            this.CB_Maestria.Text = "Maestría";
+            this.CB_Maestria.UseVisualStyleBackColor = true;
+            this.CB_Maestria.CheckedChanged += new System.EventHandler(this.CB_Maestria_CheckedChanged_1);
             // 
-            // ID_RVOE
+            // CB_Doctorado
             // 
-            this.ID_RVOE.Text = "ID";
+            this.CB_Doctorado.AutoSize = true;
+            this.CB_Doctorado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_Doctorado.Location = new System.Drawing.Point(92, 49);
+            this.CB_Doctorado.Name = "CB_Doctorado";
+            this.CB_Doctorado.Size = new System.Drawing.Size(93, 21);
+            this.CB_Doctorado.TabIndex = 82;
+            this.CB_Doctorado.Text = "Doctorado";
+            this.CB_Doctorado.UseVisualStyleBackColor = true;
+            this.CB_Doctorado.CheckedChanged += new System.EventHandler(this.CB_Doctorado_CheckedChanged);
             // 
-            // RVOE
+            // CB_Other
             // 
-            this.RVOE.Text = "RVOE";
-            this.RVOE.Width = 312;
+            this.CB_Other.AutoSize = true;
+            this.CB_Other.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_Other.Location = new System.Drawing.Point(182, 49);
+            this.CB_Other.Name = "CB_Other";
+            this.CB_Other.Size = new System.Drawing.Size(66, 21);
+            this.CB_Other.TabIndex = 83;
+            this.CB_Other.Text = "Others";
+            this.CB_Other.UseVisualStyleBackColor = true;
+            this.CB_Other.CheckedChanged += new System.EventHandler(this.CB_Other_CheckedChanged);
             // 
-            // pictureBox1
+            // CB_All_None
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 405);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 72;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnGuardarRVOE
-            // 
-            this.btnGuardarRVOE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarRVOE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnGuardarRVOE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarRVOE.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardarRVOE.Location = new System.Drawing.Point(37, 402);
-            this.btnGuardarRVOE.Name = "btnGuardarRVOE";
-            this.btnGuardarRVOE.Size = new System.Drawing.Size(120, 30);
-            this.btnGuardarRVOE.TabIndex = 7;
-            this.btnGuardarRVOE.Text = "Guardar RVOE";
-            this.btnGuardarRVOE.UseVisualStyleBackColor = true;
-            this.btnGuardarRVOE.Click += new System.EventHandler(this.btnGuardarRVOE_Click);
-            // 
-            // txt_BuscadorRVOE
-            // 
-            this.txt_BuscadorRVOE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_BuscadorRVOE.ForeColor = System.Drawing.Color.Silver;
-            this.txt_BuscadorRVOE.Location = new System.Drawing.Point(6, 22);
-            this.txt_BuscadorRVOE.Name = "txt_BuscadorRVOE";
-            this.txt_BuscadorRVOE.Size = new System.Drawing.Size(373, 22);
-            this.txt_BuscadorRVOE.TabIndex = 80;
-            this.txt_BuscadorRVOE.Text = "Buscador...";
-            this.txt_BuscadorRVOE.Click += new System.EventHandler(this.textBox1_Click);
-            this.txt_BuscadorRVOE.TextChanged += new System.EventHandler(this.txt_BuscadorRVOE_TextChanged);
-            this.txt_BuscadorRVOE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_BuscadorRVOE_KeyPress);
-            this.txt_BuscadorRVOE.Leave += new System.EventHandler(this.txt_BuscadorRVOE_Leave);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txt_BuscadorRVOE);
-            this.groupBox4.Controls.Add(this.btnGuardarRVOE);
-            this.groupBox4.Controls.Add(this.pictureBox1);
-            this.groupBox4.Controls.Add(this.LV_RVOE);
-            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.groupBox4.Location = new System.Drawing.Point(674, 498);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(386, 438);
-            this.groupBox4.TabIndex = 64;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Asignación de RVOE según el Campus";
+            this.CB_All_None.AutoSize = true;
+            this.CB_All_None.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_All_None.Location = new System.Drawing.Point(254, 49);
+            this.CB_All_None.Name = "CB_All_None";
+            this.CB_All_None.Size = new System.Drawing.Size(131, 21);
+            this.CB_All_None.TabIndex = 84;
+            this.CB_All_None.Text = "Seleccionar Todo";
+            this.CB_All_None.UseVisualStyleBackColor = true;
+            this.CB_All_None.CheckedChanged += new System.EventHandler(this.CB_All_None_CheckedChanged);
             // 
             // FrmRPT_AsignacionCampusReportes
             // 
@@ -552,15 +609,15 @@ namespace NewReportesControlEscolar
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Reportes)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -604,5 +661,9 @@ namespace NewReportesControlEscolar
         private System.Windows.Forms.ListView LV_RVOE;
         private System.Windows.Forms.ColumnHeader ID_RVOE;
         private System.Windows.Forms.ColumnHeader RVOE;
+        private System.Windows.Forms.CheckBox CB_Maestria;
+        private System.Windows.Forms.CheckBox CB_Doctorado;
+        private System.Windows.Forms.CheckBox CB_All_None;
+        private System.Windows.Forms.CheckBox CB_Other;
     }
 }

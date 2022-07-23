@@ -116,6 +116,11 @@ namespace NewReportesControlEscolar
                 btnGuardarRVOE.Enabled = true;
                 txt_BuscadorRVOE.Text = "Buscador...";
                 txt_BuscadorRVOE.ForeColor = Color.Silver;
+
+                CB_Maestria.Checked = false;
+                CB_Doctorado.Checked = false;
+                CB_Other.Checked = false;
+                CB_All_None.Checked = false;
                 CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
 
                 //CargarRolesReportes(DGV_Reportes.SelectedRows[0].Cells[0].Value.ToString());
@@ -596,6 +601,98 @@ namespace NewReportesControlEscolar
             for (int y = 0; y < LV_RVOE.Items.Count; y++)
             {
                 LV_RVOE.Items[y].Checked = true;
+            }
+        }
+
+        private void CB_Maestria_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if(CB_Maestria.Checked)
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if(LV_RVOE.Items[i].SubItems[1].Text.Contains("Maest"))
+                    {
+                        LV_RVOE.Items[i].Checked = true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if (LV_RVOE.Items[i].SubItems[1].Text.Contains("Maest"))
+                    {
+                        LV_RVOE.Items[i].Checked = false;
+                    }
+                }
+            }
+        }
+
+        private void CB_Doctorado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_Doctorado.Checked)
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if (LV_RVOE.Items[i].SubItems[1].Text.Contains("Doct"))
+                    {
+                        LV_RVOE.Items[i].Checked = true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if (LV_RVOE.Items[i].SubItems[1].Text.Contains("Doct"))
+                    {
+                        LV_RVOE.Items[i].Checked = false;
+                    }
+                }
+            }
+        }
+
+        private void CB_Other_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_Other.Checked)
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if (!LV_RVOE.Items[i].SubItems[1].Text.Contains("Doct") && !LV_RVOE.Items[i].SubItems[1].Text.Contains("Maest"))
+                    {
+                        LV_RVOE.Items[i].Checked = true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    if (!LV_RVOE.Items[i].SubItems[1].Text.Contains("Doct") && !LV_RVOE.Items[i].SubItems[1].Text.Contains("Maest"))
+                    {
+                        LV_RVOE.Items[i].Checked = false;
+                    }
+                }
+            }
+        }
+
+        private void CB_All_None_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_All_None.Checked)
+            {
+                CB_All_None.Text = "Quitar Todo";
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                    LV_RVOE.Items[i].Checked = true;
+                }
+            }
+            else
+            {
+                CB_All_None.Text = "Seleccionar Todo";
+                for (int i = 0; i < LV_RVOE.Items.Count; i++)
+                {
+                     LV_RVOE.Items[i].Checked = false;
+                }
             }
         }
     }
