@@ -40,11 +40,11 @@ namespace NewReportesControlEscolar
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNodoSeleccionado = new System.Windows.Forms.TextBox();
             this.DGV_Reportes = new System.Windows.Forms.DataGridView();
             this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtNodoSeleccionado = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -158,6 +158,15 @@ namespace NewReportesControlEscolar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reportes existentes para relacionar";
             // 
+            // txtNodoSeleccionado
+            // 
+            this.txtNodoSeleccionado.Enabled = false;
+            this.txtNodoSeleccionado.Location = new System.Drawing.Point(7, 23);
+            this.txtNodoSeleccionado.Name = "txtNodoSeleccionado";
+            this.txtNodoSeleccionado.Size = new System.Drawing.Size(436, 23);
+            this.txtNodoSeleccionado.TabIndex = 88;
+            this.txtNodoSeleccionado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // DGV_Reportes
             // 
             this.DGV_Reportes.AllowUserToAddRows = false;
@@ -168,7 +177,6 @@ namespace NewReportesControlEscolar
             this.DGV_Reportes.Location = new System.Drawing.Point(6, 79);
             this.DGV_Reportes.MultiSelect = false;
             this.DGV_Reportes.Name = "DGV_Reportes";
-            this.DGV_Reportes.ReadOnly = true;
             this.DGV_Reportes.RowHeadersVisible = false;
             this.DGV_Reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Reportes.Size = new System.Drawing.Size(437, 337);
@@ -212,15 +220,6 @@ namespace NewReportesControlEscolar
             this.button2.Size = new System.Drawing.Size(347, 729);
             this.button2.TabIndex = 73;
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // txtNodoSeleccionado
-            // 
-            this.txtNodoSeleccionado.Enabled = false;
-            this.txtNodoSeleccionado.Location = new System.Drawing.Point(7, 23);
-            this.txtNodoSeleccionado.Name = "txtNodoSeleccionado";
-            this.txtNodoSeleccionado.Size = new System.Drawing.Size(436, 23);
-            this.txtNodoSeleccionado.TabIndex = 88;
-            this.txtNodoSeleccionado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 

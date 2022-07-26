@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,7 @@ namespace NewReportesControlEscolar
 
                     if (lv == dato)
                     {
-                        list.Items[i].Checked = true;
+                        list.Items[i].Checked = true; 
                         break;
                     }
                 }

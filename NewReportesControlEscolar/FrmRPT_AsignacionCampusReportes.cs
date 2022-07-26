@@ -417,7 +417,7 @@ namespace NewReportesControlEscolar
                             if (id_rvoe_guardado == id_rvoe_actual)
                             {
                                 LV_RVOE.Items[x].Checked = true;
-                            }
+                            } 
                         }
                     }
                 }
@@ -472,6 +472,7 @@ namespace NewReportesControlEscolar
             {
                 if (!e.Item.Checked)
                 {
+                    //e.Item.BackColor = Color.White;
                     if (nodosGuardados != null)
                     {
                         string id_rvoe_Actual = e.Item.Text.ToString();
@@ -480,11 +481,14 @@ namespace NewReportesControlEscolar
                             if (nodosGuardados[i] == id_rvoe_Actual)
                             {
                                 nodosGuardados[i] = null;
+                                
                             }
                         }
                     }
                 }
+                //else e.Item.BackColor = Color.LightGreen;
             }
+             
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -419,10 +419,12 @@ namespace NewReportesControlEscolar
                 LlenadoNodosReporte();
                 TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
                 ExpandirNodoenInsercion(NodoaExpandir[0]);
+                txtNombreNuevoNodo.Text = "";
             }
             else
             {
                 MessageBox.Show("No se puede ingresar un nombre al nodo, porfavor ingrese un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombreNuevoNodo.Text = "";
                 return;
             }
         }
@@ -455,12 +457,12 @@ namespace NewReportesControlEscolar
             if (txtNombreNuevoNodo.Text.Trim() != "")
             {
                 if (TreeViewNodos.SelectedNode != null) { 
-                    if (MessageBox.Show("Esta seguro de cambiar de nombre al nodo '" + TreeViewNodos.SelectedNode + "'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Esta seguro de cambiar de nombre al nodo '" + TreeViewNodos.SelectedNode.Text.Replace("TreeNodo: ","") + "'?", "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         string nodo = TreeViewNodos.SelectedNode.Name.ToString();
                         if (clase_ReportesCE.DMLNodo("2", nodo, txtNombreNuevoNodo.Text.Trim()))
                         {
-                            MessageBox.Show("Nodo Modificado con Exito");
+                            MessageBox.Show("Nodo Modificado con Exito","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
                             LlenadoNodosReporte();
                             txtNombreNuevoNodo.Text = "";
                         }

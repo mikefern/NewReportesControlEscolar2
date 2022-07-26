@@ -111,6 +111,8 @@ namespace NewReportesControlEscolar
             DGV_Reportes.Columns[0].Width = 30;
             DGV_Reportes.Columns[1].HeaderText = "ID"; 
             DGV_Reportes.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DGV_Reportes.Columns[1].ReadOnly = true;
+            DGV_Reportes.Columns[2].ReadOnly = true;
 
 
             DGV_Reportes.Columns[1].Width = 50;
