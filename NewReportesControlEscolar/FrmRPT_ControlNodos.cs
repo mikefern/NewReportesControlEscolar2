@@ -37,7 +37,24 @@ namespace NewReportesControlEscolar
         private Clase_ReportesGenericos reporteGenerico = new Clase_ReportesGenericos();
 
         #endregion
+
         #region TreeViewNodos Events
+        private void TreeViewNodos_Leave(object sender, EventArgs e)
+        {
+            if (TreeViewNodos.SelectedNode != null)
+            {
+                TreeViewNodos.SelectedNode.BackColor = SystemColors.Highlight;
+                TreeViewNodos.SelectedNode.ForeColor = Color.White;
+            }
+        }
+        private void TreeViewNodos_Enter(object sender, EventArgs e)
+        {
+            if (TreeViewNodos.SelectedNode != null)
+            {
+                TreeViewNodos.SelectedNode.BackColor = Color.Empty;
+                TreeViewNodos.SelectedNode.ForeColor = Color.Empty;
+            }
+        }
         private void TreeViewNodos_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -456,7 +473,8 @@ namespace NewReportesControlEscolar
         {
             if (txtNombreNuevoNodo.Text.Trim() != "")
             {
-                if (TreeViewNodos.SelectedNode != null) { 
+                if (TreeViewNodos.SelectedNode != null) 
+                { 
                     if (MessageBox.Show("Esta seguro de cambiar de nombre al nodo '" + TreeViewNodos.SelectedNode.Text.Replace("TreeNodo: ","") + "'?", "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         string nodo = TreeViewNodos.SelectedNode.Name.ToString();
@@ -464,7 +482,12 @@ namespace NewReportesControlEscolar
                         {
                             MessageBox.Show("Nodo Modificado con Exito","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
                             LlenadoNodosReporte();
+                            TreeNode[] NodoaExpandir = TreeViewNodos.Nodes.Find(NNodo, true);
+                            ExpandirNodoenInsercion(NodoaExpandir[0]);
                             txtNombreNuevoNodo.Text = "";
+                            TreeViewNodos.SelectedNode = NodoaExpandir[0];
+                            TreeViewNodos.SelectedNode.BackColor = SystemColors.Highlight;
+                            TreeViewNodos.SelectedNode.ForeColor = Color.White;
                         }
                         else MessageBox.Show("Error en el Procedimiento \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                     }

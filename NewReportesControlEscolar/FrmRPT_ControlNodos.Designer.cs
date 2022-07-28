@@ -96,6 +96,8 @@ namespace NewReportesControlEscolar
             this.TreeViewNodos.DragDrop += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragDrop);
             this.TreeViewNodos.DragEnter += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragEnter);
             this.TreeViewNodos.DragOver += new System.Windows.Forms.DragEventHandler(this.TreeViewNodos_DragOver);
+            this.TreeViewNodos.Enter += new System.EventHandler(this.TreeViewNodos_Enter);
+            this.TreeViewNodos.Leave += new System.EventHandler(this.TreeViewNodos_Leave);
             this.TreeViewNodos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewNodos_MouseDown);
             // 
             // btn_EliminarNodo
@@ -598,7 +600,7 @@ namespace NewReportesControlEscolar
             this.Name = "FrmRPT_ControlNodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Nodos de Reporte Escolar";
-            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load); 
+            this.Load += new System.EventHandler(this.FrmRPT_ControlNodos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
