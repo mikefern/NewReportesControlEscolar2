@@ -41841,36 +41841,37 @@ namespace ProyectoLoboSostenido
                 try
                 {
 
-                    if (e.Node.Nodes.Count == 0 || e.Node.Name== "98" )
+                    if (e.Node.Nodes.Count == 0  )
                     {
                         //Se preparan los datos y se cargan dentro de la aplicacion
                         ea = new Clase_Control_Escolar();
                         ea.DatosAlumnoReporteSSPP(gridViewAlumnos.Rows[ro].Cells[0].Value.ToString());
                         string rvoe_alumno = ea.Lector.Tables[0].Rows[0]["Id_RVOE"].ToString();
+                        DataView dt= new DataView();
                         cd = new Clase_ReportesCE();
                         Clase_ReportesCE c = new Clase_ReportesCE();
-                        if (cd.GetReporteCampus(e.Node.Name, Clase_Sesion.Campus))
-                        {
-                            DataView dt = new DataView(cd.Lector.Tables[0]);
-                            if (cd.Lector.Tables[0].Rows.Count > 1)
-                            {
                                 c.GetReporteRVOE(e.Node.Name, Clase_Sesion.Campus, rvoe_alumno);
                                 if (c.Lector.Tables.Count > 0 && c.Lector.Tables[0].Rows.Count > 0)
+                                {
                                     dt = new DataView(c.Lector.Tables[0]);
+                                }
                                 else
                                 {
-                                    c = new Clase_ReportesCE();
-                                    c.GetReportesconRVOE(e.Node.Name, Clase_Sesion.Campus);
-                                    for (int x = 0; x < c.Lector.Tables[0].Rows.Count; x++)
+                                    if (cd.GetReporteCampus(e.Node.Name, Clase_Sesion.Campus))
                                     {
-                                        for (int i = 0; i < dt.Table.Rows.Count; i++)
+                                        dt = new DataView(cd.Lector.Tables[0]);
+                                        c = new Clase_ReportesCE();
+                                        c.GetReportesconRVOE(e.Node.Name, Clase_Sesion.Campus);
+                                        for (int x = 0; x < c.Lector.Tables[0].Rows.Count; x++)
                                         {
-                                            if (dt.Table.Rows[i][0].ToString() == c.Lector.Tables[0].Rows[x][0].ToString())
-                                                dt.Table.Rows.RemoveAt(i);
+                                            for (int i = 0; i < dt.Table.Rows.Count; i++)
+                                            {
+                                                if (dt.Table.Rows[i][0].ToString() == c.Lector.Tables[0].Rows[x][0].ToString())
+                                                    dt.Table.Rows.RemoveAt(i);
+                                            }
                                         }
                                     }
                                 }
-                            }
                             if (dt.Table.Rows.Count > 0)
                             {
                                 Clase_ReportesCE pr = new Clase_ReportesCE();
@@ -41927,7 +41928,7 @@ namespace ProyectoLoboSostenido
                                             {"5", ciclo }, {"6",grupo }, {"7","" },{ "8","" }, {"9",grupo }, {"10", alumno },
                                             {"11", especialidad },{"12","frrepForm.frReporte.Report.Parameters.FindByName('@ID_Status')" },{"13", "" },{"14", "" },
                                             {"15","" },{"16","" },{"105",grupo },{ "111",rvoe},{ "112",ciclo},{ "113", ""},{"114",""},{ "115",""},{ "116",""},{"129",grupo },{"127",f_inicio},{"128",f_fin},{"130",grupo},{"133",alumno},{"134",grupo},
-                                            {"135", alumno},{"136","" }, {"137",grupo },{"165",alumno },{"172",alumno },{"173",Clase_Sesion.campus }, {"189",alumno }, { "193",nomgrupo} };
+                                            {"135", alumno},{"136","" }, {"137",grupo },{"165",alumno },{"172",alumno },{"173",Clase_Sesion.campus }, {"189",alumno }, { "193",nomgrupo},{"194",alumno },{"195",alumno} };
                                             cd = new Clase_ReportesCE();
                                             cd.GetParametros_Reportes(id);
                                             int tamVector = cd.Lector.Tables[0].Rows.Count;
@@ -42003,7 +42004,6 @@ namespace ProyectoLoboSostenido
                             }
                             else
                                 MessageBox.Show("No se ha encontrado ningun reporte", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
                     }
                 }
                 catch (Exception ex)
